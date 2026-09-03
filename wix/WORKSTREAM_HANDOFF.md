@@ -1,10 +1,10 @@
 # Behavioral Bridge Consultation — Workstream Handoff
 
-## Purpose
+## Status
 
-This file consolidates the consultation-form work that was split between the current Behavioral Bridge website thread and the prior `Explain Repo Authentication` thread. The goal is to let improvements move between workstreams without allowing stale code, duplicate handlers, or conflicting assumptions to overwrite newer fixes.
+**CORE CONSULTATION FLOW VERIFIED WORKING — 2026-09-03.**
 
-As of 2026-09-03, this repository record plus the live canonical Wix custom embed should be treated as the consultation implementation source of truth.
+The current Behavioral Bridge website thread and the prior `Explain Repo Authentication` workstream have been reconciled into one canonical implementation. Useful fixes from both were merged; stale/competing handlers remain disabled.
 
 ## Live site
 
@@ -15,9 +15,7 @@ As of 2026-09-03, this repository record plus the live canonical Wix custom embe
 
 ## Wix Forms backend
 
-Canonical form ID:
-
-`b692e647-b20c-45b0-ae1d-2530df030907`
+Canonical form ID: `b692e647-b20c-45b0-ae1d-2530df030907`
 
 Verified field targets:
 
@@ -32,60 +30,56 @@ Verified field targets:
 | `goals_bb` | What are you looking for help with? | STRING |
 | `availability_bb` | General Availability | STRING |
 
-Notification/fallback destination:
-
-`Ryan_Carvalho@BehavioralBridge.org`
+Notification/fallback destination: `Ryan_Carvalho@BehavioralBridge.org`
 
 ## Canonical live embed
 
 - ID: `b3ececaf-c221-4ad1-9590-4aa112486e11`
 - Name: `Behavioral Bridge Consultation — Canonical`
-- Revision immediately after reconciliation: `7`
+- Current live revision after successful test hardening: `8`
 - Enabled: `true`
 - Category: `ESSENTIAL`
 - Position: `BODY_END`
 - `loadOnce`: `false`
-- Recovery copy: `wix/consultation-bridge.js`
 
-## Retired competing embed
+Retired competing connector:
 
 - ID: `0ac3fcaf-b699-42da-9867-972e09d58b75`
-- Revision immediately after reconciliation: `5`
 - Enabled: `false`
+- Keep disabled.
 
-This older connector must remain disabled unless the canonical implementation is intentionally retired first. Running both handlers at once caused a real crossover risk because both could intercept the same consultation submission and produce different success/fallback behavior.
+## Successful production verification
 
-## What was merged from both workstreams
+A real browser test successfully created **CONFIRMED** Wix Forms submissions for the canonical consultation form. This proves the page is no longer merely displaying a fake success state: Wix is recording the request in the actual Forms backend.
 
-The canonical v2 implementation intentionally combines the strongest findings from both threads:
+During verification, two identical confirmed submissions appeared within a few seconds. To harden the public form against double-click/repeated-event duplicates, the canonical live bridge was advanced to revision `8` with a **60-second same-request deduplication guard after confirmation**. The visual design and backend form ID were not changed.
 
-1. **Existing Vibe form first.** If the Vibe consultation form is present and identifiable, the bridge intercepts that form rather than unnecessarily replacing the page design.
-2. **Controlled fallback form.** If a usable native form is unavailable, a controlled Behavioral Bridge form is rendered so the consultation route still works.
-3. **Correct visitor authentication.** The Wix visitor access token is sent as `Authorization: Bearer <token>`.
-4. **One real Wix form ID.** Both paths submit to the same verified Wix Form schema and field targets above.
-5. **Phone normalization.** Phone input is normalized before being sent to the Wix `PHONE` field.
-6. **No false success.** A successful HTTP request is not enough. The code requires Wix to return a submission whose status is `CONFIRMED` before displaying the final success message.
-7. **PENDING/error fallback.** If Wix returns an unconfirmed/PENDING submission or another error, the bridge opens a prefilled email to `Ryan_Carvalho@BehavioralBridge.org` instead of pretending the request was delivered.
-8. **No competing live listener.** The older duplicate connector is disabled after its useful logic was merged into the canonical bridge.
-9. **No secrets in GitHub.** The Vibe OAuth client ID is public. No API key, client secret, password, or private token belongs in this repo.
+## Canonical behavior
 
-## Conflict-prevention rules
+The live implementation now combines the strongest fixes from both workstreams:
+
+1. Uses the existing Vibe consultation form when it can be identified.
+2. Provides a controlled fallback form when needed.
+3. Uses Wix visitor OAuth with `Authorization: Bearer <token>`.
+4. Submits only to the verified Wix Form ID and targets above.
+5. Normalizes phone values for the Wix `PHONE` field.
+6. Requires Wix to return `CONFIRMED` before showing final success.
+7. Falls back to a prefilled email if Wix cannot confirm the request.
+8. Blocks immediate duplicate confirmed requests for 60 seconds.
+9. Keeps the older competing live connector disabled.
+10. Stores no API keys, client secrets, passwords, or private tokens in GitHub.
+
+## Coordination rules
 
 For every future consultation change:
 
-1. Read the current live canonical embed first and use its latest `revision` in any update. Never assume revision `7` remains current forever.
-2. Make improvements against the canonical embed ID only.
-3. Keep the retired duplicate connector disabled.
-4. After a live change, update `wix/consultation-bridge.js` and this handoff file if IDs, behavior, or important status changes.
-5. Treat GitHub as recovery/version-control documentation until Wix actually syncs a real Vibe source tree into this repo. A GitHub commit alone does not deploy to Wix.
-6. If another chat/thread discovers a better fix, merge the useful logic into the canonical implementation rather than creating another live handler.
-7. Never show a visitor a final success message unless Wix confirms the submission, or the visitor has explicitly completed the fallback email action.
+1. Read the current live canonical embed first and use its latest revision; never assume revision `8` remains current forever.
+2. Update only canonical embed `b3ececaf-c221-4ad1-9590-4aa112486e11` unless intentionally replacing it.
+3. Keep `0ac3fcaf-b699-42da-9867-972e09d58b75` disabled.
+4. Merge useful discoveries from other threads into the canonical implementation instead of creating another live handler.
+5. GitHub remains recovery/version-control documentation until Wix actually syncs a real Vibe source tree; a GitHub commit alone does not deploy the site.
+6. Never show final success unless Wix confirms the submission or the visitor explicitly completes the email fallback.
 
-## Current unresolved verification
+## Remaining optional verification
 
-The workstreams are technically reconciled, but one end-to-end visitor test is still required to determine which path Wix takes in production:
-
-- If Wix returns `CONFIRMED`, the form should show the normal Behavioral Bridge success message and no email application should open.
-- If Wix returns `PENDING` or rejects the visitor-side confirmation, the prepared-email fallback should open and instruct the visitor to press Send.
-
-After that test, inspect Wix Forms submissions and the destination inbox to confirm the expected path. The implementation should not be changed merely because the fallback path was used; it is intentionally there to prevent lost leads while Wix Vibe visitor-side Forms behavior is inconsistent.
+The backend submission path is proven. If the professional inbox also received the Wix notification from the successful test, the consultation workflow is fully green end-to-end. If the email was not received, leave the working submission flow intact and troubleshoot only the notification automation; do not create another form or connector.
