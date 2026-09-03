@@ -2,9 +2,9 @@
 
 ## Status
 
-**CORE CONSULTATION FLOW VERIFIED WORKING — 2026-09-03.**
+**CORE CONSULTATION FLOW VERIFIED WORKING, THEN RESTORED AFTER A REVISION-8 REGRESSION — 2026-09-03.**
 
-The current Behavioral Bridge website thread and the prior `Explain Repo Authentication` workstream have been reconciled into one canonical implementation. Useful fixes from both were merged; stale/competing handlers remain disabled.
+The current Behavioral Bridge website thread and the prior `Explain Repo Authentication` workstream remain reconciled into one canonical implementation. Useful fixes from both were merged; stale/competing handlers remain disabled.
 
 ## Live site
 
@@ -36,7 +36,7 @@ Notification/fallback destination: `Ryan_Carvalho@BehavioralBridge.org`
 
 - ID: `b3ececaf-c221-4ad1-9590-4aa112486e11`
 - Name: `Behavioral Bridge Consultation — Canonical`
-- Current live revision after successful test hardening: `8`
+- Current live revision: `9`
 - Enabled: `true`
 - Category: `ESSENTIAL`
 - Position: `BODY_END`
@@ -48,15 +48,23 @@ Retired competing connector:
 - Enabled: `false`
 - Keep disabled.
 
-## Successful production verification
+## Confirmed production evidence
 
-A real browser test successfully created **CONFIRMED** Wix Forms submissions for the canonical consultation form. This proves the page is no longer merely displaying a fake success state: Wix is recording the request in the actual Forms backend.
+Three CONFIRMED Wix Forms submissions exist for the canonical consultation form. The first successful end-to-end test created a real confirmed submission, and two later same-payload tests also produced confirmed backend records. This proves the Wix Forms path can work from the live consultation page.
 
-During verification, two identical confirmed submissions appeared within a few seconds. To harden the public form against double-click/repeated-event duplicates, the canonical live bridge was advanced to revision `8` with a **60-second same-request deduplication guard after confirmation**. The visual design and backend form ID were not changed.
+At the time of the latest troubleshooting check, the backend still showed exactly those same three submissions and **did not contain the user's two newest attempts**. Therefore those last two attempts did not reach the Wix Forms backend.
+
+## Revision-8 regression and rollback
+
+After observing two identical confirmed submissions within a few seconds, revision `8` added a 60-second same-request guard using `sessionStorage`.
+
+The user then reported that the next two attempts did not go through. Because revision `7` was the last known working production path and the new client-side guard was the only deliberate submission-path change, that guard was removed.
+
+Live revision `9` restores the pre-guard submission path. The existing `busy` flag still prevents simultaneous/in-flight repeat submissions without persisting a client-side lock after a successful request.
+
+Important testing note: an already-open browser tab may still be running the older injected script until the page is fully reloaded. Test revision `9` only after a hard refresh or in a fresh tab/window.
 
 ## Canonical behavior
-
-The live implementation now combines the strongest fixes from both workstreams:
 
 1. Uses the existing Vibe consultation form when it can be identified.
 2. Provides a controlled fallback form when needed.
@@ -65,7 +73,7 @@ The live implementation now combines the strongest fixes from both workstreams:
 5. Normalizes phone values for the Wix `PHONE` field.
 6. Requires Wix to return `CONFIRMED` before showing final success.
 7. Falls back to a prefilled email if Wix cannot confirm the request.
-8. Blocks immediate duplicate confirmed requests for 60 seconds.
+8. Uses only the existing in-flight `busy` lock for duplicate-click protection; no 60-second sessionStorage guard is active.
 9. Keeps the older competing live connector disabled.
 10. Stores no API keys, client secrets, passwords, or private tokens in GitHub.
 
@@ -73,13 +81,14 @@ The live implementation now combines the strongest fixes from both workstreams:
 
 For every future consultation change:
 
-1. Read the current live canonical embed first and use its latest revision; never assume revision `8` remains current forever.
+1. Read the current live canonical embed first and use its latest revision; never assume revision `9` remains current forever.
 2. Update only canonical embed `b3ececaf-c221-4ad1-9590-4aa112486e11` unless intentionally replacing it.
 3. Keep `0ac3fcaf-b699-42da-9867-972e09d58b75` disabled.
 4. Merge useful discoveries from other threads into the canonical implementation instead of creating another live handler.
 5. GitHub remains recovery/version-control documentation until Wix actually syncs a real Vibe source tree; a GitHub commit alone does not deploy the site.
 6. Never show final success unless Wix confirms the submission or the visitor explicitly completes the email fallback.
+7. If a fresh-tab/hard-refresh test on revision `9` fails, capture the exact on-page behavior/error before changing architecture again.
 
-## Remaining optional verification
+## Next verification
 
-The backend submission path is proven. If the professional inbox also received the Wix notification from the successful test, the consultation workflow is fully green end-to-end. If the email was not received, leave the working submission flow intact and troubleshoot only the notification automation; do not create another form or connector.
+Open `/consultation` in a fresh tab or hard-refresh the page, submit one new test request, and then query Wix Forms again. A new CONFIRMED record after the current three proves revision `9` is stable. If no fourth record appears, debug that exact fresh-page failure rather than reintroducing client-side deduplication or another connector.
