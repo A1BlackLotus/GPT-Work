@@ -15,31 +15,37 @@ The consultation flow is still under production repair. This file is the coordin
 
 Canonical form ID: `b692e647-b20c-45b0-ae1d-2530df030907`
 
+Current form revision: `8`
+
 Verified storage targets:
 
 | Target | Label | Type |
 | --- | --- | --- |
 | `first_name_bb` | Parent / Contact First Name | STRING |
 | `last_name_bb` | Parent / Contact Last Name | STRING |
-| `email_bb` | Email | EMAIL |
-| `phone_bb` | Phone | PHONE |
+| `email_bb` | Email | STRING / email validation |
+| `phone_bb` | Phone | STRING / phone validation |
 | `student_name_bb` | Student Name | STRING |
 | `student_grade_bb` | Student Grade | STRING |
+| `service_bb` | Service Requested | STRING |
 | `goals_bb` | What are you looking for help with? | STRING |
 | `availability_bb` | General Availability | STRING |
 
-The visible Vibe form also contains a service-selection dropdown. It is not a separate Wix Forms field.
+`service_bb` was added on Sep. 3 after the live Vibe page's service dropdown was identified as missing from the backend schema. The visible site keeps its service dropdown; `service_bb` is the stable backend string target used to store the selected service label/value.
+
+Two initial attempts to append a new field while echoing the entire GET response caused Wix to increment the form revision but silently omit the new field. The successful update used the minimal documented Update Form body while preserving all existing field objects and layout. Do not repeat the failed whole-object pattern casually.
 
 Current form diagnostic state:
 
 - Enabled: `true`
 - Spam protection: `NONE` temporarily while transport reliability is diagnosed
+- Site's current Wix Forms restriction: 10 input fields per form; this form now has 9 input fields plus the submit display field
 - No form submission limit is configured
 - Automation linkage preserved: `2695710a-a944-4fbd-9fe6-a7341b8cf53f`
 
-Spam filtering has been ruled out as a sufficient explanation because the flow failed under ADVANCED, BASIC, and NONE.
+Spam filtering has been ruled out as a sufficient explanation because the live browser flow failed under ADVANCED, BASIC, and NONE.
 
-## Canonical live embed
+## Canonical live safety embed
 
 - ID: `b3ececaf-c221-4ad1-9590-4aa112486e11`
 - Current live name: `Behavioral Bridge — Visible Email Safety Banner v7`
@@ -56,19 +62,7 @@ Retired competing connector:
 - Enabled: `false`
 - Keep disabled.
 
-## Production evidence
-
-Exactly three `CONFIRMED` Wix Forms submissions are currently known. They were created around 01:47 and 01:53 UTC on Sep. 3.
-
-Multiple later realistic live-page attempts did not create additional backend records. This includes tests using different names, phone numbers, contact emails, and different service selections.
-
-The three confirmed records each triggered a real owner-notification email. This proves the notification automation works when a real `CONFIRMED` submission reaches Wix; the failure occurs earlier in the browser-to-Wix transport.
-
-## Revision 16 — visible sitewide safety mode
-
-Revision 16 keeps the emergency direct-email route highly visible and moves it to `BODY_START` so it renders before ordinary page content. The user confirmed that the banner is now visibly rendering after reopening the site in a fresh/account session.
-
-Current behavior:
+### Revision 16 visible behavior
 
 1. A large premium sitewide **EMAIL RYAN DIRECTLY →** banner appears near the top of every page while the automatic consultation transport remains untrusted.
 2. The banner explains that some recent website consultation requests may not have reached Ryan.
@@ -78,11 +72,66 @@ Current behavior:
 6. The visitor must still press Send in their email application.
 7. The flaky public-browser Wix Forms POST is not used while safety mode is active.
 
-The sitewide placement is intentionally more aggressive than the intended permanent design. Keep it sitewide until a reliable native/server-side submission path is proven; after that, move the prominent warning to the consultation page only while retaining a direct-email backup.
+The user has confirmed this banner is visibly rendering. The sitewide placement is intentionally more aggressive than the intended permanent design. Keep it sitewide until a reliable native/server-side submission path is proven; after that, move the prominent warning to the consultation page only while retaining a direct-email backup.
 
-## Why the automatic form is not currently trusted
+## Production evidence
 
-Several hypotheses were tested and were not sufficient on their own:
+The original three confirmed submissions were created around 01:47 and 01:53 UTC on Sep. 3. Multiple later realistic submissions from the public Vibe form did **not** create additional backend records, including attempts with different names, phone numbers, contact emails, and service selections.
+
+A fourth submission was deliberately created by the repair workflow on Sep. 3 at about 20:16 UTC to verify the newly added `service_bb` target and the correct server-side lifecycle:
+
+- Submission ID: `16982083-1aa6-4fff-be6b-b156c67553a6`
+- Clearly labeled `TEST ONLY - Native Repair Prep`
+- `service_bb`: `Digital SAT Tutoring`
+- Create Submission returned `PENDING`
+- `Confirm Submission` immediately transitioned it to `CONFIRMED`
+- The existing owner notification automation then sent a real email to `Ryan_Carvalho@behavioralbridge.org`
+- Gmail verification found that new notification in the Inbox at `2026-09-03T20:16:19Z`
+
+This is important: the **backend create → confirm → notification path is now proven end-to-end, including `service_bb`**. It does **not** prove the public Vibe page is fixed, because the native endpoint/frontend source patch has not yet been deployed into the actual Vibe source.
+
+## Correct native submission lifecycle discovered
+
+The Forms API has an explicit confirmation operation. The reliable server-side contract is:
+
+1. Create the form submission.
+2. If it is `PENDING`, call Confirm Submission using its submission ID.
+3. Only report success to the visitor after Wix returns `CONFIRMED`.
+
+This is stronger than trying to force `status: CONFIRMED` in the initial Create Submission request. During the Sep. 3 verification, the Create call returned `PENDING` even when CONFIRMED had been requested, and the separate Confirm operation reliably produced `CONFIRMED`.
+
+Official SDK supports the same flow with `@wix/forms`:
+
+- `submissions.createSubmission(...)`
+- `submissions.confirmSubmission(submissionId)`
+- both can be wrapped server-side with `auth.elevate()` from `@wix/essentials`
+
+## Native Vibe repair prepared in GPT-Work
+
+Prepared source/reference files:
+
+- `wix/native-vibe-consultation/src/pages/api/consultation.ts`
+- `wix/native-vibe-consultation/VIBE_APPLY_PROMPT.md`
+
+The prepared endpoint:
+
+- runs as an Astro server route at `/api/consultation` once placed into the actual Vibe source;
+- validates and length-limits public inputs;
+- normalizes phone values;
+- includes a honeypot field;
+- maps all current backend targets including `service_bb`;
+- uses server-side `auth.elevate()` rather than visitor OAuth in the browser;
+- deliberately creates a `PENDING` record and confirms it with `submissions.confirmSubmission()`;
+- returns `ok: true` only after final Wix status is `CONFIRMED`;
+- returns a direct-email fallback on any error or non-confirmed state.
+
+The apply prompt tells the Vibe coding environment to locate the existing `/consultation` component, preserve its design, POST its fields to `/api/consultation`, remove old browser-OAuth/mock-success submit code, and never clear/show success unless the server returns confirmed status and a submission ID.
+
+These GitHub files are **prepared recovery/source instructions only**. `GPT-Work` is still not the deployed Vibe source repository.
+
+## Why the public automatic form is not currently trusted
+
+Several browser-side hypotheses were tested and were not sufficient on their own:
 
 - ADVANCED spam protection
 - BASIC spam protection
@@ -91,16 +140,14 @@ Several hypotheses were tested and were not sufficient on their own:
 - changing Authorization header format
 - different names, phone numbers, contact emails, and service choices
 
-The strongest remaining architectural issue is that the site is a Wix Vibe/Picasso project and the reliable long-term solution should live in actual site/backend source with Wix-managed authentication instead of a public custom-embed bridge.
+The architectural fix is to stop using a public custom-embed bridge for privileged Forms transport and move submission into the actual Vibe/Astro backend using Wix-managed authentication/elevation.
 
-Current Wix documentation review also shows:
+Current Wix documentation review shows:
 
-- The Projects API initializes new Wix/Vibe/headless projects but directs management of existing sites to the Sites API.
-- Wix REST APIs are not intended for extending a site's source code.
-- Wix site code is normally edited through the site code editor / Wix IDE / Git integration; Wix-managed headless work is developed through supported source/CLI workflows.
-- No supported REST endpoint was found that exposes arbitrary read/write access to this existing Vibe site's source files.
-
-Therefore do not pretend the permanent source-code repair can be pushed through the same REST/custom-embed layer.
+- Existing Vibe site source is edited through the Vibe Code/source development environment; arbitrary Vibe source files are not exposed by the REST management tools used here.
+- Astro HTTP endpoint files under `src/pages/api/` are auto-discovered server routes.
+- Server-side elevated SDK calls are the supported way to perform restricted operations without handing privileged authentication to the browser.
+- `GPT-Work` is not currently connected as the Vibe site's deploy source tree.
 
 ## Notification automation
 
@@ -108,24 +155,26 @@ Therefore do not pretend the permanent source-code repair can be pushed through 
 - Status: `ACTIVE`
 - Trigger: submission to form `b692e647-b20c-45b0-ae1d-2530df030907`
 - Owner recipient: `Ryan_Carvalho@behavioralbridge.org`
+- Reverified Sep. 3 by confirmed system test after `service_bb` was added
 
-Do not recreate or casually modify this automation; it has already proven delivery on confirmed submissions.
+Do not recreate or casually modify this automation.
 
 ## Coordination rules
 
 1. Read the current live embed revision before every edit; revision `16` is only the current snapshot.
 2. Update only canonical embed `b3ececaf-c221-4ad1-9590-4aa112486e11` unless intentionally replacing it.
 3. Keep `0ac3fcaf-b699-42da-9867-972e09d58b75` disabled.
-4. Keep visible email safety mode in production until a stronger architecture is implemented and tested.
-5. Do not restore browser-to-Wix Forms automatic submission merely because a single future test works.
-6. Require at least two consecutive new `CONFIRMED` backend submissions before declaring any replacement transport stable.
-7. Preserve the direct-email CTA during future repair testing until stability is proven.
-8. Do not reintroduce the old 60-second dedupe guard.
-9. Do not assume the visitor's Email field controls owner notifications.
-10. Do not modify the working notification automation casually.
-11. Spam protection is temporarily NONE for diagnosis; restore at least BASIC only after a reliable automatic transport exists and passes repeated tests.
-12. GitHub remains coordination/recovery documentation until Wix syncs or exposes the real Vibe/Astro source tree.
+4. Keep visible email safety mode in production until the native source path is implemented and repeatedly verified.
+5. Do not restore direct browser → Wix Forms OAuth/REST submission.
+6. For the native path, require final `CONFIRMED` status before showing success.
+7. Require at least two consecutive **live-site** new `CONFIRMED` submissions before declaring the replacement transport stable. The Sep. 3 system/API verification does not count as a live-site proof.
+8. Preserve the direct-email CTA during future repair testing until stability is proven.
+9. Do not reintroduce the old 60-second dedupe guard.
+10. Do not assume the visitor's Email field controls owner notifications.
+11. Do not modify the working notification automation casually.
+12. Spam protection is temporarily NONE for diagnosis; restore at least BASIC only after the native automatic transport exists and passes repeated live tests.
+13. GitHub remains coordination/recovery documentation until the actual Vibe source is connected or edited in the Vibe Code environment.
 
 ## Immediate next technical target
 
-Keep referred leads safe with the visible email mode. The preferred end state remains: native/site-backend submission → confirmed Wix record → existing notification automation. The next real implementation step requires access to the Vibe site's actual source/development environment rather than another browser custom-embed transport experiment.
+Deploy the prepared native endpoint and frontend integration in the actual Wix Vibe source. Once that is saved/deployed, change the current custom embed from email-intercept mode to banner-only mode so it no longer intercepts the real native submit button, then run two consecutive realistic public-page tests and verify both as CONFIRMED backend submissions plus owner notification emails.
