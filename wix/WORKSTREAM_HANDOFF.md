@@ -2,7 +2,7 @@
 
 ## Status — 2026-09-03
 
-The consultation flow is under a focused production repair after an intermittent live-page failure. The current thread and the prior `Explain Repo Authentication` workstream remain reconciled into one canonical implementation. Do not create a second live submit handler.
+The consultation flow is under focused production repair after an intermittent live-page failure. The current website thread and the prior `Explain Repo Authentication` workstream remain reconciled into one canonical implementation. Do not create a second live submit handler.
 
 ## Live site
 
@@ -15,7 +15,7 @@ The consultation flow is under a focused production repair after an intermittent
 
 Canonical form ID: `b692e647-b20c-45b0-ae1d-2530df030907`
 
-Verified field targets:
+Verified storage targets:
 
 | Target | Label | Type |
 | --- | --- | --- |
@@ -28,25 +28,26 @@ Verified field targets:
 | `goals_bb` | What are you looking for help with? | STRING |
 | `availability_bb` | General Availability | STRING |
 
-Current form state after the latest repair:
+The visible Vibe form also contains a service-selection dropdown. That visible control is not a separate field in the Wix Forms schema above. Starting with canonical embed revision 12, its selected value is preserved by prefixing it into `goals_bb` as `Service requested: ...` rather than silently losing it.
 
-- Form revision: `4`
+Current form state:
+
+- Form revision: `5`
 - Enabled: `true`
-- Spam protection: `BASIC`
-- All 9 form fields/layout items preserved
+- Spam protection: `NONE` **temporarily for diagnosis/reliability testing**
+- No form submission limit is configured (`limitationRule` is absent)
+- Site plan form restrictions are not blocking this form: 1 form out of 4 allowed, and 8 input fields below the 10-field limit
 - Automation linkage preserved: `2695710a-a944-4fbd-9fe6-a7341b8cf53f`
 
-### Why spam protection was changed
+### Spam-protection diagnostic
 
-The form had reverted/read back as `ADVANCED`. Wix defines ADVANCED as comprehensive intelligent spam screening, while BASIC performs only minimal obvious-spam filtering. The user's repeated rapid tests came from the same browser/device/network and used test-like/repetitive values. That testing pattern can look much more like automated spam than a normal prospective client who submits once. This is the leading explanation for the observed pattern: several submissions were accepted, then later tests stopped appearing in Wix even when the entered email address changed.
-
-The form is now intentionally set to `BASIC` to prioritize lead capture reliability. Do **not** change it back to ADVANCED from another thread unless there is new evidence that BASIC is causing unacceptable spam.
+The form first used `ADVANCED`, then was moved to `BASIC`, but several realistic tests still failed to create backend records. Therefore ADVANCED screening alone is **not** a sufficient explanation for the intermittent failure. Spam protection is now temporarily `NONE` to eliminate CAPTCHA/risk screening as a variable while the browser-to-Wix path is tested. Once the transport problem is conclusively fixed, restore at least BASIC protection if repeated tests continue to succeed.
 
 ## Canonical live embed
 
 - ID: `b3ececaf-c221-4ad1-9590-4aa112486e11`
-- Name: `Behavioral Bridge Consultation — Canonical v3`
-- Current live embed revision: `10`
+- Name: `Behavioral Bridge Consultation — Canonical v4`
+- Current live embed revision: `12`
 - Enabled: `true`
 - Category: `ESSENTIAL`
 - Position: `BODY_END`
@@ -60,62 +61,68 @@ Retired competing connector:
 
 ## Production evidence
 
-Exactly three `CONFIRMED` Wix Forms submissions existed before the BASIC spam-setting repair. They were created at approximately 01:47 and 01:53 UTC on Sep. 3. Later user attempts, including a test using `ryan.m.carvalho444@gmail.com`, did **not** create additional backend submissions.
+Exactly three `CONFIRMED` Wix Forms submissions have been observed. They were created around 01:47 and 01:53 UTC on Sep. 3. Multiple later live-page attempts did **not** create additional Wix backend records.
 
-The three successful submissions each triggered a real notification email from `notifications@wix-forms.com` to `Ryan_Carvalho@behavioralbridge.org`. Those messages were found in Gmail **Trash**, not absent. They were restored to Inbox during troubleshooting. This proves the owner-notification automation fires when a real form submission is created.
+Two of the successful live-page records demonstrate that the old DOM mapper was incomplete: they stored `Website / Visitor` for the contact name and `Not provided` for student name and grade even though the visitor had entered more information. This confirms that the Vibe-generated visible form and the hidden Wix Forms schema were not perfectly aligned.
 
-Entering `ryan.m.carvalho444@gmail.com` into the public form's Email field does not make that address the owner-notification recipient. That field represents the prospective client's/contact's email. The current owner notification is configured separately to the Behavioral Bridge business mailbox.
+The three successful submissions each triggered a real notification email from `notifications@wix-forms.com` to `Ryan_Carvalho@behavioralbridge.org`. Those emails were found in Gmail Trash and restored to Inbox. This proves the owner-notification automation works when a real `CONFIRMED` submission reaches Wix.
+
+Entering a personal Gmail address into the public form's Email field does not change the owner-notification destination. That field is the prospective client's/contact's email; owner notification is separately configured to the Behavioral Bridge business mailbox.
 
 ## Revision 10 — canonical v3 repair
 
-Revision 10 replaced the fragile v2 interception logic with a more defensive handler while preserving the existing page design.
+Revision 10 replaced the earlier fragile handler with a more defensive submit interceptor, preserved the existing page design, required Wix to return `CONFIRMED` before showing success, and displayed an explicit failure/email fallback instead of allowing a fake-success state.
 
-Changes:
+## Revision 11 — visible delivery safety notice
 
-1. Searches farther up the DOM for the actual form container and requires a form-like scope containing an email control.
-2. Uses page-order fallback logic when Vibe's generated labels/IDs do not expose enough semantic information.
-3. Improves mapping for parent/contact name, student name, grade, goals, availability, email, and phone.
-4. Uses **one standard Wix Create Submission call** and does not force a `status` value. Wix Forms normally confirms its own submissions.
-5. Requires the returned Wix submission to be `CONFIRMED` before showing the final success message.
-6. If Wix does not confirm the request, the page now explicitly says **the request did not send** and presents a prefilled email fallback. It no longer silently opens an email app or permits a fake-success state from this connector.
-7. The in-flight `busy` flag remains; the removed 60-second `sessionStorage` guard remains removed.
-8. The older competing connector remains disabled.
+A permanent temporary safety notice was added directly to the consultation page while the delivery issue is being repaired. It tells visitors that some consultation requests may not have been received and provides a clearly visible **Email Ryan directly** button to:
+
+`Ryan_Carvalho@BehavioralBridge.org`
+
+This is intentionally independent of the submit handler so a visitor can bypass the form at any time. Keep this notice in place until the form has passed repeated production-style tests.
+
+## Revision 12 — service capture + visitor-token stabilization
+
+Revision 12 keeps the revision-11 notice and adds two targeted fixes:
+
+1. **Service dropdown preservation.** The visible Vibe service-selection dropdown is detected and its value is added to `goals_bb`, so requests for SAT tutoring, parent consultation, or other services are no longer silently omitted from the Wix record/email payload.
+2. **Session-level visitor-token caching.** The existing browser bridge had been minting a fresh anonymous OAuth visitor token for every submit attempt. Revision 12 reuses a token for up to 30 minutes in the current browser session, reducing repeated OAuth calls during multiple submissions from one visitor/test session.
+
+The code still blocks false success: Wix must return a `CONFIRMED` submission before the page says the request was received.
+
+## Authentication finding
+
+Official Wix documentation distinguishes self-managed headless from Wix-managed headless. Self-managed headless can mint anonymous visitor tokens manually, while Wix-managed headless projects using Wix's Astro integration receive automatic SDK authentication and do not normally create their own Wix client/token flow.
+
+The current custom-embed bridge is therefore a compatibility workaround, not the ideal final architecture. The preferred long-term implementation remains wiring the actual Vibe/Astro consultation component to `@wix/forms` in the site's real source so authentication is handled by Wix. `GPT-Work` still does **not** contain the Vibe-generated source tree, so GitHub cannot yet provide that direct source edit.
 
 ## Notification automation
-
-Current automation:
 
 - Automation ID: `2695710a-a944-4fbd-9fe6-a7341b8cf53f`
 - Name: `New submission received for Behavioral Bridge Consultation Form`
 - Status: `ACTIVE`
-- Current known revision: `2`
+- Current known automation revision: `2`
 - Trigger: Wix Forms submitted, filtered to form ID `b692e647-b20c-45b0-ae1d-2530df030907`
 - Owner recipient: `Ryan_Carvalho@behavioralbridge.org`
 
-An attempted change to add `ryan.m.carvalho444@gmail.com` as a redundant second owner recipient was **not applied**. Wix validated the automation configuration as `VALID`, but the update was rejected with HTTP 428 because the underlying Triggered Emails message referenced by the old automation is marked `Deleted` by Wix's action provider. No partial automation mutation occurred. Do not overwrite or recreate this automation casually: it demonstrably delivered the three successful submission notifications.
-
-## Gmail finding
-
-The three real consultation notification emails were located in Gmail Trash and restored to Inbox. If future Wix notification messages again appear in Trash, investigate Gmail-side filtering/rules separately; do not mistake a trashed owner notification for a failed Wix submission.
+An attempted change to add `ryan.m.carvalho444@gmail.com` as a redundant second owner recipient was not applied. Wix rejected that automation update because an underlying Triggered Emails message referenced by the old automation is marked deleted. The existing automation remains active and has already proven it can deliver when a real submission exists.
 
 ## Coordination rules
 
-1. Read the current live embed revision before every edit. Do not assume revision 10 remains current forever.
-2. Read the current form revision/spam setting before every form-schema edit. Current intended spam setting is `BASIC`.
+1. Read the current live embed revision before every edit; revision `12` is only the current snapshot.
+2. Read the current form revision and spam setting before every form-schema edit; form revision `5` currently uses temporary `NONE` spam protection.
 3. Update only canonical embed `b3ececaf-c221-4ad1-9590-4aa112486e11` unless intentionally replacing it.
 4. Keep `0ac3fcaf-b699-42da-9867-972e09d58b75` disabled.
-5. Never show final success unless Wix actually returns a confirmed submission.
-6. Do not reintroduce the 60-second sessionStorage dedupe guard.
-7. Do not assume the form's Email field controls where owner notifications are sent.
-8. Do not modify the working owner-notification automation merely to add recipients without resolving the deleted-message limitation first.
-9. Do not switch spam protection back to ADVANCED from another thread without new evidence; repeated testing itself appears capable of triggering the stricter screening.
-10. GitHub remains recovery/version-control documentation until Wix actually syncs a real Vibe source tree here; GitHub commits do not deploy the live Vibe site.
+5. Never show final success unless Wix actually returns a `CONFIRMED` submission.
+6. Preserve the visible delivery warning/direct-email button until repeated tests prove the form is stable.
+7. Preserve the service-dropdown value in the request payload.
+8. Do not reintroduce the old 60-second dedupe guard.
+9. Do not assume the form's Email field controls where owner notifications are sent.
+10. Do not modify the working owner-notification automation casually.
+11. GitHub remains recovery/version-control documentation until Wix actually syncs a real Vibe/Astro source tree into this repository; a GitHub commit alone does not deploy the site.
 
-## Immediate verification
+## Immediate verification target
 
-After the form was changed to BASIC, test from a freshly loaded `/consultation` page with realistic, non-repeated values. A successful test must produce both:
+After revision 12 + temporary spam `NONE`, test the consultation page from a fresh reload with realistic values and choose an actual service from the dropdown. A successful test must create a **fourth `CONFIRMED` Wix Forms record**. Repeated success matters: run at least two separate submissions after the first passes to prove the flow no longer works only once.
 
-- the on-page confirmed-success message, and
-- a **new `CONFIRMED` Wix Forms backend record**.
-
-Then verify the owner notification in the Behavioral Bridge business mailbox. If the browser submission fails, revision 10 should explicitly tell the visitor it did not send instead of pretending that it succeeded.
+Then verify the corresponding owner notification(s) in the Behavioral Bridge business mailbox. If a submission fails, the visitor should still see the delivery notice/direct-email option and should not be told the form was successfully received.
