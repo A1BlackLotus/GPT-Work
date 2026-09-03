@@ -1,5 +1,5 @@
 /*
- * Behavioral Bridge consultation bridge — LIVE STATE POINTER
+ * Behavioral Bridge consultation — LIVE STATE POINTER
  *
  * IMPORTANT: DO NOT DEPLOY THIS FILE DIRECTLY.
  * GPT-Work is coordination/recovery documentation, not the Wix Vibe source checkout.
@@ -10,32 +10,35 @@
  * CONSULTATION ROUTE: /consultation
  * WIX FORM ID: b692e647-b20c-45b0-ae1d-2530df030907
  * CANONICAL CUSTOM EMBED: b3ececaf-c221-4ad1-9590-4aa112486e11
- * LIVE REVISION WHEN THIS FILE WAS UPDATED: 14
- * LIVE NAME: Behavioral Bridge Consultation — Canonical v5 + Prominent Email CTA
+ * LIVE REVISION WHEN THIS FILE WAS UPDATED: 15
+ * LIVE NAME: Behavioral Bridge Consultation — Safe Email Mode v6
  * RETIRED DUPLICATE EMBED: 0ac3fcaf-b699-42da-9867-972e09d58b75 (keep disabled)
  *
- * CRITICAL CURRENT RULES:
- * 1. Read the current live embed + revision from Wix before changing anything.
- * 2. Never show final success unless Wix returns submission.status === 'CONFIRMED'.
- * 3. Current browser Create Submission request sends the visitor access token directly:
- *      headers: { 'Content-Type': 'application/json', 'Authorization': token }
- *    Do NOT reintroduce 'Bearer ' without new controlled evidence.
- * 4. Preserve the service dropdown by folding its selected value into goals_bb.
- * 5. Preserve the large direct-email safety CTA to Ryan_Carvalho@BehavioralBridge.org.
- * 6. Keep the old competing connector disabled.
- * 7. Spam protection is temporarily NONE only while transport reliability is diagnosed.
+ * PRODUCTION-SAFETY DECISION AT REVISION 15:
+ * The browser-to-Wix Forms transport remains unreliable. Exactly 3 confirmed
+ * backend submissions are known and repeated later tests failed to create #4.
+ * Therefore the public consultation page is temporarily in SAFE EMAIL MODE.
  *
- * CURRENT DIRECT-EMAIL CTA:
- * - Large full-width premium button on /consultation
- * - Label: EMAIL RYAN DIRECTLY →
- * - Opens the visitor's email client addressed to Ryan_Carvalho@BehavioralBridge.org
- * - Clearly warns that some recent consultation submissions may not have been received
+ * SAFE EMAIL MODE BEHAVIOR:
+ * 1. A large premium full-width EMAIL RYAN DIRECTLY button is shown prominently.
+ * 2. It opens the visitor's email app addressed to:
+ *      Ryan_Carvalho@BehavioralBridge.org
+ * 3. The existing consultation form is preserved visually, but its submit button
+ *    is changed to SEND REQUEST BY EMAIL → when the form can be detected.
+ * 4. That button collects the visible form values and opens a prefilled email
+ *    containing contact, student, service, goals, and availability information.
+ * 5. The visitor is explicitly told to press Send in their email app.
+ * 6. The flaky public-browser Wix Forms POST is not used in this temporary mode,
+ *    preventing false confidence while transport is being repaired.
  *
- * PRODUCTION STATUS AT REVISION 14:
- * - Exactly 3 CONFIRMED Wix Forms submissions are known.
- * - The user's newest post-revision-13 test did NOT create submission #4.
- * - Therefore the form transport is NOT yet considered stable.
+ * CURRENT RULES:
+ * - Keep the large direct-email CTA until a true server-side/Vibe-source solution
+ *   passes repeated production tests.
+ * - Keep retired duplicate embed disabled.
+ * - Do not restore browser-to-Wix Forms POST merely because one test works.
+ * - Require at least two consecutive confirmed submissions before declaring a
+ *   future native/server-side transport stable.
+ * - Wix Forms backend + notification automation remain intact for future repair.
  *
- * See wix/WORKSTREAM_HANDOFF.md for the full chronology, field mapping,
- * coordination rules, and current verification target.
+ * See wix/WORKSTREAM_HANDOFF.md for chronology and next technical target.
  */
