@@ -28,7 +28,7 @@ Verified storage targets:
 | `goals_bb` | What are you looking for help with? | STRING |
 | `availability_bb` | General Availability | STRING |
 
-The visible Vibe form also contains a service-selection dropdown. It is not a separate Wix Forms field, so the canonical bridge preserves the selected service by prefixing it into `goals_bb` as `Service requested: ...`.
+The visible Vibe form also contains a service-selection dropdown. It is not a separate Wix Forms field.
 
 Current form diagnostic state:
 
@@ -42,8 +42,8 @@ Spam filtering has been ruled out as a sufficient explanation because the flow f
 ## Canonical live embed
 
 - ID: `b3ececaf-c221-4ad1-9590-4aa112486e11`
-- Current live name: `Behavioral Bridge Consultation — Canonical v5 + Prominent Email CTA`
-- Current live revision: `14`
+- Current live name: `Behavioral Bridge Consultation — Safe Email Mode v6`
+- Current live revision: `15`
 - Enabled: `true`
 - Category: `ESSENTIAL`
 - Position: `BODY_END`
@@ -61,43 +61,47 @@ Exactly three `CONFIRMED` Wix Forms submissions are currently known. They were c
 
 Multiple later realistic live-page attempts did not create additional backend records. This includes tests using different names, phone numbers, contact emails, and different service selections.
 
-Most importantly, the user's newest test made after revision 13 still did **not** create submission #4. Therefore revision 13's authorization-header repair did not, by itself, resolve the transport failure.
+The user's post-revision-13 test still did not create submission #4. Therefore the browser custom-embed transport is not considered production reliable.
 
-The three confirmed records each triggered a real owner-notification email. This proves the notification automation works when a real `CONFIRMED` submission reaches Wix; the current failure occurs earlier in the browser-to-Wix submission path.
+The three confirmed records each triggered a real owner-notification email. This proves the notification automation works when a real `CONFIRMED` submission reaches Wix; the failure occurs earlier in the browser-to-Wix transport.
 
-## Revision 13 — authorization repair
+## Revision 14 — prominent direct-email route
 
-Revision 13 restored the earlier raw visitor-token Authorization format used by the early successful connector:
-
-`Authorization: <token>`
-
-rather than:
-
-`Authorization: Bearer <token>`
-
-It preserved service capture, explicit failure behavior, the CONFIRMED-status requirement, and the disabled duplicate connector. The next live test still did not create submission #4, so this remains a useful correction but is not the complete fix.
-
-## Revision 14 — prominent direct-email safety route
-
-Because the form is not yet reliable, revision 14 makes the independent direct-email route unmistakable on `/consultation`.
-
-The page now displays a large premium warning panel before the consultation form with a full-width button:
-
-**EMAIL RYAN DIRECTLY →**
-
-The button opens the visitor's email application addressed directly to:
+Revision 14 added a large premium panel and full-width **EMAIL RYAN DIRECTLY →** button. It opens the visitor's email app addressed to:
 
 `Ryan_Carvalho@BehavioralBridge.org`
 
-It also pre-fills the subject `Behavioral Bridge Consultation Request` and starts a short message. The panel explicitly says that if someone submitted recently and did not hear back, Ryan may not have received the request.
+The notice also explains that some recent consultation form submissions may not have reached Ryan.
 
-The CTA uses the site's premium grayscale styling with a restrained muted-gold border and is intentionally much larger/more visible than the previous small fallback link.
+## Revision 15 — SAFE EMAIL MODE v6
 
-Keep this CTA in place until the Wix form passes repeated production-style tests.
+Because continued attempts to stabilize public browser → Wix Forms transport did not produce submission #4, revision 15 prioritizes lead reliability over preserving a broken automatic-submit illusion.
 
-## Authentication architecture note
+Safe Email Mode does the following:
 
-The custom embed remains a compatibility workaround. The ideal long-term implementation is still the actual Vibe/Astro consultation component wired directly to Wix Forms using Wix-managed authentication once the real Vibe source tree is accessible. `GPT-Work` is not currently that Vibe source checkout.
+1. Keeps a highly prominent premium **EMAIL RYAN DIRECTLY →** CTA at the top of `/consultation`.
+2. Keeps the existing consultation form visible so visitors can still enter the structured information.
+3. When the visible form can be detected, changes its submit button to **SEND REQUEST BY EMAIL →**.
+4. On that button click, collects the form information currently visible in the browser — contact details, phone, student, grade, service selection, goals/challenges, and availability — and opens a prefilled email to `Ryan_Carvalho@BehavioralBridge.org`.
+5. Clearly tells the visitor that the email app is opening and that they must press **Send** there to complete the request.
+6. Stops relying on the unstable visitor-side Wix Forms POST while Safe Email Mode is active.
+
+This is intentionally a temporary production-safety mode. It is preferable to a form that sometimes appears successful while no backend submission exists.
+
+## Why the automatic form is not currently trusted
+
+Several hypotheses were tested and were not sufficient on their own:
+
+- ADVANCED spam protection
+- BASIC spam protection
+- spam protection disabled entirely
+- visitor token caching
+- changing Authorization header format
+- different names, phone numbers, contact emails, and service choices
+
+The strongest remaining architectural issue is that the site is a Wix Vibe/Picasso project and the working long-term solution should live in the actual Vibe/Astro source with Wix-managed authentication. The custom embed is a compatibility layer, not the ideal architecture.
+
+Wix's Custom Trigger documentation also confirms that reliable server-side automation patterns rely on site/backend code (for example, a web method wrapping a custom automation trigger). That route still requires access to the actual site/backend source or creation of the trigger in the Wix development environment; it is not something the public custom embed can safely replace by itself.
 
 ## Notification automation
 
@@ -110,19 +114,19 @@ Do not recreate or casually modify this automation; it has already proven delive
 
 ## Coordination rules
 
-1. Read the current live embed revision before every edit; revision `14` is only the current snapshot.
+1. Read the current live embed revision before every edit; revision `15` is only the current snapshot.
 2. Update only canonical embed `b3ececaf-c221-4ad1-9590-4aa112486e11` unless intentionally replacing it.
 3. Keep `0ac3fcaf-b699-42da-9867-972e09d58b75` disabled.
-4. Never show final success unless Wix actually returns `CONFIRMED`.
-5. Preserve the large direct-email CTA until repeated tests prove the form stable.
-6. Preserve service-dropdown capture.
-7. Do not reintroduce the old 60-second dedupe guard.
-8. Do not assume the visitor's Email field controls owner notifications.
-9. Do not modify the working notification automation casually.
-10. Spam protection is temporarily NONE for diagnosis; restore at least BASIC only after repeated successful transport tests.
-11. `wix/consultation-bridge.js` is now intentionally a non-deployable live-state pointer so stale code cannot be copied back over the current live implementation.
+4. Keep Safe Email Mode in production until a stronger architecture is implemented and tested.
+5. Do not restore browser-to-Wix Forms automatic submission merely because a single future test works.
+6. Require at least two consecutive new `CONFIRMED` backend submissions before declaring any replacement transport stable.
+7. Preserve the direct-email CTA even during future repair testing until stability is proven.
+8. Do not reintroduce the old 60-second dedupe guard.
+9. Do not assume the visitor's Email field controls owner notifications.
+10. Do not modify the working notification automation casually.
+11. Spam protection is temporarily NONE for diagnosis; restore at least BASIC only after a reliable automatic transport exists and passes repeated tests.
 12. GitHub remains coordination/recovery documentation until Wix syncs the real Vibe/Astro source tree.
 
 ## Immediate next technical target
 
-The form transport still needs a stronger fix than browser custom-embed interception. Before claiming stability, obtain two consecutive new `CONFIRMED` records with usable contact/student/service values. Until then, the prominent direct-email route is the safe production fallback for referred leads.
+Keep referred leads safe with Safe Email Mode, then pursue a real server-side or actual Vibe-source implementation. The preferred end state is: native/site-backend submission → confirmed Wix record → existing notification automation, with the visible direct-email CTA retained until repeated production tests verify reliability.
