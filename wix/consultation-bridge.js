@@ -1,44 +1,41 @@
 /*
- * Behavioral Bridge — canonical consultation bridge v3
- * LIVE WIX EMBED: b3ececaf-c221-4ad1-9590-4aa112486e11
- * LIVE REVISION WHEN SYNCED: 10
- * WIX FORM: b692e647-b20c-45b0-ae1d-2530df030907
- * ROUTE: /consultation
+ * Behavioral Bridge consultation bridge — LIVE STATE POINTER
  *
- * IMPORTANT: this repo is still recovery/version-control documentation.
- * Updating this file does not itself deploy to Wix Vibe.
+ * IMPORTANT: DO NOT DEPLOY THIS FILE DIRECTLY.
+ * GPT-Work is coordination/recovery documentation, not the Wix Vibe source checkout.
+ * The authoritative implementation must be read from Wix before every edit.
+ *
+ * LIVE WIX SITE: BehavioralBridge
+ * SITE ID: e6f68a23-cc00-421a-985e-515963cbe5f0
+ * CONSULTATION ROUTE: /consultation
+ * WIX FORM ID: b692e647-b20c-45b0-ae1d-2530df030907
+ * CANONICAL CUSTOM EMBED: b3ececaf-c221-4ad1-9590-4aa112486e11
+ * LIVE REVISION WHEN THIS FILE WAS UPDATED: 14
+ * LIVE NAME: Behavioral Bridge Consultation — Canonical v5 + Prominent Email CTA
+ * RETIRED DUPLICATE EMBED: 0ac3fcaf-b699-42da-9867-972e09d58b75 (keep disabled)
+ *
+ * CRITICAL CURRENT RULES:
+ * 1. Read the current live embed + revision from Wix before changing anything.
+ * 2. Never show final success unless Wix returns submission.status === 'CONFIRMED'.
+ * 3. Current browser Create Submission request sends the visitor access token directly:
+ *      headers: { 'Content-Type': 'application/json', 'Authorization': token }
+ *    Do NOT reintroduce 'Bearer ' without new controlled evidence.
+ * 4. Preserve the service dropdown by folding its selected value into goals_bb.
+ * 5. Preserve the large direct-email safety CTA to Ryan_Carvalho@BehavioralBridge.org.
+ * 6. Keep the old competing connector disabled.
+ * 7. Spam protection is temporarily NONE only while transport reliability is diagnosed.
+ *
+ * CURRENT DIRECT-EMAIL CTA:
+ * - Large full-width premium button on /consultation
+ * - Label: EMAIL RYAN DIRECTLY →
+ * - Opens the visitor's email client addressed to Ryan_Carvalho@BehavioralBridge.org
+ * - Clearly warns that some recent consultation submissions may not have been received
+ *
+ * PRODUCTION STATUS AT REVISION 14:
+ * - Exactly 3 CONFIRMED Wix Forms submissions are known.
+ * - The user's newest post-revision-13 test did NOT create submission #4.
+ * - Therefore the form transport is NOT yet considered stable.
+ *
+ * See wix/WORKSTREAM_HANDOFF.md for the full chronology, field mapping,
+ * coordination rules, and current verification target.
  */
-(function(){
-if(window.__BB_CONSULT_V3__)return;window.__BB_CONSULT_V3__=true;
-var CLIENT='1e6ddb20-006b-4ce7-ab4b-fd4316f6f161',FORM='b692e647-b20c-45b0-ae1d-2530df030907',EMAIL='Ryan_Carvalho@BehavioralBridge.org',busy=false;
-function onPage(){return /\/consultation\/?$/i.test(location.pathname||'')||/consult/i.test(location.hash||'')}
-function ctrls(root){return Array.prototype.slice.call((root||document).querySelectorAll('input,textarea,select')).filter(function(x){return !['hidden','submit','button'].includes(x.type)})}
-function text(x){return (x&&((x.textContent||x.value)||'')||'').replace(/\s+/g,' ').trim()}
-function desc(el){var a=[el.name,el.id,el.placeholder,el.getAttribute('aria-label'),el.getAttribute('autocomplete'),el.type];if(el.id){try{document.querySelectorAll('label[for="'+CSS.escape(el.id)+'"]').forEach(function(l){a.push(l.textContent)})}catch(_){}}var n=el;for(var i=0;n&&i<4;i++,n=n.parentElement){if(n.previousElementSibling)a.push(n.previousElementSibling.textContent);if(n.parentElement&&n.parentElement.firstElementChild)a.push(n.parentElement.firstElementChild.textContent)}return a.filter(Boolean).join(' ').replace(/\s+/g,' ').trim().toLowerCase()}
-function value(el){if(el.type==='checkbox')return el.checked?(el.value||'Yes'):'';if(el.type==='radio')return el.checked?el.value:'';return (el.value||'').trim()}
-function hasEmail(root){return ctrls(root).some(function(x){return x.type==='email'||/email/.test(desc(x))})}
-function findRoot(btn){if(!btn)return null;var f=btn.closest&&btn.closest('form');if(f&&ctrls(f).length>=3&&hasEmail(f))return f;var n=btn;for(var i=0;n&&i<24;i++,n=n.parentElement){if(ctrls(n).length>=3&&hasEmail(n))return n}var main=document.querySelector('main')||document.querySelector('[role=main]');if(main&&ctrls(main).length>=3&&hasEmail(main)){var em=ctrls(main).find(function(x){return x.type==='email'||/email/.test(desc(x))});if(em&&em.compareDocumentPosition(btn)&Node.DOCUMENT_POSITION_FOLLOWING)return main}return null}
-function pick(items,tests){for(var i=0;i<tests.length;i++){var h=items.find(function(x){return value(x.el)&&tests[i](x.d,x.el)});if(h)return value(h.el)}return ''}
-function splitName(s){var p=(s||'').trim().split(/\s+/).filter(Boolean);if(!p.length)return['',''];if(p.length===1)return[p[0],'Visitor'];return[p.slice(0,-1).join(' '),p[p.length-1]]}
-function normPhone(v){v=(v||'').trim();var d=v.replace(/\D/g,'');if(!v)return'';if(d.length===10)return'+1'+d;if(d.length===11&&d[0]==='1')return'+'+d;if(v[0]==='+'&&d.length>=10)return'+'+d;return''}
-function collect(root){var all=ctrls(root),items=all.map(function(el){return{el:el,d:desc(el)}}),emailEl=items.find(function(x){return value(x.el)&&(x.el.type==='email'||/email/.test(x.d))}),phoneEl=items.find(function(x){return value(x.el)&&(x.el.type==='tel'||/phone|mobile|telephone/.test(x.d))}),email=emailEl?value(emailEl.el):'',phone=phoneEl?normPhone(value(phoneEl.el)):'',first=pick(items,[function(d){return/first.*name|name.*first/.test(d)&&!/student/.test(d)}]),last=pick(items,[function(d){return/last.*name|name.*last/.test(d)&&!/student/.test(d)}]),full=pick(items,[function(d){return/(parent|guardian|contact|your).*name|name.*(parent|guardian|contact)/.test(d)&&!/first|last|student/.test(d)}]),student=pick(items,[function(d){return/student.*name|name.*student/.test(d)}]),grade=pick(items,[function(d){return/grade|year in school|student year/.test(d)}]),goals=pick(items,[function(d,e){return e.tagName==='TEXTAREA'&&/goal|challenge|help|looking for|message|tell us|tell me|primary need|how can/.test(d)},function(d){return/goal|challenge|help with|looking for|message|tell us|tell me|primary need|how can/.test(d)}]),avail=pick(items,[function(d){return/availability|preferred.*time|preferred.*day|schedule/.test(d)}]);
-var textInputs=items.filter(function(x){return value(x.el)&&x.el.tagName==='INPUT'&&!['email','tel','phone','number'].includes(x.el.type)}),areas=items.filter(function(x){return value(x.el)&&x.el.tagName==='TEXTAREA'}),emailIndex=emailEl?all.indexOf(emailEl.el):-1;
-if((!first||!last)&&full){var sp=splitName(full);first=first||sp[0];last=last||sp[1]}
-if(!first&&!last&&emailIndex>=0){var before=textInputs.filter(function(x){return all.indexOf(x.el)<emailIndex&&!/student|grade/.test(x.d)});if(before.length>=2){first=value(before[0].el);last=value(before[1].el)}else if(before.length===1){var sp2=splitName(value(before[0].el));first=sp2[0];last=sp2[1]}}
-if(!student&&emailIndex>=0){var after=textInputs.filter(function(x){return all.indexOf(x.el)>emailIndex&&x.el!==(phoneEl&&phoneEl.el)&&!/grade|availability/.test(x.d)});if(after.length)student=value(after[0].el)}
-if(!grade){var sel=items.find(function(x){return value(x.el)&&x.el.tagName==='SELECT'});if(sel)grade=value(sel.el);else if(student){var si=all.findIndex(function(x){return value(x)===student});var g=textInputs.find(function(x){return all.indexOf(x.el)>si&&value(x.el)!==student});if(g)grade=value(g.el)}}
-if(!goals&&areas.length)goals=value(areas[0].el);if(!avail&&areas.length>1)avail=value(areas[1].el);
-return{first_name_bb:first||'Website',last_name_bb:last||'Visitor',email_bb:email,phone_bb:phone,student_name_bb:student||'Not provided',student_grade_bb:grade||'Not provided',goals_bb:goals||'Consultation request submitted through the Behavioral Bridge website.',availability_bb:avail||''}}
-function box(root){var b=root.querySelector&&root.querySelector('[data-bb-consult-status]');if(!b){b=document.createElement('div');b.setAttribute('data-bb-consult-status','1');b.setAttribute('role','status');b.style.cssText='margin-top:12px;font-size:14px;line-height:1.45';var btn=root.querySelector('button[type="submit"],input[type="submit"],button');(btn&&btn.parentNode?btn.parentNode:root).appendChild(b)}return b}
-function msg(root,s,ok){var b=box(root);b.innerHTML='';b.style.color=ok?'inherit':'#8b1e1e';b.appendChild(document.createTextNode(s))}
-function fail(root,data,why){var b=box(root);b.innerHTML='';b.style.color='#8b1e1e';b.appendChild(document.createTextNode('Your request did not send. Please email '));var a=document.createElement('a');a.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Behavioral Bridge Consultation Request')+'&body='+encodeURIComponent(['Parent / Contact: '+[data.first_name_bb,data.last_name_bb].join(' '),'Email: '+data.email_bb,'Phone: '+data.phone_bb,'Student: '+data.student_name_bb,'Grade: '+data.student_grade_bb,'','Goals / Help Requested:',data.goals_bb,'','General Availability:',data.availability_bb].join('\n'));a.textContent=EMAIL;a.style.fontWeight='700';b.appendChild(a);b.appendChild(document.createTextNode(' instead.'));console.error('[Behavioral Bridge consultation]',why||'submission failed')}
-async function token(){var r=await fetch('https://www.wixapis.com/oauth2/token',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({clientId:CLIENT,grantType:'anonymous'})});if(!r.ok)throw Error('AUTH-'+r.status);var j=await r.json();if(!j.access_token)throw Error('NO_TOKEN');return j.access_token}
-async function submit(data,t){return fetch('https://www.wixapis.com/forms/v4/submissions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+t},body:JSON.stringify({submission:{formId:FORM,submissions:data}})})}
-function clear(root){root.querySelectorAll('input,textarea').forEach(function(x){if(!['submit','button','hidden'].includes(x.type))x.value=''});root.querySelectorAll('select').forEach(function(x){x.selectedIndex=0})}
-async function send(root,btn){if(busy)return;var data=collect(root);if(!data.email_bb||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email_bb)){msg(root,'Please enter a valid email address before submitting.',false);return}busy=true;if(btn)btn.disabled=true;msg(root,'Sending your consultation request…',true);try{var t=await token(),r=await submit(data,t),raw=await r.text(),j={};try{j=raw?JSON.parse(raw):{}}catch(_){ }if(!r.ok)throw Error('SUBMIT-'+r.status+' '+raw.slice(0,180));if(!j.submission||j.submission.status!=='CONFIRMED')throw Error('UNCONFIRMED-'+((j.submission&&j.submission.status)||'UNKNOWN'));msg(root,'Thank you. Your consultation request has been received. Ryan will follow up by email.',true);clear(root)}catch(e){fail(root,data,e&&e.message?e.message:e)}finally{busy=false;if(btn)btn.disabled=false}}
-function candidate(btn){if(!btn)return false;var t=text(btn).toLowerCase();if(btn.type==='submit')return true;return/^request( a)? consultation$|^submit$|^send request$|^request consultation$/.test(t)}
-function intercept(btn,e){if(!onPage()||!candidate(btn))return false;var root=findRoot(btn);if(!root)return false;e.preventDefault();e.stopPropagation();e.stopImmediatePropagation();send(root,btn);return true}
-document.addEventListener('click',function(e){var btn=e.target&&e.target.closest&&e.target.closest('button,input[type="submit"]');intercept(btn,e)},true);
-document.addEventListener('submit',function(e){if(!onPage())return;var root=e.target&&ctrls(e.target).length>=3&&hasEmail(e.target)?e.target:null;if(!root)return;e.preventDefault();e.stopPropagation();e.stopImmediatePropagation();send(root,root.querySelector('button[type="submit"],input[type="submit"],button'))},true);
-console.info('[Behavioral Bridge] consultation canonical v3 active');
-})();
