@@ -79,22 +79,59 @@ export const POST: APIRoute = async ({ request }) => {
     if (phone) values.phone_bb = phone;
     if (availability) values.availability_bb = availability;
 
+    // Wix Forms has an explicit PENDING -> CONFIRMED lifecycle. Create first,
+    // then confirm server-side. Never let the browser impersonate an admin.
     const elevatedCreateSubmission = auth.elevate(submissions.createSubmission);
-    const result = await elevatedCreateSubmission({
+    const createdResult = await elevatedCreateSubmission({
       formId: FORM_ID,
-      status: 'CONFIRMED',
+      status: 'PENDING',
       submissions: values,
     });
 
-    const stored = (result as any)?.submission ?? result;
-    const status = (stored as any)?.status;
-    const submissionId = (stored as any)?._id ?? (stored as any)?.id;
+    const created = (createdResult as any)?.submission ?? createdResult;
+    const createdId = (created as any)?._id ?? (created as any)?.id;
+    const createdStatus = (created as any)?.status;
+
+    if (!createdId) {
+      console.error('Behavioral Bridge consultation creation returned no submission ID.', {
+        status: createdStatus || 'UNKNOWN',
+      });
+      return json({
+        ok: false,
+        error: 'NO_SUBMISSION_ID',
+        message: 'Your request did not send. Please email Ryan directly instead.',
+        email: OWNER_EMAIL,
+      }, 502);
+    }
+
+    let confirmed = created;
+    if (createdStatus !== 'CONFIRMED') {
+      if (createdStatus !== 'PENDING') {
+        console.error('Behavioral Bridge consultation entered an unexpected Wix Forms state.', {
+          status: createdStatus || 'UNKNOWN',
+          hasSubmissionId: true,
+        });
+        return json({
+          ok: false,
+          error: 'UNEXPECTED_STATUS',
+          message: 'Your request could not be confirmed. Please email Ryan directly instead.',
+          email: OWNER_EMAIL,
+        }, 502);
+      }
+
+      const elevatedConfirmSubmission = auth.elevate(submissions.confirmSubmission);
+      const confirmResult = await elevatedConfirmSubmission(createdId);
+      confirmed = (confirmResult as any)?.submission ?? confirmResult;
+    }
+
+    const finalStatus = (confirmed as any)?.status;
+    const finalId = (confirmed as any)?._id ?? (confirmed as any)?.id ?? createdId;
 
     // Never tell the visitor the request was received unless Wix says it is in the Forms collection.
-    if (status !== 'CONFIRMED' || !submissionId) {
+    if (finalStatus !== 'CONFIRMED' || !finalId) {
       console.error('Behavioral Bridge consultation was not confirmed by Wix Forms.', {
-        status: status || 'UNKNOWN',
-        hasSubmissionId: Boolean(submissionId),
+        status: finalStatus || 'UNKNOWN',
+        hasSubmissionId: Boolean(finalId),
       });
       return json({
         ok: false,
@@ -107,7 +144,7 @@ export const POST: APIRoute = async ({ request }) => {
     return json({
       ok: true,
       status: 'CONFIRMED',
-      submissionId,
+      submissionId: finalId,
     });
   } catch (error) {
     console.error('Behavioral Bridge consultation endpoint error.', {
