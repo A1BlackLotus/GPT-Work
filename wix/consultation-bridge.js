@@ -3,12 +3,19 @@
  *
  * LIVE WIX STATE (authoritative as of 2026-09-03):
  *   Canonical custom embed ID: b3ececaf-c221-4ad1-9590-4aa112486e11
- *   Canonical live revision after merge: 7
+ *   Canonical live revision: 9
  *   Duplicate/legacy connector ID: 0ac3fcaf-b699-42da-9867-972e09d58b75 (DISABLED, rev 5)
  *   Target route: /consultation
  *   Wix Form ID: b692e647-b20c-45b0-ae1d-2530df030907
  *   Vibe OAuth client ID: 1e6ddb20-006b-4ce7-ab4b-fd4316f6f161 (public client ID; not a secret)
  *   Fallback email: Ryan_Carvalho@BehavioralBridge.org
+ *
+ * REVISION NOTE:
+ *   Revision 8 added a 60-second sessionStorage same-request dedupe guard after
+ *   a successful test. The next two user tests were not recorded in Wix, so
+ *   that guard was reverted at live revision 9. The existing in-flight `busy`
+ *   flag remains as the duplicate-click protection because the pre-guard
+ *   implementation is the last known working path.
  *
  * MERGED FROM BOTH WORKSTREAMS:
  *   - preserves/intercepts the existing Vibe consultation form when present
