@@ -10,6 +10,8 @@ The consultation flow is still under production repair. This file is the coordin
 - Site ID: `e6f68a23-cc00-421a-985e-515963cbe5f0`
 - Live Vibe URL: `https://my-site-h5mhm1d7-ryancarvalho6.wix-vibe-site.com/`
 - Consultation route: `/consultation`
+- Official Wix Editor URL API now confirms the Picasso/Vibe editor URL is `https://vibe.wix.com/projects/e6f68a23-cc00-421a-985e-515963cbe5f0/v/editor`
+- Official preview URL: `https://vibe.wix.com/preview/e6f68a23-cc00-421a-985e-515963cbe5f0`
 
 ## Wix Forms backend
 
@@ -48,8 +50,8 @@ Spam filtering has been ruled out as a sufficient explanation because the live b
 ## Canonical live safety embed
 
 - ID: `b3ececaf-c221-4ad1-9590-4aa112486e11`
-- Current live name: `Behavioral Bridge — Visible Email Safety Banner v7`
-- Current live revision: `16`
+- Current live name: `Behavioral Bridge — Consultation Safety Banner v8`
+- Current live revision: `17`
 - Enabled: `true`
 - Category: `ESSENTIAL`
 - Position: `BODY_START`
@@ -62,17 +64,17 @@ Retired competing connector:
 - Enabled: `false`
 - Keep disabled.
 
-### Revision 16 visible behavior
+### Revision 17 visible behavior
 
 1. A large premium sitewide **EMAIL RYAN DIRECTLY →** banner appears near the top of every page while the automatic consultation transport remains untrusted.
-2. The banner explains that some recent website consultation requests may not have reached Ryan.
+2. The warning is now explicit: the website form has had an intermittent delivery problem, a prior request may never have reached Ryan, and visitors should not rely on the website form alone until it is fully verified.
 3. The direct-email button opens the visitor's email app addressed to `Ryan_Carvalho@BehavioralBridge.org` with a consultation subject and starter message.
 4. The existing consultation form remains visible.
-5. When the live form can be detected, its button is changed to **SEND REQUEST BY EMAIL →** and its visible form values are assembled into a prefilled email.
-6. The visitor must still press Send in their email application.
+5. When the live form can be detected, its button is changed to **EMAIL RYAN THIS REQUEST →** and its visible form values are assembled into a prefilled email.
+6. A visible note is inserted above that button explaining that the button opens the visitor's email app and that they must press **Send** there to complete the request.
 7. The flaky public-browser Wix Forms POST is not used while safety mode is active.
 
-The user has confirmed this banner is visibly rendering. The sitewide placement is intentionally more aggressive than the intended permanent design. Keep it sitewide until a reliable native/server-side submission path is proven; after that, move the prominent warning to the consultation page only while retaining a direct-email backup.
+The user has confirmed the banner is visibly rendering. The sitewide placement is intentionally more aggressive than the intended permanent design. Keep it sitewide until a reliable native/server-side submission path is proven; after that, move the prominent warning to the consultation page only while retaining a direct-email backup.
 
 ## Production evidence
 
@@ -129,6 +131,22 @@ The apply prompt tells the Vibe coding environment to locate the existing `/cons
 
 These GitHub files are **prepared recovery/source instructions only**. `GPT-Work` is still not the deployed Vibe source repository.
 
+## Direct source-access investigation
+
+Fresh Sep. 3 API investigation established the exact boundary rather than guessing it:
+
+- Wix's official Editor URLs API recognizes this site as editor type `PICASSO` and returns the Vibe editor project path using the same GUID as the site ID.
+- The public Wix **Containers Chat API**, documented for the Wix AI coding agent, was then queried using that exact project/site GUID.
+- Query Conversations returned **404** through both site-scoped and account-scoped connected Wix access.
+- Therefore the connected management API cannot currently drive the Vibe coding agent for this existing site, even though the official editor URL identifies the project path.
+- Wix REST documentation search did not expose a separate public Picasso/Vibe source-file update API.
+- Wix CLI documentation does not expose a supported clone/download flow for taking over an existing Vibe/Picasso source tree. The available headless `link/init` flows provision a new Wix-managed project instead of attaching to this existing Vibe project, so they must not be used as a substitute.
+- Standard Git Integration & Wix CLI for Sites documentation describes setup through Wix Studio or Wix Editor; it does not establish a direct API path for this existing Vibe site.
+- Wix Forms dashboard documentation confirms a **Standalone form** feature exists in the dashboard, but REST documentation currently exposes no supported API for converting this existing consultation schema into a permanent standalone public URL or retrieving such a URL. Do not invent one.
+- Intake Forms can generate a shareable URL, but those are a different namespace/use case and links expire after 72 hours; do not create a duplicate intake form as the permanent consultation fix.
+
+Result: the native code is ready, but the actual Vibe source deployment still requires entering the Vibe editor/source environment unless Wix exposes additional project-source access later.
+
 ## Why the public automatic form is not currently trusted
 
 Several browser-side hypotheses were tested and were not sufficient on their own:
@@ -161,7 +179,7 @@ Do not recreate or casually modify this automation.
 
 ## Coordination rules
 
-1. Read the current live embed revision before every edit; revision `16` is only the current snapshot.
+1. Read the current live embed revision before every edit; revision `17` is only the current snapshot.
 2. Update only canonical embed `b3ececaf-c221-4ad1-9590-4aa112486e11` unless intentionally replacing it.
 3. Keep `0ac3fcaf-b699-42da-9867-972e09d58b75` disabled.
 4. Keep visible email safety mode in production until the native source path is implemented and repeatedly verified.
