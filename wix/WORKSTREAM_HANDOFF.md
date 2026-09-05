@@ -1,5 +1,12 @@
 # Behavioral Bridge Consultation — Workstream Handoff
 
+## Live update — 2026-09-05
+
+- The active safety embed `b3ececaf-c221-4ad1-9590-4aa112486e11` is now revision `18`.
+- A reversible route guard was added to send `/resources` to the canonical `/blog` hub and rewrite the legacy external archive footer link to `/blog`.
+- The safety banner, direct-email fallback, and retired connector state were preserved.
+- The native Vibe/Astro consultation source is still not deployed; do not remove the safety interception or claim native-form success until two new public submissions become `CONFIRMED`.
+
 ## Status — 2026-09-03
 
 The consultation flow is still under production repair. This file is the coordination source for the current website thread and the prior `Explain Repo Authentication` workstream. Do not create a second live submit handler.
