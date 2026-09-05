@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Behavioral Bridge — M014 Scale Dimension Lab</title><style>
+:root{--bg:#0f1115;--panel:#1a1e24;--ink:#f4f5f6;--muted:#aeb4be;--line:#343a44;--gold:#b9913e;--blue:#4d82c4;--green:#4e9a72;--red:#b96767;--purple:#8064a8;--orange:#c27a38}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#0d0f12,#15181d);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1180px;margin:auto;padding:28px}.head,.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px}.head{margin-bottom:18px}
+.brand{font-size:13px;letter-spacing:.14em;font-weight:800;color:#d8dbe0}.title{font-size:34px;font-weight:850;margin:7px 0 3px}.sub,.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;font-size:13px;font-weight:750;margin:10px 0 5px;color:#d8dce2}input,select{width:100%;padding:11px 12px;border-radius:11px;border:1px solid #3b424e;background:#101318;color:var(--ink);font:inherit}
+input[type=range]{padding:0;border:none;background:transparent}
+button{border:1px solid #434b58;background:#262c35;color:var(--ink);padding:10px 13px;border-radius:11px;font-weight:750;cursor:pointer}.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}
+.primary{background:var(--gold);border-color:var(--gold);color:#111}.metricgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.metric{background:#101318;border:1px solid var(--line);border-radius:13px;padding:12px}
+.metric b{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}.metric span{font-size:23px;font-weight:850}
+canvas{width:100%;height:420px;background:#101318;border:1px solid var(--line);border-radius:15px;margin-top:12px}.pill{background:#11151a;border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:9px}
+.good{color:#79c79d}.bad{color:#e0a6a6}.gold{color:var(--gold)}.blue{color:#75a5e0}.small{font-size:13px}
+@media(max-width:850px){.grid,.row{grid-template-columns:1fr}.metricgrid{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<div class="wrap"><div class="head"><div class="brand">BEHAVIORAL BRIDGE · SAT MATH · M014</div><div class="title">Scale Dimension Lab</div><div class="sub">Choose the measurement dimension, change the linear scale factor k, and watch the correct k, k², or k³ multiplier appear.</div></div>
+<div class="grid"><div class="card"><h2>Inputs</h2><label>Original measure</label><input id="base" type="number" step=".1" value="64"><label>Linear scale k</label><input id="k" type="range" min=".25" max="3" step=".05" value="1.5"><div id="kv"></div><label>What is being measured?</label><select id="dim"><option value="1">Length / perimeter (1D)</option><option value="2">Area / surface area (2D)</option><option value="3" selected>Volume (3D)</option></select><div class="buttons"><button class="primary" id="cyl">3:2 volume example</button><button id="double">Double every dimension</button></div></div>
+<div class="card"><h2>Live scale result</h2><div class="metricgrid"><div class="metric"><b>Exponent</b><span id="exp"></span></div><div class="metric"><b>Scale factor</b><span id="factor"></span></div><div class="metric"><b>New measure</b><span id="newv"></span></div></div><div class="pill" id="explain"></div></div></div></div>
+<script>
+const $=id=>document.getElementById(id),fmt=n=>(Math.round(n*1000)/1000).toString();
+function update(){const b=+$('base').value,k=+$('k').value,d=+$('dim').value,f=Math.pow(k,d),n=b*f;$('kv').textContent=fmt(k);$('exp').textContent=d;$('factor').textContent=fmt(f);$('newv').textContent=fmt(n);const name=d===1?'length/perimeter':d===2?'area/surface area':'volume';$('explain').innerHTML=`Because this is <b>${name}</b>, apply <b>k<sup>${d}</sup></b>: ${fmt(b)} × ${fmt(k)}<sup>${d}</sup> = <b>${fmt(n)}</b>.`}
+['base','k','dim'].forEach(id=>$(id).oninput=update);$('dim').onchange=update;$('cyl').onclick=()=>{$('base').value=64;$('k').value=1.5;$('dim').value=3;update()};$('double').onclick=()=>{$('base').value=10;$('k').value=2;$('dim').value=2;update()};update();
+</script></body></html>
