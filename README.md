@@ -4,6 +4,9 @@ Behavioral Bridge website development repository.
 
 ## Current Wix/Vibe status
 
+**Live API update (2026-09-05):** The active sitewide safety embed is revision `18`. It now includes a reversible `/resources` → `/blog` route guard and legacy footer-link repair. The native Vibe/Astro consultation source is still pending editor deployment; keep safety interception until two new public submissions are confirmed. The visitor-token bridge described below is recovery history, not proof of the current live public path.
+
+
 This repo is approved for the `A1BlackLotus` GitHub App installation and ChatGPT can read/write it. However, it is **not currently the Wix-generated source checkout for the live Vibe/Picasso site**. Wix has not populated a Vibe source tree (`src/`, Wix config, page files, etc.) here, so commits in this repo do not automatically deploy to Wix.
 
 The live Behavioral Bridge site remains managed by Wix Vibe. The consultation backend is Wix Forms.
@@ -12,9 +15,9 @@ The live Behavioral Bridge site remains managed by Wix Vibe. The consultation ba
 
 The two consultation-form workstreams have been reconciled into one live canonical implementation. The useful fixes from both were merged; the competing duplicate handler was disabled so they can no longer race, intercept each other, or show contradictory results.
 
-- Canonical live custom embed ID: `b3ececaf-c221-4ad1-9590-4aa112486e11`
-- Canonical live revision after merge: `7`
-- Canonical embed name: `Behavioral Bridge Consultation — Canonical`
+- Active live custom embed ID: `b3ececaf-c221-4ad1-9590-4aa112486e11`
+- Current live revision: `18`
+- Current live embed name: `Behavioral Bridge — Consultation Safety Banner v8`
 - Duplicate/legacy connector ID: `0ac3fcaf-b699-42da-9867-972e09d58b75` — **disabled** at revision `5`
 - Wix form ID: `b692e647-b20c-45b0-ae1d-2530df030907`
 - Embed category: `ESSENTIAL`
