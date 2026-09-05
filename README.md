@@ -4,7 +4,7 @@ Behavioral Bridge website development repository.
 
 ## Current Wix/Vibe status
 
-**Live API update (2026-09-05):** The active sitewide safety embed is revision `21`. It includes legacy footer-link repair, the missing consultation detail inputs used by the email fallback, and a real `/resources` hub linking to eight published Wix Blog articles. The native Vibe/Astro consultation source is still pending editor deployment; keep safety interception until two new public submissions are confirmed. The visitor-token bridge described below is recovery history, not proof of the current live public path.
+**Live API update (2026-09-05):** The active sitewide safety embed is revision `21`. It includes legacy footer-link repair, the missing consultation detail inputs used by the email fallback, and a real `/resources` hub linking to eight published Wix Blog articles. A separate resource-only embed is revision `4` and wires the homepage resource cards to those published articles while removing dead placeholder cards. The native Vibe/Astro consultation source is still pending editor deployment; keep safety interception until two new public submissions are confirmed. The visitor-token bridge described below is recovery history, not proof of the current live public path.
 
 
 This repo is approved for the `A1BlackLotus` GitHub App installation and ChatGPT can read/write it. However, it is **not currently the Wix-generated source checkout for the live Vibe/Picasso site**. Wix has not populated a Vibe source tree (`src/`, Wix config, page files, etc.) here, so commits in this repo do not automatically deploy to Wix.
