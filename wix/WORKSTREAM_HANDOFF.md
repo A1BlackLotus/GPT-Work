@@ -2,7 +2,7 @@
 
 ## Live update — 2026-09-05
 
-- The active safety embed `b3ececaf-c221-4ad1-9590-4aa112486e11` is now revision `20`.
+- The active safety embed `b3ececaf-c221-4ad1-9590-4aa112486e11` is now revision `21`.
 - A reversible route guard was added to send `/resources` to the canonical `/blog` hub and rewrite the legacy external archive footer link to `/blog`.
 - The safety banner, direct-email fallback, and retired connector state were preserved.
 - The consultation fallback now adds student name, grade/year, goals, and availability inputs to the direct-email request.
@@ -60,7 +60,7 @@ Spam filtering has been ruled out as a sufficient explanation because the live b
 
 - ID: `b3ececaf-c221-4ad1-9590-4aa112486e11`
 - Current live name: `Behavioral Bridge — Consultation Safety Banner v8`
-- Current live revision: `20`
+- Current live revision: `21`
 - Enabled: `true`
 - Category: `ESSENTIAL`
 - Position: `BODY_START`
@@ -73,7 +73,7 @@ Retired competing connector:
 - Enabled: `false`
 - Keep disabled.
 
-### Revision 20 visible behavior
+### Revision 21 visible behavior
 
 1. A large premium sitewide **EMAIL RYAN DIRECTLY →** banner appears near the top of every page while the automatic consultation transport remains untrusted.
 2. The warning is now explicit: the website form has had an intermittent delivery problem, a prior request may never have reached Ryan, and visitors should not rely on the website form alone until it is fully verified.
