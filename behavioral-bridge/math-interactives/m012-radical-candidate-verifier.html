@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Behavioral Bridge — M012 Radical Candidate Verifier</title><style>
+:root{--bg:#0f1115;--panel:#1a1e24;--ink:#f4f5f6;--muted:#aeb4be;--line:#343a44;--gold:#b9913e;--blue:#4d82c4;--green:#4e9a72;--red:#b96767;--purple:#8064a8;--orange:#c27a38}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#0d0f12,#15181d);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1180px;margin:auto;padding:28px}.head,.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px}.head{margin-bottom:18px}
+.brand{font-size:13px;letter-spacing:.14em;font-weight:800;color:#d8dbe0}.title{font-size:34px;font-weight:850;margin:7px 0 3px}.sub,.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;font-size:13px;font-weight:750;margin:10px 0 5px;color:#d8dce2}input,select{width:100%;padding:11px 12px;border-radius:11px;border:1px solid #3b424e;background:#101318;color:var(--ink);font:inherit}
+input[type=range]{padding:0;border:none;background:transparent}
+button{border:1px solid #434b58;background:#262c35;color:var(--ink);padding:10px 13px;border-radius:11px;font-weight:750;cursor:pointer}.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}
+.primary{background:var(--gold);border-color:var(--gold);color:#111}.metricgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.metric{background:#101318;border:1px solid var(--line);border-radius:13px;padding:12px}
+.metric b{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}.metric span{font-size:23px;font-weight:850}
+canvas{width:100%;height:420px;background:#101318;border:1px solid var(--line);border-radius:15px;margin-top:12px}.pill{background:#11151a;border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:9px}
+.good{color:#79c79d}.bad{color:#e0a6a6}.gold{color:var(--gold)}.blue{color:#75a5e0}.small{font-size:13px}
+@media(max-width:850px){.grid,.row{grid-template-columns:1fr}.metricgrid{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<div class="wrap"><div class="head"><div class="brand">BEHAVIORAL BRIDGE · SAT MATH · M012</div><div class="title">Radical Candidate Verifier</div><div class="sub">Explore the family <span class="gold">√(x + c) = x − d</span>. Squaring creates candidates; the original equation decides which survive.</div></div>
+<div class="grid"><div class="card"><h2>Equation controls</h2><div class="row"><div><label>c</label><input id="c" type="number" step=".5" value="5"></div><div><label>d</label><input id="d" type="number" step=".5" value="1"></div></div><div class="buttons"><button class="primary" id="classic">√(x+5)=x−1</button><button id="alt">√(x+6)=x</button><button id="none">No-real-candidate example</button></div><div class="pill" id="eq"></div><div class="pill" id="quad"></div></div>
+<div class="card"><h2>Candidate filter</h2><div id="cards"></div></div></div></div>
+<script>
+const $=id=>document.getElementById(id),fmt=n=>Math.abs(n)<1e-9?'0':(Math.round(n*1000)/1000).toString();
+function update(){const c=+$('c').value,d=+$('d').value;$('eq').innerHTML=`Original: <b>√(x + ${fmt(c)}) = x − ${fmt(d)}</b>`;const A=1,B=-(2*d+1),C=d*d-c,D=B*B-4*A*C;$('quad').innerHTML=`After squaring: <b>x² ${B>=0?'+':'−'} ${fmt(Math.abs(B))}x ${C>=0?'+':'−'} ${fmt(Math.abs(C))} = 0</b>`;let roots=[];if(D>=-1e-9){const sd=Math.sqrt(Math.max(0,D));roots=[(-B+sd)/2,(-B-sd)/2];if(Math.abs(roots[0]-roots[1])<1e-9)roots=[roots[0]]};if(!roots.length){$('cards').innerHTML='<div class="pill bad"><b>No real algebraic candidates.</b></div>';return};$('cards').innerHTML=roots.map(r=>{const domain=(r+c)>=-1e-9&&(r-d)>=-1e-9;const L=domain?Math.sqrt(Math.max(0,r+c)):NaN,R=r-d,ok=domain&&Math.abs(L-R)<1e-7;return `<div class="pill"><b>x = ${fmt(r)}</b><br>Domain check: ${domain?'<span class="good">passes</span>':'<span class="bad">fails</span>'}<br>Original check: ${domain?`${fmt(L)} ${ok?'=':'≠'} ${fmt(R)}`:'not legal in the original'}<br><b class="${ok?'good':'bad'}">${ok?'VALID SOLUTION ✓':'EXTRANEOUS / INVALID ✕'}</b></div>`}).join('')}
+['c','d'].forEach(id=>$(id).oninput=update);$('classic').onclick=()=>{$('c').value=5;$('d').value=1;update()};$('alt').onclick=()=>{$('c').value=6;$('d').value=0;update()};$('none').onclick=()=>{$('c').value=-5;$('d').value=4;update()};update();
+</script></body></html>
