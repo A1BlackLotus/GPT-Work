@@ -2,13 +2,57 @@
 
 ## Live update — 2026-09-05
 
-- The active safety embed `b3ececaf-c221-4ad1-9590-4aa112486e11` is now revision `21`.
+- The active safety embed `b3ececaf-c221-4ad1-9590-4aa112486e11` remains revision `21` and was not modified during the resource-page repair.
 - A reversible route guard was added to send `/resources` to the canonical `/blog` hub and rewrite the legacy external archive footer link to `/blog`.
 - The safety banner, direct-email fallback, and retired connector state were preserved.
-- The consultation fallback now adds student name, grade/year, goals, and availability inputs to the direct-email request.
+- The consultation fallback adds student name, grade/year, goals, and availability inputs to the direct-email request.
 - The temporary `/resources` redirect was removed and replaced with a live resource hub linking to eight published Wix Blog articles with canonical `/post/...` URLs.
-- A separate resource-only custom embed `65311ea0-35cf-4aef-8a6a-55dc2915212e` is enabled at revision `4`; it maps the homepage Featured Resources cards to the published `/post/...` articles, improves card presentation, and hides the retired dead placeholder resource section.
+- The separate resource-only custom embed `65311ea0-35cf-4aef-8a6a-55dc2915212e` is now enabled at revision `5`, with `loadOnce=false`, position `BODY_END`, and category `ESSENTIAL`.
+- Revision `5` preserves the homepage Featured Resources mappings, retrieves the eight live Wix Blog titles/excerpts for the resource card data, reuses `#bb-resource-hub-v1`, moves that hub into the legacy `Latest Resources` section's position, captures the old section's existing image URLs and cycles them across the eight real article cards, and removes the legacy placeholder section node from the DOM instead of only hiding it with CSS.
+- The revision `5` response and a subsequent GET both verified all eight canonical article paths, the homepage mapping paths, the image-card layout marker `BB_RESOURCE_IMAGE_CARD_LAYOUT_V2`, the DOM-removal marker `BB_RESOURCE_LEGACY_SECTION_REMOVE_V2`, and the `legacy.remove()`/hub-reuse logic.
 - The native Vibe/Astro consultation source is still not deployed; do not remove the safety interception or claim native-form success until two new public submissions become `CONFIRMED`.
+
+## Resource-page repair — live revision 5
+
+Canonical resource repair embed:
+
+- ID: `65311ea0-35cf-4aef-8a6a-55dc2915212e`
+- Live revision: `5`
+- Name: `Behavioral Bridge — Resource Link Repair v1`
+- Enabled: `true`
+- `loadOnce`: `false`
+- Position: `BODY_END`
+- Category: `ESSENTIAL`
+
+Homepage mappings preserved:
+
+- `Strategic Approaches to SAT Preparation` → `/post/accuracy-before-speed-sat-timing`
+- `Building Executive Function Skills at Home` → `/post/executive-function-high-achieving-teen`
+- `From Overwhelmed to Independent Learner` → `/post/behavioral-bridge-method-systems-strategy-behavior-performance`
+
+Resource hub article paths in revision 5:
+
+1. `/post/accuracy-before-speed-sat-timing`
+2. `/post/behavioral-bridge-method-systems-strategy-behavior-performance`
+3. `/post/parents-support-sat-prep-without-sat-police`
+4. `/post/executive-function-high-achieving-teen`
+5. `/post/why-smart-students-still-procrastinate`
+6. `/post/why-more-sat-practice-often-fails`
+7. `/post/sat-reading-writing-error-patterns-below-700`
+8. `/post/how-high-scoring-students-use-desmos-digital-sat`
+
+Runtime behavior on `/resources`:
+
+1. Locate the legacy `Latest Resources` section safely without treating `MAIN`, `BODY`, or `HTML` as a removable section.
+2. Capture the legacy section's image URLs before removal, excluding images inside the existing real hub.
+3. Reuse the existing `#bb-resource-hub-v1`; if it is nested inside the legacy section, move it out before removal so it is not destroyed.
+4. Insert/move the real hub at the legacy section's location.
+5. Remove the legacy placeholder section from the DOM using `legacy.remove()`.
+6. Rebuild the retained hub as an eight-card responsive image grid using the captured image URLs, cycling them when fewer than eight are available.
+7. Use the published Wix Blog title/excerpt data and the canonical `/post/...` paths.
+8. Keep route-aware MutationObserver rescans so SPA rendering does not restore stale placeholder content.
+
+Do not revert this repair to CSS-only hiding unless a regression is observed and documented.
 
 ## Status — 2026-09-03
 
@@ -189,8 +233,8 @@ Do not recreate or casually modify this automation.
 
 ## Coordination rules
 
-1. Read the current live embed revision before every edit; revision `20` is only the current snapshot.
-2. Update only canonical embed `b3ececaf-c221-4ad1-9590-4aa112486e11` unless intentionally replacing it.
+1. Read the current live embed revision before every edit; the active consultation safety embed is revision `21`, and the resource repair embed is revision `5` as of Sep. 5.
+2. Update only canonical consultation embed `b3ececaf-c221-4ad1-9590-4aa112486e11` for consultation-safety work unless intentionally replacing it; update resource embed `65311ea0-35cf-4aef-8a6a-55dc2915212e` only for resource-page/homepage-resource repair.
 3. Keep `0ac3fcaf-b699-42da-9867-972e09d58b75` disabled.
 4. Keep visible email safety mode in production until the native source path is implemented and repeatedly verified.
 5. Do not restore direct browser → Wix Forms OAuth/REST submission.
@@ -202,6 +246,7 @@ Do not recreate or casually modify this automation.
 11. Do not modify the working notification automation casually.
 12. Spam protection is temporarily NONE for diagnosis; restore at least BASIC only after the native automatic transport exists and passes repeated live tests.
 13. GitHub remains coordination/recovery documentation until the actual Vibe source is connected or edited in the Vibe Code environment.
+14. Preserve resource revision 5's DOM-removal/hub-reuse behavior unless a verified live regression requires a targeted change; do not recreate the retired CSS-only placeholder hiding approach.
 
 ## Immediate next technical target
 
