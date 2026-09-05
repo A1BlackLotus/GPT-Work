@@ -2,10 +2,11 @@
 
 ## Live update — 2026-09-05
 
-- The active safety embed `b3ececaf-c221-4ad1-9590-4aa112486e11` is now revision `19`.
+- The active safety embed `b3ececaf-c221-4ad1-9590-4aa112486e11` is now revision `20`.
 - A reversible route guard was added to send `/resources` to the canonical `/blog` hub and rewrite the legacy external archive footer link to `/blog`.
 - The safety banner, direct-email fallback, and retired connector state were preserved.
 - The consultation fallback now adds student name, grade/year, goals, and availability inputs to the direct-email request.
+- The temporary `/resources` redirect was removed and replaced with a live resource hub linking to eight published Wix Blog articles with canonical `/post/...` URLs.
 - The native Vibe/Astro consultation source is still not deployed; do not remove the safety interception or claim native-form success until two new public submissions become `CONFIRMED`.
 
 ## Status — 2026-09-03
@@ -59,7 +60,7 @@ Spam filtering has been ruled out as a sufficient explanation because the live b
 
 - ID: `b3ececaf-c221-4ad1-9590-4aa112486e11`
 - Current live name: `Behavioral Bridge — Consultation Safety Banner v8`
-- Current live revision: `19`
+- Current live revision: `20`
 - Enabled: `true`
 - Category: `ESSENTIAL`
 - Position: `BODY_START`
@@ -72,7 +73,7 @@ Retired competing connector:
 - Enabled: `false`
 - Keep disabled.
 
-### Revision 19 visible behavior
+### Revision 20 visible behavior
 
 1. A large premium sitewide **EMAIL RYAN DIRECTLY →** banner appears near the top of every page while the automatic consultation transport remains untrusted.
 2. The warning is now explicit: the website form has had an intermittent delivery problem, a prior request may never have reached Ryan, and visitors should not rely on the website form alone until it is fully verified.
@@ -187,7 +188,7 @@ Do not recreate or casually modify this automation.
 
 ## Coordination rules
 
-1. Read the current live embed revision before every edit; revision `19` is only the current snapshot.
+1. Read the current live embed revision before every edit; revision `20` is only the current snapshot.
 2. Update only canonical embed `b3ececaf-c221-4ad1-9590-4aa112486e11` unless intentionally replacing it.
 3. Keep `0ac3fcaf-b699-42da-9867-972e09d58b75` disabled.
 4. Keep visible email safety mode in production until the native source path is implemented and repeatedly verified.
