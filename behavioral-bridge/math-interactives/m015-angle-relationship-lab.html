@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Behavioral Bridge — M015 Angle Relationship Lab</title><style>
+:root{--bg:#0f1115;--panel:#1a1e24;--ink:#f4f5f6;--muted:#aeb4be;--line:#343a44;--gold:#b9913e;--blue:#4d82c4;--green:#4e9a72;--red:#b96767;--purple:#8064a8;--orange:#c27a38}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#0d0f12,#15181d);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1180px;margin:auto;padding:28px}.head,.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px}.head{margin-bottom:18px}
+.brand{font-size:13px;letter-spacing:.14em;font-weight:800;color:#d8dbe0}.title{font-size:34px;font-weight:850;margin:7px 0 3px}.sub,.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;font-size:13px;font-weight:750;margin:10px 0 5px;color:#d8dce2}input,select{width:100%;padding:11px 12px;border-radius:11px;border:1px solid #3b424e;background:#101318;color:var(--ink);font:inherit}
+input[type=range]{padding:0;border:none;background:transparent}
+button{border:1px solid #434b58;background:#262c35;color:var(--ink);padding:10px 13px;border-radius:11px;font-weight:750;cursor:pointer}.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}
+.primary{background:var(--gold);border-color:var(--gold);color:#111}.metricgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.metric{background:#101318;border:1px solid var(--line);border-radius:13px;padding:12px}
+.metric b{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}.metric span{font-size:23px;font-weight:850}
+canvas{width:100%;height:420px;background:#101318;border:1px solid var(--line);border-radius:15px;margin-top:12px}.pill{background:#11151a;border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:9px}
+.good{color:#79c79d}.bad{color:#e0a6a6}.gold{color:var(--gold)}.blue{color:#75a5e0}.small{font-size:13px}
+@media(max-width:850px){.grid,.row{grid-template-columns:1fr}.metricgrid{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<div class="wrap"><div class="head"><div class="brand">BEHAVIORAL BRIDGE · SAT MATH · M015</div><div class="title">Angle Relationship Lab</div><div class="sub">Choose a relationship and change θ. The lab tells you whether the target angle is equal to θ or supplementary to it.</div></div>
+<div class="grid"><div class="card"><h2>Relationship controls</h2><label>Base angle θ</label><input id="theta" type="range" min="10" max="170" step="1" value="72"><div id="tv"></div><label>Relationship</label><select id="rel"><option value="vertical">Vertical angles</option><option value="linear">Linear pair</option><option value="corresponding">Corresponding angles (parallel lines)</option><option value="alternate">Alternate interior (parallel lines)</option><option value="same">Same-side interior (parallel lines)</option></select><div class="metricgrid"><div class="metric"><b>Target angle</b><span id="target"></span></div><div class="metric"><b>Rule</b><span id="rule"></span></div><div class="metric"><b>Equation</b><span id="eqn"></span></div></div></div>
+<div class="card"><h2>Diagram</h2><canvas id="g" width="520" height="420"></canvas><div class="pill" id="why"></div></div></div></div>
+<script>
+const $=id=>document.getElementById(id);
+function update(){const t=+$('theta').value,r=$('rel').value;let target,rule,why;if(['vertical','corresponding','alternate'].includes(r)){target=t;rule='EQUAL';why='These angle positions are congruent under the stated geometry.'}else{target=180-t;rule='SUPPLEMENTARY';why='These angles form a 180° relationship.'}$('tv').textContent=t+'°';$('target').textContent=target+'°';$('rule').textContent=rule;$('eqn').textContent=rule==='EQUAL'?'target = θ':'target = 180−θ';$('why').textContent=why;draw(t,r)}
+function draw(t,r){const c=$('g'),q=c.getContext('2d'),w=c.width,h=c.height;q.clearRect(0,0,w,h);q.fillStyle='#101318';q.fillRect(0,0,w,h);q.strokeStyle='#f4f5f6';q.lineWidth=5;if(r==='vertical'||r==='linear'){q.beginPath();q.moveTo(90,320);q.lineTo(430,100);q.stroke();q.beginPath();q.moveTo(90,100);q.lineTo(430,320);q.stroke();q.fillStyle='#b9913e';q.font='22px system-ui';q.fillText('θ',180,130);q.fillText(r==='vertical'?'θ':(180-t)+'°',305,300)}else{q.beginPath();q.moveTo(55,125);q.lineTo(465,125);q.stroke();q.beginPath();q.moveTo(55,300);q.lineTo(465,300);q.stroke();q.beginPath();q.moveTo(150,55);q.lineTo(365,370);q.stroke();q.fillStyle='#b9913e';q.font='22px system-ui';q.fillText('θ',175,110);let pos=r==='same'?[235,270]:r==='corresponding'?[290,285]:[245,165];q.fillText((['corresponding','alternate'].includes(r)?t:180-t)+'°',pos[0],pos[1])}}
+$('theta').oninput=update;$('rel').onchange=update;update();
+</script></body></html>
