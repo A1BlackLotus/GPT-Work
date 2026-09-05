@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Behavioral Bridge — M016 Target Angle Trig Lab</title><style>
+:root{--bg:#0f1115;--panel:#1a1e24;--ink:#f4f5f6;--muted:#aeb4be;--line:#343a44;--gold:#b9913e;--blue:#4d82c4;--green:#4e9a72;--red:#b96767;--purple:#8064a8;--orange:#c27a38}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#0d0f12,#15181d);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1180px;margin:auto;padding:28px}.head,.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px}.head{margin-bottom:18px}
+.brand{font-size:13px;letter-spacing:.14em;font-weight:800;color:#d8dbe0}.title{font-size:34px;font-weight:850;margin:7px 0 3px}.sub,.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;font-size:13px;font-weight:750;margin:10px 0 5px;color:#d8dce2}input,select{width:100%;padding:11px 12px;border-radius:11px;border:1px solid #3b424e;background:#101318;color:var(--ink);font:inherit}
+input[type=range]{padding:0;border:none;background:transparent}
+button{border:1px solid #434b58;background:#262c35;color:var(--ink);padding:10px 13px;border-radius:11px;font-weight:750;cursor:pointer}.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}
+.primary{background:var(--gold);border-color:var(--gold);color:#111}.metricgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.metric{background:#101318;border:1px solid var(--line);border-radius:13px;padding:12px}
+.metric b{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}.metric span{font-size:23px;font-weight:850}
+canvas{width:100%;height:420px;background:#101318;border:1px solid var(--line);border-radius:15px;margin-top:12px}.pill{background:#11151a;border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:9px}
+.good{color:#79c79d}.bad{color:#e0a6a6}.gold{color:var(--gold)}.blue{color:#75a5e0}.small{font-size:13px}
+@media(max-width:850px){.grid,.row{grid-template-columns:1fr}.metricgrid{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<div class="wrap"><div class="head"><div class="brand">BEHAVIORAL BRIDGE · SAT MATH · M016</div><div class="title">Target-Angle Trig Lab</div><div class="sub">Use the same 3–4–5 right triangle. Change the target acute angle and watch opposite/adjacent swap while the hypotenuse stays fixed.</div></div>
+<div class="grid"><div class="card"><h2>Choose target angle</h2><div class="buttons"><button class="primary" id="A">Target angle A</button><button id="B">Target angle B</button></div><div class="metricgrid" style="margin-top:14px"><div class="metric"><b>Opposite</b><span id="opp"></span></div><div class="metric"><b>Adjacent</b><span id="adj"></span></div><div class="metric"><b>Hypotenuse</b><span>5</span></div></div><div class="pill" id="ratios"></div><div class="pill" id="comp"></div></div>
+<div class="card"><h2>Same triangle, new side roles</h2><canvas id="g" width="520" height="420"></canvas></div></div></div>
+<script>
+const $=id=>document.getElementById(id);let target='A';
+function update(){const isA=target==='A',opp=isA?3:4,adj=isA?4:3;$('opp').textContent=opp;$('adj').textContent=adj;$('ratios').innerHTML=`<b>sin(${target}) = ${opp}/5</b><br><b>cos(${target}) = ${adj}/5</b><br><b>tan(${target}) = ${opp}/${adj}</b>`;$('comp').innerHTML=isA?'Complement check: <b>sin(A) = cos(B) = 3/5</b>.':'Complement check: <b>sin(B) = cos(A) = 4/5</b>.';draw()}
+function draw(){const c=$('g'),q=c.getContext('2d');q.clearRect(0,0,c.width,c.height);q.fillStyle='#101318';q.fillRect(0,0,c.width,c.height);const C=[95,335],A=[430,335],B=[95,85];q.strokeStyle='#f4f5f6';q.lineWidth=6;q.beginPath();q.moveTo(...C);q.lineTo(...A);q.lineTo(...B);q.closePath();q.stroke();q.strokeRect(C[0],C[1]-28,28,28);q.fillStyle='#aeb4be';q.font='20px system-ui';q.fillText('C',65,360);q.fillText('A',438,360);q.fillText('B',66,80);q.fillStyle='#b9913e';q.font='bold 24px system-ui';if(target==='A'){q.fillText('TARGET A',325,300);q.fillStyle='#b96767';q.fillText('OPP 3',24,205);q.fillStyle='#4e9a72';q.fillText('ADJ 4',230,370)}else{q.fillText('TARGET B',120,125);q.fillStyle='#b96767';q.fillText('OPP 4',225,370);q.fillStyle='#4e9a72';q.fillText('ADJ 3',20,205)}q.fillStyle='#b9913e';q.fillText('HYP 5',280,185)}
+$('A').onclick=()=>{target='A';update()};$('B').onclick=()=>{target='B';update()};update();
+</script></body></html>
