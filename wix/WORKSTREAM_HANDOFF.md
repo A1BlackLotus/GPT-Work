@@ -7,6 +7,7 @@
 - The safety banner, direct-email fallback, and retired connector state were preserved.
 - The consultation fallback now adds student name, grade/year, goals, and availability inputs to the direct-email request.
 - The temporary `/resources` redirect was removed and replaced with a live resource hub linking to eight published Wix Blog articles with canonical `/post/...` URLs.
+- A separate resource-only custom embed `65311ea0-35cf-4aef-8a6a-55dc2915212e` is enabled at revision `4`; it maps the homepage Featured Resources cards to the published `/post/...` articles, improves card presentation, and hides the retired dead placeholder resource section.
 - The native Vibe/Astro consultation source is still not deployed; do not remove the safety interception or claim native-form success until two new public submissions become `CONFIRMED`.
 
 ## Status — 2026-09-03
