@@ -4,36 +4,21 @@ Date: 2026-09-06
 
 ## Status
 
-Current roadmap step: **Step 1D — SAT native hero implementation + visual QA**
+Current roadmap step: **Step 2 — SAT method, proof, and conversion**
 
 - 1A Source-of-truth/runtime audit: COMPLETE
 - 1B Deterministic architecture/spec: COMPLETE
 - 1C Custom-embed implementation attempt: EXHAUSTED / RETIRED
-- 1D Native Vibe hero edit: IMPLEMENTED; PREVIEW VISUALLY VERIFIED; PUBLICATION / LIVE QA PENDING
-- 1E Freeze + canonical sync: PENDING AFTER VISUAL PASS
+- 1D Native Vibe hero edit: PUBLISHED / VISUALLY VERIFIED
+- 1E Freeze + canonical sync: COMPLETE; STEP1 FINISHED / FROZEN
 
-### Current execution checkpoint — native source accessible, 2026-09-06
+### Current execution checkpoint — Step1 frozen
 
-Chrome extension connection is fixed. The canonical signed-in editor is controllable through Chrome. Do not repeat plugin audits, login, native Windows fallback, or browser setup.
+Verified 2026-09-06 21:45:51 UTC. The approved native hero is now LIVE at /sat-tutoring. Desktop and390x844 mobile screenshots passed; both CTA routes correct, single hero, client/scroll widths375px, lower sections and header unchanged. See SAT_STEP1_FREEZE_RECORD_TEMPLATE_2026-09-06.md for the completed gate.
 
-Implemented directly in the native Code tab:
-- src/components/pages/SATTutoringPage.tsx: approved Step1 hero, two correct CTAs, light cream/charcoal/legible gold. Removed unused hero image/animation declaration. Original lower SAT sections retained.
-- src/components/pages/HomePage.tsx: a narrow four-number tuple annotation for the existing easing curve clears 19 pre-existing type errors without changing its behavior or appearance.
-- src/pages/api/consultation.ts: repairs pre-existing build errors (wrong Forms namespace, uninvoked elevated functions) and Astro handler shape; uses verified *_bb form target fields and only confirms success with a confirmed submission ID. Public safety fallback remains unchanged.
-- src/pages/api/blog/posts.ts: repairs pre-existing invalid Blog import, fieldsets, response wrapper, published-post fields, and Astro handler. Plain contentText matches the existing reader.
+Native source changes: SATTutoringPage.tsx hero; behavior-preserving HomePage.tsx animation tuple typing; pre-existing build dependency repairs to src/pages/api/consultation.ts and src/pages/api/blog/posts.ts. Production build PASSED. Read-only generated ecommerce integration type-expansion errors remain; that protected source was not modified. Core embedrev7 remains SAT cleanup-only. Consultation safety/fallbackrev25 remains active; actual form submission reliability awaits Step8.
 
-The API repairs are required build dependencies discovered while publishing Step1, not a completed consultation/article rollout.
-
-Verification:
-- Native desktop hero preview passed.
-- Native 390x844 mobile preview passed; measured client/scroll widths both375px; CTAs stacked and copy readable.
-- Saved hero survived editor reload and is present in native source history.
-- Two publication attempts failed with Wix's technical-issue message. Full native source checking found the old endpoint errors plus generated integration SDK type-expansion errors. The corrected source is undergoing the production build now.
-- integrations/cms/cms-ecom/currency.ts is read-only. An attempted editor change was refused; it was not modified. Do not bypass that protection.
-- Public /sat-tutoring still showed old hero at last check. No live visual pass or freeze is claimed.
-
-Next: complete native production build, publish the corrected existing site, verify live desktop/mobile and CTA destinations, then complete Step1E before Step2 live edits.
-Prepared local Step2 JSX and read-only consultation/launch investigations exist in the Codex task's work directory. Consultation safety embed is now rev25 (not the older rev21 in brief); preserve it until Step8 native transport is verified.
+Chrome is connected and working. No further setup/plugin audit needed. Next: implement prepared native lower SAT method/proof/conversion, inspect desktop/mobile, then EF and other roadmap pages. Update records at freeze milestones, not after every micro-edit. Existing /sat-tutoring and /ef-specialized-support routes remain canonical until Step9 alias reconciliation.
 
 ### Current connection audit
 
