@@ -1,228 +1,70 @@
-# Behavioral Bridge SAT — Native Vibe Editor Handoff
-
-Date: 2026-09-06
-
-## Status
-
-Current roadmap step: **Step 2 — SAT method, proof, and conversion**
-
-- 1A Source-of-truth/runtime audit: COMPLETE
-- 1B Deterministic architecture/spec: COMPLETE
-- 1C Custom-embed implementation attempt: EXHAUSTED / RETIRED
-- 1D Native Vibe hero edit: PUBLISHED / VISUALLY VERIFIED
-- 1E Freeze + canonical sync: COMPLETE; STEP1 FINISHED / FROZEN
-
-### Current execution checkpoint — Step1 frozen
-
-Verified 2026-09-06 21:45:51 UTC. The approved native hero is now LIVE at /sat-tutoring. Desktop and390x844 mobile screenshots passed; both CTA routes correct, single hero, client/scroll widths375px, lower sections and header unchanged. See SAT_STEP1_FREEZE_RECORD_TEMPLATE_2026-09-06.md for the completed gate.
-
-Native source changes: SATTutoringPage.tsx hero; behavior-preserving HomePage.tsx animation tuple typing; pre-existing build dependency repairs to src/pages/api/consultation.ts and src/pages/api/blog/posts.ts. Production build PASSED. Read-only generated ecommerce integration type-expansion errors remain; that protected source was not modified. Core embedrev7 remains SAT cleanup-only. Consultation safety/fallbackrev25 remains active; actual form submission reliability awaits Step8.
-
-Chrome is connected and working. No further setup/plugin audit needed. Next: implement prepared native lower SAT method/proof/conversion, inspect desktop/mobile, then EF and other roadmap pages. Update records at freeze milestones, not after every micro-edit. Existing /sat-tutoring and /ef-specialized-support routes remain canonical until Step9 alias reconciliation.
-
-### Current connection audit
-
-Successful read-only checks: Wix, GitHub (including this repository), Google Drive, Gmail, Google Calendar, GSC Wizard, Make, Stripe, Walla, Canva, Figma, Vercel, Adobe, Notion, OpenArt, Lucid, Malwarebytes, and Norton. These checks do not establish every write permission or paid feature.
-
-- GSC Wizard: Google account authenticated with webmaster scope, but no website properties connected. Defer property setup to Step 12.
-- Opera Browser Connector: disconnected; requires “Allow AI connection” and Opera account sign-in. Chrome is now connected and used for the native editor.
-- Codex document control: no connected Excel/PowerPoint/Sheets document sessions.
-- Figma: authenticated with a View seat on the starter team; edit access unverified.
-- Vercel: request succeeded, but no teams returned; project/deployment access unverified.
-- Notion: basic workspace access confirmed; advanced features have plan restrictions.
-- Malwarebytes and Norton: reputation requests succeeded; both reported unknown for the live Wix hostname, not a security clearance.
-- Local artifact/development skills are not external account connections. Recommended but uninstalled Outlook/Slack/Teams/Box/SharePoint/Atlassian plugins were not treated as connected or installed for this website.
-- No calendar changes, payments, broad permission changes, or new external systems were made.
-
-### Fresh route evidence — inspect before the native edit
-
-The public `/sat-prep` URL resolved to the homepage after client rendering in this session. The current site's header/footer SAT links point to `/sat-tutoring`. Following that link rendered the existing SAT page with “PREMIUM DIGITAL SAT TUTORING”, “Elite SAT Preparation”, “Built for Excellence”, the generic paragraph, and one consultation CTA.
-
-Desktop and 390 × 844 mobile baseline screenshots were visually inspected in the Codex task. Mobile document client/scroll width were both 375 px. At that baseline the approved replacement hero was not present; see current checkpoint for the new native preview implementation. Desktop header crowding is deferred to Step 9.
-
-After Chrome control is available, inspect the existing SAT page and native route configuration within site `e6f68a23-cc00-421a-985e-515963cbe5f0` before acting on the older `/sat-prep` assumption below. Reconcile the route using current editor evidence; do not create a duplicate page/site and do not reopen the retired embed approach. No production content or embeds were changed during this audit.
-
-## Important architectural conclusion
-
-Do **not** continue trying to replace the SAT hero through the Core Authenticity custom embed.
-
-The live `/sat-prep` page repeatedly showed the unchanged native Vibe hero after multiple technically valid embed revisions. The custom-embed approach was therefore retired for SAT rather than continuing selector/timing patches.
-
-The native Vibe/Picasso editor is the source of truth for this hero.
-
-Editor URL:
-
-`https://vibe.wix.com/projects/e6f68a23-cc00-421a-985e-515963cbe5f0/v/editor`
-
-Preview URL:
-
-`https://vibe.wix.com/preview/e6f68a23-cc00-421a-985e-515963cbe5f0`
-
-Live site:
-
-`https://my-site-h5mhm1d7-ryancarvalho6.wix-vibe-site.com/`
-
-SAT route:
-
-`/sat-prep`
-
-## Failed/retired SAT custom-embed path
-
-Canonical Core Authenticity embed ID:
-
-`73a2dd88-1c32-44e4-a5a1-4e031f95e685`
-
-Historical SAT attempts included:
-
-- rev2 — SAT Hero
-- rev3 — SAT Render Repair
-- rev4 — SAT Route-Owned Hero
-- rev5 — SAT Body-Fallback Repair
-- rev6 — Vibe Hydration Timing Repair
-
-Each revision was technically stored/enabled and the route resolved correctly, but the live mobile SAT page still rendered the old native hero.
-
-The working Results embeds and failing SAT embed were compared. Delivery settings matched: enabled, `loadOnce=false`, `BODY_END`, no domain restriction, no page filter, `ESSENTIAL`. Route/hydration timing was also tested. The live result still did not change.
-
-Therefore: **do not burn additional time on SAT DOM replacement through this embed.**
-
-Current revision 7 was renamed as a native-editor handoff and the active SAT branch is cleanup/neutralization only so old SAT injected elements cannot unexpectedly double-render later. The retained historical `sat()` function is not the active `/sat-prep` execution path. EF/About behavior remains separate and should not be casually altered during the SAT native edit.
-
-## Approved native SAT hero
-
-Replace only the first hero section on `/sat-prep`.
-
-Eyebrow:
-
-**DIGITAL SAT TUTORING**
-
-Primary headline:
-
-**Digital SAT Preparation**
-
-Gold-accent headline line:
-
-**Built Around Better Decisions**
-
-Body:
-
-**Strong students usually don’t need more random practice. I identify where points are actually being lost, teach a repeatable route, and build speed only after the decision process is reliable.**
-
-Support line:
-
-**DIAGNOSE THE ERROR → FIX THE DECISION → VERIFY THE TRANSFER**
-
-CTA 1:
-
-**BOOK A CONSULTATION →** → `/book-consultation`
-
-CTA 2:
-
-**SEE RESULTS →** → `/results`
-
-## Exact Vibe editor instruction
-
-Paste this into the existing Behavioral Bridge Vibe editor:
-
-> On the EXISTING `/sat-prep` page only, replace the current first hero section natively. Do not create a new page or new site. Do not change the global header/navigation or any sections below the hero.
->
-> Remove the current hero content including:
-> - “PREMIUM DIGITAL SAT TUTORING”
-> - “Elite SAT Preparation”
-> - “Built for Excellence”
-> - the current comprehensive tutoring paragraph
-> - the current “Schedule a Consultation” hero button
->
-> Replace it with:
->
-> Eyebrow: **DIGITAL SAT TUTORING**
->
-> Main heading: **Digital SAT Preparation**
->
-> Gold-accent heading line: **Built Around Better Decisions**
->
-> Body copy: **Strong students usually don’t need more random practice. I identify where points are actually being lost, teach a repeatable route, and build speed only after the decision process is reliable.**
->
-> Supporting line: **DIAGNOSE THE ERROR → FIX THE DECISION → VERIFY THE TRANSFER**
->
-> Add exactly two CTA buttons:
-> 1. **BOOK A CONSULTATION →** linking to `/book-consultation`
-> 2. **SEE RESULTS →** linking to `/results`
->
-> Keep the design consistent with Behavioral Bridge: premium soft white/cream and grayscale base, charcoal text, restrained gold accents, editorial serif headline with clean sans-serif support text, generous spacing, rounded buttons, professional rather than flashy.
->
-> On mobile, the headline must fit without clipping, the paragraph must remain comfortably readable, and the two CTAs should stack full-width.
->
-> Preserve all content below the hero exactly as it currently exists. Do not modify Executive Function, About, Results, Resources, navigation, footer, forms, SEO, or other pages.
-
-## 1D visual verification checklist
-
-After the native edit is published, verify from live-page screenshots:
-
-- Behavioral Bridge header/logo unchanged
-- eyebrow reads exactly `DIGITAL SAT TUTORING`
-- no `PREMIUM` remnant
-- headline reads `Digital SAT Preparation`
-- gold line reads `Built Around Better Decisions`
-- no `Elite SAT Preparation`
-- no `Built for Excellence`
-- approved paragraph visible and readable
-- support line visible and not awkwardly wrapped
-- exactly two hero CTAs
-- consultation CTA points to `/book-consultation`
-- Results CTA points to `/results`
-- buttons stack cleanly on mobile
-- no duplicate native consultation button
-- no clipping/overflow
-- hero height is reasonable
-- lower SAT content remains unchanged
-- no duplicate hero injected by a dormant custom embed
-
-## 1E freeze checklist
-
-Only after 1D passes:
-
-1. Mark Step 1 visually verified.
-2. Freeze the SAT hero copy/layout.
-3. Confirm the Core Authenticity SAT branch remains cleanup/neutralized.
-4. Complete `wix/SAT_STEP1_FREEZE_RECORD_TEMPLATE_2026-09-06.md` with live evidence.
-5. Update this handoff with the published native state.
-6. Begin Step 2 — SAT Method + Proof + Conversion.
-
-## Step 2 ready state
-
-Step 2 planning has already been prepared so desktop time is not spent re-investigating the lower page.
-
-Canonical Step 2 spec:
-
-`wix/SAT_STEP2_METHOD_PROOF_CONVERSION_SPEC_2026-09-06.md`
-
-Status: PREPARED ONLY — DO NOT IMPLEMENT LIVE UNTIL STEP 1 IS FROZEN.
-
-The recovered lower-page architecture is generic assessment → content mastery → deliberate practice → performance tracking. Step 2 will preserve the useful intent while rebuilding it around the actual Behavioral Bridge SAT decision system, defensible proof, student/parent fit, and conversion.
-
-## Deferred items
-
-Do not mix these into Step 1:
-
-- Full `Classify → Activate → Predict → Prove` method presentation → Step 2
-- Student fit/proof/conversion below first screen → Step 2
-- SAT SEO title (`sat-prep | Behavioral Bridge`) → Step 11
-- Global header/footer reconciliation → Step 9
-- Domain/GSC work → Steps 11–12
-
-## Desktop resume sequence
-
-When computer/editor access is restored:
-
-1. Open the exact editor URL above.
-2. Inspect the existing SAT page currently linked at `/sat-tutoring` and reconcile the `/sat-prep` route assumption without duplicating the page.
-3. Apply only the approved native hero instruction.
-4. Publish.
-5. Capture/inspect live desktop and mobile hero evidence.
-6. If the 1D checklist passes, complete the Step 1 freeze record and mark Step 1 FINISHED/FROZEN.
-7. Begin Step 2A inspection. Do not redesign the hero again unless a regression is found.
-
-## Rule going forward
-
-For native Vibe visual content, screenshots are visual truth. API/custom-embed revision success is not proof that the live page changed.
+# Behavioral Bridge — Native Wix Execution Handoff
+
+Updated 2026-09-06. Canonical site: e6f68a23-cc00-421a-985e-515963cbe5f0.
+Editor: https://vibe.wix.com/projects/e6f68a23-cc00-421a-985e-515963cbe5f0/v/editor
+Live: https://my-site-h5mhm1d7-ryancarvalho6.wix-vibe-site.com/
+
+## Current checkpoint
+Steps 1–5 are PUBLISHED / VISUALLY VERIFIED / FROZEN. Continue with Step 6 Resources and Step 7 native article presentation. Do not restart connection audits, the SAT hero, or previous build recovery.
+
+- Step 1: approved native SAT hero, exact copy and two CTAs, frozen at 21:45:51 UTC. Detailed gate: SAT_STEP1_FREEZE_RECORD_TEMPLATE_2026-09-06.md.
+- Steps 2–3: rebuilt SAT lower sections and the full EF page. Native build passed 21:55:53 UTC (13.76 seconds), published successfully. Live desktop and 390×844 mobile views verified; mobile client/scroll width375px for both. SAT hero remains unchanged and appears once.
+- Steps 4–5: rebuilt About and Home with Ryan's preserved portrait, the existing lighthouse artwork, cream/charcoal/gold editorial composition, concrete copy, real proof statistics, and direct service paths. Native build passed 22:06:03 UTC (15.08 seconds), published successfully. Live desktop and mobile screenshots inspected; both mobile client/scroll widths375px, one H1, no failed main images.
+- No Vibe AI prompts were used for these visual edits. Source changed through the existing native Code editor. No new site or paid service was created.
+
+## Changed native source
+src/components/pages/SATTutoringPage.tsx — approved frozen hero plus diagnosis, Classify→Activate→Predict→Prove, illustrative error repair, accuracy before speed, fit, parent role, proof, CTA.
+src/components/pages/EFSpecializedSupportPage.tsx — sunlit study image, real student/parent problems, Capture→Plan→Prioritize→Start→Sustain→Monitor→Finish, coaching example, expectations, fit, Ryan background, Results/consultation.
+src/components/pages/AboutPage.tsx — real portrait, specific philosophy, defensible experience/education, Systems→Strategy→Behavior→Performance, clear service/consultation links.
+src/components/pages/HomePage.tsx — visible lighthouse artwork, clear promise, ratings/experience strip, two primary service routes, method, Ryan portrait, real article links, restrained CTA. Removed generic testimonial paraphrases and placeholder resource promotions; established Results proof preserved.
+
+Previously repaired: src/pages/api/consultation.ts and src/pages/api/blog/posts.ts. Their build succeeds. Generated ecommerce type-expansion errors remain in protected, read-only integration files; no override was attempted. Avoid repeating the broad 10-minute source check; build is the meaningful publication gate.
+
+## Immediate next batch: Resources and articles
+Native /post/accuracy-before-speed-sat-timing has been verified live with the real article body. Current native reader flattens rich content to text and needs headings/lists/paragraph spacing, image, related navigation, honest loading/not-found/error states, and stale-request cancellation.
+All TWELVE core articles are published in Wix Blog, freshly verified via Query Posts. They contain PARAGRAPH, HEADING, BULLETED_LIST, and some ORDERED_LIST nodes. Preserve bodies/slugs.
+Core slugs:
+- accuracy-before-speed-sat-timing
+- behavioral-bridge-method-systems-strategy-behavior-performance
+- parents-support-sat-prep-without-sat-police
+- executive-function-high-achieving-teen
+- why-smart-students-still-procrastinate
+- why-more-sat-practice-often-fails
+- sat-reading-writing-error-patterns-below-700
+- how-high-scoring-students-use-desmos-digital-sat
+- weekly-executive-function-reset
+- from-reminders-to-independence
+- homework-initiation-executive-function
+- why-motivation-is-wrong-target-executive-function
+
+Existing custom embeds, read this batch:
+- Resources Router & Cards 65311ea0-35cf-4aef-8a6a-55dc2915212e revision14, enabled. Contains eight image/title/description records, replaces legacy resource grid, rewrites all eight native /post links to /resources?article=slug. Home replacement only triggers old Featured Resources/placeholder headings; new Home does not trigger it.
+- EF resource extension 965f4e07-3f81-4ea0-a03d-7501444795dc revision2, enabled. Adds four EF records/images to the injected hub.
+- Article Reader 827e1cf6-b008-40e1-9df4-d8f822f88a63 revision16, enabled. Renders /resources?article=slug from an existing article library; does not intercept direct /post paths.
+Preserve legacy query reader until native routes for all twelve plus unknown slug pass. Native library should retain twelve existing images, offer clear SAT/EF/method categories, and avoid old dead CMS tiles. Once native reader verified, remove/restrict the obsolete link rewrite rather than piling on another DOM hack; keep old query URLs working through an intentional native redirect.
+
+## Remaining roadmap
+6 Resources library; 7 Article reading; 8 Consultation end-to-end; 9 Header/footer/mobile navigation and route aliases; 10 Sitewide responsive/accessibility; 11 Domain/email/SEO; 12 Search Console; 13 Analytics; 14 Authority/distribution; 15 Useful automation + final maintenance freeze.
+
+## Consultation gate
+Form b692e647-b20c-45b0-ae1d-2530df030907 revision8 enabled.
+Required targets first_name_bb,last_name_bb,email_bb,student_name_bb,student_grade_bb,goals_bb; optional phone_bb,availability_bb,service_bb. Frontend/endpoint require service too.
+Owner email Ryan_Carvalho@BehavioralBridge.org; public phone508-774-0989.
+Automation2695710a-a944-4fbd-9fe6-a7341b8cf53f revision2 ACTIVE, correct owner notification.
+Safety embed b3ececaf-c221-4ad1-9590-4aa112486e11 revision25 ENABLED: still intercepts form submission to mailto and injects four fields. Do not remove fallback prematurely.
+Publish native nine-field form with in-flight guard, preserved values, confirmed-record-only success, inline email fallback. Then replace interception/field injection with banner-only fallback and reload. Test TWO consecutive live TEST ONLY submissions using owner email; confirm exactly one Wix record each and corresponding owner emails. Restore BASIC spam protection from NONE and retest. Do not freeze based on API success alone.
+
+## Global / launch facts
+Canonical native service routes are /sat-tutoring and /ef-specialized-support. /sat-prep and /executive-function currently render Home; reconcile deliberately at Step9 without duplicate pages.
+Header still has duplicate logo/wordmark desktop, deferred to Step9. Footer's stale copy/archive link needs review then.
+Results page and evidence are frozen. Preserve reviews, source attribution, referral terms, and Results custom embeds.
+Core Authenticity embed73a2dd88-1c32-44e4-a5a1-4e031f95e685 revision7 has SAT cleanup-only active path; never revive retired SAT injection.
+Site is Free plan, with Wix badge. Do not purchase plan/domain or change DNS. Domain ownership/connection unresolved; API403 DOMAIN_NOT_PERMITTED is not proof of no ownership. Stale externalSiteUrl TheBehavioralBridge.org needs scoped review.
+Search Console account authenticated but no properties. No bootstrap property route established. Complete what supported UI/auth allows; otherwise specific owner handoff.
+Native Wix analytics already works. Prior development traffic:33sessions/33visitors/97views Aug29–Sep5; no meaningful conversion baseline. No new analytics stack needed merely to show activity.
+
+## Credentials and style
+Ryan Carvalho: B.S.Psychology magna cum laude Bridgewater State;12+years; Boston Latin/Brookline/Newton experience. No graduate attendance/graduation claim. No clinical diagnosis, fake scores, fabricated reviews, or unsupported elite/proven claims.
+Cream/white, charcoal, graphite, silver, restrained accessible gold#806326; editorial serif headings, sans-serif body. Preserve useful existing imagery. Distinct page compositions, concrete methods/examples, modest CTAs.
+Chrome connected and working. No more plugin audit. Eighteen connectors authenticated previously; Opera disconnected and irrelevant. No Calendar/Stripe/Make changes needed unless a concrete remaining website requirement justifies them.
+Use native source edits, coherent builds/publishes, and concise freeze records. No repeated micro-update reports. Finish only after live visual/function gates pass and remaining domain/owner constraints are honestly documented.
