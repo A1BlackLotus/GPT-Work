@@ -9,12 +9,18 @@ Current roadmap step: **Step 1D — SAT native hero implementation + visual QA**
 - 1A Source-of-truth/runtime audit: COMPLETE
 - 1B Deterministic architecture/spec: COMPLETE
 - 1C Custom-embed implementation attempt: EXHAUSTED / RETIRED
-- 1D Native Vibe hero edit: PENDING DESKTOP / COMPUTER EDITOR ACCESS
+- 1D Native Vibe hero edit: PENDING SUPPORTED CHROME CONNECTION
 - 1E Freeze + canonical sync: PENDING AFTER VISUAL PASS
 
-### Current blocker — verified desktop session, 2026-09-06 19:54 UTC
+### Current blocker — Chrome authenticated; browser control unavailable, 2026-09-06
 
-The canonical Wix API connection is authenticated, and the Codex in-app browser can inspect the public site. The native Vibe editor opens a Wix login screen and still requires the owner to complete browser authentication. This replaces the earlier phone-only blocker. Step 1D is not implemented, published, or visually verified; Step 1E remains pending.
+The owner opened the canonical Vibe editor in Google Chrome and is signed in. Native screenshots confirmed the correct project. Do not ask the owner to repeat Wix login.
+
+The dedicated browser inventory exposes only the Codex in-app browser, not Chrome. The native Windows fallback repeatedly stopped because it could not determine the current browser URL well enough to enforce policy. Do not repeat focus/minimize-game or login loops. No approved hero prompt was successfully submitted. Step 1D is not implemented or visually verified; Step 1E remains pending. A publishing indicator appeared during owner activity, but the agent did not initiate publishing and did not verify its completion.
+
+The next setup step is the official Chrome extension connection: desktop app Settings > Computer Use > Google Chrome > Install, using the same Chrome profile containing Wix; return and confirm Manage, then mention Chrome or the editor tab in the task. Source: https://learn.chatgpt.com/docs/chrome-extension . Chrome availability can depend on app version, rollout, and workspace settings.
+
+The user has already authorized necessary website work and approvals, prefers Chrome, and wants minimal questions and repeated audits. Resume with the existing native SAT hero, not another plugin inventory.
 
 ### Current connection audit
 
@@ -36,7 +42,7 @@ The public `/sat-prep` URL resolved to the homepage after client rendering in th
 
 Desktop and 390 × 844 mobile baseline screenshots were visually inspected in the Codex task. Mobile document client/scroll width were both 375 px. The approved replacement hero is not present. Desktop header crowding is deferred to Step 9.
 
-After browser authentication, inspect the existing SAT page and native route configuration within site `e6f68a23-cc00-421a-985e-515963cbe5f0` before acting on the older `/sat-prep` assumption below. Reconcile the route using current editor evidence; do not create a duplicate page/site and do not reopen the retired embed approach. No production content or embeds were changed during this audit.
+After Chrome control is available, inspect the existing SAT page and native route configuration within site `e6f68a23-cc00-421a-985e-515963cbe5f0` before acting on the older `/sat-prep` assumption below. Reconcile the route using current editor evidence; do not create a duplicate page/site and do not reopen the retired embed approach. No production content or embeds were changed during this audit.
 
 ## Important architectural conclusion
 
@@ -212,7 +218,7 @@ Do not mix these into Step 1:
 When computer/editor access is restored:
 
 1. Open the exact editor URL above.
-2. Open the existing `/sat-prep` page.
+2. Inspect the existing SAT page currently linked at `/sat-tutoring` and reconcile the `/sat-prep` route assumption without duplicating the page.
 3. Apply only the approved native hero instruction.
 4. Publish.
 5. Capture/inspect live desktop and mobile hero evidence.
