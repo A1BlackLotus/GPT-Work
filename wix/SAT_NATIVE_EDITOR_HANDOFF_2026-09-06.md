@@ -12,11 +12,31 @@ Current roadmap step: **Step 1D — SAT native hero implementation + visual QA**
 - 1D Native Vibe hero edit: PENDING DESKTOP / COMPUTER EDITOR ACCESS
 - 1E Freeze + canonical sync: PENDING AFTER VISUAL PASS
 
-### Current blocker
+### Current blocker — verified desktop session, 2026-09-06 19:54 UTC
 
-The remaining live Step 1 work is a native edit inside the existing Wix Vibe/Picasso editor. The user is currently on a phone, where the Vibe editor is not usable for this edit. Wix REST/custom-embed tools do not provide a reliable supported replacement for this native section edit, and the prior SAT custom-embed path is retired.
+The canonical Wix API connection is authenticated, and the Codex in-app browser can inspect the public site. The native Vibe editor opens a Wix login screen and still requires the owner to complete browser authentication. This replaces the earlier phone-only blocker. Step 1D is not implemented, published, or visually verified; Step 1E remains pending.
 
-Do not interpret this as a design/spec blocker. The implementation instructions are complete. Resume the live edit when desktop/computer editor access is available.
+### Current connection audit
+
+Successful read-only checks: Wix, GitHub (including this repository), Google Drive, Gmail, Google Calendar, GSC Wizard, Make, Stripe, Walla, Canva, Figma, Vercel, Adobe, Notion, OpenArt, Lucid, Malwarebytes, and Norton. These checks do not establish every write permission or paid feature.
+
+- GSC Wizard: Google account authenticated with webmaster scope, but no website properties connected. Defer property setup to Step 12.
+- Opera Browser Connector: disconnected; requires “Allow AI connection” and Opera account sign-in. Current CUA inventory exposes only the in-app browser, with no native app or other browser surface.
+- Codex document control: no connected Excel/PowerPoint/Sheets document sessions.
+- Figma: authenticated with a View seat on the starter team; edit access unverified.
+- Vercel: request succeeded, but no teams returned; project/deployment access unverified.
+- Notion: basic workspace access confirmed; advanced features have plan restrictions.
+- Malwarebytes and Norton: reputation requests succeeded; both reported unknown for the live Wix hostname, not a security clearance.
+- Local artifact/development skills are not external account connections. Recommended but uninstalled Outlook/Slack/Teams/Box/SharePoint/Atlassian plugins were not treated as connected or installed for this website.
+- No calendar changes, payments, broad permission changes, or new external systems were made.
+
+### Fresh route evidence — inspect before the native edit
+
+The public `/sat-prep` URL resolved to the homepage after client rendering in this session. The current site's header/footer SAT links point to `/sat-tutoring`. Following that link rendered the existing SAT page with “PREMIUM DIGITAL SAT TUTORING”, “Elite SAT Preparation”, “Built for Excellence”, the generic paragraph, and one consultation CTA.
+
+Desktop and 390 × 844 mobile baseline screenshots were visually inspected in the Codex task. Mobile document client/scroll width were both 375 px. The approved replacement hero is not present. Desktop header crowding is deferred to Step 9.
+
+After browser authentication, inspect the existing SAT page and native route configuration within site `e6f68a23-cc00-421a-985e-515963cbe5f0` before acting on the older `/sat-prep` assumption below. Reconcile the route using current editor evidence; do not create a duplicate page/site and do not reopen the retired embed approach. No production content or embeds were changed during this audit.
 
 ## Important architectural conclusion
 
