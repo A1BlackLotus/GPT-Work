@@ -4,13 +4,19 @@ Date: 2026-09-06
 
 ## Status
 
-Current roadmap step: **Step 1 — SAT Runtime + Hero Completion**
+Current roadmap step: **Step 1D — SAT native hero implementation + visual QA**
 
 - 1A Source-of-truth/runtime audit: COMPLETE
 - 1B Deterministic architecture/spec: COMPLETE
 - 1C Custom-embed implementation attempt: EXHAUSTED / RETIRED
-- 1D Live visual QA: BLOCKED ON NATIVE VIBE EDIT
+- 1D Native Vibe hero edit: PENDING DESKTOP / COMPUTER EDITOR ACCESS
 - 1E Freeze + canonical sync: PENDING AFTER VISUAL PASS
+
+### Current blocker
+
+The remaining live Step 1 work is a native edit inside the existing Wix Vibe/Picasso editor. The user is currently on a phone, where the Vibe editor is not usable for this edit. Wix REST/custom-embed tools do not provide a reliable supported replacement for this native section edit, and the prior SAT custom-embed path is retired.
+
+Do not interpret this as a design/spec blocker. The implementation instructions are complete. Resume the live edit when desktop/computer editor access is available.
 
 ## Important architectural conclusion
 
@@ -56,7 +62,7 @@ The working Results embeds and failing SAT embed were compared. Delivery setting
 
 Therefore: **do not burn additional time on SAT DOM replacement through this embed.**
 
-Current revision 7 was renamed as a native-editor handoff and the SAT branch was neutralized so it cannot unexpectedly double-render later. EF/About behavior remains separate and should not be casually altered during the SAT native edit.
+Current revision 7 was renamed as a native-editor handoff and the active SAT branch is cleanup/neutralization only so old SAT injected elements cannot unexpectedly double-render later. The retained historical `sat()` function is not the active `/sat-prep` execution path. EF/About behavior remains separate and should not be casually altered during the SAT native edit.
 
 ## Approved native SAT hero
 
@@ -127,7 +133,7 @@ Paste this into the existing Behavioral Bridge Vibe editor:
 
 ## 1D visual verification checklist
 
-After the native edit is published, verify on a real mobile live-page screenshot:
+After the native edit is published, verify from live-page screenshots:
 
 - Behavioral Bridge header/logo unchanged
 - eyebrow reads exactly `DIGITAL SAT TUTORING`
@@ -154,9 +160,22 @@ Only after 1D passes:
 
 1. Mark Step 1 visually verified.
 2. Freeze the SAT hero copy/layout.
-3. Confirm the Core Authenticity SAT branch remains neutralized.
-4. Update this handoff with the published native state.
-5. Begin Step 2 — SAT Method + Proof + Conversion.
+3. Confirm the Core Authenticity SAT branch remains cleanup/neutralized.
+4. Complete `wix/SAT_STEP1_FREEZE_RECORD_TEMPLATE_2026-09-06.md` with live evidence.
+5. Update this handoff with the published native state.
+6. Begin Step 2 — SAT Method + Proof + Conversion.
+
+## Step 2 ready state
+
+Step 2 planning has already been prepared so desktop time is not spent re-investigating the lower page.
+
+Canonical Step 2 spec:
+
+`wix/SAT_STEP2_METHOD_PROOF_CONVERSION_SPEC_2026-09-06.md`
+
+Status: PREPARED ONLY — DO NOT IMPLEMENT LIVE UNTIL STEP 1 IS FROZEN.
+
+The recovered lower-page architecture is generic assessment → content mastery → deliberate practice → performance tracking. Step 2 will preserve the useful intent while rebuilding it around the actual Behavioral Bridge SAT decision system, defensible proof, student/parent fit, and conversion.
 
 ## Deferred items
 
@@ -167,6 +186,18 @@ Do not mix these into Step 1:
 - SAT SEO title (`sat-prep | Behavioral Bridge`) → Step 11
 - Global header/footer reconciliation → Step 9
 - Domain/GSC work → Steps 11–12
+
+## Desktop resume sequence
+
+When computer/editor access is restored:
+
+1. Open the exact editor URL above.
+2. Open the existing `/sat-prep` page.
+3. Apply only the approved native hero instruction.
+4. Publish.
+5. Capture/inspect live desktop and mobile hero evidence.
+6. If the 1D checklist passes, complete the Step 1 freeze record and mark Step 1 FINISHED/FROZEN.
+7. Begin Step 2A inspection. Do not redesign the hero again unless a regression is found.
 
 ## Rule going forward
 
