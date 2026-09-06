@@ -9,25 +9,38 @@ Current roadmap step: **Step 1D — SAT native hero implementation + visual QA**
 - 1A Source-of-truth/runtime audit: COMPLETE
 - 1B Deterministic architecture/spec: COMPLETE
 - 1C Custom-embed implementation attempt: EXHAUSTED / RETIRED
-- 1D Native Vibe hero edit: PENDING SUPPORTED CHROME CONNECTION
+- 1D Native Vibe hero edit: IMPLEMENTED; PREVIEW VISUALLY VERIFIED; PUBLICATION / LIVE QA PENDING
 - 1E Freeze + canonical sync: PENDING AFTER VISUAL PASS
 
-### Current blocker — Chrome authenticated; browser control unavailable, 2026-09-06
+### Current execution checkpoint — native source accessible, 2026-09-06
 
-The owner opened the canonical Vibe editor in Google Chrome and is signed in. Native screenshots confirmed the correct project. Do not ask the owner to repeat Wix login.
+Chrome extension connection is fixed. The canonical signed-in editor is controllable through Chrome. Do not repeat plugin audits, login, native Windows fallback, or browser setup.
 
-The dedicated browser inventory exposes only the Codex in-app browser, not Chrome. The native Windows fallback repeatedly stopped because it could not determine the current browser URL well enough to enforce policy. Do not repeat focus/minimize-game or login loops. No approved hero prompt was successfully submitted. Step 1D is not implemented or visually verified; Step 1E remains pending. A publishing indicator appeared during owner activity, but the agent did not initiate publishing and did not verify its completion.
+Implemented directly in the native Code tab:
+- src/components/pages/SATTutoringPage.tsx: approved Step1 hero, two correct CTAs, light cream/charcoal/legible gold. Removed unused hero image/animation declaration. Original lower SAT sections retained.
+- src/components/pages/HomePage.tsx: a narrow four-number tuple annotation for the existing easing curve clears 19 pre-existing type errors without changing its behavior or appearance.
+- src/pages/api/consultation.ts: repairs pre-existing build errors (wrong Forms namespace, uninvoked elevated functions) and Astro handler shape; uses verified *_bb form target fields and only confirms success with a confirmed submission ID. Public safety fallback remains unchanged.
+- src/pages/api/blog/posts.ts: repairs pre-existing invalid Blog import, fieldsets, response wrapper, published-post fields, and Astro handler. Plain contentText matches the existing reader.
 
-The next setup step is the official Chrome extension connection: desktop app Settings > Computer Use > Google Chrome > Install, using the same Chrome profile containing Wix; return and confirm Manage, then mention Chrome or the editor tab in the task. Source: https://learn.chatgpt.com/docs/chrome-extension . Chrome availability can depend on app version, rollout, and workspace settings.
+The API repairs are required build dependencies discovered while publishing Step1, not a completed consultation/article rollout.
 
-The user has already authorized necessary website work and approvals, prefers Chrome, and wants minimal questions and repeated audits. Resume with the existing native SAT hero, not another plugin inventory.
+Verification:
+- Native desktop hero preview passed.
+- Native 390x844 mobile preview passed; measured client/scroll widths both375px; CTAs stacked and copy readable.
+- Saved hero survived editor reload and is present in native source history.
+- Two publication attempts failed with Wix's technical-issue message. Full native source checking found the old endpoint errors plus generated integration SDK type-expansion errors. The corrected source is undergoing the production build now.
+- integrations/cms/cms-ecom/currency.ts is read-only. An attempted editor change was refused; it was not modified. Do not bypass that protection.
+- Public /sat-tutoring still showed old hero at last check. No live visual pass or freeze is claimed.
+
+Next: complete native production build, publish the corrected existing site, verify live desktop/mobile and CTA destinations, then complete Step1E before Step2 live edits.
+Prepared local Step2 JSX and read-only consultation/launch investigations exist in the Codex task's work directory. Consultation safety embed is now rev25 (not the older rev21 in brief); preserve it until Step8 native transport is verified.
 
 ### Current connection audit
 
 Successful read-only checks: Wix, GitHub (including this repository), Google Drive, Gmail, Google Calendar, GSC Wizard, Make, Stripe, Walla, Canva, Figma, Vercel, Adobe, Notion, OpenArt, Lucid, Malwarebytes, and Norton. These checks do not establish every write permission or paid feature.
 
 - GSC Wizard: Google account authenticated with webmaster scope, but no website properties connected. Defer property setup to Step 12.
-- Opera Browser Connector: disconnected; requires “Allow AI connection” and Opera account sign-in. Current CUA inventory exposes only the in-app browser, with no native app or other browser surface.
+- Opera Browser Connector: disconnected; requires “Allow AI connection” and Opera account sign-in. Chrome is now connected and used for the native editor.
 - Codex document control: no connected Excel/PowerPoint/Sheets document sessions.
 - Figma: authenticated with a View seat on the starter team; edit access unverified.
 - Vercel: request succeeded, but no teams returned; project/deployment access unverified.
@@ -40,7 +53,7 @@ Successful read-only checks: Wix, GitHub (including this repository), Google Dri
 
 The public `/sat-prep` URL resolved to the homepage after client rendering in this session. The current site's header/footer SAT links point to `/sat-tutoring`. Following that link rendered the existing SAT page with “PREMIUM DIGITAL SAT TUTORING”, “Elite SAT Preparation”, “Built for Excellence”, the generic paragraph, and one consultation CTA.
 
-Desktop and 390 × 844 mobile baseline screenshots were visually inspected in the Codex task. Mobile document client/scroll width were both 375 px. The approved replacement hero is not present. Desktop header crowding is deferred to Step 9.
+Desktop and 390 × 844 mobile baseline screenshots were visually inspected in the Codex task. Mobile document client/scroll width were both 375 px. At that baseline the approved replacement hero was not present; see current checkpoint for the new native preview implementation. Desktop header crowding is deferred to Step 9.
 
 After Chrome control is available, inspect the existing SAT page and native route configuration within site `e6f68a23-cc00-421a-985e-515963cbe5f0` before acting on the older `/sat-prep` assumption below. Reconcile the route using current editor evidence; do not create a duplicate page/site and do not reopen the retired embed approach. No production content or embeds were changed during this audit.
 
