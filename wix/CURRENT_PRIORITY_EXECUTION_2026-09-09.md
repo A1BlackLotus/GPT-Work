@@ -17,21 +17,21 @@ Final public proof standard requested by Ryan:
 Current implementation state:
 - Results Showcase `245d2c02-9ebb-4b3f-b863-53d787d8d13c` is live revision **14** and technically verified with `75+`, `350+`, and `Nearly 14`.
 - Conversion Trust Strip `2d0a6ae7-7661-48fc-8bb0-e948f23cbda5` is revision **4 / DISABLED**. Do not re-enable. It caused the intermittent black-bar/hydration defect.
-- Proof Metrics Coherence Patch `0adc9e67-d1d6-43fa-bd06-abc7a923793f` is live revision **4 / ENABLED / TRANSITIONAL**.
-- Rev4 is text-only. It inserts no bar, CSS layout, clickable UI, or new visible component.
-- Rev4 handles both split and combined stale Home/SAT proof text, including `60+`, `240+`, `300+`, `Wyzant ratings`, `Verified Reviews`, `Wyzant reviews`, `Tutoring Hours`, `Verified Platform Hours`, and combined nodes such as `60+ Verified Reviews` or `240+ Tutoring Hours`.
-- Rev4 changes Home/SAT proof numbers to `75+` and `350+`, review label to `5-star reviews`, hours label to `Wyzant + Superprof hours`, and stale `12+` experience cards to `Nearly 14`.
-- Ryan visually confirmed before rev4 that SAT had updated to `Nearly 14` but the lower proof area still showed stale information. Rev4 was created specifically to handle the remaining render variants.
+- Proof Metrics Coherence Patch `0adc9e67-d1d6-43fa-bd06-abc7a923793f` is live revision **5 / ENABLED / TRANSITIONAL**.
+- Rev5 is text-only. It inserts no bar, CSS layout, clickable UI, or new visible component.
+- Rev5 handles both split and combined stale Home/SAT proof text, including `60+`, `240+`, `300+`, `Wyzant ratings`, `Verified Reviews`, `Wyzant reviews`, `Tutoring Hours`, `Verified Platform Hours`, and combined nodes such as `60+ Verified Reviews` or `240+ Tutoring Hours`.
+- Rev5 changes Home/SAT proof numbers to `75+` and `350+`, review label to `5-star reviews`, hours label to `Wyzant + Superprof hours`, and stale `12+` experience cards to `Nearly 14`.
+- Ryan visually confirmed after rev4 that the content was almost correct but displayed duplicate plus signs (`++`). Source inspection found the exact cause: rev4 matched only the numeric part of `60+` / `240+` and then inserted a new plus, leaving the original plus behind. Rev5 now consumes the original optional plus and also normalizes already-rendered `75++` / `350++` to a single plus.
 
 Acceptance gate:
-1. Home visibly shows exactly 5.0 / 75+ / 350+ / Nearly 14 with correct labels.
-2. SAT visibly shows exactly the same proof set.
+1. Home visibly shows exactly 5.0 / 75+ / 350+ / Nearly 14 with correct labels and only one plus sign.
+2. SAT visibly shows exactly the same proof set with only one plus sign.
 3. Results visibly shows exactly the same proof set.
 4. No black strip returns.
 5. No unrelated `60+`, `240+`, `300+`, or `12+` text is changed outside proof/experience contexts.
 6. Desktop and mobile are visually checked when browser/editor access is available.
 
-Status: **IMPLEMENTED + TECHNICALLY VERIFIED; VISUAL RECHECK PENDING.**
+Status: **IMPLEMENTED + TECHNICALLY VERIFIED; FINAL VISUAL RECHECK PENDING.**
 
 ## P1 — ABOUT / FOUNDER CREDIBILITY
 
@@ -73,9 +73,9 @@ Active-layer scan after the latest changes:
 - Results rev14 outputs `Nearly 14`.
 - Core Authenticity rev11 outputs `Nearly 14` in its current About replacements.
 - The remaining literal `12+ years` inside Core is an **old match key** used to detect and replace stale native text, not the public replacement output.
-- Proof Metrics Coherence rev4 keeps `60+`, `240+`, `300+`, and `12+` only as **detection keys** so it can repair stale native text; those strings are not inserted as output.
+- Proof Metrics Coherence rev5 keeps `60+`, `240+`, `300+`, and `12+` only as **detection keys** so it can repair stale native text; those strings are not inserted as output.
 
-Status: **TECHNICALLY COHERENT; VISUAL RECHECK PENDING.**
+Status: **TECHNICALLY COHERENT; FINAL VISUAL RECHECK PENDING.**
 
 ## P3 — BLACK-BAR REGRESSION PROTECTION
 
@@ -103,7 +103,7 @@ Status: **PENDING NATIVE EDITOR ACCESS.**
 
 Current operational truth for this proof/credential bundle is this queue plus live Wix state.
 Still required:
-- Reconcile `wix/CURRENT_STATE_2026-09-09.md`, whose proof-metric/revision subsection predates rev14 Results, rev11 Core, and rev4 Proof Metrics Coherence.
+- Reconcile `wix/CURRENT_STATE_2026-09-09.md`, whose proof-metric/revision subsection predates rev14 Results, rev11 Core, and rev5 Proof Metrics Coherence.
 - Preserve the older ledger's site inventory, deletion gates, consultation safety rules, domain/SEO state, and roadmap classifications unless later evidence changes them.
 - Do not let older Sep. 5–6 handoffs override live Sep. 9 state.
 
