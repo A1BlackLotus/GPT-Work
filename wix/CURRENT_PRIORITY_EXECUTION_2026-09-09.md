@@ -6,6 +6,8 @@ Authority: live public Wix behavior > current screenshots/public render > live W
 
 Primary objective: finish a reliable, credible website that produces **SEO visibility, qualified leads, and conversions**. Do not optimize for article count, decorative complexity, or endless redesign. Preserve frozen work and fix only verified defects.
 
+Supporting screenshot-QA record: `wix/SCREENSHOT_QA_CURRENT_2026-09-09.md`.
+
 ## P0 — SITEWIDE PROOF + EXPERIENCE COHERENCE
 
 Canonical public proof standard:
@@ -60,57 +62,73 @@ Do not invent:
 
 Status: **STRONGER SUPPORTED CREDENTIAL WORDING LIVE; EXACT HISTORICAL PROGRAM/CERTIFICATE TITLES OPTIONAL IF LATER RECOVERED.**
 
-## P2 — SCREENSHOT QA DEFECTS — NEW VISUAL PASS
+## P2 — SCREENSHOT QA DEFECTS — CURRENT VISUAL PASS
 
-Ryan supplied current/mostly-current screenshots exposing three concrete visual defects that must remain tracked on top of the existing roadmap:
+Ryan supplied current/mostly-current screenshots exposing three concrete visual defects that remain tracked on top of the existing roadmap.
 
 ### A. Remaining 12-year wording
 - Sitewide issue confirmed visually.
-- Rev6 is the current transitional repair.
+- Proof Metrics Coherence rev6 is the current transitional repair.
 - Native source should eventually be corrected directly and the runtime patch retired after visual verification.
 
+Status: **IMPLEMENTED TRANSITIONALLY / VISUAL RECHECK PENDING.**
+
 ### B. Results top-right clipped response-time element
-- Screenshot shows a clipped/cropped top-right element that appears to communicate a response-time message such as responding within 24 hours.
-- Enabled-custom-embed audits found **no active script containing `within 24`, `24 hour`, `respond`, `reply`, `response time`, `typically`, or similar wording**.
-- Consultation Safety rev27 is route-gated to `/book-consultation`/`/consultation` and is not the source of the Results defect.
-- Results Showcase rev14 contains no response-time badge/callout.
-- Therefore classify this as a **native Results-page visual defect**, not an embed defect.
-- Do not hide/delete unrelated embeds to solve it. Repair in native Vibe/editor once visual/browser control is available.
+Investigation:
+- screenshot shows a clipped/cropped top-right element that appears to communicate a response-time message such as responding within 24 hours
+- enabled-custom-embed audits found no active script that itself renders `within 24`, `24 hour`, `respond`, `reply`, `response time`, `typically`, or similar wording
+- Consultation Safety rev27 is route-gated to consultation routes and is not the source
+- Results Showcase rev14 contains no response-time badge/callout
+- Results Showcase hides native children inside `<main>`, so a native floating element outside `<main>` can escape the hide and remain clipped
+
+Repair:
+- `4bb4aa54-4956-4a44-af3d-6dbf0ca78d54`
+- `Behavioral Bridge — Results Stray Response Badge Cleanup`
+- revision **1 / ENABLED / BODY_END / TRANSITIONAL**
+- route-limited behavior: only on `/results`
+- hides only a small stray element whose visible text matches response-time wording involving `respond/reply` plus `24`/`business day` or `typically respond/reply`
+- excludes the Results Showcase itself
+- restores the element automatically after leaving `/results`
+- creates no new visible UI, bar, overlay, or content
+
+A first attempt to fit this repair inside Results Showcase was rejected by Wix because rev14 is already near the 15,000-character custom-embed limit. That failed attempt caused **no Results Showcase mutation**.
+
+Status: **IMPLEMENTED TRANSITIONALLY / VISUAL RECHECK PENDING.**
 
 ### C. Two poor Resources article cover images
-Exact affected live Blog drafts resolved:
+Affected existing posts:
 1. `21945cef-4d24-4bc8-8b4b-6001ca7d7404` — `The Homework Problem Is Often an Initiation Problem` — slug `homework-initiation-executive-function`
 2. `c07b0cad-b856-4e4a-8afd-a07db6944e3e` — `Why Motivation Is the Wrong Target for Executive Function` — slug `why-motivation-is-wrong-target-executive-function`
 
-Current Blog state for both:
-- status PUBLISHED
+Original state:
+- both PUBLISHED
 - no unpublished changes
-- `heroImage: null`
-- cover `media.displayed: true`
-- `media.custom: false`
-- therefore Wix is falling back to non-custom content media, matching the weak document-like screenshots Ryan showed.
+- no hero image
+- cover media displayed but `custom:false`, causing Wix to fall back to weak document-like imagery
 
-Replacement standard:
-- two separate professional horizontal article covers
-- premium Behavioral Bridge grayscale/cream/charcoal with restrained gold
-- no collage
-- no unreadable baked article text
-- meaningful visual metaphor for initiation vs. motivation/systems
-- meaningful alt text
-- preserve article title, slug, body, related-post configuration, SEO, and publication state
+Replacement assets now live in Wix Media:
+- initiation cover: `445f86_e228e6e7b201423b82c59cafb022bbc3~mv2.png`
+- motivation/systems cover: `445f86_6476bad82bd140e8a4d24dff440a3a67~mv2.png`
 
-Image-generation note:
-- initial image-generation attempts returned multi-panel website collages and are **REJECTED / DO NOT UPLOAD**.
-- Use a more controllable generation workflow to create isolated final covers before any Blog mutation.
+Blog update:
+- bulk action: `UPDATE_PUBLISH`
+- field mask targeted **media only**
+- successes: **2**
+- failures: **0**
+- meaningful alt text supplied
+- titles, slugs, bodies, related-post configuration, and SEO were not intentionally changed
 
-Status: **A IMPLEMENTED TRANSITIONALLY; B NATIVE EDITOR PENDING; C EXACT POSTS RESOLVED / FINAL COVER GENERATION PENDING.**
+Rejected generation attempts:
+- earlier multi-panel/collage image outputs were not used as covers
+
+Status: **REPLACED + PUBLISHED / TECHNICALLY VERIFIED / VISUAL RECHECK PENDING.**
 
 ## P3 — RESOURCES + NATIVE ARTICLE READING — STEPS 6–7
 
 Technical audit completed:
 - Wix Blog contains exactly **12 published canonical articles**.
 - All 12 canonical slugs present; no extras or duplicates.
-- English, no Pricing Plan paywalls, substantial bodies, related-post relationships, no unpublished changes.
+- English, no Pricing Plan paywalls, substantial bodies, related-post relationships, no unpublished changes before the two media-only cover updates above.
 - Eight enabled Article Content V2 embeds are **data-only** and collectively carry all 12 article payloads; they do not intercept clicks or render pages.
 - Old Resources Router rev15 and Article Reader rev17 remain disabled and should not be casually revived.
 - Last verified native build confirms direct `/post/...` works, but the native reader still needs proper rich-content presentation: headings, lists, paragraph spacing, imagery, related navigation, loading/not-found/error states, and stale-request cancellation.
@@ -118,7 +136,7 @@ Technical audit completed:
 
 Do not solve this by re-enabling the old overlay reader unless a deliberate rollback is chosen.
 
-Status: **BLOG DATA HEALTHY; NATIVE ARTICLE-READER FINISH + VISUAL QA STILL PENDING.**
+Status: **BLOG DATA HEALTHY; TWO WEAK COVERS REPAIRED; NATIVE ARTICLE-READER FINISH + VISUAL QA STILL PENDING.**
 
 ## P4 — CONSULTATION RELIABILITY — STEP 8
 
@@ -206,7 +224,7 @@ Status: **HIGH PRIORITY; NATIVE PAGE-HEAD + DOMAIN/VERIFICATION BLOCKERS REMAIN.
 
 ## P8 — ONE SEO FLAGSHIP ARTICLE + CUSTOM VISUALS
 
-Research is complete and the full draft is now written.
+Research is complete and the full draft is written.
 
 Selected flagship topic:
 **Digital SAT Prep for Students with ADHD: A Focus, Timing, and Executive Function Guide**
@@ -272,7 +290,7 @@ Status: **PENDING AFTER CORE LAUNCH GATES.**
 
 ## CURRENT EXECUTION ORDER
 
-1. Finish screenshot-QA defects: verify rev6 removes remaining visible 12-year wording; generate/replace the two weak Resources covers; repair the native clipped Results response-time element when editor/browser control is available.
+1. **Visual acceptance of screenshot-QA fixes:** confirm rev6 removes remaining visible 12-year wording, confirm the Results corner badge is gone, confirm the two new Resources covers look correct, and confirm black strip/double-plus regressions remain absent.
 2. Finish Steps 6–7 native Resources/article reader and visual QA.
 3. Finish Step 8 native consultation acceptance; then reduce the fallback safely.
 4. Finish Step 9 header/footer/mobile nav QA; route aliases are already repaired.
