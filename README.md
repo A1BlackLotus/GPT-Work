@@ -1,36 +1,30 @@
 # GPT-Work
 
-Behavioral Bridge website development repository.
+Behavioral Bridge coordination, recovery, and source-reference repository.
 
-## Current Wix/Vibe status
+## Website source of truth
 
-**Live API update (2026-09-05):** The active sitewide safety embed is revision `21`. It includes legacy footer-link repair, the missing consultation detail inputs used by the email fallback, and the current consultation safety behavior. The separate resource-only embed `65311ea0-35cf-4aef-8a6a-55dc2915212e` is now live at revision `5`. It preserves the homepage Featured Resources mappings, rebuilds `/resources` from the eight published Wix Blog posts using their published titles/excerpts and canonical `/post/...` paths, captures the legacy resource section's existing image URLs and cycles them across the new image-card grid, reuses/moves `#bb-resource-hub-v1` into the legacy section's position, and removes the old `Latest Resources` placeholder section from the DOM instead of merely hiding it. The native Vibe/Astro consultation source is still pending editor deployment; keep safety interception until two new public submissions are confirmed. The visitor-token bridge described below is recovery history, not proof of the current live public path.
+The canonical website cleanup/status ledger is:
 
-This repo is approved for the `A1BlackLotus` GitHub App installation and ChatGPT can read/write it. However, it is **not currently the Wix-generated source checkout for the live Vibe/Picasso site**. Wix has not populated a Vibe source tree (`src/`, Wix config, page files, etc.) here, so commits in this repo do not automatically deploy to Wix.
+- `wix/CURRENT_STATE_2026-09-09.md`
 
-The live Behavioral Bridge site remains managed by Wix Vibe. The consultation backend is Wix Forms.
+Use that file first for CURRENT / ARCHIVE / DELETE classifications, live Wix site identity, route status, custom-embed cleanup gates, consultation acceptance criteria, SEO/domain debt, and the remaining roadmap.
 
-## Canonical consultation implementation
+The latest published-build supporting handoff is:
 
-The two consultation-form workstreams have been reconciled into one live canonical implementation. The useful fixes from both were merged; the competing duplicate handler was disabled so they can no longer race, intercept each other, or show contradictory results.
+- `wix/SAT_NATIVE_EDITOR_HANDOFF_2026-09-06.md`
 
-- Active live custom embed ID: `b3ececaf-c221-4ad1-9590-4aa112486e11`
-- Current live revision: `21`
-- Current live embed name: `Behavioral Bridge — Consultation Safety Banner v8`
-- Duplicate/legacy connector ID: `0ac3fcaf-b699-42da-9867-972e09d58b75` — **disabled** at revision `5`
-- Wix form ID: `b692e647-b20c-45b0-ae1d-2530df030907`
-- Embed category: `ESSENTIAL`
-- Embed position: `BODY_START`
-- `loadOnce`: `false`
-- Version-controlled copy: `wix/consultation-bridge.js`
-- Reconciliation/status record: `wix/WORKSTREAM_HANDOFF.md`
+## Production site
 
-The canonical bridge now combines the strongest behavior from both earlier versions: it uses the existing Vibe consultation form when one is available, provides a controlled fallback form only when necessary, uses a Bearer visitor token, verifies that Wix returns `CONFIRMED` before showing success, normalizes phone values, blocks false-success states, and opens a prefilled email fallback to `Ryan_Carvalho@BehavioralBridge.org` when Wix cannot confirm the submission.
+- Site: `Behavioral Bridge`
+- Wix site ID: `e6f68a23-cc00-421a-985e-515963cbe5f0`
+- Published primary URL: `https://my-site-h5mhm1d7-ryancarvalho6.wix-vibe-site.com/`
+- Canonical native service routes: `/sat-tutoring` and `/ef-specialized-support`
 
-The Vibe OAuth client ID referenced by the bridge is a public client identifier, not a client secret. No API key, client secret, password, or private token is committed here.
+Steps 1–5 are published, visually verified, and frozen. Current website work is Resources/article presentation (Steps 6–7), followed by consultation end-to-end verification (Step 8), route/navigation cleanup (Step 9), QA (Step 10), and domain/SEO/indexing work (Steps 11–12).
 
-## Deployment / coordination rule
+## Repository boundary
 
-Until Wix exposes or syncs the actual Vibe/Picasso site source into this repository, treat this repo as version control/recovery documentation only. Do not assume a Git commit changes the live site.
+`GPT-Work` is not automatically the deployed Wix Vibe source checkout. Treat files here as coordination, recovery, curriculum source, and implementation references unless a specific file is known to be part of the actual Wix source workflow.
 
-For consultation work, `wix/WORKSTREAM_HANDOFF.md` and the current live canonical embed are the coordination source of truth. Before any future live edit, read the current Wix embed revision first and update only the canonical embed. Do not re-enable the retired duplicate connector.
+Do not revive retired custom-embed SAT rendering, do not create duplicate Wix sites/pages/forms/automations, and do not perform destructive cleanup from old handoff files. Use the Sep. 9 canonical ledger and verify the current live Wix state first.
