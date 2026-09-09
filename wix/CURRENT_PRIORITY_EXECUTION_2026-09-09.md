@@ -2,7 +2,7 @@
 
 Date: 2026-09-09
 Status: CURRENT / ACTION QUEUE
-Authority: live public Wix behavior > live Wix configuration > `CURRENT_STATE_2026-09-09.md` > this queue > older handoffs.
+Authority: live public Wix behavior > current screenshots/public render > live Wix configuration > `CURRENT_STATE_2026-09-09.md` > this queue > older handoffs.
 
 Primary objective: finish a reliable, credible website that produces **SEO visibility, qualified leads, and conversions**. Do not optimize for article count, decorative complexity, or endless redesign. Preserve frozen work and fix only verified defects.
 
@@ -16,20 +16,26 @@ Canonical public proof standard:
 
 Current state:
 - Results Showcase `245d2c02-9ebb-4b3f-b863-53d787d8d13c` rev14 outputs the current proof standard.
-- Proof Metrics Coherence Patch `0adc9e67-d1d6-43fa-bd06-abc7a923793f` rev5 remains ENABLED / TRANSITIONAL for stale Home/SAT proof text.
+- Proof Metrics Coherence Patch `0adc9e67-d1d6-43fa-bd06-abc7a923793f` is now **rev6 / ENABLED / TRANSITIONAL**.
+- Rev6 broadens the experience repair beyond earlier exact strings. On core public routes it can now recognize `12+`, plain `12`, `12 years`, `12+ years`, split-card variants, and experience contexts including `years of experience`, `years experience`, `years in education`, `years across`, `experience across`, `specialized experience`, `academic experience`, and `education experience`.
+- It still changes only experience-context 12-year text; unrelated numerical 12s are not targeted.
+- Home/SAT proof repair remains 75+ / 350+ / Nearly 14 and retains the duplicate-plus normalization from rev5.
 - Conversion Trust Strip `2d0a6ae7-7661-48fc-8bb0-e948f23cbda5` rev4 remains DISABLED; do not re-enable because of the black-strip/hydration defect.
-- Core Authenticity `73a2dd88-1c32-44e4-a5a1-4e031f95e685` is now **rev13 / ENABLED**.
-- Rev13 adds an **About-only hydration-safe experience sweep** that changes visible `12+ years` variants to `Nearly 14 years`, specifically to catch stale native About text after Wix rehydration.
+- Core Authenticity `73a2dd88-1c32-44e4-a5a1-4e031f95e685` rev13 remains ENABLED and includes the About-specific hydration-safe experience sweep.
+
+New visual evidence 2026-09-09:
+- Ryan supplied a large set of mostly-current screenshots showing stale 12-year language on multiple public pages, confirming this is a sitewide visual regression rather than an About-only issue.
+- Screenshot truth outranks older backend assumptions; rev6 exists specifically to catch those remaining native text arrangements.
 
 Acceptance gate:
 1. Home visibly shows 5.0 / 75+ / 350+ / Nearly 14.
 2. SAT visibly shows the same proof standard.
 3. Results visibly shows the same proof standard.
-4. About visibly shows `Nearly 14 years`, with no remaining public `12+ years` experience language.
+4. About/EF/other current public pages show `Nearly 14` wherever experience is stated; no visible current `12 years`/`12+ years` remains.
 5. No duplicate `++` and no black strip.
 6. Desktop + mobile visually checked when browser/editor access is available.
 
-Status: **IMPLEMENTED / TECHNICALLY VERIFIED; FINAL PUBLIC VISUAL RECHECK PENDING.**
+Status: **REV6 IMPLEMENTED / TECHNICALLY VERIFIED; FINAL PUBLIC VISUAL RECHECK PENDING.**
 
 ## P1 — ABOUT / FOUNDER CREDIBILITY
 
@@ -54,7 +60,52 @@ Do not invent:
 
 Status: **STRONGER SUPPORTED CREDENTIAL WORDING LIVE; EXACT HISTORICAL PROGRAM/CERTIFICATE TITLES OPTIONAL IF LATER RECOVERED.**
 
-## P2 — RESOURCES + NATIVE ARTICLE READING — STEPS 6–7
+## P2 — SCREENSHOT QA DEFECTS — NEW VISUAL PASS
+
+Ryan supplied current/mostly-current screenshots exposing three concrete visual defects that must remain tracked on top of the existing roadmap:
+
+### A. Remaining 12-year wording
+- Sitewide issue confirmed visually.
+- Rev6 is the current transitional repair.
+- Native source should eventually be corrected directly and the runtime patch retired after visual verification.
+
+### B. Results top-right clipped response-time element
+- Screenshot shows a clipped/cropped top-right element that appears to communicate a response-time message such as responding within 24 hours.
+- Enabled-custom-embed audits found **no active script containing `within 24`, `24 hour`, `respond`, `reply`, `response time`, `typically`, or similar wording**.
+- Consultation Safety rev27 is route-gated to `/book-consultation`/`/consultation` and is not the source of the Results defect.
+- Results Showcase rev14 contains no response-time badge/callout.
+- Therefore classify this as a **native Results-page visual defect**, not an embed defect.
+- Do not hide/delete unrelated embeds to solve it. Repair in native Vibe/editor once visual/browser control is available.
+
+### C. Two poor Resources article cover images
+Exact affected live Blog drafts resolved:
+1. `21945cef-4d24-4bc8-8b4b-6001ca7d7404` — `The Homework Problem Is Often an Initiation Problem` — slug `homework-initiation-executive-function`
+2. `c07b0cad-b856-4e4a-8afd-a07db6944e3e` — `Why Motivation Is the Wrong Target for Executive Function` — slug `why-motivation-is-wrong-target-executive-function`
+
+Current Blog state for both:
+- status PUBLISHED
+- no unpublished changes
+- `heroImage: null`
+- cover `media.displayed: true`
+- `media.custom: false`
+- therefore Wix is falling back to non-custom content media, matching the weak document-like screenshots Ryan showed.
+
+Replacement standard:
+- two separate professional horizontal article covers
+- premium Behavioral Bridge grayscale/cream/charcoal with restrained gold
+- no collage
+- no unreadable baked article text
+- meaningful visual metaphor for initiation vs. motivation/systems
+- meaningful alt text
+- preserve article title, slug, body, related-post configuration, SEO, and publication state
+
+Image-generation note:
+- initial image-generation attempts returned multi-panel website collages and are **REJECTED / DO NOT UPLOAD**.
+- Use a more controllable generation workflow to create isolated final covers before any Blog mutation.
+
+Status: **A IMPLEMENTED TRANSITIONALLY; B NATIVE EDITOR PENDING; C EXACT POSTS RESOLVED / FINAL COVER GENERATION PENDING.**
+
+## P3 — RESOURCES + NATIVE ARTICLE READING — STEPS 6–7
 
 Technical audit completed:
 - Wix Blog contains exactly **12 published canonical articles**.
@@ -69,20 +120,21 @@ Do not solve this by re-enabling the old overlay reader unless a deliberate roll
 
 Status: **BLOG DATA HEALTHY; NATIVE ARTICLE-READER FINISH + VISUAL QA STILL PENDING.**
 
-## P3 — CONSULTATION RELIABILITY — STEP 8
+## P4 — CONSULTATION RELIABILITY — STEP 8
 
 Current form:
 - ID `b692e647-b20c-45b0-ae1d-2530df030907`
-- revision **9** after a safe full-form update attempt
-- all 9 input targets + submit button preserved; desktop layout still has 10 items
+- revision 9 after a safe full-form update attempt
+- all 9 input targets + submit button preserved
 - `service_bb` remains visible as `Service Requested`
-- Wix normalized `service_bb.required` back to false after the documented PATCH, so do not repeatedly mutate it speculatively
+- Wix normalized `service_bb.required` back to false after the documented PATCH; do not repeatedly mutate it speculatively
 
 Current safety fallback:
 - `b3ececaf-c221-4ad1-9590-4aa112486e11`
 - revision **27 / ENABLED**
+- route-gated to consultation routes
 - still intentionally intercepts submission into a prepared email until native transport passes acceptance
-- rev27 fixes a real defect: the typed `service_bb` text input is now included in `Service requested:` in the prepared email; previous code only inferred service from a select
+- rev27 fixes the typed `service_bb` extraction defect
 
 Still required before removing fallback:
 1. native nine-field submission path
@@ -96,14 +148,12 @@ Still required before removing fallback:
 
 Status: **FALLBACK IMPROVED; NATIVE TRANSPORT ACCEPTANCE PENDING.**
 
-## P4 — ROUTES / NAVIGATION — STEP 9
+## P5 — ROUTES / NAVIGATION — STEP 9
 
 Completed 2026-09-09:
 - exact permanent redirect `/sat-prep` → `/sat-tutoring`
-  - redirect ID `af1b5e54-7400-445d-8b49-3c2a7f46bc16`
 - exact permanent redirect `/executive-function` → `/ef-specialized-support`
-  - redirect ID `4b135ca4-be14-4b21-9c63-d83f0bdf29f1`
-- redirect table was empty before creation, so no chain or conflict was destroyed
+- redirect table was empty before creation
 
 Still pending:
 - header/footer/mobile navigation visual QA
@@ -112,95 +162,80 @@ Still pending:
 
 Status: **LEGACY SERVICE ROUTE ALIASES COMPLETE; GLOBAL NAV/FOOTER QA PENDING.**
 
-## P5 — RESPONSIVE + ACCESSIBILITY — STEP 10
+## P6 — RESPONSIVE + ACCESSIBILITY — STEP 10
 
 Fresh full-site Wix accessibility scan:
 - scan ID `66388e09-c08f-4af6-b456-905417f02f0c`
-- status: **PARTIALLY_COMPLETED**
-- 5 pages discovered
-- 4 pages processed successfully
-- 1 page failed analysis
+- status PARTIALLY_COMPLETED
+- 5 pages discovered, 4 processed, 1 failed analysis
 - 0 findings across the four processed pages
 - checked categories included alternative text, color contrast, heading structure, keyboard, and screen-reader support
 
 Important limitation:
 - Wix scanned an older internal `ryancarvalho6.wixsite.com/wix-vibe-site-5cld/...` hostname rather than the canonical public Vibe hostname.
-- the root page failed with `ANALYSIS_FAILED` / `This page could not be checked.`
-- therefore this is useful partial evidence only, **not** proof the current public site is accessibility-clean
+- root page failed with ANALYSIS_FAILED.
+- therefore this is partial evidence only, not proof the current public site is accessibility-clean.
 
 Browser-only responsive checks remain pending until browser/editor access is available.
 
 Status: **PARTIAL ACCESSIBILITY EVIDENCE; CURRENT-PUBLIC VISUAL RESPONSIVE QA PENDING.**
 
-## P6 — DOMAIN + TECHNICAL SEO + SEARCH CONSOLE — STEPS 11–12
+## P7 — DOMAIN + TECHNICAL SEO + SEARCH CONSOLE — STEPS 11–12
 
 This is the main launch-growth objective after core reliability.
 
-Known SEO debt:
-- main native Vibe routes still need strong native page-head titles/descriptions rather than raw-slug metadata
-- Home has saved-vs-published metadata drift
-- stale Site Properties `externalSiteUrl: https://TheBehavioralBridge.org` must not be changed blindly before the permanent domain is actually connected
+Fresh Wix Vibe-aware SEO resolver audit confirms current emitted metadata:
+- `/` → title `Behavioral Bridge`; generic description
+- `/sat-tutoring` → raw `sat-tutoring | Behavioral Bridge`; generic description
+- `/ef-specialized-support` → raw `ef-specialized-support | Behavioral Bridge`; generic description
+- `/about` → raw `about | Behavioral Bridge`; generic description
+- `/results` → raw `results | Behavioral Bridge`; generic description
+- `/resources` → raw `resources | Behavioral Bridge`; generic description
+- `/book-consultation` → raw `book-consultation | Behavioral Bridge`; generic description
+- all currently self-canonical and indexable
+
+Home static SEO item `tuckg` still stores the stronger approved title/description, and a publish=true Set was issued successfully, but the Vibe-aware resolver continued to emit the old Home metadata afterward. This confirms the problem is the native Vibe/head layer rather than merely an unpublished Item SEO override. Do not repeatedly re-write the same Home item.
+
+Other known debt:
+- stale Site Properties `externalSiteUrl: https://TheBehavioralBridge.org` must not be changed blindly before permanent domain connection
 - permanent preferred domain remains `BehavioralBridge.org`
+- Search Console readiness remains `NOT_READY / SITE_OWNER_NOT_VERIFIED`
+- Wix GSC docs require a published site, connected domain, and indexability before site verification can succeed
 
-Fresh Google Search Console readiness check:
-- status: `NOT_READY`
-- blocking reason: `SITE_OWNER_NOT_VERIFIED`
+Status: **HIGH PRIORITY; NATIVE PAGE-HEAD + DOMAIN/VERIFICATION BLOCKERS REMAIN.**
 
-Do not request indexing or present Search Console as ready until readiness is cleared.
+## P8 — ONE SEO FLAGSHIP ARTICLE + CUSTOM VISUALS
 
-Status: **HIGH PRIORITY; DOMAIN/VERIFICATION + NATIVE PAGE METADATA BLOCKERS REMAIN.**
-
-## P7 — ONE SEO FLAGSHIP ARTICLE + CUSTOM GPT-MADE VISUALS
-
-Research is complete. Do **not** create a generic 8-week SAT study-plan article: the current 2026 search landscape is crowded with fresh pages in that cluster.
+Research is complete and the full draft is now written.
 
 Selected flagship topic:
-
 **Digital SAT Prep for Students with ADHD: A Focus, Timing, and Executive Function Guide**
 
-Why this topic:
-- directly combines Behavioral Bridge's two strongest service areas: Digital SAT + EF/ADHD support
-- current search results are thinner and less authoritative than the generic SAT-plan space
-- high parent/student relevance and strong consultation intent
-- supports authoritative official College Board accommodation references without pretending Behavioral Bridge determines eligibility
-- naturally connects to existing SAT strategy, accuracy-before-speed, procrastination, EF, and parent-support articles
+Canonical files:
+- research/production spec: `wix/SEO_FLAGSHIP_ARTICLE_2026-09-09.md`
+- full draft: `wix/seo/DRAFT_DIGITAL_SAT_ADHD_EXECUTIVE_FUNCTION_GUIDE_2026-09-09.md`
 
-Canonical production spec:
-- `wix/SEO_FLAGSHIP_ARTICLE_2026-09-09.md`
+Draft status:
+- source-backed human-first draft complete
+- recommended slug: `digital-sat-prep-adhd-executive-function`
+- SEO title/meta drafted
+- primary/secondary query clusters defined
+- internal-link targets defined
+- FAQ coverage included
+- accommodation language deliberately avoids diagnosis/eligibility promises
+- official College Board structure/Bluebook/accommodation references identified for publication fact-check
 
-Primary query cluster:
-- SAT prep for students with ADHD
-- digital SAT ADHD
-- how to study for the SAT with ADHD
-- SAT study strategies ADHD
+Planned custom visuals for flagship article:
+1. SAT Performance Pipeline — Content Knowledge → Decision Process → Attention Control → Execution → Score
+2. Classify → Activate → Predict → Prove attention-safe decision loop
+3. Diagnose → Repair → Micro-Redo → Transfer feedback loop
+4. Hyperfocus Time Trap comparison
 
-Secondary coverage:
-- SAT accommodations ADHD
-- digital SAT extended time
-- Bluebook accommodations
-- SAT focus/timing strategies
-- executive function and SAT preparation
-- SAT tutoring vs EF coaching for ADHD
+Do **not** publish the flagship article until the native article-reader/visual QA gate is acceptable and final images are ready.
 
-Required production sequence:
-1. **SEO opportunity research** — COMPLETE
-2. topic/search intent selection — **COMPLETE / FROZEN WORKING TOPIC**
-3. source-backed outline + originality check against 12 existing articles
-4. full human-first draft with useful H1/H2/H3 structure, examples, decision rules, FAQs, and no keyword stuffing
-5. create **four separate original GPT-made explanatory images** after article structure is stable:
-   - SAT Performance Pipeline: Knowledge → Decision → Attention → Execution → Score
-   - Digital SAT Decision Loop: Classify → Activate → Predict → Prove + attention checkpoint
-   - Hyperfocus Time Trap / Move-On Rule
-   - Study Feedback Loop: Diagnose → Repair → Micro-Redo → Timed Transfer → Re-Measure
-6. upload/select images in Wix with meaningful filenames/alt text where supported and verify mobile readability
-7. publish with unique SEO title, description, canonical URL, excerpt, hero/cover treatment, and available Blog metadata/schema
-8. add deliberate internal links to SAT, EF, Results, consultation, and relevant existing articles; add selected inbound links without spammy repetition
-9. submit/inspect through Search Console only after domain + GSC readiness is working
-10. measure impressions, queries, CTR, position, and qualified traffic; improve from evidence, with no ranking guarantees
+Status: **RESEARCH + FULL DRAFT COMPLETE; FINAL CUSTOM VISUALS + PUBLISHING PENDING.**
 
-Status: **RESEARCH COMPLETE / TOPIC SELECTED / DRAFT + VISUAL PRODUCTION PENDING.**
-
-## P8 — EXTERNAL AUTHORITY PROFILE CONSISTENCY
+## P9 — EXTERNAL AUTHORITY PROFILE CONSISTENCY
 
 Wyzant and Superprof should eventually be checked for consistency with the current public website facts, especially:
 - Nearly 14 years experience
@@ -208,11 +243,11 @@ Wyzant and Superprof should eventually be checked for consistency with the curre
 - current Behavioral Bridge positioning
 - accurate service focus
 
-Current limitation: no dedicated Wyzant/Superprof connector is available in this chat and the browser connector is currently disconnected, so no account login/edit has been performed. Treat this as an owner-assisted or future browser-enabled authority task, not a reason to delay the website.
+Current limitation: no dedicated Wyzant/Superprof account connector is available in this chat and the browser connector is currently disconnected, so no account login/edit has been performed.
 
 Status: **QUEUED / EXTERNAL PROFILE CONSISTENCY.**
 
-## P9 — ANALYTICS + AUTHORITY + DISTRIBUTION — STEPS 13–15
+## P10 — ANALYTICS + AUTHORITY + DISTRIBUTION — STEPS 13–15
 
 After the site is reliable and GSC/domain are ready:
 - establish useful conversion measurement, not redundant analytics clutter
@@ -226,22 +261,24 @@ Status: **PENDING AFTER CORE LAUNCH GATES.**
 ## DO NOT TOUCH / SAFETY RULES
 
 - Do not redesign frozen Steps 1–5 absent regression.
+- Screenshot/public render is visual truth; technical success alone is not visual success.
 - Do not revive the black trust strip.
 - Do not remove consultation safety fallback before the full acceptance gate.
 - Do not invent credentials, scores, testimonials, rankings, scholarship claims, or SEO guarantees.
 - Do not delete duplicate sites/embeds/repository recovery evidence without explicit destructive-action approval and safety checks.
 - Do not purchase a plan/domain or change DNS without explicit authority.
 - Do not create multiple low-value SEO articles; the new content goal is one high-value flagship piece first.
+- Do not upload rejected collage/image-generation outputs as article covers.
 
 ## CURRENT EXECUTION ORDER
 
-1. Confirm About now visibly reads `Nearly 14 years`; complete final proof visual recheck when browser access returns.
+1. Finish screenshot-QA defects: verify rev6 removes remaining visible 12-year wording; generate/replace the two weak Resources covers; repair the native clipped Results response-time element when editor/browser control is available.
 2. Finish Steps 6–7 native Resources/article reader and visual QA.
 3. Finish Step 8 native consultation acceptance; then reduce the fallback safely.
 4. Finish Step 9 header/footer/mobile nav QA; route aliases are already repaired.
-5. Finish Step 10 current-public responsive/accessibility QA; the Wix scan is partial evidence only.
-6. Complete Step 11 domain + native-page technical SEO.
+5. Finish Step 10 current-public responsive/accessibility QA; Wix scan is partial evidence only.
+6. Complete Step 11 permanent domain + native-page technical SEO.
 7. Complete Step 12 Search Console verification/indexing.
-8. Draft, illustrate, publish, internally link, index, and measure the **one selected SEO flagship article**.
+8. Finish the flagship article custom visuals, publication, internal linking, indexing, and later measurement.
 9. Reconcile Wyzant/Superprof profile wording when account/browser access permits.
 10. Move into analytics, authority, distribution, lead optimization, and frozen maintenance rather than more redesign.
