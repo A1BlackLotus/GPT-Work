@@ -114,16 +114,23 @@ Status: **LEGACY SERVICE ROUTE ALIASES COMPLETE; GLOBAL NAV/FOOTER QA PENDING.**
 
 ## P5 — RESPONSIVE + ACCESSIBILITY — STEP 10
 
-Fresh full-site Wix accessibility scan started:
+Fresh full-site Wix accessibility scan:
 - scan ID `66388e09-c08f-4af6-b456-905417f02f0c`
-- current state at last check: RUNNING
-- 5 pages discovered; processing had not yet completed
+- status: **PARTIALLY_COMPLETED**
+- 5 pages discovered
+- 4 pages processed successfully
+- 1 page failed analysis
+- 0 findings across the four processed pages
+- checked categories included alternative text, color contrast, heading structure, keyboard, and screen-reader support
 
-Do not start duplicate scans. Poll this exact scan until terminal, then separate failed pages from clean pages and actionable findings.
+Important limitation:
+- Wix scanned an older internal `ryancarvalho6.wixsite.com/wix-vibe-site-5cld/...` hostname rather than the canonical public Vibe hostname.
+- the root page failed with `ANALYSIS_FAILED` / `This page could not be checked.`
+- therefore this is useful partial evidence only, **not** proof the current public site is accessibility-clean
 
 Browser-only responsive checks remain pending until browser/editor access is available.
 
-Status: **SCAN IN PROGRESS / VISUAL RESPONSIVE QA PENDING.**
+Status: **PARTIAL ACCESSIBILITY EVIDENCE; CURRENT-PUBLIC VISUAL RESPONSIVE QA PENDING.**
 
 ## P6 — DOMAIN + TECHNICAL SEO + SEARCH CONSOLE — STEPS 11–12
 
@@ -143,25 +150,55 @@ Do not request indexing or present Search Console as ready until readiness is cl
 
 Status: **HIGH PRIORITY; DOMAIN/VERIFICATION + NATIVE PAGE METADATA BLOCKERS REMAIN.**
 
-## P7 — ONE SEO FLAGSHIP ARTICLE + CUSTOM GPT-MADE VISUALS — NEW GOAL
+## P7 — ONE SEO FLAGSHIP ARTICLE + CUSTOM GPT-MADE VISUALS
 
-Create **one additional article only** because it has a clear organic-search purpose. The goal is ranking potential, topical authority, qualified traffic, and internal-link value—not simply making article #13.
+Research is complete. Do **not** create a generic 8-week SAT study-plan article: the current 2026 search landscape is crowded with fresh pages in that cluster.
 
-Required multi-step process:
-1. **SEO opportunity research first** — choose the topic from realistic search intent / keyword opportunity that supports Digital SAT and/or Executive Function lead generation. Do not pick the topic just because it sounds interesting.
-2. Define one primary query cluster plus secondary questions, search intent, audience, conversion path, and internal-link targets.
-3. Build a source-backed outline that is materially more useful than generic tutoring content: original framework, examples, decision rules, FAQ/long-tail coverage, and clear student/parent usefulness.
-4. Draft the article for humans first while preserving search clarity: descriptive H1/H2/H3 structure, concise answer-first passages, semantic terminology, useful tables/checklists where appropriate, no keyword stuffing.
-5. Create **several original GPT-made custom images as separate assets**, not a collage and not text baked into unreadable screenshots. Images should genuinely explain the article: e.g. decision map, error-pattern diagram, process model, or comparison visual.
-6. Upload/select those images in Wix with meaningful filenames/alt text where supported and verify mobile readability.
-7. Publish with unique SEO title, description, canonical URL, strong excerpt, appropriate cover/hero image, and schema/native metadata available to the blog system.
-8. Add deliberate internal links from the article to the most relevant SAT/EF service page, Results, consultation, and related existing articles; add selected inbound internal links from Resources and relevant existing pages without spammy repetition.
-9. Submit/inspect through Search Console only after domain + GSC readiness is working.
-10. Measure impressions, queries, CTR, position, and qualified traffic over time. Improve title/description/internal links/content only from evidence; no ranking guarantees.
+Selected flagship topic:
 
-Topic is **not frozen yet**. Choose it from SEO research when this workstream begins.
+**Digital SAT Prep for Students with ADHD: A Focus, Timing, and Executive Function Guide**
 
-Status: **QUEUED / SEO-FIRST / ONE ARTICLE.**
+Why this topic:
+- directly combines Behavioral Bridge's two strongest service areas: Digital SAT + EF/ADHD support
+- current search results are thinner and less authoritative than the generic SAT-plan space
+- high parent/student relevance and strong consultation intent
+- supports authoritative official College Board accommodation references without pretending Behavioral Bridge determines eligibility
+- naturally connects to existing SAT strategy, accuracy-before-speed, procrastination, EF, and parent-support articles
+
+Canonical production spec:
+- `wix/SEO_FLAGSHIP_ARTICLE_2026-09-09.md`
+
+Primary query cluster:
+- SAT prep for students with ADHD
+- digital SAT ADHD
+- how to study for the SAT with ADHD
+- SAT study strategies ADHD
+
+Secondary coverage:
+- SAT accommodations ADHD
+- digital SAT extended time
+- Bluebook accommodations
+- SAT focus/timing strategies
+- executive function and SAT preparation
+- SAT tutoring vs EF coaching for ADHD
+
+Required production sequence:
+1. **SEO opportunity research** — COMPLETE
+2. topic/search intent selection — **COMPLETE / FROZEN WORKING TOPIC**
+3. source-backed outline + originality check against 12 existing articles
+4. full human-first draft with useful H1/H2/H3 structure, examples, decision rules, FAQs, and no keyword stuffing
+5. create **four separate original GPT-made explanatory images** after article structure is stable:
+   - SAT Performance Pipeline: Knowledge → Decision → Attention → Execution → Score
+   - Digital SAT Decision Loop: Classify → Activate → Predict → Prove + attention checkpoint
+   - Hyperfocus Time Trap / Move-On Rule
+   - Study Feedback Loop: Diagnose → Repair → Micro-Redo → Timed Transfer → Re-Measure
+6. upload/select images in Wix with meaningful filenames/alt text where supported and verify mobile readability
+7. publish with unique SEO title, description, canonical URL, excerpt, hero/cover treatment, and available Blog metadata/schema
+8. add deliberate internal links to SAT, EF, Results, consultation, and relevant existing articles; add selected inbound links without spammy repetition
+9. submit/inspect through Search Console only after domain + GSC readiness is working
+10. measure impressions, queries, CTR, position, and qualified traffic; improve from evidence, with no ranking guarantees
+
+Status: **RESEARCH COMPLETE / TOPIC SELECTED / DRAFT + VISUAL PRODUCTION PENDING.**
 
 ## P8 — EXTERNAL AUTHORITY PROFILE CONSISTENCY
 
@@ -202,9 +239,9 @@ Status: **PENDING AFTER CORE LAUNCH GATES.**
 2. Finish Steps 6–7 native Resources/article reader and visual QA.
 3. Finish Step 8 native consultation acceptance; then reduce the fallback safely.
 4. Finish Step 9 header/footer/mobile nav QA; route aliases are already repaired.
-5. Complete Step 10 accessibility scan + responsive QA.
+5. Finish Step 10 current-public responsive/accessibility QA; the Wix scan is partial evidence only.
 6. Complete Step 11 domain + native-page technical SEO.
 7. Complete Step 12 Search Console verification/indexing.
-8. Execute the **one SEO flagship article + custom-image project** as a structured research → content → images → publish → internal links → indexing → measurement workflow.
+8. Draft, illustrate, publish, internally link, index, and measure the **one selected SEO flagship article**.
 9. Reconcile Wyzant/Superprof profile wording when account/browser access permits.
 10. Move into analytics, authority, distribution, lead optimization, and frozen maintenance rather than more redesign.
