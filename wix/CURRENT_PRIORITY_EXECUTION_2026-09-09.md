@@ -17,11 +17,11 @@ Final public proof standard requested by Ryan:
 Current implementation state:
 - Results Showcase `245d2c02-9ebb-4b3f-b863-53d787d8d13c` is live revision **14** and technically verified with `75+`, `350+`, and `Nearly 14`.
 - Conversion Trust Strip `2d0a6ae7-7661-48fc-8bb0-e948f23cbda5` is revision **4 / DISABLED**. Do not re-enable. It caused the intermittent black-bar/hydration defect.
-- Proof Metrics Coherence Patch `0adc9e67-d1d6-43fa-bd06-abc7a923793f` is live revision **3 / ENABLED / TRANSITIONAL**.
-- Rev3 is text-only. It inserts no bar, CSS layout, clickable UI, or new visible component.
-- Rev3 specifically handles the stale Home/SAT variants `60+`, `240+`, `300+`, `Wyzant ratings`, `Verified Reviews`, `Wyzant reviews`, `Tutoring Hours`, `Verified Platform Hours`, and related review/hour labels when they occur in the proof context.
-- Rev3 changes Home/SAT proof numbers to `75+` and `350+`, review label to `5-star reviews`, hours label to `Wyzant + Superprof hours`, and stale `12+` experience cards to `Nearly 14`.
-- Ryan visually confirmed before rev3 that SAT had updated to `Nearly 14` but still showed stale review/hour figures. Rev3 was created specifically to repair those remaining label/value variants.
+- Proof Metrics Coherence Patch `0adc9e67-d1d6-43fa-bd06-abc7a923793f` is live revision **4 / ENABLED / TRANSITIONAL**.
+- Rev4 is text-only. It inserts no bar, CSS layout, clickable UI, or new visible component.
+- Rev4 handles both split and combined stale Home/SAT proof text, including `60+`, `240+`, `300+`, `Wyzant ratings`, `Verified Reviews`, `Wyzant reviews`, `Tutoring Hours`, `Verified Platform Hours`, and combined nodes such as `60+ Verified Reviews` or `240+ Tutoring Hours`.
+- Rev4 changes Home/SAT proof numbers to `75+` and `350+`, review label to `5-star reviews`, hours label to `Wyzant + Superprof hours`, and stale `12+` experience cards to `Nearly 14`.
+- Ryan visually confirmed before rev4 that SAT had updated to `Nearly 14` but the lower proof area still showed stale information. Rev4 was created specifically to handle the remaining render variants.
 
 Acceptance gate:
 1. Home visibly shows exactly 5.0 / 75+ / 350+ / Nearly 14 with correct labels.
@@ -73,7 +73,7 @@ Active-layer scan after the latest changes:
 - Results rev14 outputs `Nearly 14`.
 - Core Authenticity rev11 outputs `Nearly 14` in its current About replacements.
 - The remaining literal `12+ years` inside Core is an **old match key** used to detect and replace stale native text, not the public replacement output.
-- Proof Metrics Coherence rev3 keeps `60+`, `240+`, `300+`, and `12+` only as **detection keys** so it can repair stale native text; those strings are not inserted as output.
+- Proof Metrics Coherence rev4 keeps `60+`, `240+`, `300+`, and `12+` only as **detection keys** so it can repair stale native text; those strings are not inserted as output.
 
 Status: **TECHNICALLY COHERENT; VISUAL RECHECK PENDING.**
 
@@ -103,7 +103,7 @@ Status: **PENDING NATIVE EDITOR ACCESS.**
 
 Current operational truth for this proof/credential bundle is this queue plus live Wix state.
 Still required:
-- Reconcile `wix/CURRENT_STATE_2026-09-09.md`, whose proof-metric/revision subsection predates rev14 Results, rev11 Core, and rev3 Proof Metrics Coherence.
+- Reconcile `wix/CURRENT_STATE_2026-09-09.md`, whose proof-metric/revision subsection predates rev14 Results, rev11 Core, and rev4 Proof Metrics Coherence.
 - Preserve the older ledger's site inventory, deletion gates, consultation safety rules, domain/SEO state, and roadmap classifications unless later evidence changes them.
 - Do not let older Sep. 5–6 handoffs override live Sep. 9 state.
 
