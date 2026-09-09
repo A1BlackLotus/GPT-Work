@@ -70,7 +70,7 @@ These legacy routes should not be treated as the current service-page source of 
 The following are enabled and must not be deleted merely for cleanup:
 
 ### CURRENT / production-frozen
-- `245d2c02-9ebb-4b3f-b863-53d787d8d13c` — Results Showcase v11 · Referral QA Repair — live revision 13; proof block now uses `75+` 5-star reviews and `300+` tutoring hours with non-Wyzant-only labels.
+- `245d2c02-9ebb-4b3f-b863-53d787d8d13c` — Results Showcase v11 · Referral QA Repair — live revision **14**; proof block uses `75+` 5-star reviews, `350+` Wyzant + Superprof hours, and `Nearly 14` years experience.
 - `caa6261a-3fe9-447b-8727-956b34045c60` — Parent Fit FAQ v2 — live revision 3.
 
 ### CURRENT — TRANSITIONAL / safety or migration dependency
@@ -85,7 +85,8 @@ The following are enabled and must not be deleted merely for cleanup:
 - `a18756c1-5508-4c55-85a1-4bbb1d38a192` — Article Content V2 — Homework Initiation — revision 1.
 - `0c3d4f1e-ff9f-4ead-b67e-d369bc9fee07` — Article Content V2 — Motivation Systems — revision 1.
   - Keep these eight Article Content V2 embeds until Steps 6–7 native resource/article rendering is visually verified for all 12 articles, including unknown-slug/error states.
-- `73a2dd88-1c32-44e4-a5a1-4e031f95e685` — Core Authenticity Pass v7 · SAT Native Editor Handoff — revision 7. Keep through Step 9 route cleanup. The retired SAT renderer must never be revived.
+- `73a2dd88-1c32-44e4-a5a1-4e031f95e685` — Core Authenticity Pass v7 · SAT Native Editor Handoff — revision **11**. Keep through Step 9 route cleanup. Current About replacements use the supported degree / Nearly 14 / Boston-area experience / Harvard-Boston College acceptance wording. The retired SAT renderer must never be revived.
+- `0adc9e67-d1d6-43fa-bd06-abc7a923793f` — Proof Metrics Coherence Patch v1 — revision **5 / ENABLED / TRANSITIONAL**. Text-only repair for stale native Home/SAT proof values. It inserts no bar, CSS layout, clickable UI, or new visible component. It maps stale proof values to the current `75+` / `350+` / `Nearly 14` standard and rev5 consumes/normalizes the original plus sign so `++` does not render. Retire only after Home/SAT are edited natively and visually verified.
 - `28670858-0820-42d0-850f-a7ab79b93de4` — Home & Resources Authenticity v1 — revision 1. Keep until native resource/home behavior is proven independent of it.
 
 ## Wix custom embeds — ARCHIVE / KEEP DISABLED FOR ROLLBACK
@@ -142,13 +143,25 @@ These are disabled and superseded. Take one recovery snapshot/export of names/ID
 - Site Properties still contains stale `externalSiteUrl: https://TheBehavioralBridge.org`. Do not blindly change it; resolve only when the permanent domain is actually connected.
 - No custom domain is currently present in the canonical site's published URL list.
 
-## Current known content debt — proof metrics
+## Current proof metrics / founder credibility state
 
-- User screenshots on 2026-09-09 visually confirm the **native Home proof bar** still shows `60+` Wyzant ratings and `240+` Wyzant tutoring hours.
-- Check native SAT/EF and any other native proof blocks for the same stale values during the next native-editor pass.
-- Current aggregate website wording requested by Ryan is `75+` 5-star reviews and `300+` tutoring hours, with general/cross-platform labels rather than falsely attributing those aggregate totals to Wyzant alone.
-- Fresh public Wyzant counters should remain separately attributable to Wyzant when used; do not relabel aggregate totals as Wyzant counts.
-- **Do not add another DOM-mutating proof-number rewrite.** Update these values natively in the existing Vibe page source and verify desktop/mobile when editor/browser access is available.
+- Final public proof standard requested by Ryan is: `5.0` Wyzant rating, `75+` 5-star reviews, `350+` Wyzant + Superprof hours, and `Nearly 14` years experience.
+- Results Showcase rev14 outputs this standard directly.
+- Native Home and SAT proof blocks contain older values underneath; Proof Metrics Coherence rev5 is the current **text-only transitional** repair until native Vibe source access is available.
+- Rev5 specifically fixes the previously observed duplicate-plus regression by consuming the source `+` and normalizing `75++` / `350++` to a single plus.
+- Conversion Trust Strip remains disabled; do not use an inserted proof bar again.
+- When native editor/source access becomes available, update Home and SAT proof blocks directly, visually verify desktop/mobile, and then retire Proof Metrics Coherence.
+
+Supported founder wording currently used by the About/Core layer:
+- B.S. in Psychology, magna cum laude — Bridgewater State University.
+- Nearly 14 years of education / student-support / tutoring experience.
+- Professional background includes Boston Latin, Brookline, and Newton school environments.
+- Accepted to graduate programs at Harvard and Boston College.
+
+Pending credential verification:
+- Ryan reports stronger Boston College post-baccalaureate and Harvard education-certificate credentials, but the exact historical program/certificate titles have not yet been recovered from Drive, GitHub, Gmail, Library, prior site records, or public search.
+- Do not invent those exact titles. Replace the conservative acceptance wording only when the precise credential names are verified.
+- Do not publish changing school rank numbers or scholarship/grant claims without a named source, record, or exact verified owner wording.
 
 ## Article/resource state
 
@@ -165,6 +178,7 @@ Repository: `A1BlackLotus/GPT-Work`
 
 ### CURRENT
 - `wix/CURRENT_STATE_2026-09-09.md` — this ledger; canonical website state.
+- `wix/CURRENT_PRIORITY_EXECUTION_2026-09-09.md` — current short execution queue for the Sep. 9 proof/credential bundle; live Wix state outranks it if a later discrepancy appears.
 - `wix/SAT_NATIVE_EDITOR_HANDOFF_2026-09-06.md` — current published build handoff supporting Steps 1–5 frozen and Steps 6–7 next; keep as supporting evidence, but this ledger supersedes it for cleanup/status.
 - `wix/native-vibe-consultation/src/pages/api/consultation.ts` — current recovery reference until Step 8 freeze.
 - `wix/native-vibe-consultation/FRONTEND_HANDLER.example.tsx` — current recovery reference until Step 8 freeze.
@@ -204,6 +218,7 @@ Use this order to avoid destroying recovery evidence:
 
 ## Next execution order
 
+0. Visually recheck Home + SAT + Results proof metrics after rev5 and confirm one plus sign only; verify the black strip remains absent. Confirm current About wording visually when browser/editor access is available.
 1. Finish and visually freeze Steps 6–7 Resources + native article reading.
 2. Finish Step 8 consultation transport acceptance; only then reduce safety fallback and restore/retest spam protection.
 3. Step 9 route aliases/header/footer/mobile nav; explicitly reconcile `/sat-prep` and `/executive-function`.
