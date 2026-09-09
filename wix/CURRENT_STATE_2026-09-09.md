@@ -100,7 +100,7 @@ Keep these disabled as rollback references until the named roadmap gate is froze
 - `827e1cf6-b008-40e1-9df4-d8f822f88a63` — Article Reader & Publication Layout — revision 17. Archive after Steps 6–7.
 - `65311ea0-35cf-4aef-8a6a-55dc2915212e` — Resources Router & Cards — revision 15. Archive after Steps 6–7.
 - `965f4e07-3f81-4ea0-a03d-7501444795dc` — Resources Executive Function Extension v2 — revision 3. Archive after Steps 6–7.
-- `1fd9bef8-e06b-4add-acf2-8f40-3b51b61a0e32` — Results Navigation & Frame v4 — revision 5. Archive through global navigation reconciliation if this ID is recovered/verified from Wix before any action; do not act from this line alone.
+- `1fd9bef8-e06b-4add-acf2-28f4359721dc` — Results Navigation & Frame v4 — revision 5. Archive through global navigation reconciliation.
 
 ## Wix custom embeds — DELETE CANDIDATES AFTER SNAPSHOT
 
