@@ -2,9 +2,9 @@
 
 Date: 2026-09-09
 Status: CURRENT / ACTION QUEUE
-Authority: live public Wix behavior > live Wix configuration > this queue > older handoffs.
+Authority: live public Wix behavior > live Wix configuration > `CURRENT_STATE_2026-09-09.md` > this queue > older handoffs.
 
-This file organizes the current website tasks created by the Sep. 9 proof/credential updates. For proof metrics and founder-credential work performed after the older canonical ledger, this queue is the current operational authority until `CURRENT_STATE_2026-09-09.md` is reconciled. It does not authorize redesign, destructive cleanup, or reactivation of retired embeds.
+This file organizes the current website tasks created by the Sep. 9 proof/credential updates. It does not authorize redesign, destructive cleanup, or reactivation of retired embeds.
 
 ## P0 — SITEWIDE PROOF METRICS COHERENCE — HIGHEST PRIORITY
 
@@ -101,13 +101,11 @@ Status: **PENDING NATIVE EDITOR ACCESS.**
 
 ## P5 — SOURCE-OF-TRUTH SYNC
 
-Current operational truth for this proof/credential bundle is this queue plus live Wix state.
-Still required:
-- Reconcile `wix/CURRENT_STATE_2026-09-09.md`, whose proof-metric/revision subsection predates rev14 Results, rev11 Core, and rev5 Proof Metrics Coherence.
-- Preserve the older ledger's site inventory, deletion gates, consultation safety rules, domain/SEO state, and roadmap classifications unless later evidence changes them.
-- Do not let older Sep. 5–6 handoffs override live Sep. 9 state.
+- `wix/CURRENT_STATE_2026-09-09.md` has been reconciled with Results rev14, Core Authenticity rev11, Proof Metrics Coherence rev5, the final 75+ / 350+ / Nearly 14 standard, the duplicate-plus correction, current founder credibility wording, and the pending exact Boston College/Harvard credential-title verification.
+- The older ledger's site inventory, deletion gates, consultation safety rules, domain/SEO state, and roadmap classifications were preserved.
+- Older Sep. 5–6 handoffs remain subordinate to the live Sep. 9 state.
 
-Status: **PENDING FINAL LEDGER RECONCILIATION.**
+Status: **COMPLETE.**
 
 ## P6 — DO NOT TOUCH DURING THIS PASS
 
