@@ -70,8 +70,7 @@ These legacy routes should not be treated as the current service-page source of 
 The following are enabled and must not be deleted merely for cleanup:
 
 ### CURRENT / production-frozen
-- `245d2c02-9ebb-4b3f-b863-53d787d8d13c` — Results Showcase v11 · Referral QA Repair — live revision 12.
-- `2d0a6ae7-7661-48fc-8bb0-e948f23cbda5` — Conversion Trust Strip v1 — live revision 3.
+- `245d2c02-9ebb-4b3f-b863-53d787d8d13c` — Results Showcase v11 · Referral QA Repair — live revision 13; proof block now uses `75+` 5-star reviews and `300+` tutoring hours with non-Wyzant-only labels.
 - `caa6261a-3fe9-447b-8727-956b34045c60` — Parent Fit FAQ v2 — live revision 3.
 
 ### CURRENT — TRANSITIONAL / safety or migration dependency
@@ -93,6 +92,7 @@ The following are enabled and must not be deleted merely for cleanup:
 
 Keep these disabled as rollback references until the named roadmap gate is frozen; do not re-enable casually:
 
+- `2d0a6ae7-7661-48fc-8bb0-e948f23cbda5` — Conversion Trust Strip v1 — revision 4, **DISABLED 2026-09-09** after screenshots and source inspection confirmed an intermittent first-hydration race could insert the full-width black strip in the middle of Home/SAT/EF content. Preserve only as rollback/history; **do not re-enable**.
 - `827e1cf6-b008-40e1-9df4-d8f822f88a63` — Article Reader & Publication Layout — revision 17. Archive after Steps 6–7.
 - `65311ea0-35cf-4aef-8a6a-55dc2915212e` — Resources Router & Cards — revision 15. Archive after Steps 6–7.
 - `965f4e07-3f81-4ea0-a03d-7501444795dc` — Resources Executive Function Extension v2 — revision 3. Archive after Steps 6–7.
@@ -141,6 +141,14 @@ These are disabled and superseded. Take one recovery snapshot/export of names/ID
 - Home has a stronger saved SEO override but the resolved published Home metadata still shows the older title/description state. Reconcile publication state.
 - Site Properties still contains stale `externalSiteUrl: https://TheBehavioralBridge.org`. Do not blindly change it; resolve only when the permanent domain is actually connected.
 - No custom domain is currently present in the canonical site's published URL list.
+
+## Current known content debt — proof metrics
+
+- User screenshots on 2026-09-09 visually confirm the **native Home proof bar** still shows `60+` Wyzant ratings and `240+` Wyzant tutoring hours.
+- Check native SAT/EF and any other native proof blocks for the same stale values during the next native-editor pass.
+- Current aggregate website wording requested by Ryan is `75+` 5-star reviews and `300+` tutoring hours, with general/cross-platform labels rather than falsely attributing those aggregate totals to Wyzant alone.
+- Fresh public Wyzant counters should remain separately attributable to Wyzant when used; do not relabel aggregate totals as Wyzant counts.
+- **Do not add another DOM-mutating proof-number rewrite.** Update these values natively in the existing Vibe page source and verify desktop/mobile when editor/browser access is available.
 
 ## Article/resource state
 
