@@ -160,6 +160,7 @@ Repository: `A1BlackLotus/GPT-Work`
 - `wix/SAT_NATIVE_EDITOR_HANDOFF_2026-09-06.md` — current published build handoff supporting Steps 1–5 frozen and Steps 6–7 next; keep as supporting evidence, but this ledger supersedes it for cleanup/status.
 - `wix/native-vibe-consultation/src/pages/api/consultation.ts` — current recovery reference until Step 8 freeze.
 - `wix/native-vibe-consultation/FRONTEND_HANDLER.example.tsx` — current recovery reference until Step 8 freeze.
+- `wix/native-vibe-consultation/VIBE_APPLY_PROMPT.md` — **CURRENT — RECOVERY/APPLY REFERENCE UNTIL STEP 8 FREEZE**; preserve because it contains the canonical application instructions and live acceptance gate for the native consultation repair.
 - `behavioral-bridge/math-interactives/` — **OUT OF SCOPE / DO NOT TOUCH**; current curriculum work, not website cleanup.
 
 ### ARCHIVE
@@ -169,7 +170,6 @@ Repository: `A1BlackLotus/GPT-Work`
 - `wix/SITE_MAINTENANCE_2026-09-05.md` — historical maintenance record; current embed/article counts have advanced.
 - `wix/WORKSTREAM_HANDOFF.md` — historical consultation/resource chronology; no longer the active website source of truth.
 - `wix/native-vibe-consultation/VIBE_ACCESS_BLOCKER.md` — historical Sep. 3 access investigation.
-- `wix/native-vibe-consultation/VIBE_APPLY_PROMPT.md` — historical prepared Vibe application prompt; native code path has since advanced.
 
 ### DELETE CANDIDATE
 - root `Website` — one-byte blank file; safe to remove.
