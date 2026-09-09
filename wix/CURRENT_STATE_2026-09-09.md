@@ -85,7 +85,7 @@ The following are enabled and must not be deleted merely for cleanup:
 - `a18756c1-5508-4c55-85a1-4bbb1d38a192` — Article Content V2 — Homework Initiation — revision 1.
 - `0c3d4f1e-ff9f-4ead-b67e-d369bc9fee07` — Article Content V2 — Motivation Systems — revision 1.
   - Keep these eight Article Content V2 embeds until Steps 6–7 native resource/article rendering is visually verified for all 12 articles, including unknown-slug/error states.
-- `73a2dd88-1c32-44e4-a5a1-4e031f95e685` — Core Authenticity Pass v7 · SAT Native Editor Handoff — revision **11**. Keep through Step 9 route cleanup. Current About replacements use the supported degree / Nearly 14 / Boston-area experience / Harvard-Boston College acceptance wording. The retired SAT renderer must never be revived.
+- `73a2dd88-1c32-44e4-a5a1-4e031f95e685` — Core Authenticity Pass v7 · SAT Native Editor Handoff — revision **12**. Keep through Step 9 route cleanup. Current About replacements use the supported B.S./magna cum laude / Nearly 14 / Boston-area experience / Boston College post-baccalaureate study / Harvard graduate coursework wording. The retired SAT renderer must never be revived.
 - `0adc9e67-d1d6-43fa-bd06-abc7a923793f` — Proof Metrics Coherence Patch v1 — revision **5 / ENABLED / TRANSITIONAL**. Text-only repair for stale native Home/SAT proof values. It inserts no bar, CSS layout, clickable UI, or new visible component. It maps stale proof values to the current `75+` / `350+` / `Nearly 14` standard and rev5 consumes/normalizes the original plus sign so `++` does not render. Retire only after Home/SAT are edited natively and visually verified.
 - `28670858-0820-42d0-850f-a7ab79b93de4` — Home & Resources Authenticity v1 — revision 1. Keep until native resource/home behavior is proven independent of it.
 
@@ -156,12 +156,15 @@ Supported founder wording currently used by the About/Core layer:
 - B.S. in Psychology, magna cum laude — Bridgewater State University.
 - Nearly 14 years of education / student-support / tutoring experience.
 - Professional background includes Boston Latin, Brookline, and Newton school environments.
-- Accepted to graduate programs at Harvard and Boston College.
+- Post-baccalaureate education includes study at Boston College and graduate coursework at Harvard University.
 
-Pending credential verification:
-- Ryan reports stronger Boston College post-baccalaureate and Harvard education-certificate credentials, but the exact historical program/certificate titles have not yet been recovered from Drive, GitHub, Gmail, Library, prior site records, or public search.
-- Do not invent those exact titles. Replace the conservative acceptance wording only when the precise credential names are verified.
-- Do not publish changing school rank numbers or scholarship/grant claims without a named source, record, or exact verified owner wording.
+Credential corroboration / limits:
+- Ryan directly identified Boston College post-baccalaureate study and Harvard education work.
+- Current public Wyzant education metadata independently lists `Harvard University — Graduate Coursework`, `Bridgewater State University — Bachelor of Science in Psychology`, and `Boston College — Other`.
+- Searches across Drive, GitHub, Gmail, Library, prior site records, and public search still did not recover the exact historical Boston College program title or exact Harvard education certificate title.
+- Do not invent those named titles, a Harvard degree, a Boston College degree, or `Harvard educated` wording. The current category-level wording is the supported public standard unless stronger exact records are later recovered.
+- Do not publish changing school rank numbers without a named ranking source and year.
+- Scholarship/grant history was not independently recovered; do not add a full-scholarship claim merely for prestige unless exact documentation/wording is later available.
 
 ## Article/resource state
 
