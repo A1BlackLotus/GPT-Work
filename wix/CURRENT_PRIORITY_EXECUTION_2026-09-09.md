@@ -40,29 +40,30 @@ Current supported public facts:
 - B.S. in Psychology, magna cum laude — Bridgewater State University
 - Nearly 14 years of education / student-support / tutoring experience
 - Professional background may reference Boston Latin, Brookline, and Newton school environments
-- Accepted to graduate programs at Harvard and Boston College
+- Post-baccalaureate study at Boston College
+- Graduate coursework at Harvard University
 
 Current live implementation:
-- Core Authenticity `73a2dd88-1c32-44e4-a5a1-4e031f95e685` is revision **11 / ENABLED**.
-- About rewrite now includes the B.S. Psychology / magna cum laude / Bridgewater State wording.
-- About rewrite now uses `Nearly 14 years`.
-- About rewrite now references work in Boston Latin, Brookline, and Newton school environments.
-- About rewrite now uses the conservative verified wording: `accepted to graduate programs at Harvard and Boston College.`
+- Core Authenticity `73a2dd88-1c32-44e4-a5a1-4e031f95e685` is revision **12 / ENABLED**.
+- About rewrite includes the B.S. Psychology / magna cum laude / Bridgewater State wording.
+- About rewrite uses `Nearly 14 years`.
+- About rewrite references work in Boston Latin, Brookline, and Newton school environments.
+- About rewrite now says: `His post-baccalaureate education includes study at Boston College and graduate coursework at Harvard University.`
+- The older conservative `accepted to graduate programs at Harvard and Boston College` sentence is no longer the active About output.
 
-Credential research status:
-- Ryan has newly stated that his stronger background includes post-baccalaureate work/programming at Boston College and Harvard education certifications.
-- Searches were run across Google Drive, GitHub, Gmail, Library, prior website handoffs, and public web results.
-- No source was found that gives the exact historical Boston College post-baccalaureate credential/program title or the exact Harvard education certificate title.
-- Current Harvard education programs include many differently named certificates, so choosing a modern title from the web would be unsafe and could mislabel Ryan's historical credential.
-- Do not invent an exact Boston College post-baccalaureate program name or Harvard certificate title.
-- Once the exact credential wording is recovered from the actual credential, resume, transcript, Veritas/profile source, or another reliable record, replace the conservative acceptance wording with the precise stronger wording if accurate.
+Credential corroboration / limits:
+- Ryan directly identified Boston College post-baccalaureate study and Harvard education work.
+- Current public Wyzant education metadata independently lists `Harvard University — Graduate Coursework`, `Bridgewater State University — Bachelor of Science in Psychology`, and `Boston College — Other`.
+- Searches across Google Drive, GitHub, Gmail, Library, prior website handoffs, and public search still did not recover the exact historical Boston College program title or exact Harvard education certificate title.
+- Therefore use the accurate category wording above, but do **not** invent a named Boston College post-baccalaureate program, Harvard certificate title, Harvard degree, Boston College degree, or `Harvard educated` claim.
+- If the exact historical certificate/program title is later recovered, it may replace the generic category wording if doing so is both accurate and useful.
 
 Additional credibility:
 - Boston Latin, Brookline, and Newton may be referenced as school environments where Ryan worked.
 - Do not publish changing rank numbers such as `#3` or `#12` unless tied to a named ranking source and year.
-- Do not publish scholarship/grant claims until a supporting record or exact owner-confirmed wording is available.
+- Scholarship/grant history has not been independently recovered. Do not add a full-scholarship claim merely for prestige; the current degree, honors, post-baccalaureate/graduate study, school-environment experience, and Nearly 14 years are stronger and cleaner.
 
-Status: **SUPPORTED FACTS IMPLEMENTED; STRONGER BC/HARVARD TITLES PENDING EXACT VERIFICATION.**
+Status: **STRONGER SUPPORTED EDUCATION WORDING IMPLEMENTED; EXACT HISTORICAL PROGRAM/CERTIFICATE TITLES OPTIONAL/PENDING RECOVERY.**
 
 ## P2 — EXPERIENCE WORDING CONSISTENCY
 
@@ -71,7 +72,7 @@ Reason: Ryan reports approximately 13.5 years total experience; `Nearly 14` is a
 
 Active-layer scan after the latest changes:
 - Results rev14 outputs `Nearly 14`.
-- Core Authenticity rev11 outputs `Nearly 14` in its current About replacements.
+- Core Authenticity rev12 outputs `Nearly 14` in its current About replacements.
 - The remaining literal `12+ years` inside Core is an **old match key** used to detect and replace stale native text, not the public replacement output.
 - Proof Metrics Coherence rev5 keeps `60+`, `240+`, `300+`, and `12+` only as **detection keys** so it can repair stale native text; those strings are not inserted as output.
 
@@ -101,7 +102,7 @@ Status: **PENDING NATIVE EDITOR ACCESS.**
 
 ## P5 — SOURCE-OF-TRUTH SYNC
 
-- `wix/CURRENT_STATE_2026-09-09.md` has been reconciled with Results rev14, Core Authenticity rev11, Proof Metrics Coherence rev5, the final 75+ / 350+ / Nearly 14 standard, the duplicate-plus correction, current founder credibility wording, and the pending exact Boston College/Harvard credential-title verification.
+- `wix/CURRENT_STATE_2026-09-09.md` has been reconciled with Results rev14, Core Authenticity rev12, Proof Metrics Coherence rev5, the final 75+ / 350+ / Nearly 14 standard, the duplicate-plus correction, and the stronger supported Boston College / Harvard education wording.
 - The older ledger's site inventory, deletion gates, consultation safety rules, domain/SEO state, and roadmap classifications were preserved.
 - Older Sep. 5–6 handoffs remain subordinate to the live Sep. 9 state.
 
@@ -119,4 +120,4 @@ Status: **COMPLETE.**
 
 ## Completion definition for this task bundle
 
-This bundle is complete when Home + SAT + Results visibly agree on the final proof standard, About/experience wording is coherent, the black-bar defect remains absent, supported credentials are presented accurately, stronger Boston College/Harvard credential titles are only added when their exact names are verified, and the canonical state files reflect the live configuration.
+This bundle is complete when Home + SAT + Results visibly agree on the final proof standard, About/experience wording is coherent, the black-bar defect remains absent, supported credentials are presented accurately, stronger named Boston College/Harvard credential titles are only added if their exact historical names are recovered, and the canonical state files reflect the live configuration.
