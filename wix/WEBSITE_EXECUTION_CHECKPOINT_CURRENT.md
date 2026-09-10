@@ -198,23 +198,74 @@ Until those can be verified, keep rev27 as the safety net and classify the publi
 
 ## P1.1 — Native Resources + article reader
 
-**NEXT SAFE EXECUTION TARGET**
+**DATA / INTERNAL-LINK LAYER IMPLEMENTED + TECHNICALLY VERIFIED / NATIVE RUNTIME + VISUAL ACCEPTANCE PENDING**
 
-All 12 canonical article routes previously content-load checked with matching H1 + substantial content. Full reader acceptance remains open for:
-- heading hierarchy and paragraph spacing
-- lists / blockquotes / emphasis / links
-- images and captions
-- related navigation / return to Resources
-- loading / not-found / API-failure states
-- stale-request cancellation
-- rapid slug switching and back/forward
-- true desktop/mobile visual acceptance
+### Published article inventory — verified
+Live Wix Blog audit confirms:
+- exactly 12 canonical published articles;
+- no missing or unexpected canonical slugs;
+- all are English and have no pricing-plan paywall;
+- all 12 have substantial text and rich content;
+- article-body headings use H2/H3 structure rather than adding duplicate H1s;
+- all contain structured lists where applicable;
+- all have related-post IDs;
+- all have SEO title + meta description data;
+- all 12 had `hasUnpublishedChanges: false` before the link repair.
+
+The native article bodies currently contain no inline IMAGE rich-content nodes; cover media is separate. Image/caption behavior therefore remains a native-reader/flagship-publication concern rather than a defect in the current 12 text articles.
+
+### Article support embeds — verified
+Eight enabled `Article Content V2` embeds are data providers only. They populate `window.__BB_ARTICLE_LIBRARY__` but do **not** manipulate the DOM, navigate, fetch, attach listeners, or install MutationObservers. Keep them until native-reader independence is proven.
+
+The old custom layers remain disabled:
+- Article Reader & Publication Layout `827e1cf6-b008-40e1-9df4-d8f822f88a63` rev17 — disabled; DOM/navigation/timer renderer
+- Resources Router & Cards `65311ea0-35cf-4aef-8a6a-55dc2915212e` rev15 — disabled; stale 8-article router
+- Resources Executive Function Extension v2 `965f4e07-3f81-4ea0-a03d-7501444795dc` rev3 — disabled; stale DOM/navigation extension
+
+Do not revive them casually.
+
+### Canonical internal-link repair — PASSED
+A live rich-content audit found 11 legacy service-route links across 10 published articles:
+- `/sat-prep` where `/sat-tutoring` is canonical;
+- `/executive-function` where `/ef-specialized-support` is canonical.
+
+The redirects worked, so visitors were not hard-broken, but the article bodies created unnecessary redirect hops and noncanonical internal linking.
+
+Using the existing PUBLISHED draft records (same IDs as their published posts), a single Wix Blog bulk update changed **only `richContent`** with a field mask and `UPDATE_PUBLISH`:
+- 10 updates succeeded;
+- 0 failed;
+- exactly 11 URL values changed;
+- all wording, headings, slugs, SEO, cover media, categories, and other post fields were left untouched by the field mask.
+
+Post-write verification:
+- published post count remains 12;
+- all 10 target drafts remain `PUBLISHED`;
+- all 10 have `hasUnpublishedChanges: false`;
+- legacy `/sat-prep` / `/executive-function` occurrences across published rich content: **0**;
+- Homework cover remains `445f86_e228e6e7b201423b82c59cafb022bbc3~mv2.png`;
+- Motivation cover remains `445f86_6476bad82bd140e8a4d24dff440a3a67~mv2.png`;
+- all 12 canonical slugs remain unchanged;
+- flagship draft `3f20ae47-004c-4171-995f-893e7c102f43` remains UNPUBLISHED with its one-node staging body and was not touched.
+
+### Remaining P1.1 acceptance
+Wix Viewer APIs do not provide a general published-page DOM/runtime inspector, so these still require native-source/browser access:
+- paragraph spacing and typography;
+- list/block quote/emphasis/link rendering;
+- native Resources catalog image agreement;
+- reader cover/inline image + caption behavior;
+- return-to-Resources / related navigation appearance;
+- loading, not-found, and API-failure states;
+- stale-request cancellation;
+- rapid slug switching and browser back/forward;
+- desktop/tablet/mobile visual acceptance.
 
 Old overlay Resources Router / Article Reader remain disabled unless deliberate rollback is chosen.
 
 ---
 
 ## P1.2 — Navigation / header / footer / responsive
+
+**NEXT SAFE EXECUTION TARGET**
 
 Open: desktop header, mobile menu, duplicate logo/wordmark, footer wrapping/stale content, canonical links, CTAs, overflow, image crops, sticky/fixed collisions, tablet/mobile.
 
@@ -267,14 +318,13 @@ If visual/native access is unavailable, preserve the acceptance hold and continu
 
 ### Current pointer
 
-Setup is complete.
-
 Held for later public/native acceptance:
 - P0.1 Results
 - P0.2 native Resources cover/catalog layer
 - P0.3 sitewide visual proof
 - P0.4 public consultation native-first/failover behavior
+- P1.1 native Resources/article-reader runtime + visual acceptance
 
-**NEXT: P1.1 — Native Resources + article reader.**
+**NEXT: P1.2 — Navigation / header / footer / responsive technical audit.**
 
 The project continues until the full final acceptance sweep passes. Only then may it be called completely done.
