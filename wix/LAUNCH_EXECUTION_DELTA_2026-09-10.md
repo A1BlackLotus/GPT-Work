@@ -122,3 +122,31 @@ The remaining project is no longer blocked by general permissions. The specific 
 - usable image-generation path for the four flagship graphics
 
 Everything else should continue from the canonical queue without restarting frozen work.
+
+
+## Continuation — live audit and graphics completed September 10
+
+- Chrome is no longer exposed by the browser connector. An attempted Chrome editor tab returned "Browser is not available: chrome". Owner was asked to reconnect signed-in Chrome; native source edits remain blocked. Public checks continued in the in-app browser.
+- All 12 canonical article routes were checked after their "In this article" navigation became visible. Every route displayed its matching H1, substantial article paragraphs and lists; no reader error was observed. This is content-loading QA, not full desktop/mobile visual acceptance.
+- Results menu destinations are canonical: Home, SAT Tutoring, EF & Specialized Support, About, Results, Resources, consultation.
+- Confirmed and repaired a regression: Resources displayed "Nearly 14 articles" because the experience patch searched distant ancestors. ProofMetricsCoherence embed 0adc9e67-d1d6-43fa-bd06-abc7a923793f is now revision 7. expContext stops before BODY/MAIN/HTML, searches at most four ancestors, and rejects contexts over 300 characters. After propagation, a fresh public Resources load showed "12 articles" and the delivered script contained V7. Preserve this fix; verify Home/SAT experience blocks when native edits resume.
+- Confirmed stale native Resources catalog image: the Homework card still loads 445f86_155995d6565c4de28e6b65214bf45a1e~mv2.png instead of the replacement documented above. Update src/lib/resourceArticles.ts in actual Vibe source for both replacement covers, including reader hero overrides.
+- Results screenshots show two unresolved image issues: at desktop width 1280 the cover background severely crops its baked-in slogan; at width 702 a small white "I typically respond within 24 hours" rectangle remains visible in the hero image area despite no matching DOM text node. Investigate the image itself/background before adding another text cleanup script. The existing Results embed is 14,999 characters, so do not exceed its limit.
+- Attempted 390px viewport override did not take effect: observed innerWidth remained 1280. No mobile acceptance claimed. Override reset.
+
+### Four flagship visuals — generated, inspected, uploaded
+
+Built-in image generation succeeded. Each is a separate 1254px square ivory/charcoal/muted-gold infographic; text inspected in generated output. Wix upload returned success for all four (processing status initially PENDING):
+
+1. SAT Performance Pipeline: 445f86_3e2818d5b4d0490995d87782c56974c7~mv2.png
+2. SAT Decision Loop: 445f86_d8b0f8cba046437dac159d5663b77fed~mv2.png
+3. Error Repair Loop: 445f86_b528c44c67b74af894bc0a84ab85c7ae~mv2.png
+4. Hyperfocus Time Trap: 445f86_ee5297959a624790adea9d4fea83de86~mv2.png
+
+Media URLs use https://static.wixstatic.com/media/ followed by the exact ID.
+Project copies are in C:/Users/ryanm/Documents/Codex/2026-09-06/gmail-plugin-gmail-openai-curated-remote/output/website-finalization/:
+sat-performance-pipeline.png, sat-decision-loop.png, sat-error-repair-loop.png, sat-hyperfocus-time-trap.png.
+
+Prompt set: separate premium editorial ivory/charcoal/gold diagrams with large mobile-readable text. Pipeline: Content Knowledge → Decision Process → Attention Control → Execution → Score. Decision loop: Classify (question type) → Activate (rule) → Predict (answer requirement) → Prove (evidence). Repair: Diagnose the Error → Repair the Decision → Micro-Redo → Verify Transfer, loop back if pattern returns. Hyperfocus: productive persistence (clear strategy/new information/progress) versus time trap (repeated rereading/no new information/easier questions waiting), stay/flag decision. No generated credentials, score claims, portraits or collage.
+
+Do not regenerate these assets. The staging article remains unpublished; no body/publication change was made in this continuation. Next: reconnect actual Wix editor, repair catalog and reader image/caption support as needed, insert the full clean article and these assets into existing draft 3f20ae47-004c-4171-995f-893e7c102f43, and pass visual/reader gates before publication. Consultation end-to-end tests, native SEO, domain and GSC gates remain open as described above. No claim of launch completion.
