@@ -76,6 +76,18 @@ Status UNPUBLISHED. SEO title/meta/slug staged. Wix body contains only one edito
 ## Accessibility automated evidence
 Latest scan `2cac6b01-0b63-4a4f-a2a8-172e05c9e19c`: PARTIALLY_COMPLETED, 5 pages discovered, 4 analyzed with 0 findings, root failed; scanner used an older internal Wix hostname. Partial evidence only.
 
+## Sitewide proof — accessible live layers technically clean
+Execution 2026-09-10 scanned all 32 custom embeds (16 enabled) for stale experience/review/hour values and doubled plus signs.
+
+Confirmed:
+- Results Showcase rev14 contains the intended visible proof block: `5.0 / 75+ / 350+ / Nearly 14`.
+- Core Authenticity rev13 contains `12+ years` only as a source phrase it searches for and replaces with current Nearly-14 wording; it is not a separate stale proof block.
+- Proof Metrics Coherence rev7 contains `12 years`, `75++`, `350++`, `60`, `240`, and `300` only as repair targets / replacement logic. Those literals must remain while the transitional safeguard is active.
+- Conversion Trust Strip rev4 contains historical `60+ WYZANT RATINGS / 240+ WYZANT HOURS / 12+ YEARS`, but remains **DISABLED**.
+- No enabled custom embed exposed an evidence-supported stale proof block requiring mutation.
+
+No production mutation was made in this proof pass because changing the repair-target literals would weaken working safeguards. Public visual acceptance remains pending because the browser connector is disconnected.
+
 ---
 
 # ACTIVE SAFEGUARDS / TRANSITIONAL SYSTEMS
@@ -133,33 +145,48 @@ Acceptance still required when browser/screenshot access exists:
 ## P0.2 — Resources image split-state
 **ACTIVE PROVIDER LAYER REPAIRED / NATIVE CATALOG + VISUAL ACCEPTANCE PENDING**
 
-Completed this execution:
-- Wix Blog records already had both intended covers;
+Completed:
+- Wix Blog records have both intended covers;
 - all 32 custom embeds were scanned;
-- the only enabled old-cover references were the two Article Content V2 providers;
+- only enabled old-cover references were the two Article Content V2 providers;
 - both active providers now use the same current media IDs as Wix Blog and are rev2;
 - disabled historical EF extension retains old IDs intentionally.
 
 Remaining bounded issue:
-- Astra previously observed the native Resources catalog loading the old Homework asset and identified the desired native source location as `src/lib/resourceArticles.ts`;
-- `GPT-Work` contains neither that source path nor either obsolete image ID, confirming it is not the deployed native Vibe source repository;
+- Astra previously observed the native Resources catalog loading the old Homework asset and identified desired native source location as `src/lib/resourceArticles.ts`;
+- `GPT-Work` contains neither that source path nor either obsolete image ID, so it is not the deployed native Vibe source repository;
 - official Wix Git Integration / Wix CLI for Sites documentation says true site code is stored in the Wix-connected GitHub repository and previewed/published through that site-source workflow;
-- no safe native-source mutation path is currently available through the connected Wix REST tools, and the Opera browser connector is disconnected.
+- no safe native-source mutation path is currently available through connected Wix REST tools, and Opera browser connector is disconnected.
 
-Therefore do **not** mark P0.2 finished yet. Acceptance remains:
-- native Resources catalog also points to current covers;
-- reader hero/image behavior agrees;
-- public desktop/mobile visually displays current images.
+Do **not** mark P0.2 finished until native Resources catalog, reader image behavior, and public desktop/mobile rendering agree on current assets.
 
 ## P0.3 — Sitewide proof / Nearly-14 visual acceptance
-**TRANSITIONALLY IMPLEMENTED / NEXT EXECUTION TARGET**
+**TECHNICALLY VERIFIED / VISUAL ACCEPTANCE PENDING**
 
-Verify no experience `12 years` / `12+ years`, intended 75+ / 350+ / Nearly 14, no `75++` / `350++`, and no black strip. Scan accessible live code/data for stale proof strings and fix only evidence-supported live conflicts. Preserve visual gate if browser remains unavailable. Prefer native correction over permanent DOM rewriting when native source is available.
+Accessible live Wix scan completed with no evidence-supported stale proof block requiring mutation. Results visible proof source is correct; stale-looking literals in Core Authenticity and Proof Metrics are intentional repair targets; old trust-strip metrics are isolated to the disabled rev4 component.
+
+Acceptance still required when browser access returns:
+- Home, SAT, About, Results, Resources show no experience `12 years` / `12+ years` to visitors;
+- intended `75+ / 350+ / Nearly 14` appear where expected;
+- no `75++ / 350++`;
+- no black strip.
+
+Prefer permanent native correction over runtime rewriting once native source is available.
 
 ## P0.4 — Consultation lead reliability
-**OPEN / SAFETY-CRITICAL**
+**OPEN / NEXT EXECUTION TARGET / SAFETY-CRITICAL**
 
-Do not remove fallback until native nine-field submission, service validation, duplicate prevention, failure preservation/fallback, two consecutive TEST ONLY confirmed submissions with one notification each, BASIC spam protection, and desktop/mobile public acceptance all pass.
+Do not remove fallback until:
+1. native nine-field submission works;
+2. service validation is enforced;
+3. in-flight guard prevents duplicates;
+4. values survive failure;
+5. success occurs only after confirmed Wix record;
+6. inline email fallback works on failure;
+7. two consecutive TEST ONLY submissions each create exactly one confirmed record;
+8. each test produces exactly one owner notification;
+9. BASIC spam protection is restored/retested;
+10. desktop/mobile public acceptance passes.
 
 ## P1.1 — Native Resources + article reader
 Open for headings, spacing, lists, images/captions, related navigation, loading/not-found/API failure states, stale-request cancellation, rapid route switching, back/forward behavior, and true mobile rendering. Old overlay Resources Router/Article Reader stay disabled unless deliberate rollback is chosen.
@@ -199,14 +226,15 @@ Eventually align Wyzant/Superprof public facts with current site while preservin
 - Do not re-enable Conversion Trust Strip rev4.
 - Do not remove Consultation Safety rev27 before full acceptance.
 - Do not revive retired SAT renderer in Core Authenticity.
-- Do not casually re-enable old overlay Resources Router/Reader or the disabled EF extension.
+- Do not casually re-enable old overlay Resources Router/Reader or disabled EF extension.
 - Do not duplicate flagship Wix draft.
 - Do not regenerate four flagship graphics unless defective.
 - Do not delete sites/embeds/recovery evidence without explicit destructive approval and safety verification.
 - Do not buy a Wix plan/domain or change DNS without owner approval.
-- Do not claim GitHub edits changed production; `GPT-Work` is coordination/recovery material, not the full deployed Vibe source.
+- Do not claim GitHub edits changed production; `GPT-Work` is coordination/recovery material, not full deployed Vibe source.
 - Do not label API success as visual completion.
-- Do not add code to Results Showcase rev14 merely to solve adjacent Results defects; use the small Results repair layer or native source because rev14 is near its size limit.
+- Do not add code to Results Showcase rev14 merely to solve adjacent Results defects; use small Results repair layer or native source because rev14 is near its size limit.
+- Do not remove stale-value literals from Proof Metrics/Core Authenticity while they are serving as search/repair targets.
 
 ---
 
@@ -244,15 +272,16 @@ Completion labels:
 
 **VISUAL-VERIFICATION HOLDS:**
 - `P0.1 Results`: rev2 technically verified; awaits public desktop/tablet/mobile inspection.
-- `P0.2 Resources`: Blog + active Article Content V2 image sources now technically aligned; native Vibe catalog repair and public visual inspection remain pending until source/browser access is available.
+- `P0.2 Resources`: Blog + active Article Content V2 image sources technically aligned; native Vibe catalog repair and public visual inspection remain pending until source/browser access is available.
+- `P0.3 Proof`: all accessible live embed layers technically audited; no warranted mutation; public visual acceptance remains pending because browser connector is disconnected.
 
-**NEXT:** `P0.3 — Sitewide proof / Nearly-14 acceptance`.
+**NEXT:** `P0.4 — Consultation lead reliability`.
 
 Next objective on `go/next`:
-1. scan all accessible live custom embeds/code for stale `12 years`, `12+ years`, old review/hour metrics, and doubled plus signs;
-2. distinguish disabled historical references from enabled live conflicts;
-3. repair only evidence-supported enabled conflicts without broad text rewriting;
-4. technically verify proof safeguards remain rev7 and black-strip component remains disabled;
-5. visually verify when browser capability returns; otherwise preserve that gate and advance safely.
+1. inspect current Wix form definition, exact automation, rev27 fallback code, and recent test/submission state before changing anything;
+2. determine which acceptance gates are already genuinely satisfied versus merely assumed;
+3. repair the smallest safe native/fallback defects available through current access while preserving lead safety;
+4. technically verify duplicate prevention / validation / record-confirmation behavior where accessible;
+5. do not remove rev27 fallback until the full two-test + notification + spam + desktop/mobile acceptance gate passes.
 
 The project continues step-by-step until the full final acceptance sweep passes. Only then may the assistant tell Ryan that the agreed website completion project is completely done.
