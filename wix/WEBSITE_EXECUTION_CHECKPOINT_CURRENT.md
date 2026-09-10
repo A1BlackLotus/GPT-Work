@@ -1,20 +1,20 @@
 # Behavioral Bridge — Website Execution Checkpoint — CURRENT
 
-**Created:** 2026-09-10  
+**Updated:** 2026-09-10  
 **Status:** CURRENT OPERATIONAL SOURCE OF TRUTH  
-**Purpose:** Single rolling checkpoint for the remaining Behavioral Bridge website completion work.
+**Purpose:** Single rolling checkpoint and execution protocol for completing the Behavioral Bridge website.
 
-This file supersedes the *operational status/priority* portions of dated website files such as `CURRENT_STATE_2026-09-09.md`, `CURRENT_PRIORITY_EXECUTION_2026-09-09.md`, `SCREENSHOT_QA_CURRENT_2026-09-09.md`, and `LAUNCH_EXECUTION_DELTA_2026-09-10.md` whenever their state conflicts with this checkpoint. Those files remain useful evidence/history and are not deleted.
+This file supersedes the operational status/priority portions of older dated website files whenever they conflict. Older files remain evidence/history and are not deleted.
 
-Authority remains:
+Authority:
 
-**public live behavior / current screenshots > live Wix state > this checkpoint > dated GitHub handoffs > older recovery material**.
+**public live behavior / current screenshots > live Wix state > this checkpoint > dated GitHub handoffs > older recovery material**
 
-Do not infer visual success from API success. For visible tasks, public rendering is the final acceptance gate.
+For visible tasks, public rendering is the final acceptance gate. API success alone is never visual completion.
 
 ---
 
-## MAIN GOAL
+# MAIN GOAL
 
 Finish the existing canonical Behavioral Bridge website so it is visibly polished, technically reliable, responsive, conversion-ready, search-ready, and maintainable without avoidable patch collisions.
 
@@ -42,455 +42,276 @@ Canonical proof standard:
 # COMPLETED / STABLE
 
 ## Core page rebuilds
-
 Home, SAT, EF, About, and Results major design work was previously published and visually accepted. Treat design as frozen except for verified regressions, factual corrections, responsive bugs, technical cleanup, and SEO.
 
 ## Service-route aliases
-
 Complete:
 - `/sat-prep` → `/sat-tutoring`
 - `/executive-function` → `/ef-specialized-support`
 
-Do not recreate these.
-
-## Black-strip regression containment
-
-`2d0a6ae7-7661-48fc-8bb0-e948f23cbda5` — Conversion Trust Strip rev4 — **DISABLED**.
-
-It caused the intermittent black/hydration strip. Keep disabled. Do not re-enable casually.
+## Black-strip containment
+`2d0a6ae7-7661-48fc-8bb0-e948f23cbda5` — Conversion Trust Strip rev4 — **DISABLED**. Keep disabled.
 
 ## Results proof block
-
-`245d2c02-9ebb-4b3f-b863-53d787d8d13c` — Results Showcase — **rev14 / ENABLED**.
-
-It directly contains the desired proof standard:
-- 5.0
-- 75+
-- 350+
-- Nearly 14
-
-Do not add more code to it casually; it is already approximately at Wix's custom-embed size limit.
+`245d2c02-9ebb-4b3f-b863-53d787d8d13c` — Results Showcase — **rev14 / ENABLED**. It directly contains 5.0 / 75+ / 350+ / Nearly 14. Do not casually add more code; it is near Wix's embed size limit.
 
 ## Blog inventory / article loading
+Exactly 12 canonical published articles. All 12 canonical article routes were content-load checked and displayed matching H1 plus substantial article content. This is not yet full desktop/mobile reader acceptance.
 
-The existing Wix Blog contains exactly 12 canonical published articles. Earlier live route testing confirmed all 12 canonical article routes load the matching H1 and substantial article content. This is **content-loading verification**, not full desktop/mobile article-reader acceptance.
+## Replacement Blog covers — backend correct
+Homework Initiation post `21945cef-4d24-4bc8-8b4b-6001ca7d7404` uses current Blog media `445f86_e228e6e7b201423b82c59cafb022bbc3~mv2.png`.
 
-## Two replacement Blog covers — backend records correct
+Motivation / EF post `c07b0cad-b856-4e4a-8afd-a07db6944e3e` uses current Blog media `445f86_6476bad82bd140e8a4d24dff440a3a67~mv2.png`.
 
-Wix Blog currently has the intended custom cover media on both posts, with no unpublished changes:
-
-1. Homework Initiation
-- Post `21945cef-4d24-4bc8-8b4b-6001ca7d7404`
-- slug `homework-initiation-executive-function`
-- current Blog media `445f86_e228e6e7b201423b82c59cafb022bbc3~mv2.png`
-- custom media = true
-
-2. Motivation / Executive Function
-- Post `c07b0cad-b856-4e4a-8afd-a07db6944e3e`
-- slug `why-motivation-is-wrong-target-executive-function`
-- current Blog media `445f86_6476bad82bd140e8a4d24dff440a3a67~mv2.png`
-- custom media = true
-
-This does **not** mean the public Resources catalog is fully fixed; see P0 below.
+Both are published custom media with no unpublished changes. Public Resources remains open because other active sources still reference old images.
 
 ## Flagship graphics
+All four are in Wix Media and **READY / state OK**. Do not regenerate absent a real defect.
+- Performance Pipeline: `445f86_3e2818d5b4d0490995d87782c56974c7~mv2.png`
+- Decision Loop: `445f86_d8b0f8cba046437dac159d5663b77fed~mv2.png`
+- Error Repair Loop: `445f86_b528c44c67b74af894bc0a84ab85c7ae~mv2.png`
+- Hyperfocus Time Trap: `445f86_ee5297959a624790adea9d4fea83de86~mv2.png`
 
-All four planned flagship SEO article graphics exist in Wix Media and have completed processing (`READY` / `state: OK`). Do not regenerate unless a real defect is found.
+## Flagship staging draft
+Existing Wix draft — **DO NOT DUPLICATE**:
+`3f20ae47-004c-4171-995f-893e7c102f43`
 
-1. SAT Performance Pipeline  
-`445f86_3e2818d5b4d0490995d87782c56974c7~mv2.png`
-
-2. SAT Decision Loop  
-`445f86_d8b0f8cba046437dac159d5663b77fed~mv2.png`
-
-3. Error Repair Loop  
-`445f86_b528c44c67b74af894bc0a84ab85c7ae~mv2.png`
-
-4. Hyperfocus Time Trap  
-`445f86_ee5297959a624790adea9d4fea83de86~mv2.png`
-
-## Flagship article staging object
-
-Existing Wix draft — DO NOT DUPLICATE:
-- Draft ID `3f20ae47-004c-4171-995f-893e7c102f43`
-- status UNPUBLISHED
-- SEO slug staged as `digital-sat-prep-adhd-executive-function`
-- SEO title/meta staged
-- current Wix body contains only one editorial staging paragraph
-- current Wix read time = 1 minute
-- current custom media = false
-
-The complete long-form article remains in GitHub at:
-`wix/seo/DRAFT_DIGITAL_SAT_ADHD_EXECUTIVE_FUNCTION_GUIDE_2026-09-09.md`
-
-Do not publish the one-paragraph Wix staging shell.
+Status UNPUBLISHED. SEO title/meta/slug are staged. Wix body currently contains only one editorial staging paragraph and reads as 1 minute. Full source remains in `wix/seo/DRAFT_DIGITAL_SAT_ADHD_EXECUTIVE_FUNCTION_GUIDE_2026-09-09.md`. Never publish the one-paragraph shell.
 
 ## Accessibility automated evidence
-
-Latest fresh Wix scan:
-- scan `2cac6b01-0b63-4a4f-a2a8-172e05c9e19c`
-- PARTIALLY_COMPLETED
-- 5 pages discovered
-- 4 successfully analyzed
-- 0 findings on those 4
-- root analysis failed
-- Wix used an older internal hostname rather than the canonical Vibe public URL
-
-Useful partial evidence only. Do not call accessibility fully finished.
+Latest scan `2cac6b01-0b63-4a4f-a2a8-172e05c9e19c`: PARTIALLY_COMPLETED, 5 pages discovered, 4 analyzed with 0 findings, root failed; scanner used an older internal Wix hostname. Useful evidence only, not final acceptance.
 
 ---
 
-# ACTIVE LIVE SAFEGUARDS / TRANSITIONAL SYSTEMS
+# ACTIVE SAFEGUARDS / TRANSITIONAL SYSTEMS
 
-## Proof Metrics Coherence — LIVE TRUTH IS REV7
+## Proof Metrics Coherence — LIVE TRUTH REV7
+`0adc9e67-d1d6-43fa-bd06-abc7a923793f` — **rev7 / ENABLED / BODY_END / TRANSITIONAL**.
 
-`0adc9e67-d1d6-43fa-bd06-abc7a923793f`
+Rev7 supersedes old rev5/rev6 records. It fixed the rev6 collateral bug that changed legitimate `12 articles` into `Nearly 14 articles` by bounding experience-context lookup. Public Resources was subsequently observed showing `12 articles` again.
 
-**rev7 / ENABLED / BODY_END / TRANSITIONAL**
-
-This supersedes dated records that still say rev5 or rev6.
-
-Rev7 was required because rev6 accidentally changed the legitimate Resources count `12 articles` into `Nearly 14 articles` by walking too far up the DOM for experience context.
-
-Rev7 now:
-- stops experience-context search before BODY / MAIN / HTML
-- searches at most four ancestors
-- rejects contexts over 300 characters
-- preserves Home/SAT proof normalization
-- preserves single-plus normalization
-
-A fresh public Resources load after rev7 showed `12 articles` again.
-
-Permanent objective remains: fix stale values natively when source access is available, visually verify, then retire this runtime patch safely.
+Permanent goal: correct stale native values, visually verify, then retire this runtime patch safely.
 
 ## Core Authenticity
-
-`73a2dd88-1c32-44e4-a5a1-4e031f95e685`
-
-**rev13 / ENABLED**
-
-Includes supported About credential wording and About-only Nearly-14 experience repair. Do not revive its retired SAT renderer.
+`73a2dd88-1c32-44e4-a5a1-4e031f95e685` — **rev13 / ENABLED**. Includes supported About credential wording and About-only Nearly-14 repair. Never revive its retired SAT renderer.
 
 ## Consultation fallback
-
-`b3ececaf-c221-4ad1-9590-4aa112486e11`
-
-**rev27 / ENABLED / SAFETY-CRITICAL**
-
-Still intercepts the consultation flow into a prepared email while native submission acceptance is incomplete. Keep until the full consultation acceptance gate passes.
+`b3ececaf-c221-4ad1-9590-4aa112486e11` — **rev27 / ENABLED / SAFETY-CRITICAL**. Keep until native consultation acceptance passes.
 
 ## Results stray-response cleanup
-
-`4bb4aa54-4956-4a44-af3d-6dbf0ca78d54`
-
-**rev1 / ENABLED / TRANSITIONAL**
-
-Important current diagnosis: its code only searches ordinary DOM text for response-time wording. Later public browser evidence found the visible `I typically respond within 24 hours` rectangle while no matching DOM text node was found. Therefore this cleanup is **not considered a proven solution to the current defect**.
-
-Potential ownership now includes Wix Inbox/chat/native widget or an image/native layer. Diagnose before adding another patch.
+`4bb4aa54-4956-4a44-af3d-6dbf0ca78d54` — **rev1 / ENABLED / TRANSITIONAL**. Its code only searches ordinary DOM text. Later browser evidence showed the visible `I typically respond within 24 hours` rectangle without a matching DOM text node, so rev1 is **not considered a proven solution**. Diagnose ownership before changing anything else.
 
 ## Home & Resources Authenticity
-
-`28670858-0820-42d0-850f-a7ab79b93de4`
-
-**rev1 / ENABLED**
-
-Its Resources behavior hides a stale native section; it does not provide the replacement article cover data.
+`28670858-0820-42d0-850f-a7ab79b93de4` — **rev1 / ENABLED**. It hides a stale Resources section; it does not supply the replacement cover data.
 
 ---
 
-# P0 — VISIBLE / REVENUE-CRITICAL DEFECTS
+# PRIORITY BACKLOG
 
-These are the first execution targets after setup is complete.
+## P0.1 — Results visible repair
+**OPEN / FIRST EXECUTION TARGET**
 
-## P0.1 Results page visual repair
+Hero uses `445f86_e47e366d8c834ce59185b186cd37b5ef~mv2.jpg`, actual dimensions 1600×371. Results CSS displays it in a much taller panel using `background-size: cover`, causing predictable crop of baked-in text at common desktop sizes.
 
-**OPEN / HIGH PRIORITY**
+A separate small white `I typically respond within 24 hours` element remains unresolved. Current text-hiding cleanup is not proven to own it. Wix Inbox/chat/native widget or another native/image layer remains a hypothesis, not a conclusion.
 
-Two distinct issues:
+Acceptance:
+- hero looks intentional on desktop/tablet/mobile
+- no important slogan/text clipped
+- no stray response-time box
+- Results proof intact
+- no black strip
 
-### A. Hero image crop
+## P0.2 — Resources image split-state
+**OPEN**
 
-Results Showcase rev14 uses:
-`445f86_e47e366d8c834ce59185b186cd37b5ef~mv2.jpg`
+Blog records contain new covers, but enabled Article Content V2 providers still hard-code old assets:
+- Homework provider `a18756c1-5508-4c55-85a1-4bbb1d38a192` still references `445f86_155995d6565c4de28e6b65214bf45a1e~mv2.png`
+- Motivation provider `0c3d4f1e-ff9f-4ead-b67e-d369bc9fee07` still references `445f86_2209a28418894c049fb8fae43b915bed~mv2.png`
 
-Actual image dimensions: **1600 × 371**.
+Astra also observed native Resources loading the old Homework asset.
 
-The live Results CSS places this ultra-wide 4.3:1 image into a much taller panel with `background-size: cover`, guaranteeing substantial horizontal cropping at ordinary desktop sizes. Critical slogan/content baked into the image can therefore be cut off.
+Acceptance: Blog media, active article-data source, native Resources catalog, and reader hero/image behavior all agree on the current assets and display correctly.
 
-Permanent repair should make critical text crop-safe, preferably by using real HTML for important copy and/or a correctly composed hero asset/layout rather than relying on baked text inside an extreme banner.
+## P0.3 — Sitewide proof / Nearly-14 visual acceptance
+**TRANSITIONALLY IMPLEMENTED / ACCEPTANCE OPEN**
 
-### B. White response-time rectangle
-
-A small white `I typically respond within 24 hours` element was still visible in later browser evidence.
-
-The current text-cleanup embed is not proven effective because no matching DOM text node was found when the defect was visible.
-
-Leading ownership hypothesis: Wix Inbox/chat or another native widget/layer. Wix Inbox infrastructure is installed/enabled on the site, but exact ownership is not yet proven.
-
-Next action: identify exact component/layer first, then fix at source. Do not add another blind text-hiding script.
-
-Acceptance: Results hero and surrounding UI look intentional on desktop and mobile, no clipped slogan, no stray 24-hour box, proof block intact, no black strip.
-
-## P0.2 Resources image split-state
-
-**OPEN / HIGH PRIORITY**
-
-Wix Blog records contain the correct new covers, but active article data still contains old image IDs.
-
-Enabled Article Content V2 provider:
-`a18756c1-5508-4c55-85a1-4bbb1d38a192` — Homework Initiation rev1
-still hard-codes old image:
-`445f86_155995d6565c4de28e6b65214bf45a1e~mv2.png`
-
-Enabled Article Content V2 provider:
-`0c3d4f1e-ff9f-4ead-b67e-d369bc9fee07` — Motivation Systems rev1
-still hard-codes old image:
-`445f86_2209a28418894c049fb8fae43b915bed~mv2.png`
-
-Astra also observed the native Resources catalog loading the old Homework asset.
-
-Therefore public behavior has multiple image sources that disagree.
-
-Next action: reconcile Blog media + Article Content V2 data + actual native Resources catalog/reader source to the same current assets. Then visually verify both cards and article hero/image behavior.
-
-## P0.3 Sitewide proof / Nearly-14 visual acceptance
-
-**TRANSITIONALLY IMPLEMENTED / PUBLIC ACCEPTANCE STILL OPEN**
-
-Live patch rev7 is technically present and the `12 articles` collateral bug is fixed.
-
-Need current public acceptance across Home, SAT, EF, About, Results, Resources, Consultation where relevant:
+Verify current public pages for:
 - no experience `12 years` / `12+ years`
-- 75+ / 350+ / Nearly 14 where intended
+- intended 75+ / 350+ / Nearly 14
 - no 75++ / 350++
 - no black strip
 
-Prefer eventual native correction over permanent DOM rewriting.
+Prefer native correction over permanent DOM rewriting when native source is available.
 
-## P0.4 Consultation lead reliability
-
+## P0.4 — Consultation lead reliability
 **OPEN / SAFETY-CRITICAL**
 
-Current fallback rev27 is protecting leads, but native form transport is not accepted.
+Do not remove fallback until:
+1. native nine-field submission works
+2. service validation is enforced
+3. in-flight guard prevents duplicates
+4. values survive failure
+5. success occurs only after confirmed Wix record
+6. inline email fallback works on failure
+7. two consecutive TEST ONLY submissions each create exactly one confirmed record
+8. each test produces exactly one owner notification
+9. BASIC spam protection is restored/retested
+10. desktop/mobile public acceptance passes
 
-Do not remove fallback until all pass:
-1. native nine-field submission
-2. service validation
-3. in-flight guard
-4. no duplicate submit
-5. values preserved on failure
-6. success only after confirmed Wix record
-7. inline email fallback on error
-8. two consecutive TEST ONLY submissions
-9. exactly one confirmed record per test
-10. exactly one owner notification per test
-11. BASIC spam protection restored and retested
-12. desktop/mobile public acceptance
+## P1.1 — Native Resources + article reader
+Open for headings, spacing, lists, images/captions, related navigation, loading/not-found/API failure states, stale-request cancellation, rapid route switching, back/forward behavior, and true mobile rendering. Old overlay Resources Router/Article Reader stay disabled unless a deliberate rollback is chosen.
 
----
+## P1.2 — Navigation/header/footer/responsive
+Verify/fix desktop header, mobile menu, duplicate logo/wordmark, footer wrapping/stale content, canonical links, CTAs, horizontal overflow, image crops, sticky/fixed collisions, tablet/mobile behavior.
 
-# P1 — FUNCTIONAL / ARCHITECTURAL COMPLETION
+## P1.3 — Front-end/back-end bug sweep
+After known P0 defects: inspect console/runtime/network for hydration warnings, failed calls, duplicate requests, stale event listeners, runaway observers/timers, patch collisions, duplicate submit handlers, stale article races, old hard-coded routes/media/proof strings, and keyboard/focus problems. Do not refactor working code for aesthetics alone.
 
-## P1.1 Native Resources + article reader
+## P2.1 — Native Vibe SEO metadata
+Open. Current core routes have weak raw-slug titles/generic descriptions; Home's stronger stored static SEO override does not control actual Vibe resolver output. Repair actual Vibe/head/routing metadata for Home, SAT, EF, About, Results, Resources, Consultation.
 
-All 12 article bodies load, but full acceptance remains open for:
-- headings
-- paragraph spacing
-- lists
-- images and captions
-- related navigation
-- loading state
-- not-found state
-- API failure state
-- stale-request cancellation / rapid route switching
-- desktop and true mobile rendering
-- back/forward behavior
+## P2.2 — Flagship SEO article
+Source + graphics ready; Wix body not transferred. After reader gate: transfer full clean body, remove production note, insert four READY graphics, set useful cover/media, internal links, categories/tags/related posts as appropriate, recheck College Board facts, desktop/mobile QA, then publish and later index.
 
-Old overlay Resources Router and Article Reader remain disabled. Do not casually revive them.
+## P2.3 — Accessibility current-public acceptance
+After meaningful visual changes: heading hierarchy, alt text, labels, contrast, keyboard navigation, focus visibility, menu behavior, error messaging.
 
-## P1.2 Navigation / header / footer / responsive QA
+## P3.1 — BehavioralBridge.org
+Registered, not present in current Wix account as assigned/unassigned; external ownership unresolved; site still on Free plan. Requires owner confirmation/authorization before plan purchase, domain connection, or DNS changes.
 
-Legacy route aliases are done.
+## P3.2 — Google Search Console
+Wix GSC NOT_READY / NOT_CONNECTED; verification hit MISSING_TOKEN; separate GSC workspace has zero properties. Requires one-time Google OAuth, then property verification, sitemap submission, indexing inspection.
 
-Still verify/fix:
-- desktop header
-- mobile menu
-- duplicate logo/wordmark
-- footer wrapping/stale content
-- all canonical internal routes
-- article links
-- CTA destinations
-- horizontal overflow
-- image crops
-- fixed/sticky collisions
-- tablet and true mobile behavior
+## P3.3 — Analytics / conversion measurement
+Traffic model exists but no trustworthy baseline yet. Establish after reliability/SEO gates; never invent traffic numbers.
 
-## P1.3 Front-end / back-end bug sweep
-
-After known P0 issues are fixed, inspect current public/runtime behavior for:
-- console errors
-- hydration warnings
-- failed network calls
-- duplicate API requests
-- stale event listeners
-- runaway MutationObservers/timers
-- patch collisions
-- duplicate submit handlers
-- article stale-data races
-- hard-coded old routes/media/proof strings
-- inaccessible focus/keyboard behavior
-
-Do not refactor working code for aesthetics alone.
+## P3.4 — External authority consistency
+Eventually align Wyzant/Superprof public facts with current site while preserving platform-specific truth.
 
 ---
 
-# P2 — SEO / GROWTH COMPLETION
+# DO NOT TOUCH / SAFETY
 
-## P2.1 Native Vibe page metadata
-
-**OPEN / HIGH SEO VALUE**
-
-Current native service/core routes have emitted weak raw-slug titles and generic descriptions. Home's stronger stored static SEO override does not control the actual Vibe resolver output.
-
-Repair must happen in the actual native Vibe/head/routing layer when available, not by repeatedly writing the wrong STATIC_PAGE object.
-
-Targets include:
-- Home
-- SAT
-- EF
-- About
-- Results
-- Resources
-- Consultation
-
-Need unique title, description, canonical, and appropriate social metadata without keyword stuffing.
-
-## P2.2 Flagship SEO article
-
-**SOURCE + GRAPHICS READY / WIX BODY NOT TRANSFERRED / UNPUBLISHED**
-
-Existing draft ID only:
-`3f20ae47-004c-4171-995f-893e7c102f43`
-
-Next after reader gate:
-- transfer complete clean article body from GitHub
-- remove production notes
-- insert four READY graphics
-- add suitable cover media
-- add internal links
-- add categories/tags/related posts where useful
-- final College Board fact check
-- desktop/mobile article visual QA
-- publish once accepted
-- later submit/inspect in Search Console
-
-Do not create another draft.
-
-## P2.3 Accessibility / current-public verification
-
-Automated Wix scan is partial only. Finish with current-public/manual checks after meaningful visual changes:
-- heading hierarchy
-- alt text
-- labels
-- contrast
-- keyboard navigation
-- focus visibility
-- menu behavior
-- error messaging
+- Do not redesign frozen core pages absent a verified regression.
+- Do not re-enable Conversion Trust Strip rev4.
+- Do not remove Consultation Safety rev27 before full acceptance.
+- Do not revive retired SAT renderer in Core Authenticity.
+- Do not casually re-enable old overlay Resources Router/Reader.
+- Do not duplicate the flagship Wix draft.
+- Do not regenerate the four flagship graphics unless defective.
+- Do not delete sites/embeds/recovery evidence without explicit destructive approval and safety verification.
+- Do not buy a Wix plan/domain or change DNS without owner approval.
+- Do not claim GitHub edits changed production; the repo is coordination/recovery material, not the full deployed Vibe source.
+- Do not label API success as visual completion.
 
 ---
 
-# P3 — OWNER / EXTERNAL LAUNCH INFRASTRUCTURE
+# NEXT-STEP EXECUTION PROTOCOL — INSTALLED
 
-## P3.1 BehavioralBridge.org
+After this setup, any user message substantially equivalent to **NEXT**, **NEXT STEP**, **GO**, or **CONTINUE** authorizes the following workflow automatically.
 
-Verified current state:
-- exact domain is registered
-- it is not present in this Wix account as assigned or unassigned
-- ownership outside Wix is not established by current evidence
-- canonical Wix site is still on a Free plan
+## 1. Start from this checkpoint
+Read the current checkpoint first. Do not rebuild the project plan from old handoffs unless evidence is needed.
 
-Owner gate: confirm ownership/registrar and approve any required Wix plan/domain connection expenditure before connection/DNS changes.
+## 2. Select one coherent work unit
+Take the highest-priority unfinished item that can be meaningfully advanced.
 
-## P3.2 Google Search Console
+Normal step size:
+- one subsystem/page, or
+- 2–4 tightly related defects, or
+- one full diagnose → repair → verification cycle.
 
-Verified current state:
-- Wix GSC readiness NOT_READY
-- Wix Google connection NOT_CONNECTED
-- supported verification attempt returned MISSING_TOKEN
-- separate GSC workspace has zero properties
+Do not stop after trivial lookups if the same turn can safely complete the coherent unit. Do not combine unrelated subsystems merely to maximize action count.
 
-Owner gate: one-time Google OAuth/authorization when presented.
+## 3. Inspect before changing
+Determine the exact current owner/layer: native Vibe source, Wix Blog, embed, Wix app/widget, image asset, CSS/layout, form/API, routing, SEO/head, or external service.
 
-Then: verify/add property → submit sitemap → request/inspect indexing as appropriate.
+If evidence conflicts, public rendering wins over backend assumptions.
 
-## P3.3 Analytics / conversion measurement
+## 4. Diagnose exact cause
+Prefer root cause over another workaround. Explicitly separate:
+- proven cause
+- strongest hypothesis
+- unknown
 
-Wix traffic semantic model exists, but no trustworthy launch baseline has yet been retrieved. After reliability/SEO gates, establish useful baseline and consultation conversion measurement. Do not invent traffic numbers.
+Never mutate based only on an unproven hypothesis when a safer inspection path exists.
 
-## P3.4 External authority consistency
+## 5. Make the smallest safe correction
+Preserve unrelated frozen behavior. Use one bounded repair rather than broad rewrites. Avoid stacking new runtime patches when native/source repair is available.
 
-Eventually align Wyzant/Superprof public profile facts with current site where access allows, especially Nearly 14, education wording, and current service positioning. Preserve platform-specific truth for ratings/hours.
+## 6. Verify technically
+Read back the changed object/code/data and check expected state. Check neighboring safeguards for regression when relevant.
 
----
+## 7. Verify functionally and visually
+For visitor-facing work, inspect the actual public result whenever browser/screenshot capability exists. Test the relevant width/state rather than assuming CSS/API correctness.
 
-# BLOCKED / REQUIRES EXTERNAL OR OWNER ACTION
+If visual access is unavailable, mark the item **TECHNICALLY VERIFIED / VISUAL ACCEPTANCE PENDING** — never FINISHED.
 
-- Actual native Wix Vibe source/editor access is still required for some permanent page/head/catalog repairs; GitHub does not contain the complete deployed source tree.
-- True mobile browser acceptance was not completed in the Astra pass; its attempted 390px override still reported 1280px.
-- Google Search Console requires owner OAuth.
-- Permanent domain connection requires ownership clarification and likely plan decision.
+## 8. Repair regressions before advancing
+If the change creates collateral damage, remain on the same work unit until repaired or clearly blocked. Do not move to the next backlog item while leaving a new known regression behind.
 
-Do not let these blockers stop unrelated safe work.
+## 9. Update this checkpoint
+After every execution turn, update:
+- COMPLETED / FROZEN
+- ACTIVE
+- BLOCKED
+- NEXT
+- DO NOT TOUCH if safeguards changed
+- exact live revisions/IDs when changed
 
----
+This file remains the single rolling state; do not create a new competing `CURRENT` operational file.
 
-# DO NOT TOUCH / PRESERVE
+## 10. Stop only at a natural boundary
+End the turn when:
+- the coherent work unit is accepted, or
+- the next action requires an owner-only step/login/payment/approval, or
+- a genuinely unavailable capability blocks safe continuation, or
+- continuing would mix in a separate subsystem better handled in the next step.
 
-- Canonical site ID `e6f68a23-cc00-421a-985e-515963cbe5f0`
-- Results Showcase rev14 unless a tightly scoped safe change is unavoidable
-- Conversion Trust Strip rev4: keep DISABLED
-- Consultation Safety/Fallback rev27 until full acceptance gate
-- Core Authenticity rev13 until native replacements are proven
-- Proof Metrics Coherence rev7 until native proof values are corrected and visually accepted
-- old Resources Router rev15 / Article Reader rev17: keep DISABLED unless deliberate rollback
-- legacy `The Behavioral Bridg` site until domain/indexing migration is complete
-- four flagship graphics: do not regenerate
-- flagship Wix draft ID: do not duplicate
-- frozen Home/SAT/EF/About/Results design: fix regressions, do not redesign from scratch
-
----
-
-# NEXT EXECUTION ORDER
-
-1. **Results visible repair:** hero crop + identify/fix actual 24-hour element source; visually accept Results.
-2. **Resources image reconciliation:** make all active image sources agree with the two approved replacement covers; visually accept cards/article imagery.
-3. **Sitewide proof acceptance:** verify/fix Nearly 14 + 75+ + 350+ + no `++` + no black strip; begin native cleanup where safely possible.
-4. **Consultation reliability:** native transport + two TEST ONLY acceptance runs; keep fallback until passed.
-5. **Article reader + Resources completion:** rich content, error states, images, related navigation, rapid-route behavior.
-6. **Header/footer/navigation + responsive/mobile QA.**
-7. **Focused front-end/back-end bug sweep.**
-8. **Native SEO metadata.**
-9. **Flagship SEO article:** transfer full body, insert four READY visuals, QA, publish.
-10. **Accessibility final pass.**
-11. **Domain + Search Console owner gates and completion.**
-12. **Analytics / conversion baseline + external profile consistency.**
-13. **Final visitor-journey QA and safe retirement/cleanup of transitional systems.**
-14. **FINAL FREEZE only after visible + technical + functional acceptance is complete.**
+Do not ask whether the user wants to continue. State the next work unit. The user's next `go/next` resumes it.
 
 ---
 
-# ROLLING CHECKPOINT FORMAT
+# COMPLETION LABELS
 
-After each future `NEXT`, `NEXT STEP`, `GO`, or `CONTINUE` turn, update this file rather than creating another competing status document.
+**IMPLEMENTED** — change made.
 
-Maintain five short sections near the end of the file or update the relevant sections above:
+**TECHNICALLY VERIFIED** — code/API/data proves expected state.
 
-- **COMPLETED** — genuinely finished/frozen
-- **ACTIVE** — current subsystem
-- **BLOCKED** — only real external/owner blockers
-- **NEXT** — highest-priority coherent work unit
-- **DO NOT TOUCH** — safeguards/frozen systems
+**VISUALLY VERIFIED** — actual public rendering inspected and correct for relevant states/widths.
 
-A visible item becomes FINISHED only after public visual acceptance. Technical/API success alone is not enough.
+**FUNCTIONALLY VERIFIED** — relevant user flow actually tested successfully.
+
+**FINISHED / FROZEN** — all required technical + functional + visual acceptance gates for that item pass.
+
+A visible task cannot become FINISHED on technical evidence alone.
+
+---
+
+# FAILURE / BLOCKER RULES
+
+- If an API/tool call fails, diagnose the failure; do not repeatedly issue the same mutation blindly.
+- If a native source edit is unavailable, complete every safe adjacent task and leave the exact native edit as a bounded blocker.
+- If owner action is required, ask for one concrete action only, explain why, and preserve all current safeguards while waiting.
+- If visual verification is unavailable, do not fabricate it; use technical status and resume visual acceptance once capability returns.
+- If a new defect is discovered, place it in priority order by visitor/revenue risk; do not let low-priority discoveries derail a P0 repair.
+
+---
+
+# CURRENT EXECUTION POINTER
+
+**SETUP COMPLETE.**
+
+**ACTIVE:** none — organizational setup finished.
+
+**NEXT:** `P0.1 — Results page visible repair`.
+
+First execution objective on next `go/next`:
+1. identify the exact source of the 24-hour response element;
+2. determine the safest Results hero crop/text repair given the 1600×371 source asset and near-limit rev14 embed;
+3. implement only evidence-supported changes that can be safely made with current access;
+4. technically verify and visually verify if public-browser capability is available;
+5. leave Results frozen only when acceptance actually passes.
+
+The project continues step-by-step until the full final acceptance sweep passes. Only then may the assistant tell Ryan that the agreed website completion project is completely done.
