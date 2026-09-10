@@ -55,11 +55,11 @@ Complete:
 ## Blog inventory / article loading
 Exactly 12 canonical published articles. All 12 canonical article routes were content-load checked and displayed matching H1 plus substantial content. Full desktop/mobile reader acceptance remains open.
 
-## Replacement Blog covers — backend correct
+## Replacement Blog covers — Blog backend correct
 - Homework post `21945cef-4d24-4bc8-8b4b-6001ca7d7404` → `445f86_e228e6e7b201423b82c59cafb022bbc3~mv2.png`
 - Motivation post `c07b0cad-b856-4e4a-8afd-a07db6944e3e` → `445f86_6476bad82bd140e8a4d24dff440a3a67~mv2.png`
 
-Both are published custom media with no unpublished changes. Public Resources remains open because other active sources still reference old images.
+Both are published custom media with no unpublished changes.
 
 ## Flagship graphics
 All four are in Wix Media and **READY / state OK**. Do not regenerate absent a real defect.
@@ -95,19 +95,21 @@ Rev7 supersedes old rev5/rev6 records and fixed the collateral `12 articles` →
 `4bb4aa54-4956-4a44-af3d-6dbf0ca78d54` — **rev2 / ENABLED / BODY_END / TRANSITIONAL**.
 
 Execution 2026-09-10:
-- replaced the ineffective rev1 text-only cleanup without modifying Results Showcase rev14;
-- injects a Results-only crop override so the 1600×371 panoramic hero image is fitted with `contain` instead of forced through `cover`;
-- retains the narrow response-time text cleanup;
-- additionally hides a small container around an iframe whose title/aria-label identifies chat, assistant, or messaging content, **only on `/results`**;
-- restores anything it hides when navigating away from `/results`;
-- does not uninstall or disable any chat/messaging system sitewide.
+- replaced ineffective rev1 text-only cleanup without modifying Results Showcase rev14;
+- Results-only hero override fits the 1600×371 panoramic image with `contain` instead of forced `cover`;
+- retains narrow response-time text cleanup;
+- additionally targets a small chat/assistant/messaging iframe container only on `/results` and restores hidden elements away from Results;
+- does not uninstall/disable any messaging system sitewide.
 
-Status: **IMPLEMENTED / TECHNICALLY VERIFIED / VISUAL ACCEPTANCE PENDING**. Wix update returned rev2 enabled; embed HTML length 2613. Public browser verification could not be performed because Opera Browser Connector was disconnected.
+Status: **IMPLEMENTED / TECHNICALLY VERIFIED / VISUAL ACCEPTANCE PENDING**. Browser connector remains disconnected.
 
-Important diagnostic status for the 24-hour rectangle:
-- rev1 ordinary DOM-text search did not explain the visible artifact;
-- iframe/native widget ownership remains the strongest hypothesis, not a proven identity;
-- legacy Wix Chat app identity was not established; do not claim a specific chat product owns it without visual/runtime evidence.
+## Article Content V2 cover providers — LIVE REV2
+Execution 2026-09-10 scanned all 32 custom embeds before mutation. The only enabled occurrences of the obsolete Homework/Motivation cover IDs were the two expected Article Content V2 providers. Both were updated in place with exact ID replacement only:
+
+- Homework provider `a18756c1-5508-4c55-85a1-4bbb1d38a192`: **rev1 → rev2 / ENABLED**; replaced old `445f86_155995d6565c4de28e6b65214bf45a1e~mv2.png` with current `445f86_e228e6e7b201423b82c59cafb022bbc3~mv2.png`; Wix mutation response confirmed new ID present and old ID absent.
+- Motivation provider `0c3d4f1e-ff9f-4ead-b67e-d369bc9fee07`: **rev1 → rev2 / ENABLED**; replaced old `445f86_2209a28418894c049fb8fae43b915bed~mv2.png` with current `445f86_6476bad82bd140e8a4d24dff440a3a67~mv2.png`; Wix mutation response confirmed new ID present and old ID absent.
+
+The disabled historical `Resources Executive Function Extension v2` (`965f4e07-3f81-4ea0-a03d-7501444795dc`) still contains both old IDs. It remains **DISABLED** and was deliberately not rewritten because it is rollback/history, not a live source.
 
 ## Home & Resources Authenticity
 `28670858-0820-42d0-850f-a7ab79b93de4` — **rev1 / ENABLED**. It hides a stale Resources section; it does not supply replacement cover data.
@@ -119,7 +121,7 @@ Important diagnostic status for the 24-hour rectangle:
 ## P0.1 — Results visible repair
 **IMPLEMENTED / TECHNICALLY VERIFIED / VISUAL ACCEPTANCE PENDING**
 
-Hero source `445f86_e47e366d8c834ce59185b186cd37b5ef~mv2.jpg` is 1600×371. Rev2 now prevents forced `cover` crop and route-locally targets likely iframe/text response-time artifacts.
+Hero source `445f86_e47e366d8c834ce59185b186cd37b5ef~mv2.jpg` is 1600×371. Results Visual Repair rev2 prevents forced `cover` crop and route-locally targets likely iframe/text response-time artifacts.
 
 Acceptance still required when browser/screenshot access exists:
 - desktop/tablet/mobile hero looks intentional;
@@ -128,23 +130,31 @@ Acceptance still required when browser/screenshot access exists:
 - Results proof remains intact;
 - no black strip or new whitespace/layout regression.
 
-Do not call Results FINISHED before this visual gate passes.
-
 ## P0.2 — Resources image split-state
-**OPEN / NEXT EXECUTION TARGET**
+**ACTIVE PROVIDER LAYER REPAIRED / NATIVE CATALOG + VISUAL ACCEPTANCE PENDING**
 
-Blog records contain new covers, but enabled Article Content V2 providers still hard-code old assets:
-- Homework provider `a18756c1-5508-4c55-85a1-4bbb1d38a192` → old `445f86_155995d6565c4de28e6b65214bf45a1e~mv2.png`
-- Motivation provider `0c3d4f1e-ff9f-4ead-b67e-d369bc9fee07` → old `445f86_2209a28418894c049fb8fae43b915bed~mv2.png`
+Completed this execution:
+- Wix Blog records already had both intended covers;
+- all 32 custom embeds were scanned;
+- the only enabled old-cover references were the two Article Content V2 providers;
+- both active providers now use the same current media IDs as Wix Blog and are rev2;
+- disabled historical EF extension retains old IDs intentionally.
 
-Astra also observed native Resources loading the old Homework asset.
+Remaining bounded issue:
+- Astra previously observed the native Resources catalog loading the old Homework asset and identified the desired native source location as `src/lib/resourceArticles.ts`;
+- `GPT-Work` contains neither that source path nor either obsolete image ID, confirming it is not the deployed native Vibe source repository;
+- official Wix Git Integration / Wix CLI for Sites documentation says true site code is stored in the Wix-connected GitHub repository and previewed/published through that site-source workflow;
+- no safe native-source mutation path is currently available through the connected Wix REST tools, and the Opera browser connector is disconnected.
 
-Acceptance: Blog media, active article-data source, native Resources catalog, and reader hero/image behavior all agree on current assets and display correctly.
+Therefore do **not** mark P0.2 finished yet. Acceptance remains:
+- native Resources catalog also points to current covers;
+- reader hero/image behavior agrees;
+- public desktop/mobile visually displays current images.
 
 ## P0.3 — Sitewide proof / Nearly-14 visual acceptance
-**TRANSITIONALLY IMPLEMENTED / ACCEPTANCE OPEN**
+**TRANSITIONALLY IMPLEMENTED / NEXT EXECUTION TARGET**
 
-Verify no experience `12 years` / `12+ years`, intended 75+ / 350+ / Nearly 14, no `++`, and no black strip. Prefer native correction over permanent DOM rewriting when native source is available.
+Verify no experience `12 years` / `12+ years`, intended 75+ / 350+ / Nearly 14, no `75++` / `350++`, and no black strip. Scan accessible live code/data for stale proof strings and fix only evidence-supported live conflicts. Preserve visual gate if browser remains unavailable. Prefer native correction over permanent DOM rewriting when native source is available.
 
 ## P0.4 — Consultation lead reliability
 **OPEN / SAFETY-CRITICAL**
@@ -189,12 +199,12 @@ Eventually align Wyzant/Superprof public facts with current site while preservin
 - Do not re-enable Conversion Trust Strip rev4.
 - Do not remove Consultation Safety rev27 before full acceptance.
 - Do not revive retired SAT renderer in Core Authenticity.
-- Do not casually re-enable old overlay Resources Router/Reader.
+- Do not casually re-enable old overlay Resources Router/Reader or the disabled EF extension.
 - Do not duplicate flagship Wix draft.
 - Do not regenerate four flagship graphics unless defective.
 - Do not delete sites/embeds/recovery evidence without explicit destructive approval and safety verification.
 - Do not buy a Wix plan/domain or change DNS without owner approval.
-- Do not claim GitHub edits changed production; repo is coordination/recovery material, not full deployed Vibe source.
+- Do not claim GitHub edits changed production; `GPT-Work` is coordination/recovery material, not the full deployed Vibe source.
 - Do not label API success as visual completion.
 - Do not add code to Results Showcase rev14 merely to solve adjacent Results defects; use the small Results repair layer or native source because rev14 is near its size limit.
 
@@ -232,15 +242,17 @@ Completion labels:
 
 **SETUP:** COMPLETE.
 
-**ACTIVE VISUAL-VERIFICATION HOLD:** `P0.1 — Results visible repair`; rev2 is technically verified but awaits public desktop/tablet/mobile inspection because the browser connector is disconnected.
+**VISUAL-VERIFICATION HOLDS:**
+- `P0.1 Results`: rev2 technically verified; awaits public desktop/tablet/mobile inspection.
+- `P0.2 Resources`: Blog + active Article Content V2 image sources now technically aligned; native Vibe catalog repair and public visual inspection remain pending until source/browser access is available.
 
-**NEXT:** `P0.2 — Resources image split-state`.
+**NEXT:** `P0.3 — Sitewide proof / Nearly-14 acceptance`.
 
 Next objective on `go/next`:
-1. inspect the two active Article Content V2 providers and current Blog media again before mutation;
-2. replace only the stale image IDs in those providers with the already-published replacement media;
-3. inspect whether any additional accessible Wix layer can be brought into agreement without guessing at unavailable native Vibe source;
-4. technically verify the repaired image references;
-5. visually verify if browser capability is available; otherwise retain the visual gate and proceed safely.
+1. scan all accessible live custom embeds/code for stale `12 years`, `12+ years`, old review/hour metrics, and doubled plus signs;
+2. distinguish disabled historical references from enabled live conflicts;
+3. repair only evidence-supported enabled conflicts without broad text rewriting;
+4. technically verify proof safeguards remain rev7 and black-strip component remains disabled;
+5. visually verify when browser capability returns; otherwise preserve that gate and advance safely.
 
 The project continues step-by-step until the full final acceptance sweep passes. Only then may the assistant tell Ryan that the agreed website completion project is completely done.
