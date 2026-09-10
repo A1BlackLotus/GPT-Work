@@ -265,13 +265,70 @@ Old overlay Resources Router / Article Reader remain disabled unless deliberate 
 
 ## P1.2 — Navigation / header / footer / responsive
 
-**NEXT SAFE EXECUTION TARGET**
+**LINK / ROUTE / CONNECTED-CODE LAYER TECHNICALLY VERIFIED / TRUE RESPONSIVE VISUAL ACCEPTANCE PENDING**
 
-Open: desktop header, mobile menu, duplicate logo/wordmark, footer wrapping/stale content, canonical links, CTAs, overflow, image crops, sticky/fixed collisions, tablet/mobile.
+### Canonical navigation and redirects — verified
+Live redirect records are correct and exact:
+- `/sat-prep` → `/sat-tutoring`, redirect `af1b5e54-7400-445d-8b49-3c2a7f46bc16`;
+- `/executive-function` → `/ef-specialized-support`, redirect `4b135ca4-be14-4b21-9c63-d83f0bdf29f1`.
+
+All 32 custom embeds were audited; 16 are enabled. Enabled direct `href` / assignment targets contain no active links to the retired service aliases, old Wix hostnames, or the old Gmail address. Current visitor-facing embed CTAs point to canonical `/book-consultation`, `/results`, the current business email, or supported external Wyzant/Superprof profiles.
+
+The site-level contact source is current:
+- `Ryan_Carvalho@BehavioralBridge.org`
+- `+1 508-774-0989`
+
+### Core Authenticity legacy route literals — intentionally retained
+Core Authenticity rev13 contains one `/sat-prep` and one `/executive-function` literal, but exact-code inspection proves these are **route-condition compatibility checks, not navigation links**. They gate retired cleanup/EF transformation logic. Replacing them with canonical paths would incorrectly activate legacy SAT/EF transformations on frozen canonical pages. Leave them unchanged.
+
+Its global `footer()` function only replaces the stale positioning sentence with the current SAT/EF positioning sentence; it does not rewrite footer navigation or contact routes.
+
+### Parent Fit FAQ placeholder href — verified intentional
+Parent Fit FAQ rev3 contains `href="#"`, but it is a scripted `REQUEST A CONSULTATION ↑` control that calls `window.scrollTo({top:0,behavior:'smooth'})` and returns false. It is rendered only on `/book-consultation` or the compatibility `/consultation` condition. It is not a broken navigation link.
+
+### `/blog` and `/consultation` — preserve pending native/browser evidence
+Wix Item SEO records prove `/blog` is a real Wix static page (`STATIC_PAGE:p03sx`) with a Resources-oriented title/canonical. No enabled custom embed links to `/blog`. BLOG_POST Item SEO records do not expose a `hostPageId` on this site, so the Blog host relationship cannot be proved through this API. Do not redirect, delete, or noindex `/blog` during navigation cleanup; resolve its role deliberately in the SEO/native phase.
+
+`/consultation` is not an active direct href in enabled custom code; it appears only as a compatibility route condition in consultation safety/FAQ code. The Viewer SEO resolver also returns generic successful tag output for a deliberately nonexistent test path, so resolver status cannot establish that `/consultation` is a real published page. No redirect is justified without browser/native-route evidence.
+
+SEO User Config is rev1 with:
+- `shouldFlattenUrlHierarchy: false`;
+- `shouldUsePartialRouteMatch: false`.
+
+The latter is the SEO-friendly configuration: real nonexistent page requests should not intentionally be converted into partial-route 200s.
+
+### Responsive connected-code risk scan — clean
+Enabled custom HTML/CSS was scanned for common independent overflow/collision risks. No enabled embed contained:
+- `position: fixed`;
+- `position: sticky`;
+- width/min/max-width in `vw`;
+- hard `min-width` values ≥400px;
+- fixed width values ≥700px;
+- explicit `overflow-x` overrides.
+
+This does **not** verify native Vibe layout CSS. It only shows the connected custom-code layer is not independently proving one of those responsive defects.
+
+### Remaining P1.2 acceptance
+Browser connector remains disconnected and deployed native Vibe source is unavailable through the connected REST surfaces. Still requires actual public desktop/tablet/mobile inspection for:
+- desktop header composition and active state;
+- mobile menu open/close and link behavior;
+- duplicate logo/wordmark;
+- footer wrapping/content order;
+- CTA tap targets;
+- native overflow/clipping;
+- image crops;
+- sticky/fixed native collisions;
+- tablet and ~390px mobile acceptance.
+
+No Wix production mutation was made in this P1.2 pass because no connected-layer navigation defect justified one.
+
+---
 
 ## P1.3 — Front-end/back-end bug sweep
 
-Open after known P0/P1 defects: runtime/network failures, hydration warnings, duplicate requests/listeners, runaway observers/timers, patch collisions, stale article races, hard-coded old routes/media/proof strings, duplicate submit handlers, keyboard/focus issues.
+**NEXT SAFE EXECUTION TARGET**
+
+Open: runtime/network failures, hydration warnings, duplicate requests/listeners, runaway observers/timers, patch collisions, stale article races, hard-coded old routes/media/proof strings, duplicate submit handlers, keyboard/focus issues. Browser-only symptoms remain acceptance-gated; connected-code/data defects can be repaired when proven.
 
 ## P2.1 — Native Vibe SEO metadata
 
@@ -324,7 +381,8 @@ Held for later public/native acceptance:
 - P0.3 sitewide visual proof
 - P0.4 public consultation native-first/failover behavior
 - P1.1 native Resources/article-reader runtime + visual acceptance
+- P1.2 header/footer/mobile responsive visual acceptance
 
-**NEXT: P1.2 — Navigation / header / footer / responsive technical audit.**
+**NEXT: P1.3 — Front-end/back-end bug sweep.**
 
 The project continues until the full final acceptance sweep passes. Only then may it be called completely done.
