@@ -84,11 +84,24 @@ A launch-period aggregate query was attempted but was blocked upstream before Wi
 
 ## 7. Flagship SEO article / visuals
 
-The flagship draft remains:
+The canonical source-backed article draft remains:
 `wix/seo/DRAFT_DIGITAL_SAT_ADHD_EXECUTIVE_FUNCTION_GUIDE_2026-09-09.md`
 
 Working title:
 `Digital SAT Prep for Students with ADHD: A Focus, Timing, and Executive Function Guide`
+
+A fresh September 10, 2026 fact-check against current College Board sources confirmed the draft's key policy/structure claims: standard SAT testing time is 2 hours 14 minutes; Reading and Writing is 64 minutes and Math 70 minutes; each section has two equal modules; full-length Bluebook practice can be configured for approved accommodations; students using approved extended time may move forward after standard time has elapsed; and extended-time use can include extra breaks. Preserve the draft's distinction between tutoring strategy and formally approved SSD accommodations.
+
+A real Wix Blog staging draft has now been created on the canonical site:
+- Draft ID: `3f20ae47-004c-4171-995f-893e7c102f43`
+- Status: `UNPUBLISHED`
+- Title: `Digital SAT Prep for Students with ADHD: A Focus, Timing, and Executive Function Guide`
+- Requested SEO slug field: `digital-sat-prep-adhd-executive-function`
+- Wix preview path currently returned as `/post/digital-sat-prep-for-students-with-adhd-a-focus-timing-and-executive-function-guide`
+- SEO title/meta and excerpt staged
+- `publish:false`
+- no duplicate title was created
+- the staging body contains an editorial do-not-publish note only; the complete article body remains protected in GitHub until native article-reader formatting can be visually inspected
 
 Publication remains gated on article-reader/visual QA.
 
@@ -106,6 +119,6 @@ The remaining project is no longer blocked by general permissions. The specific 
 - live browser/editor connection for visual/native Vibe QA and source edits
 - one-time Google OAuth for Search Console
 - confirmation/connection path for the already-registered `BehavioralBridge.org`
-- image-generation credits or an alternate image-generation path for the four flagship graphics
+- usable image-generation path for the four flagship graphics
 
 Everything else should continue from the canonical queue without restarting frozen work.
