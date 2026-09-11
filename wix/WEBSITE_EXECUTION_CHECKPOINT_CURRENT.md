@@ -176,12 +176,16 @@ Live execution 2026-09-11, canonical site e6f68a23-cc00-421a-985e-515963cbe5f0:
 - Source references: GSC connection-v1/get-connection; site-readiness-v1/get-site-readiness, verify-site, list-events, sample-flows; connection-v1/get-connect-url.
 - Schema confirms executable base https://www.wixapis.com/gsc/connection/v1/; do not use older article examples omitting /connection.
 
-Resume after owner reauthorization:
-1. Get Connection and current Site Readiness.
-2. If VALID + READY, Add Site → Submit Sitemap → Request Site Indexing using already confirmed schemas.
-3. Read List Events, List Sitemaps and appropriate inspection results; verify which hostname/property is affected, especially given the known obsolete-host scanner mismatch.
-4. Report request acceptance separately from actual sitemap processing/indexing.
-5. If TOKEN_INVALID persists after fresh consent, record Wix integration inconsistency and stop repeating OAuth/verification calls; owner Wix/Google connection diagnosis is needed.
+Reauthorization follow-up after Ryan reported “all set”:
+- List Events confirms a newer ACCOUNT_CONNECTED at 2026-09-11T16:13:06.113Z; SITE_VERIFIED remains 2026-09-11T16:09:23.356Z.
+- Get Connection remains VALID / ownedByCaller=true.
+- Get Site Readiness STILL returns NOT_READY / TOKEN_INVALID.
+- Therefore the documented reauthorization recovery was completed but did not clear the blocker. Do not send Ryan through another identical OAuth loop.
+- No Add Site, Submit Sitemap or Request Site Indexing was attempted.
+- Classify as unresolved Wix GSC integration/readiness inconsistency. Needs direct Wix/Google connection diagnosis; do not bypass readiness.
+- Opera rechecked after “all set”: still Browser not connected.
+- Next practical access action: enable Allow AI connection in Opera Browser Connector and sign in, to unlock public acceptance and dashboard diagnosis.
+- Once access is restored, prioritize Results/public gates and inspect GSC connection configuration. Revisit readiness only after new evidence/configuration changes.
 
 ## Extended-run / BB Web Design 5.1 transfer — 2026-09-11
 Ryan explicitly authorized continuing across multiple safe coherent units without end-of-unit confirmation during this Work run. The one-unit turn limit is temporarily superseded; inspection, smallest-fix, verification and checkpoint requirements remain. Actual credit balance is not exposed to the assistant; do not claim to monitor it or spend credits merely to exhaust them.
@@ -227,4 +231,4 @@ Post-action Wix site listing confirms only two accessible sites remain: canonica
 ## Next-step protocol
 `NEXT`, `NEXT STEP`, `GO`, or `CONTINUE` means choose the highest-priority coherent unfinished unit current tools can safely advance; inspect owner/layer; make the smallest evidence-based correction; verify technically; visually/functionally verify when available; update this checkpoint; stop at a natural boundary. Blocked items remain open rather than being falsely called done.
 
-**NEXT: Clear P3.3 TOKEN_INVALID with the prepared Google reauthorization, then continue property/sitemap/indexing only when ready. Connected browser access takes priority for held public acceptance. No completed-work repeats.**
+**NEXT: Restore browser access for public acceptance and direct Wix GSC diagnosis. Reauthorization was completed and did not clear TOKEN_INVALID; do not repeat the OAuth loop. P3.3 property/sitemap/indexing remains blocked.**
