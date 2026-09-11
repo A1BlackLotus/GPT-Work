@@ -334,3 +334,7 @@ No additional scripts added. No retirement of remaining transitional patches, fl
 
 ## Native editor access gate — latest 2026-09-11
 Chrome session is available but newly initialized with only a blank tab. Wix GetSiteContext reconfirmed canonical Picasso site, published Free plan, Velo enabled. Current tools expose no native Vibe source editing action; no repeated REST/CLI audit performed. Browser navigation to Wix site manager reached a signed-out screen; selected existing-account Log In. Secure browserAuth sign-in handoff is the next action. Connected Wix API auth does not authenticate this cloud browser. Native cover/footer/canonical/native-form repairs require this editor access. No website changes in this access step; preserve Results rev15 and Consultation Safety rev28.
+
+
+## Wix editor authentication outcome — latest 2026-09-11
+Fresh Wix site-manager verification remained signed out. Existing Google authentication tab reports Sign-in stopped: the device approval was declined (Google says the user indicated they were not trying to sign in on another device). Respect the denial; do not restart authentication automatically. Native editor source remains inaccessible. If Ryan says the denial was accidental and explicitly authorizes retry, use the secure browserAuth flow again. No password/token/OAuth URL is saved here. Results rev15 and Consultation Safety rev28 remain the latest implemented corrections; no site changes in this verification step.
