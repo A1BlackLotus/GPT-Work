@@ -248,3 +248,7 @@ Live `/results` inspection confirmed:
 
 The Results image layer remains an open visual defect requiring replacement or crop of the source asset through the owning Wix/Vibe layer. Do not add another text-only or iframe suppression patch.
 
+
+
+## Work-run access limit — 2026-09-11
+Chrome CDP successfully completed one canonical public Results inspection and identified the 24-hour box as baked into the hero image. A subsequent navigation to `/resources` was blocked by the environment usage limit (automatic review reported credits exhausted until Sep 15, 2026). Do not attempt browser circumvention. Resume with the existing Chrome browser path when credits/access return; next visual unit is Resources, followed by responsive and runtime gates.
