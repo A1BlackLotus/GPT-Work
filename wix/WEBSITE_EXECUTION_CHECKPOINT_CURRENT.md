@@ -330,3 +330,7 @@ Tablet/mobile, whole-page regression and intermittent behavior remain OPEN; do n
 
 ### Transfer boundary
 No additional scripts added. No retirement of remaining transitional patches, flagship publication, domain/billing/DNS/GSC changes, message sending or form records. GSC TOKEN_INVALID persists as last verified; no repeat OAuth. Current safe completed corrections are Results rev15 and Consultation Safety rev28. Sol must preserve both and resume the remaining gates above; the website is not FINISHED/FROZEN.
+
+
+## Native editor access gate — latest 2026-09-11
+Chrome session is available but newly initialized with only a blank tab. Wix GetSiteContext reconfirmed canonical Picasso site, published Free plan, Velo enabled. Current tools expose no native Vibe source editing action; no repeated REST/CLI audit performed. Browser navigation to Wix site manager reached a signed-out screen; selected existing-account Log In. Secure browserAuth sign-in handoff is the next action. Connected Wix API auth does not authenticate this cloud browser. Native cover/footer/canonical/native-form repairs require this editor access. No website changes in this access step; preserve Results rev15 and Consultation Safety rev28.
