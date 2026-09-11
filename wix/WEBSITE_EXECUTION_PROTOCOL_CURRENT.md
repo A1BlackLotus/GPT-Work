@@ -10,6 +10,14 @@ The protocol exists to maximize reliable progress while preserving the projectâ€
 
 ---
 
+## Current execution-mode override â€” September 11, 2026
+
+Ryan authorized an extended Work execution run across as many safe coherent units as access permits, without stopping after each unit or requesting continued permission. This instruction supersedes the normal turn-size/natural-boundary stopping rule for that run only. Complete each unit's inspection, smallest correction, verification and regression checks before proceeding; save meaningful checkpoint changes throughout.
+
+Continue until the authorized work is complete or remaining work is blocked by genuine access/owner dependencies. Do not manufacture activity by repeating completed work or spending credits for their own sake. The assistant cannot see remaining credit balance and must not claim to track it. Preserve a transfer-ready checkpoint for BB Web Design 5.1. When Ryan returns to the Sol stepwise workflow, use the normal coherent-unit turn sizing below; no project reconfirmation is needed.
+
+---
+
 ## 1. COMMAND MEANING
 
 Any of these user messages:
