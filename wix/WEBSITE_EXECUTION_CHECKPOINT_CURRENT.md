@@ -66,7 +66,7 @@ Rev27 still intentionally intercepts public consultation submit and opens email 
 
 Exactly 12 canonical articles remain published, substantial, structured, not paywalled, and with SEO data/related-post IDs. Eight Article Content V2 embeds are data-only. Old overlay reader/router/EF extension remain disabled.
 
-Canonical-link repair passed: 11 legacy `/sat-prep` or `/executive-function` rich-content links across 10 posts were changed to `/sat-tutoring` or `/ef-specialized-support`; 10/10 updates succeeded, no slug/title/SEO/cover changes, and the flagship draft remained untouched.
+Canonical-link repair passed: 11 legacy `/sat-prep` or `/executive-function` rich-content links across 10 posts were changed to `/sat-tutoring` or `/ef-specialized-support`; 10/10 updates succeeded, no slug/title/SEO/cover changes, and the flagship draft remained untouched at that stage.
 
 Still browser/native gated: reader typography, cover/image/caption behavior, error/loading states, back-forward/rapid slug switching, native Resources card images, desktop/tablet/mobile acceptance.
 
@@ -107,12 +107,47 @@ No Wix production mutation was justified in P1.3; changing guarded/idempotent co
 Viewer-level resolution still shows weak raw-slug titles and generic descriptions on core Vibe routes. Item SEO STATIC_PAGE inventory does not expose those canonical Vibe routes as editable static-page items. Do not keep writing unrelated SEO overrides and claim success. Repair must occur in the actual Vibe head/routing source or another verified controlling layer.
 
 ## P2.2 — Flagship SEO article
-**NEXT SAFE PRODUCTIVE TARGET WHILE NATIVE/BROWSER WORK IS BLOCKED**
+**FULL DRAFT STAGED + TECHNICALLY VERIFIED / UNPUBLISHED / VISUAL-PUBLICATION GATES PENDING**
 
-Use existing draft only. Transfer the complete GitHub article body, remove staging shell, insert the four already-READY graphics in appropriate sections, preserve factual accommodation/College Board limits, add canonical internal links/categories/tags/related posts as supported, and keep UNPUBLISHED until reader + desktop/mobile + SEO gates pass.
+Existing Wix draft only: `3f20ae47-004c-4171-995f-893e7c102f43`. No duplicate was created.
+
+Completed this execution:
+- replaced the one-paragraph editorial staging shell with the full approved source-backed article body;
+- deliberately omitted a duplicate in-body H1 because Wix renders the post title as the page H1;
+- removed reader-facing scaffolding such as `Visual placement`, `Internal link`, source-note, and editorial-note labels;
+- converted the article to valid Wix Ricos rich content and validated/fixed the final document before saving;
+- inserted all four existing READY graphics as individual inline IMAGE nodes at the intended teaching points;
+- converted internal-link notes into real contextual links to canonical service/article routes;
+- retained the intended SEO slug `digital-sat-prep-adhd-executive-function`;
+- set a concise human-readable excerpt;
+- assigned three existing related posts: Accuracy Before Speed, Why More SAT Practice Often Fails, and Weekly Executive Function Reset;
+- assigned existing categories: `SAT Prep`, `SAT Strategy`, `Executive Function`;
+- assigned existing tags: `Digital SAT`, `Executive Function`, `SAT Strategy`, `Academic Performance`, `Parent Support`.
+
+Wix update verification:
+- status remains `UNPUBLISHED`;
+- `hasUnpublishedChanges: true`;
+- calculated reading time: 11 minutes;
+- 4 inline images;
+- 15 H2 headings;
+- 22 H3 headings;
+- zero duplicate H1 nodes in the body;
+- article stayed on the same draft ID.
+
+College Board factual points were rechecked against current official material on 2026-09-10 before staging: standard SAT timing remains 64 minutes Reading and Writing + 70 minutes Math = 2h14m, and current extended-time guidance confirms students using extended time may move on after standard time has elapsed and receive automatic extra breaks in Bluebook.
+
+Do **not publish yet**. Remaining acceptance:
+- visual inspection of typography, images, spacing, captions/alt rendering and mobile behavior;
+- verify preview/public URL behavior and final SEO presentation;
+- reader/back-forward/error-state gate;
+- final College Board policy recheck immediately before publication;
+- publish only after those gates pass;
+- then add inbound contextual links and submit/inspect in Search Console when connected.
 
 ## P2.3 — Accessibility
-After meaningful visual/native changes, rerun public accessibility acceptance. Existing scan is partial only.
+**NEXT SAFE EXECUTION TARGET**
+
+Run a fresh accessibility scan on the current published site after the recent Results/proof/navigation changes. Separate successful pages from failed pages and inspect actual findings before making any repair. Draft flagship content is not yet public and therefore is not part of this scan.
 
 ## P3 — Launch infrastructure
 - `BehavioralBridge.org`: registered but not attached to this Wix account; ownership/connection unresolved; current site is Free. No plan purchase or DNS action without owner approval.
@@ -129,10 +164,11 @@ After meaningful visual/native changes, rerun public accessibility acceptance. E
 - header/footer/mobile-menu/responsive acceptance
 - browser console/hydration/network/focus checks
 - core Vibe SEO source repair
+- flagship article visual/mobile/publication acceptance
 
 Opera Browser Connector remains disconnected as of this checkpoint.
 
 ## Next-step protocol
 `NEXT`, `NEXT STEP`, `GO`, or `CONTINUE` means: choose the highest-priority coherent unfinished unit that current tools can safely advance; inspect owner/layer; make the smallest evidence-based correction; verify technically; verify visually/functionally when available; update this checkpoint; stop at a natural boundary. Blocked visual/native items remain open rather than being falsely called done.
 
-**NEXT: P2.2 — prepare the existing flagship ADHD/Digital SAT article draft with the full approved body and existing four graphics, while keeping it unpublished.**
+**NEXT: P2.3 — run a fresh current-public accessibility scan and repair only demonstrated issues that current tools can safely address.**
