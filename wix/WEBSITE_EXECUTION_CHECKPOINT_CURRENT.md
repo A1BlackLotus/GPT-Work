@@ -1,6 +1,6 @@
 # Behavioral Bridge — Website Execution Checkpoint — CURRENT
 
-**Updated:** 2026-09-10  
+**Updated:** 2026-09-11  
 **Status:** CURRENT OPERATIONAL SOURCE OF TRUTH
 
 Authority: public live behavior/screenshots > live Wix state > this checkpoint > older handoffs. API success is not visual acceptance.
@@ -116,8 +116,34 @@ Do not rerun the same scanner repeatedly unless Wix changes Vibe scan eligibilit
 ## P3 — Launch infrastructure
 - `BehavioralBridge.org`: registered but not attached to this Wix account; ownership/connection unresolved; site remains Free. No plan purchase/DNS/bind without Ryan approval.
 - Google Search Console: previously NOT_CONNECTED / MISSING_TOKEN; needs Ryan's one-time Google OAuth before full verification/sitemap/indexing.
-- Analytics/conversion: trustworthy baseline still not established.
+- Analytics: recorded traffic baseline established in P3.1; genuine-lead conversion measurement remains incomplete.
 - External Wyzant/Superprof wording alignment remains later, preserving platform-specific truth.
+
+## P3.1 — Analytics / conversion baseline
+**TRAFFIC BASELINE TECHNICALLY VERIFIED / CONVERSION MEASUREMENT INCOMPLETE**
+
+Checked 2026-09-11 UTC using the canonical site ID and Wix Semantic Models List → Get → Query.
+Site timezone: America/New_York.
+Baseline: August 13–September 9, 2026 inclusive (28 complete local days; UTC interval 2026-08-13T04:00Z to 2026-09-10T04:00Z). September 10 deliberately excluded to avoid the current/recent partial day.
+
+- Site total: 103 sessions, 92 unique visitors, 336 page views.
+- Consultation: 28 sessions / 39 views.
+- Home: 88 sessions / 126 views.
+- Results: 34 sessions / 63 views.
+- Resources: 17 sessions / 39 views.
+- SAT: 14 sessions / 32 views.
+- EF: 11 sessions / 19 views.
+- About: 15 sessions / 24 views.
+- Historical /sat-prep and /blog: 1 session / 1 view each.
+- Page-level session counts overlap and must not be summed into site sessions.
+- These are site-scoped recorded analytics, not verified prospect-only traffic; owner/QA traffic and hostname attribution have not been separated.
+- Forms analytics for consultation form b692e647-b20c-45b0-ae1d-2530df030907: 4 submissions, 0 form views, 0 form starts, name Unknown. Genuine lead status is unverified; do not label all four leads or calculate a reliable conversion rate. Backend QA records and email-first fallback require reconciliation.
+- Button-click query: zero rows. Site Properties version 23 reports trackClicksAnalytics=false.
+- All selected numeric traffic/form fields were returned. No API errors; page result set had 9 rows, below requested page size.
+- No tracking settings or public code changed. The false click setting is evidence of current configuration, not proof that enabling it will work on native Vibe.
+- Opera Browser Connector rechecked: UNAVAILABLE / Browser not connected. Visual/runtime gates remain open.
+
+Next coherent unit: inspect official semantics/support for trackClicksAnalytics and reconcile submission measurement with native/email-first consultation ownership before any tracking mutation. If browser/native access becomes available, prioritize held public acceptance gates.
 
 ## Current holds requiring browser/native/owner access
 - Results hero + 24-hour artifact visual acceptance
@@ -134,4 +160,4 @@ Do not rerun the same scanner repeatedly unless Wix changes Vibe scan eligibilit
 ## Next-step protocol
 `NEXT`, `NEXT STEP`, `GO`, or `CONTINUE` means choose the highest-priority coherent unfinished unit current tools can safely advance; inspect owner/layer; make the smallest evidence-based correction; verify technically; visually/functionally verify when available; update this checkpoint; stop at a natural boundary. Blocked items remain open rather than being falsely called done.
 
-**NEXT: P3.1 — establish the current Wix Analytics/conversion baseline and determine what visitor/conversion data is actually available before adding or changing tracking.**
+**NEXT: P3.2 — verify native Vibe click-tracking support and consultation conversion measurement ownership; make only evidence-based supported changes. Browser availability takes priority for held public acceptance gates.**
