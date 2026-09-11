@@ -231,4 +231,20 @@ Post-action Wix site listing confirms only two accessible sites remain: canonica
 ## Next-step protocol
 `NEXT`, `NEXT STEP`, `GO`, or `CONTINUE` means choose the highest-priority coherent unfinished unit current tools can safely advance; inspect owner/layer; make the smallest evidence-based correction; verify technically; visually/functionally verify when available; update this checkpoint; stop at a natural boundary. Blocked items remain open rather than being falsely called done.
 
-**NEXT: Restore browser access for public acceptance and direct Wix GSC diagnosis. Reauthorization was completed and did not clear TOKEN_INVALID; do not repeat the OAuth loop. P3.3 property/sitemap/indexing remains blocked.**
+**NEXT: Continue Chrome-based public acceptance, starting with Results responsive checks and then Resources, proof, consultation, reader, header/footer and runtime. Results hero source replacement remains open because the 24-hour box is baked into the image. Do not repeat Opera or GSC OAuth loops.**
+
+## Browser access and Results visual acceptance — 2026-09-11
+**CHROME CLOUD BROWSER AVAILABLE / RESULTS DEFECT OWNER IDENTIFIED**
+
+A built-in Chrome CDP browser was successfully bootstrapped and used against the canonical public site. This is an alternate working path when Opera is disconnected; do not repeat Opera connection loops.
+
+Live `/results` inspection confirmed:
+- navigation, hero, CTA and proof metrics render;
+- proof metrics are correct: 5.0, 75+, 350+, Nearly 14;
+- the separate `bb-email-safety-banner` element is present but `display:none`;
+- the visible “I typically respond within 24 hours.” white rectangle is baked into panoramic hero image asset `445f86_e47e366d8c834ce59185b186cd37b5ef~mv2.jpg`, not a separate iframe or text overlay;
+- no black hydration strip was visible in this desktop viewport;
+- browser console showed only an extension metadata error, with no site-origin error captured.
+
+The Results image layer remains an open visual defect requiring replacement or crop of the source asset through the owning Wix/Vibe layer. Do not add another text-only or iframe suppression patch.
+
