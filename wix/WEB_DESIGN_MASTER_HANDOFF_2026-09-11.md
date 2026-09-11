@@ -1,6 +1,14 @@
 # BEHAVIORAL BRIDGE — WEB DESIGN / WEBSITE COMPLETION
 ## MASTER CONTINUATION HANDOFF — 2026-09-11
 
+## Live continuation update — September 11, 2026
+
+The rolling checkpoint now contains newer P3.3 evidence: Google consent is VALID and Wix event history confirms SITE_VERIFIED (2026-09-11T16:09:23.356Z). Readiness subsequently reports TOKEN_INVALID despite connection remaining VALID. Google reauthorization is the documented next recovery; property addition, sitemap submission and indexing request have not run. Older OAuth-pending language below is historical. Consult CURRENT P3.3 before acting; do not repeat successful verification blindly.
+
+Ryan authorized an extended Work run without per-unit stops, while preserving all safety/verification gates and transfer-ready records. The execution protocol contains this override. Normal Sol stepwise turn sizing resumes when Ryan returns to that workflow in BB Web Design 5.1. No credit-balance visibility is available.
+
+---
+
 **ROLE**
 
 You are continuing Ryan Carvalho’s existing Behavioral Bridge website completion project.
