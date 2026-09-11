@@ -338,3 +338,7 @@ Chrome session is available but newly initialized with only a blank tab. Wix Get
 
 ## Wix editor authentication outcome — latest 2026-09-11
 Fresh Wix site-manager verification remained signed out. Existing Google authentication tab reports Sign-in stopped: the device approval was declined (Google says the user indicated they were not trying to sign in on another device). Respect the denial; do not restart authentication automatically. Native editor source remains inaccessible. If Ryan says the denial was accidental and explicitly authorizes retry, use the secure browserAuth flow again. No password/token/OAuth URL is saved here. Results rev15 and Consultation Safety rev28 remain the latest implemented corrections; no site changes in this verification step.
+
+
+## Authorized editor-login retry outcome — latest 2026-09-11
+Ryan explicitly authorized retrying Google sign-in after the earlier device denial. Google popup returned 502 Bad Gateway / Connection refused, persisting after one reload; no device approval reached. Ryan then selected SSO via secure browserAuth; Wix reported SSO unavailable for the entered email. Returned to Wix login and requested manual cloud-browser handoff so Ryan can use his usual login method. Do not repeat automatic Google/SSO attempts. No site mutations in this login step. Verify authenticated Wix dashboard after handoff before native source work. Keep credentials and transient authentication URLs out of checkpoints.
