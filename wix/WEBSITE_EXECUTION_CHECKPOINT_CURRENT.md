@@ -86,23 +86,32 @@ Completed:
 Do not publish until actual reader/mobile/SEO visual acceptance and final College Board policy recheck.
 
 ## P2.3 — Accessibility
-**CURRENT SCANNER LIMITATION PROVEN / CANONICAL VIBE ACCEPTANCE BLOCKED**
+**WIX SCANNER LIMITATION PROVEN / CANONICAL VIBE ACCEPTANCE BLOCKED**
 
-Fresh full-site scan `3803f2c7-7b1d-4a2d-9f32-175470270d51` reached `PARTIALLY_COMPLETED`:
+Fresh full-site scan `98191dbf-53a4-4511-a51f-be05de5b8f3b` reached `PARTIALLY_COMPLETED`:
 - 5 pages discovered;
 - 4 completed;
 - 0 findings on those four;
-- one page failed analysis.
+- 1 page failed analysis.
 
-However, discovery used the obsolete/static hostname `https://ryancarvalho6.wixsite.com/wix-vibe-site-5cld`, not the canonical current Vibe site. The four completed pages were Blog, Cart, Shop and Thank-you; they are not evidence that the canonical Home/SAT/EF/About/Results/Resources/Consultation routes are clean.
+But Wix full-site discovery resolved the obsolete/static hostname `https://ryancarvalho6.wixsite.com/wix-vibe-site-5cld`, not the canonical current Vibe site. The four completed pages were `/blog`, `/cart-page`, `/shop`, and `/thank-you-page`; the old-host root failed. This is not evidence that the canonical Behavioral Bridge routes are clean.
 
-A direct URL-targeted scan of the actual canonical homepage was then run as `d349527b-c45a-4ace-a10e-3034410817fd`. It ended `ACCESSIBILITY_SCAN_STATUS_FAILED` with `ACCESSIBILITY_SCAN_FAILURE_CODE_ANALYSIS_FAILED` / `No usable accessibility scan result was produced.`
+Canonical page-targeted scans were then attempted directly:
+- Home scan `8708c366-d578-4dda-9a0a-6e9b0a5baca0` — terminal `FAILED`, 1 discovered / 1 failed / 0 processed;
+- `/sat-tutoring` — `SCAN_TARGET_NOT_AVAILABLE: page URL is not scan-eligible`;
+- `/ef-specialized-support` — not scan-eligible;
+- `/about` — not scan-eligible;
+- `/results` — not scan-eligible;
+- `/resources` — initial rate limit, exact retry with same idempotency key then not scan-eligible;
+- `/book-consultation` — initial rate limit, exact retry with same idempotency key then not scan-eligible.
 
 Therefore:
-- no demonstrated accessibility defect exists from this scan to repair;
-- do **not** claim the canonical Vibe site passed accessibility;
-- current Wix Accessibility Scans cannot provide the required acceptance for this Vibe homepage;
-- finish accessibility with real browser/native inspection when that access is available, including alt text, headings, contrast, keyboard/focus, labels, skip/main structure and mobile behavior.
+- the Wix Accessibility API cannot currently certify the canonical Vibe routes;
+- zero findings on old-host/static pages must not be represented as a canonical-site pass;
+- no scanner-produced canonical defect exists to patch safely;
+- accessibility completion remains a browser/native acceptance task: alt text, heading structure, contrast, keyboard/focus, form labels, skip/main structure, media alternatives, DOM order and mobile behavior.
+
+Do not rerun the same scanner repeatedly unless Wix changes Vibe scan eligibility or the site architecture changes meaningfully.
 
 ## P3 — Launch infrastructure
 - `BehavioralBridge.org`: registered but not attached to this Wix account; ownership/connection unresolved; site remains Free. No plan purchase/DNS/bind without Ryan approval.
