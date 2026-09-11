@@ -21,7 +21,7 @@ Authority: public live behavior/screenshots > live Wix state > this checkpoint >
 - Results Showcase rev15 stays enabled and near size limit (14999 characters); rev15 changes only the repaired hero image URL.
 - Proof Metrics rev7 stays enabled/transitional.
 - Core Authenticity rev13 stays enabled; do not revive retired SAT renderer.
-- Consultation Safety rev27 stays enabled until native-first submission is publicly verified.
+- Consultation Safety rev28 stays enabled until native-first submission is publicly verified; rev28 removes duplicate injected fields and restores validation while preserving email-first interception.
 - Do not duplicate/publish flagship draft prematurely or regenerate its four READY graphics.
 
 ## P0.1 — Results
@@ -231,7 +231,7 @@ Post-action Wix site listing confirms only two accessible sites remain: canonica
 ## Next-step protocol
 `NEXT`, `NEXT STEP`, `GO`, or `CONTINUE` means choose the highest-priority coherent unfinished unit current tools can safely advance; inspect owner/layer; make the smallest evidence-based correction; verify technically; visually/functionally verify when available; update this checkpoint; stop at a natural boundary. Blocked items remain open rather than being falsely called done.
 
-**NEXT: Visually verify the rev15 Results hero repair when browser access returns, then Resources → proof → consultation → reader → responsive/runtime → flagship preview. Native Vibe SEO and GSC TOKEN_INVALID remain blocked. Do not repeat completed scans or Opera/OAuth loops.**
+**NEXT: Continue from the technical batch below. Results rev15 desktop hero and reader basic desktop navigation passed. Consultation rev28 duplicate-field/validation repair passed. Prioritize native Vibe source access for cover/footer/SEO/native submission repairs, plus remaining responsive and reader edge-case acceptance. Do not repeat those completed checks.**
 
 ## Browser access and Results visual acceptance — 2026-09-11
 **CHROME CLOUD BROWSER AVAILABLE / RESULTS DEFECT OWNER IDENTIFIED**
@@ -274,3 +274,59 @@ Read the CURRENT checkpoint, CURRENT protocol and Sep 11 handoff. Resume normal 
 Access facts: built-in Chrome CDP successfully rendered Results before the usage-limit rejection; Opera is not the only browser route. GSC Wizard was callable but listed zero connected properties; it did not resolve Wix readiness. Google reauthorization already completed, yet TOKEN_INVALID persists. Native Vibe source remains unavailable in GPT-Work/current REST tools. Flagship draft remains UNPUBLISHED. No domain, billing, DNS, additional QA submissions or old-site deletions performed in this repair unit.
 
 Credits are not visible as a live counter. Stop repeating blocked checks; continue safe work only when there is a concrete new access path or verified writable defect. The website is NOT FINISHED/FROZEN.
+
+
+## Extended technical batch — 2026-09-11 (latest controlling update)
+
+### Access recovery
+Following Ryan's explicit authorization to use alternate routes, the existing Chrome CDP browser resumed successful navigation. Earlier usage-limit statements are historical, not a permanent browser blocker. Two later browser interactions timed out (combined anchor/history test and scroll); inspecting current state recovered the session. Do not claim all browser actions are reliable or repeat blocked loops.
+
+### Consultation rev28 — implemented, technically and selectively functionally verified
+Observed 13 visitor fields: native nine plus four duplicate injected student/grade/goals/availability fields. Live owning source was Consultation Safety rev27, whose second script blindly injected the duplicates. Also identified positional textarea mapping: goals could be misused as availability when extra fields were filled.
+- Updated only Consultation Safety `b3ececaf-c221-4ad1-9590-4aa112486e11`, rev27 → rev28, enabled, BODY_START, 5888 characters.
+- Removed its obsolete duplicate-field injection script because native fields exist. Preserved email-first safety interception and direct email fallback.
+- Added required/type validation before opening mailto on both click and form-submit paths.
+- Mapped goals and availability by field name instead of textarea position.
+- Corrected notice wording from form “above” to form “on this page.”
+- Exact pre-update full HTML/revision guard and returned full-HTML equality passed.
+- Rollback: `wix/rollback/consultation-safety-rev27-before-native-field-reconciliation.json`, commit `e6d2f61045da5cd082ad280b4b8b341c0303ca79`.
+Verification on actual public page after reload:
+- zero `[data-bb-field]` injected controls; native nine fields remain, plus preexisting website honeypot;
+- empty click focused firstName and stayed on page;
+- with valid name/email but blank service, click focused serviceOfInterest and retained name;
+- malformed email focused emailAddress and validity.typeMismatch was true;
+- pure formatter test using actual deployed function preserved all nine synthetic values, including distinct goals and availability;
+- desktop form labels/layout inspected in screenshot; no duplicate student controls;
+- QA values cleared by reload; final DOM verified first/last/email empty and duplicates still zero.
+No email was sent, no mailto success path launched, no Wix submission created. Therefore end-to-end delivery/native-first/duplicate-in-flight/API-failure/mobile acceptance remains OPEN. Update references to protected current safety revision: rev28, not rev27.
+
+### Results rev15 — desktop visual acceptance passed for repaired hero
+Fresh public render inspected at desktop viewport approximately 1348×926:
+- repaired image displays, captured white 24-hour box absent;
+- entire main slogan and lower-right tagline visible;
+- metrics 5.0 / 75+ / 350+ / Nearly 14 correct and correct combined-hours label;
+- no black hydration strip seen in this render;
+- header and CTA alignment acceptable in viewport.
+Tablet/mobile, whole-page regression and intermittent behavior remain OPEN; do not label entire Results FINISHED/FROZEN.
+
+### Resources and reader — desktop behavior checked; native defects confirmed
+- Catalog renders 12 articles, no erroneous Nearly 14 articles.
+- Executive function filter returned 6 articles.
+- Upper desktop catalog and lower Homework/Motivation cards visually inspected; lazy images load when reached.
+- BOTH native card covers remain stale: Homework `445f86_155995d6565c4de28e6b65214bf45a1e~mv2.png`; Motivation `445f86_2209a28418894c049fb8fae43b915bed~mv2.png`.
+- Homework native reader uses the SAME stale Homework cover. Blog/provider corrections alone do not control this reader image.
+- Clicked Homework from Resources: substantial full article, one H1, correct author, reading-time label, contents links and related links present. Desktop title/intro/cover spacing visually inspected.
+- Back to Resources link passed; then browser Back restored Homework; Forward restored Resources. Initial combined TOC/history test timed out, so TOC anchor scrolling is NOT passed.
+- Synthetic nonexistent `/post/behavioral-bridge-qa-not-found-20260911` rendered Article Not Found and Back to Resources recovery link.
+- Reader captured error/warn logs were empty at check. Consultation logs showed extension-origin metadata errors; no site-origin error was identified in sampled output. No exhaustive network or hydration certification.
+- Still open: mobile/tablet, captions and all article images, related-link clicks, rapid slug switching, cancellation/races, API failure behavior, keyboard/focus acceptance.
+
+### Native navigation/SEO findings (not patched)
+- Public footer on consultation, Resources and reader contains Blog Archive → `https://ryanmcarvalho444.wixsite.com/thebehavioralbridge/blog`. Earlier custom-embed link audit did not cover this native link. Correct at native Footer owner when accessible; preserve canonical /blog route.
+- Browser title Results: `Results & Reviews | Behavioral Bridge`; Resources: `Articles & Guides | Behavioral Bridge`; Homework: `The Homework Problem Is Often an Initiation Problem | Behavioral Bridge`. Thus older raw-slug title statements are not universally true in hydrated public runtime.
+- Actual rendered canonical tags on Results and Resources use `http://my-site-h5mhm1d7-ryancarvalho6.wix-vibe-site.com/...` despite HTTPS navigation.
+- Results description remains generic: Digital SAT tutoring and executive function/ADHD coaching for teens from Behavioral Bridge, serving Boston, Brookline, Newton, and students nationwide online.
+- Native head/router controlling source still required for correct HTTPS canonical and route-specific descriptions. Runtime title improvement does not prove server/head/search indexing acceptance.
+
+### Transfer boundary
+No additional scripts added. No retirement of remaining transitional patches, flagship publication, domain/billing/DNS/GSC changes, message sending or form records. GSC TOKEN_INVALID persists as last verified; no repeat OAuth. Current safe completed corrections are Results rev15 and Consultation Safety rev28. Sol must preserve both and resume the remaining gates above; the website is not FINISHED/FROZEN.
