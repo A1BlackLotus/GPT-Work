@@ -18,7 +18,7 @@ Authority: public live behavior/screenshots > live Wix state > this checkpoint >
 - Major Home/SAT/EF/About/Results design is frozen absent verified regression.
 - `/sat-prep` → `/sat-tutoring` and `/executive-function` → `/ef-specialized-support` redirects remain live.
 - Conversion Trust Strip rev4 stays **DISABLED**.
-- Results Showcase rev14 stays enabled and near size limit.
+- Results Showcase rev15 stays enabled and near size limit (14999 characters); rev15 changes only the repaired hero image URL.
 - Proof Metrics rev7 stays enabled/transitional.
 - Core Authenticity rev13 stays enabled; do not revive retired SAT renderer.
 - Consultation Safety rev27 stays enabled until native-first submission is publicly verified.
@@ -231,7 +231,7 @@ Post-action Wix site listing confirms only two accessible sites remain: canonica
 ## Next-step protocol
 `NEXT`, `NEXT STEP`, `GO`, or `CONTINUE` means choose the highest-priority coherent unfinished unit current tools can safely advance; inspect owner/layer; make the smallest evidence-based correction; verify technically; visually/functionally verify when available; update this checkpoint; stop at a natural boundary. Blocked items remain open rather than being falsely called done.
 
-**NEXT: Continue Chrome-based public acceptance, starting with Results responsive checks and then Resources, proof, consultation, reader, header/footer and runtime. Results hero source replacement remains open because the 24-hour box is baked into the image. Do not repeat Opera or GSC OAuth loops.**
+**NEXT: Visually verify the rev15 Results hero repair when browser access returns, then Resources → proof → consultation → reader → responsive/runtime → flagship preview. Native Vibe SEO and GSC TOKEN_INVALID remain blocked. Do not repeat completed scans or Opera/OAuth loops.**
 
 ## Browser access and Results visual acceptance — 2026-09-11
 **CHROME CLOUD BROWSER AVAILABLE / RESULTS DEFECT OWNER IDENTIFIED**
@@ -252,3 +252,25 @@ The Results image layer remains an open visual defect requiring replacement or c
 
 ## Work-run access limit — 2026-09-11
 Chrome CDP successfully completed one canonical public Results inspection and identified the 24-hour box as baked into the hero image. A subsequent navigation to `/resources` was blocked by the environment usage limit (automatic review reported credits exhausted until Sep 15, 2026). Do not attempt browser circumvention. Resume with the existing Chrome browser path when credits/access return; next visual unit is Resources, followed by responsive and runtime gates.
+
+
+## Results hero repaired + Sol transfer state — 2026-09-11
+**IMPLEMENTED + TECHNICALLY VERIFIED / PUBLIC VISUAL ACCEPTANCE PENDING**
+
+This section supersedes earlier statements that the source replacement is still unimplemented.
+- Inspected exact live Results Showcase rev14 and Results Visual Repair rev2.
+- Saved full rev14 rollback entity at `wix/rollback/results-showcase-rev14-before-hero-repair-2026-09-11.json` (commit `733b6ee05788c64634b3d51383fbc5bb6d4461a8`).
+- Prepared and visually inspected a repaired image preserving the student/mountains/slogans and removing the captured message box and stray edge text. It is an image edit, not pixel-identical restoration; dimensions are 2075×758 versus the original 1600×371. Existing contain behavior remains, so public spacing/crop acceptance is required.
+- Uploaded READY replacement `445f86_980f4b71904345e0a8b11fca935361b8~mv2.png` (1,665,292 bytes).
+- Updated ONLY one image URL in Results Showcase `245d2c02-9ebb-4b3f-b863-53d787d8d13c`: revision 14 → 15, enabled, 14999 characters unchanged.
+- Guarded mutation with exact revision AND full original HTML equality; update response verified exact intended HTML.
+- Old image: `445f86_e47e366d8c834ce59185b186cd37b5ef~mv2.jpg`. Keep for rollback.
+- Results Visual Repair rev2 and all other embeds unchanged. No new script or speculative text/iframe patch added.
+- Public desktop/tablet/mobile render cannot yet be called verified: cloud browser navigation was rejected by automatic approval review citing usage limits. Image artifact inspection is not page acceptance.
+
+### GPT 5.6 Sol Chat high-reasoning resume
+Read the CURRENT checkpoint, CURRENT protocol and Sep 11 handoff. Resume normal coherent-unit NEXT/GO format when Ryan transfers to Sol. Do not restart audits. Highest priority is public acceptance of Results rev15, including new aspect ratio, slogan visibility, no 24-hour rectangle, proof metrics, spacing and no black strip; then follow the existing hierarchy.
+
+Access facts: built-in Chrome CDP successfully rendered Results before the usage-limit rejection; Opera is not the only browser route. GSC Wizard was callable but listed zero connected properties; it did not resolve Wix readiness. Google reauthorization already completed, yet TOKEN_INVALID persists. Native Vibe source remains unavailable in GPT-Work/current REST tools. Flagship draft remains UNPUBLISHED. No domain, billing, DNS, additional QA submissions or old-site deletions performed in this repair unit.
+
+Credits are not visible as a live counter. Stop repeating blocked checks; continue safe work only when there is a concrete new access path or verified writable defect. The website is NOT FINISHED/FROZEN.
