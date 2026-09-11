@@ -105,6 +105,8 @@ Canonical page-targeted scans were then attempted directly:
 - `/resources` — initial rate limit, exact retry with same idempotency key then not scan-eligible;
 - `/book-consultation` — initial rate limit, exact retry with same idempotency key then not scan-eligible.
 
+Revalidation on 2026-09-11 with new full-site scan `dd14469e-055f-408d-8611-722b83be1fc3` independently reproduced the same limitation: `PARTIALLY_COMPLETED`, 5 discovered, 4 processed, 1 failed, 0 findings. The four completed pages again resolved under the obsolete/static hostname and were `/blog`, `/cart-page`, `/shop`, and `/thank-you-page`; the old-host root again failed with `ACCESSIBILITY_SCAN_FAILURE_CODE_ANALYSIS_FAILED`. Findings pagination returned an empty set.
+
 Therefore:
 - the Wix Accessibility API cannot currently certify the canonical Vibe routes;
 - zero findings on old-host/static pages must not be represented as a canonical-site pass;
@@ -116,7 +118,7 @@ Do not rerun the same scanner repeatedly unless Wix changes Vibe scan eligibilit
 ## P3 — Launch infrastructure
 - `BehavioralBridge.org`: registered but not attached to this Wix account; ownership/connection unresolved; site remains Free. No plan purchase/DNS/bind without Ryan approval.
 - Google Search Console: previously NOT_CONNECTED / MISSING_TOKEN; needs Ryan's one-time Google OAuth before full verification/sitemap/indexing.
-- Analytics: recorded traffic baseline established in P3.1; genuine-lead conversion measurement remains incomplete.
+- Analytics: recorded traffic baseline established in P3.1; native form conversion ownership reconciled in P3.2, but genuine email-first lead conversion remains unmeasured.
 - External Wyzant/Superprof wording alignment remains later, preserving platform-specific truth.
 
 ## P3.1 — Analytics / conversion baseline
@@ -137,13 +139,42 @@ Baseline: August 13–September 9, 2026 inclusive (28 complete local days; UTC i
 - Historical /sat-prep and /blog: 1 session / 1 view each.
 - Page-level session counts overlap and must not be summed into site sessions.
 - These are site-scoped recorded analytics, not verified prospect-only traffic; owner/QA traffic and hostname attribution have not been separated.
-- Forms analytics for consultation form b692e647-b20c-45b0-ae1d-2530df030907: 4 submissions, 0 form views, 0 form starts, name Unknown. Genuine lead status is unverified; do not label all four leads or calculate a reliable conversion rate. Backend QA records and email-first fallback require reconciliation.
+- Forms analytics for consultation form b692e647-b20c-45b0-ae1d-2530df030907: 4 submissions, 0 form views, 0 form starts, name Unknown. P3.2 established all four baseline submissions are QA/test traffic, not verified leads.
 - Button-click query: zero rows. Site Properties version 23 reports trackClicksAnalytics=false.
 - All selected numeric traffic/form fields were returned. No API errors; page result set had 9 rows, below requested page size.
-- No tracking settings or public code changed. The false click setting is evidence of current configuration, not proof that enabling it will work on native Vibe.
+- No tracking settings or public code changed.
 - Opera Browser Connector rechecked: UNAVAILABLE / Browser not connected. Visual/runtime gates remain open.
 
-Next coherent unit: inspect official semantics/support for trackClicksAnalytics and reconcile submission measurement with native/email-first consultation ownership before any tracking mutation. If browser/native access becomes available, prioritize held public acceptance gates.
+## P3.2 — Click tracking + consultation conversion ownership
+**TECHNICALLY RECONCILED / NO SAFE TRACKING MUTATION**
+
+Official Site Properties schema confirms `trackClicksAnalytics` is a readable boolean described only as “Track clicks analytics.” The public Site Properties read resource exposes it, but the documented public write surface covers business profile/contact/schedule/region/consent properties and no supported setter for `trackClicksAnalytics` was found. Do not mutate this flag through undocumented/internal endpoints.
+
+Consultation form reconciliation for form `b692e647-b20c-45b0-ae1d-2530df030907`:
+- 6 confirmed Wix submission records exist in total.
+- 2 are the known Sep 10 backend QA records: `3d710667-b894-4313-836b-67f7a6e264d7` and `e5d28e74-3af3-4ad2-a458-5b85318a9d1a`; they occurred after the P3.1 analytics baseline window.
+- The 4 records inside the Aug 13–Sep 9 analytics baseline are all Sep 3 QA/test records, not verified leads. Every one used the Behavioral Bridge owner email domain; two also contain explicit `test` markers.
+- Therefore the analytics value `4 form submissions` represents QA/test traffic and must not be used as a lead or conversion count.
+- Rev27 email-first safety mode prevents public visitors from completing the native Wix submit path, so a genuine fallback inquiry can arrive by email without generating a Wix form submission. Genuine email-first conversions remain a separate, currently unmeasured channel.
+- A Gmail search for consultation-labeled messages in the baseline did not reveal a reliable fallback lead set; without a guaranteed measurable fallback subject/event, email-first conversion cannot be reconstructed safely from current evidence.
+
+No tracking mutation was justified. Reliable conversion measurement depends on the native-first consultation flow becoming publicly verified or on a separately supported, explicit conversion event/measurement path.
+
+## Wix account cleanup — 2026-09-11
+**PARTIALLY COMPLETED / ONE OWNER-PERMISSION HOLD**
+
+Ryan explicitly requested deletion of all older Wix sites while preserving the canonical production site.
+
+Successfully moved to Wix trash:
+- `20252bf3-c346-4552-b0d2-038875afcdc9` — Behavioral Bridge Sa
+- `cf390a29-57a1-4309-8906-a4b20b23ffc6` — My Site
+- `6b9eddc0-83f7-440d-a3aa-fa3579c1fa6b` — wix-vibe-site-e88t
+
+Could not delete:
+- `adfac523-4bcc-4d88-8117-bf7e7f32ea92` — The Behavioral Bridg
+- Wix returned `NOT_PERMITTED: authorization request: permission denied`.
+
+Post-action Wix site listing confirms only two accessible sites remain: canonical `Behavioral Bridge` and the permission-blocked old `The Behavioral Bridg`. Do not retry destructive deletion blindly; remaining cleanup requires sufficient owner-level permission for that older site.
 
 ## Current holds requiring browser/native/owner access
 - Results hero + 24-hour artifact visual acceptance
@@ -156,8 +187,9 @@ Next coherent unit: inspect official semantics/support for trackClicksAnalytics 
 - core Vibe SEO source repair
 - flagship article visual/mobile/publication acceptance
 - canonical Vibe accessibility acceptance
+- deletion of old `The Behavioral Bridg` site is blocked by Wix permissions
 
 ## Next-step protocol
 `NEXT`, `NEXT STEP`, `GO`, or `CONTINUE` means choose the highest-priority coherent unfinished unit current tools can safely advance; inspect owner/layer; make the smallest evidence-based correction; verify technically; visually/functionally verify when available; update this checkpoint; stop at a natural boundary. Blocked items remain open rather than being falsely called done.
 
-**NEXT: P3.2 — verify native Vibe click-tracking support and consultation conversion measurement ownership; make only evidence-based supported changes. Browser availability takes priority for held public acceptance gates.**
+**NEXT: P3.3 — recheck Google Search Console connection/readiness and advance only to the point allowed without owner OAuth; browser availability still takes priority for held public acceptance gates.**
