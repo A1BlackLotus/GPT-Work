@@ -117,7 +117,7 @@ Do not rerun the same scanner repeatedly unless Wix changes Vibe scan eligibilit
 
 ## P3 — Launch infrastructure
 - `BehavioralBridge.org`: registered but not attached to this Wix account; ownership/connection unresolved; site remains Free. No plan purchase/DNS/bind without Ryan approval.
-- Google Search Console: previously NOT_CONNECTED / MISSING_TOKEN; needs Ryan's one-time Google OAuth before full verification/sitemap/indexing.
+- Google Search Console: freshly NOT_CONNECTED; consent URL successfully prepared in P3.3. Owner OAuth pending before verification/sitemap/indexing.
 - Analytics: recorded traffic baseline established in P3.1; native form conversion ownership reconciled in P3.2, but genuine email-first lead conversion remains unmeasured.
 - External Wyzant/Superprof wording alignment remains later, preserving platform-specific truth.
 
@@ -160,6 +160,21 @@ Consultation form reconciliation for form `b692e647-b20c-45b0-ae1d-2530df030907`
 
 No tracking mutation was justified. Reliable conversion measurement depends on the native-first consultation flow becoming publicly verified or on a separately supported, explicit conversion event/measurement path.
 
+## P3.3 — Google Search Console connection
+**LIVE STATUS TECHNICALLY VERIFIED / OWNER GOOGLE CONSENT PENDING**
+
+Checked 2026-09-11 on canonical site e6f68a23-cc00-421a-985e-515963cbe5f0:
+- Get Connection: NOT_CONNECTED; ownedByCaller=false; no connected email.
+- Get Site Readiness: NOT_READY / SITE_OWNER_NOT_VERIFIED.
+- Connection must become VALID before site verification; do not skip OAuth based on the readiness blocker alone.
+- Get Connect URL succeeded and returned a Google consent URL, surfaced to Ryan in chat. Single-use, expires after 2 hours; generate a fresh URL if expired. Do not persist the transient authorization URL in this repository.
+- This success does not establish that BehavioralBridge.org is bound or that search infrastructure is finished. No domain/DNS/billing changes were made.
+- No verification, property addition, sitemap submission or indexing request has been completed in this step.
+- Opera remains UNAVAILABLE / Browser not connected; all held visual gates remain open.
+- Exact readiness publicUrl was confirmed by schema as https://www.wixapis.com/gsc/connection/v1/site-readiness; one article example omits /connection and was not used.
+
+After Ryan authorizes, check Get Connection. If VALID, proceed through current readiness/verification, Add Site, Submit Sitemap and indexing APIs using official schemas, recording any next prerequisite. If consent has not happened, this unit remains owner-blocked rather than repeatedly generating links.
+
 ## Wix account cleanup — 2026-09-11
 **PARTIALLY COMPLETED / ONE OWNER-PERMISSION HOLD**
 
@@ -192,4 +207,4 @@ Post-action Wix site listing confirms only two accessible sites remain: canonica
 ## Next-step protocol
 `NEXT`, `NEXT STEP`, `GO`, or `CONTINUE` means choose the highest-priority coherent unfinished unit current tools can safely advance; inspect owner/layer; make the smallest evidence-based correction; verify technically; visually/functionally verify when available; update this checkpoint; stop at a natural boundary. Blocked items remain open rather than being falsely called done.
 
-**NEXT: P3.3 — recheck Google Search Console connection/readiness and advance only to the point allowed without owner OAuth; browser availability still takes priority for held public acceptance gates.**
+**NEXT: After owner Google consent, continue P3.3 connection verification and search setup. Browser availability takes priority for held public acceptance gates. Do not repeat completed scans or P3.2 reconciliation.**
