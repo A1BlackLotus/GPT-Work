@@ -1,0 +1,12 @@
+{
+  "id": "819ad1ee-262b-4e3b-819c-f663f8494dfb",
+  "revision": "4",
+  "name": "Behavioral Bridge — Native Vibe Compatibility Repair",
+  "enabled": true,
+  "loadOnce": true,
+  "position": "BODY_END",
+  "embedData": {
+    "category": "FUNCTIONAL",
+    "html": "<script>(function(){if(window.__BB_NATIVE_VIBE_COMPAT_V2__)return;window.__BB_NATIVE_VIBE_COMPAT_V2__=1;var BLOG=['https://ryanmcarvalho444.wixsite.com/thebehavioralbridge/blog','http://ryanmcarvalho444.wixsite.com/thebehavioralbridge/blog'];var MEDIA=[['445f86_155995d6565c4de28e6b65214bf45a1e~mv2.png','445f86_e228e6e7b201423b82c59cafb022bbc3~mv2.png'],['445f86_2209a28418894c049fb8fae43b915bed~mv2.png','445f86_6476bad82bd140e8a4d24dff440a3a67~mv2.png']];function swap(v){if(!v)return v;var n=String(v);MEDIA.forEach(function(p){if(n.indexOf(p[0])>-1)n=n.split(p[0]).join(p[1])});return n}function one(e){if(!e||e.nodeType!==1)return;if(e.tagName==='A'){var h=e.getAttribute('href');if(BLOG.indexOf(h)>-1)e.setAttribute('href','/blog')}['src','srcset','data-src','data-srcset','poster','style'].forEach(function(a){var v=e.getAttribute&&e.getAttribute(a);if(v){var n=swap(v);if(n!==v)e.setAttribute(a,n)}})}function fix(root){if(!root)return;if(root.nodeType===1)one(root);var q=root.querySelectorAll&&root.querySelectorAll('a[href],img[src],source[srcset],[data-src],[data-srcset],[poster],[style]');if(q)q.forEach(one)}fix(document.documentElement);var mo=new MutationObserver(function(ms){ms.forEach(function(m){if(m.type==='childList')m.addedNodes.forEach(function(n){if(n.nodeType===1)fix(n)});else if(m.type==='attributes')one(m.target)})});mo.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['href','src','srcset','data-src','data-srcset','poster','style']});})();</script>"
+  }
+}
