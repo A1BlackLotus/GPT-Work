@@ -378,3 +378,23 @@ This section supersedes older GSC retry instructions and the earlier statement t
 - On the next working browser path, first verify the rev2 compatibility repair on Resources + Homework reader + footer; then continue remaining responsive/runtime/consultation/reader/accessibility acceptance gates.
 - Native Vibe head/router still owns the HTTP canonical-tag defect and route-specific description quality; do not fake an SEO fix with a client-side head patch.
 - The website remains **NOT FINISHED/FROZEN**.
+
+## Astra live runtime verification — 2026-09-12
+**PARTIAL FUNCTIONAL ACCEPTANCE / ARCHIVE DESTINATION FAILURE OPEN**
+
+Fresh live API inspection supersedes stale revision references above: Native Vibe Compatibility Repair `819ad1ee-262b-4e3b-819c-f663f8494dfb` is enabled rev4; Consultation Safety `b3ececaf-c221-4ad1-9590-4aa112486e11` is enabled rev30. Preserve these current versions. Rev30 retains email-first interception and includes mobile CTA/header rules; these mobile rules were not visually accepted in this run.
+
+Chrome public runtime checks passed:
+- Native Resources → Homework reader loads approved Homework cover `445f86_e228e6e7b201423b82c59cafb022bbc3~mv2.png` successfully.
+- Homework TOC ‘A ten-minute rescue protocol’ sets #article-100 and positions heading at 128px, below header bottom 97px.
+- Reader return → Resources → Motivation renders the correct Motivation H1 (exactly one H1) and approved loaded cover `445f86_6476bad82bd140e8a4d24dff440a3a67~mv2.png`.
+- Browser Back then Forward restores Motivation route, title/content and approved loaded cover.
+- Sampled warn/error logs contained Chrome-extension metadata errors only; this does not certify all native network/runtime behavior.
+
+New confirmed unresolved navigation finding:
+- Footer Blog Archive href is correctly rewritten to /blog, retains target=_blank.
+- Real click opened tab 2 at canonical root / with title Home | Behavioral Bridge, not a usable article archive. Therefore href replacement alone is NOT a functional pass. Inspect the /blog redirect/router owning layer before correction; preserve the existing Wix /blog page and do not blindly add redirects or revive retired routers.
+
+Resources offscreen card images initially had no currentSrc because they were lazy-loaded; that observation is not an image failure and does not close card visual acceptance. Reader covers were verified loaded through native navigation, not merely API values. No fresh mobile/tablet or screenshot gate was closed in this run.
+
+Native-first consultation remains blocked on access to the controlling Vibe source/authenticated editor. No safeguard was disabled, no messages or submissions sent, no site code mutated, no GSC/OAuth retry performed. Next technical work: resolve archive destination ownership plus native consultation/head source access; remaining reader failure/cancellation and responsive gates remain open. Website is NOT FINISHED/FROZEN.
