@@ -448,3 +448,32 @@ These revisions supersede older revision summaries above.
 The supplied handoff reports prior public desktop/tablet/mobile Results and Resources/Homework acceptance, Home/About/Results proof acceptance, and consultation validation/mobile repairs. Preserve that reported prior QA and do not restart it; this session did not independently repeat it.
 
 NEXT: independently inspect saved native source and preview for Home/About/Results/Resources/Consultation before composing or spending Credit 2. Existing browser automatic-review usage-limit rejection has not been shown resolved; no alternate-browser bypass attempted. No existing-native-source editing capability surfaced in connected tool discovery. A user-supplied native source export can unlock code review while browser preview remains blocked. Credit 2/3 not used; no publish, patch retirement, consultation QA submission, or GSC/plan/domain action performed. Do not interpret this access hold as Astra-phase completion.
+
+
+## Zero-Vibe-credit recovery — 2026-09-12
+**NO PUBLISH / NO PRODUCTION MUTATION / NATIVE ACCESS BLOCKED**
+
+Latest user handoff supersedes credit-planning instructions: Vibe credits are exhausted. User reports native Results remains older than accepted production and a PostPage.tsx parser error was repaired by Vibe. Neither native claim is independently source-verified. Do not trigger Vibe AI or publish the current draft.
+
+Executed:
+- Public Results inspected at 1363×936. Hero screenshot shows accepted messaging, approved panoramic image, correct proof labels and no old white response-time artifact in that viewport.
+- Visible DOM confirms review headings Maria, Reeta, Brian, Leon, Terri, Brak, Bryan; measurement/process sections; How I Work; referral heading; final consultation heading.
+- Read Results Showcase 245d2c02-9ebb-4b3f-b863-53d787d8d13c: rev16 enabled. Its hideNative() explicitly hides sibling native main sections and render() supplies #bb-results-showcase-v3.
+- Its REV array supplies the visible review summaries, including Bryan. Thus these particular displayed cards are runtime-defined; do not assume they are CMS-backed merely because the native page has a CMS integration.
+- Source preserved unchanged at wix/rollback/results-showcase-rev16-native-recovery-reference-2026-09-12.json (commit c2e3f35de3fcf48dc4d032197333ac96c9431b50).
+- Public Superprof link resolved to https://www.superprof.com/elite-english-reading-and-writing-tutor-improving-literacy-essays-and-academic-skills-perfect-wyzant-star-reviews-275.html . Bryan's public recommendation supports the displayed summary: individual adaptation, encouragement, confidence and engagement. It is a recommendation; no individual star rating/date was established. Terri and Gurpreet recommendations are also present. Cannot determine which recommendation Ryan meant by “new” from this undated source. Preserve attribution; do not turn summaries into verbatim quotations or inflate metrics.
+- Browser available again; the earlier usage-limit hold is not the present blocker. Current editor tab still displays Wix sign-up/sign-in, with no native code access.
+
+Revised execution specification:
+1. Obtain authenticated native editor/source access or user-provided current source export. Back up actual source before manual edits.
+2. Find native Results owner from route imports, not guessed filenames. Compare section-by-section against preserved rev16 reference: hero/media/CTAs; six proof cells; seven review-summary cards with source distinction; measurement sections; How I Work; existing accepted referral terms; final CTA.
+3. Translate the accepted layout into native components and existing content ownership. Do not copy runtime hide/restore/observer logic into React. Resolve how current native testimonials relate to runtime summaries before migrating; avoid duplicate data sources.
+4. Validate native preview without changing production embeds. Do not publish or retire patches.
+5. Read actual /user-code/src/components/pages/PostPage.tsx and imported content components. Check balanced conditional JSX near the reported former failure, then run configured build/typecheck/lint. Rendering again alone is not a build or functional pass.
+6. Verify actual Homework six-step visual + Try This and Motivation five-element visual + callout survive; if absent, implement through existing native content blocks/reusable components, preserving prose and ordinary-article rendering.
+7. Diagnose reported native portrait crop through image transform/srcset/container/fit/position/overflow/motion/breakpoints. Prior public About desktop screenshot had full head visible; do not substitute that for native acceptance.
+8. Keep flagship unpublished; shared-renderer readiness and four-image preservation await source/draft access.
+9. Review only motion that affects visibility, crop, reduced-motion, or layout; do not add more animation.
+
+Validation: no native build/typecheck/lint available or executed; no source files edited; no fresh mobile/tablet acceptance. All protected embeds untouched, no form submissions, messages, CMS mutations, purchases, OAuth, or publication performed.
+SOL NEXT ACTION: obtain native source access, then continue native Results repair. NOT ready for controlled publish. Website NOT FINISHED/FROZEN.
