@@ -398,3 +398,13 @@ New confirmed unresolved navigation finding:
 Resources offscreen card images initially had no currentSrc because they were lazy-loaded; that observation is not an image failure and does not close card visual acceptance. Reader covers were verified loaded through native navigation, not merely API values. No fresh mobile/tablet or screenshot gate was closed in this run.
 
 Native-first consultation remains blocked on access to the controlling Vibe source/authenticated editor. No safeguard was disabled, no messages or submissions sent, no site code mutated, no GSC/OAuth retry performed. Next technical work: resolve archive destination ownership plus native consultation/head source access; remaining reader failure/cancellation and responsive gates remain open. Website is NOT FINISHED/FROZEN.
+
+
+## Archive destination repair — 2026-09-12
+**IMPLEMENTED + TECHNICALLY VERIFIED + VISUALLY VERIFIED**
+
+The public click test proved `/blog` resolved to the canonical Home page. Because `/blog` is an existing Wix Blog-related route and its native owner is not accessible, the smallest safe visitor-facing correction was made in the existing compatibility embed `819ad1ee-262b-4e3b-819c-f663f8494dfb`: legacy Blog Archive targets now rewrite to `/resources` instead of `/blog`. The embed advanced from rev4 to rev5; its approved Homework/Motivation media substitutions and mutation observer remain unchanged. A GitHub rollback snapshot was saved at `wix/rollback/native-vibe-compat-rev4-before-archive-link-repair-2026-09-12.json`.
+
+Fresh public verification passed: the footer link has `href=/resources` and `target=_blank`; clicking it opens a new tab at `/resources`, whose title is `Articles & Guides | Behavioral Bridge`, whose H1 is present, whose status reports `12 articles`, and whose first viewport renders the Resources library/cards correctly. This closes the footer visitor-path defect, while the native `/blog` route remains unresolved and should not be recreated or redirected blindly.
+
+The compatibility embed is now a transitional but working repair. Retire it only after native Vibe source corrections are available and verified.
