@@ -430,3 +430,21 @@ Current safe state: compatibility embed rev5 enabled; archive footer path visibl
 - Wix returned `status=UNPUBLISHED`, `hasUnpublishedChanges=true`, edited date `2026-09-12T02:16:55Z`. Nothing was published or scheduled.
 - Compatibility repair rev5, Consultation Safety rev30, Results rev15, domain/DNS/billing/GSC state, and all other site code were untouched in this unit.
 - This closes the College Board factual-policy gate. Publication still requires the existing flagship reader/mobile/SEO visual acceptance gates; do not publish from API state alone.
+
+
+## Post-Vibe-Credit-1 continuation recovered — 2026-09-12
+**NEW USER HANDOFF RECEIVED / LIVE EMBED REVISIONS TECHNICALLY VERIFIED / NATIVE REVIEW PENDING**
+
+Ryan supplied the Astra Work master continuation describing Vibe Credit 1 as completed and SAVED TO NATIVE CODEBASE ONLY, not published. Reported changes cover Results native parity, 12 Resources cards and approved covers, Home/About/EF proof and credentials, consultation presentation with submission architecture preserved, and removal of old-site footer links. These are Vibe-reported changes, NOT independently verified source/preview results.
+
+Fresh canonical-site API reads verified all five protected layers enabled:
+- Results Showcase `245d2c02-9ebb-4b3f-b863-53d787d8d13c`: rev16, BODY_END.
+- Results Visual Repair `4bb4aa54-4956-4a44-af3d-6dbf0ca78d54`: rev3, BODY_END.
+- Proof Metrics `0adc9e67-d1d6-43fa-bd06-abc7a923793f`: rev8, BODY_END.
+- Consultation Safety `b3ececaf-c221-4ad1-9590-4aa112486e11`: rev30, BODY_START.
+- Native Vibe Compatibility `819ad1ee-262b-4e3b-819c-f663f8494dfb`: rev5, BODY_END.
+These revisions supersede older revision summaries above.
+
+The supplied handoff reports prior public desktop/tablet/mobile Results and Resources/Homework acceptance, Home/About/Results proof acceptance, and consultation validation/mobile repairs. Preserve that reported prior QA and do not restart it; this session did not independently repeat it.
+
+NEXT: independently inspect saved native source and preview for Home/About/Results/Resources/Consultation before composing or spending Credit 2. Existing browser automatic-review usage-limit rejection has not been shown resolved; no alternate-browser bypass attempted. No existing-native-source editing capability surfaced in connected tool discovery. A user-supplied native source export can unlock code review while browser preview remains blocked. Credit 2/3 not used; no publish, patch retirement, consultation QA submission, or GSC/plan/domain action performed. Do not interpret this access hold as Astra-phase completion.
