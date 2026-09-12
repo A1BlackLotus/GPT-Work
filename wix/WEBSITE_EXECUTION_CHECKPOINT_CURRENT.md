@@ -267,6 +267,8 @@ Acceptance requires actual rendered checks for:
 - Resources title `Articles & Guides | Behavioral Bridge`
 - Consultation title `Request a Consultation | Behavioral Bridge`
 
+On 2026-09-12 the public `/results` tab resolved with title `Results & Reviews | Behavioral Bridge`, which is one positive rendered check only; it does not close the broader SEO gate.
+
 Do not canonicalize to `BehavioralBridge.org` before that domain is actually attached.
 
 ---
@@ -418,11 +420,11 @@ No later GPT-Work commit superseded `a39d07d...` at the time of this checkpoint 
 
 ---
 
-# Native editor access — current 2026-09-12
+# Native editor / native source access — current 2026-09-12
 
-Opera Browser Connector is now connected to Ryan’s authenticated local Wix Vibe editor.
+Opera Browser Connector is connected to Ryan’s authenticated local Wix Vibe editor, although the connector can intermittently fail individual screenshot calls.
 
-The **Code** tab is visibly available and the native user-code file tree is visible. Current screenshot evidence includes:
+The **Code** tab is visibly available and the native user-code tree is visible. Current screenshot/tree evidence includes:
 
 - `src/components/pages/AboutPage.tsx`
 - `src/components/pages/BookConsultationPage.tsx`
@@ -434,11 +436,37 @@ The **Code** tab is visibly available and the native user-code file tree is visi
 - `src/components/pages/SATTutoringPage.tsx`
 - shared Footer/Header/Router and `lib` directories
 
-The editor currently shows `ResourcesPage.tsx`; the source visibly imports `RESOURCE_ARTICLES` from `@/lib/resourceArticles`, `framer-motion`, and shared Header/Footer.
+The editor screenshot on the latest inspection showed `HomePage.tsx` open and readable in the embedded Wix IDE. The Code workspace also exposes a visible **GitHub** dropdown/button.
 
-Important limitation: the current Opera connector can inspect the authenticated editor and screenshots but does not expose a generic click/type/source-export action. Do not claim source editing has occurred merely because Code is visible.
+Important connector limitation: the available Opera tool can inspect tabs, accessibility content, screenshots, and navigate URLs, but it does not expose a generic click/type/source-export action. Therefore seeing `ResultsPage.tsx` in the file tree is not the same as obtaining or editing its source.
 
-This access improvement supersedes older checkpoint language saying the native editor itself is unavailable. The remaining blocker is **safe programmatic/source-edit access**, not authentication.
+### Supported source path established
+
+Wix official documentation was checked on 2026-09-12. **Git Integration & Wix CLI for Sites** is the supported source-control path for a Wix site: Wix connects the site to GitHub, creates a site-code repository, lets that repository be cloned to a local/cloud workspace, and supports local testing/preview before publish. Wix also documents that once a site is connected to GitHub, the editor enters read-only mode for code so the Git repository becomes the code source of truth.
+
+Current connected ChatGPT GitHub visibility was independently checked. Only these repositories are exposed through the current GitHub connector:
+
+- `A1BlackLotus/GPT-Work`
+- `A1BlackLotus/Behavioral-Bridge-AI`
+
+Neither currently exposes the native Wix `user-code` tree or `ResultsPage.tsx`. `Behavioral-Bridge-AI` explicitly documents that it is the AI operating-system repository and is separate from `GPT-Work`; it is not the Wix site-source repository.
+
+Therefore the remaining blocker is now precise:
+
+**the native Wix source repository is not yet available to this ChatGPT GitHub connection.**
+
+From the closed GitHub dropdown alone, current tooling cannot determine whether:
+
+1. the Wix site has not yet been connected to GitHub, or
+2. it is already connected to a different site-code repository that the ChatGPT GitHub connector has not been granted access to.
+
+No GitHub integration was created, no editor/source mutation occurred, no site content was published, and no protected runtime embed was changed in this investigation.
+
+### Public Results reference recheck
+
+The public `/results` route was reopened in the connected browser. Its accessibility tree still exposes the accepted reference structure/content, including the approved hero copy, Wyzant summary cards, Bryan/Superprof card, `What I Actually Measure`, SAT/EF/Academic Support process sections, `How I Work`, referral section, final consultation/email CTA, and canonical 5.0 / 75+ / 350+ / Nearly 14 proof. The tab title resolved to `Results & Reviews | Behavioral Bridge`.
+
+A later public-page screenshot call failed because the Opera connector briefly reported a connection error, so this turn adds a functional/content-tree recheck but does **not** create a new visual acceptance claim beyond the already accepted public desktop state.
 
 ---
 
@@ -483,18 +511,19 @@ means:
 
 ### Current next coherent unit
 
-**P0.1 native Results ownership/parity.**
+**P0.1 native Results ownership/parity remains the highest priority, but it is now blocked on exposing the native Wix source repository through a supported path.**
 
-1. Obtain the actual `ResultsPage.tsx` source through a safe supported path.
-2. Back up/read it before mutation.
-3. Map native sections against the preserved accepted rev16/public Results reference.
-4. Determine testimonial/review ownership and avoid a duplicate data system.
-5. Implement native parity only if the source owner is safely writable.
-6. Validate source/build if possible.
-7. Inspect native preview at desktop/tablet/mobile.
-8. Do not publish and do not change protected embeds.
+Owner-only/source-access resolution:
 
-If direct source editing remains inaccessible, the next safe subtask is to establish a supported source path (existing Vibe GitHub integration/export/CLI/manual editor path) without changing production.
+1. In the authenticated Wix Vibe Code workspace, open the visible **GitHub** dropdown.
+2. If it shows **Connect to GitHub**, complete the Wix Git Integration authorization and create the dedicated site-code repository under the intended GitHub owner. Do not reuse `Behavioral-Bridge-AI` as the native site repo.
+3. If it already shows a repository/default branch, grant the connected ChatGPT GitHub integration access to that exact repository or otherwise surface that repository here.
+4. Once the site-code repository is accessible, immediately obtain/back up `src/components/pages/ResultsPage.tsx`, Router/shared imports, and the testimonial/review data owner before any mutation.
+5. Map native Results against the preserved accepted rev16/public reference.
+6. Implement native parity only in the native/source layer; do not copy runtime observer/hide logic.
+7. Run the repository’s configured validation/build/lint commands where available.
+8. Inspect native preview at desktop/tablet/mobile.
+9. **Do not publish and do not change protected embeds** until native parity is accepted.
 
 After Results native parity, resume in order:
 
