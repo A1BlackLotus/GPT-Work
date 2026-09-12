@@ -342,3 +342,39 @@ Fresh Wix site-manager verification remained signed out. Existing Google authent
 
 ## Authorized editor-login retry outcome — latest 2026-09-11
 Ryan explicitly authorized retrying Google sign-in after the earlier device denial. Google popup returned 502 Bad Gateway / Connection refused, persisting after one reload; no device approval reached. Ryan then selected SSO via secure browserAuth; Wix reported SSO unavailable for the entered email. Returned to Wix login and requested manual cloud-browser handoff so Ryan can use his usual login method. Do not repeat automatic Google/SSO attempts. No site mutations in this login step. Verify authenticated Wix dashboard after handoff before native source work. Keep credentials and transient authentication URLs out of checkpoints.
+
+## Sol live technical update — 2026-09-11 (latest controlling state)
+
+This section supersedes older GSC retry instructions and the earlier statement that the footer/Resources native defects are wholly unpatched.
+
+### Native Vibe compatibility repair — rev2
+**IMPLEMENTED + TECHNICALLY VERIFIED / PUBLIC VISUAL-CLICK ACCEPTANCE PENDING**
+- Created then consolidated one narrow transitional embed: `819ad1ee-262b-4e3b-819c-f663f8494dfb`, now revision `2`, enabled, BODY_END, name `Behavioral Bridge — Native Vibe Compatibility Repair`.
+- Exact footer correction only: old native Blog Archive URLs `https://ryanmcarvalho444.wixsite.com/thebehavioralbridge/blog` and `http://ryanmcarvalho444.wixsite.com/thebehavioralbridge/blog` are rewritten to `/blog`.
+- Exact Resources/reader media substitutions only:
+  - Homework old `445f86_155995d6565c4de28e6b65214bf45a1e~mv2.png` → approved `445f86_e228e6e7b201423b82c59cafb022bbc3~mv2.png`.
+  - Motivation old `445f86_2209a28418894c049fb8fae43b915bed~mv2.png` → approved `445f86_6476bad82bd140e8a4d24dff440a3a67~mv2.png`.
+- The repair checks href/src/srcset/data-src/data-srcset/poster/style and observes native/SPA rerenders. It does not broadly rewrite other links or images and makes no layout changes.
+- Final enabled-code regression scan found exactly one compatibility repair. The old URL/media IDs appear in enabled code only as deliberate match targets inside this repair. Old proof literals remain only in the existing Proof Metrics repair as deliberate match patterns.
+- No browser session is available in this Sol chat, so card images, Homework reader cover and footer click behavior are not yet visually/functionally accepted. Verify these exact three corrections on the next working browser pass, then prefer native-source fixes and retire this transitional embed when safe.
+
+### Flagship College Board factual gate
+**CURRENT POLICY/FACT CHECK PASSED / ARTICLE STILL UNPUBLISHED**
+- Retrieved draft `3f20ae47-004c-4171-995f-893e7c102f43` with `RICH_CONTENT` and checked the live policy-sensitive claims against current official College Board material.
+- Current claims remain supported: Reading and Writing 64 minutes (2×32), Math 70 minutes (2×35), standard testing time 2h14; multistage adaptive two-module structure; navigation within a module but not back to a completed module; Bluebook timed full-length practice and built-in tools; SSD approval requirement; approved accommodations including timing/break supports; Fall 2026 extended-time progression after standard time; automatic extra breaks with extended time; and Bluebook practice with approved accommodations.
+- This closes the factual/policy recheck gate only. Do not publish until reader/mobile/SEO visual acceptance is complete.
+
+### Google Search Console / domain prerequisite — owner block
+**STOP OAUTH RETRIES UNTIL SITE ARCHITECTURE CHANGES**
+- After a clean Wix-side reset and fresh Google authorization, Wix recorded a new `ACCOUNT_CONNECTED` event (`2026-09-12T00:12:33.469Z`) and existing `SITE_VERIFIED` remains (`2026-09-11T16:09:23.356Z`), but live connection state stayed `PENDING` and readiness stayed `NOT_READY / TOKEN_INVALID`.
+- Ryan then removed Wix from Google linked-app permissions, fully revoking the Google-side grant. Do not generate another OAuth loop now.
+- Current Wix support requirements establish that the built-in Google/Search Console connection flow requires an upgraded/Premium site and a connected custom domain. The canonical site is still Free and `BehavioralBridge.org` is still not attached.
+- Therefore classify GSC completion as OWNER-BLOCKED by plan + domain prerequisites, not as an Astra task or a reason to burn credits retrying OAuth.
+- Required order when Ryan authorizes launch infrastructure changes: upgrade the canonical site → attach `BehavioralBridge.org` to this exact site → perform one clean Google connection → re-read readiness → only then Add Site / Submit Sitemap / Request Indexing as allowed.
+- No plan purchase, domain binding, DNS change, Add Site, sitemap submission or indexing request was performed in this Sol run.
+
+### Current next safe priority
+- With current tools, no further broad mutation is justified without public browser/native-source access.
+- On the next working browser path, first verify the rev2 compatibility repair on Resources + Homework reader + footer; then continue remaining responsive/runtime/consultation/reader/accessibility acceptance gates.
+- Native Vibe head/router still owns the HTTP canonical-tag defect and route-specific description quality; do not fake an SEO fix with a client-side head patch.
+- The website remains **NOT FINISHED/FROZEN**.
