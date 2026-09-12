@@ -1,6 +1,6 @@
 # Behavioral Bridge — Website Execution Checkpoint — CURRENT
 
-**Updated:** 2026-09-11  
+**Updated:** 2026-09-12  
 **Status:** CURRENT OPERATIONAL SOURCE OF TRUTH
 
 Authority: public live behavior/screenshots > live Wix state > this checkpoint > older handoffs. API success is not visual acceptance.
@@ -361,7 +361,7 @@ This section supersedes older GSC retry instructions and the earlier statement t
 ### Flagship College Board factual gate
 **CURRENT POLICY/FACT CHECK PASSED / ARTICLE STILL UNPUBLISHED**
 - Retrieved draft `3f20ae47-004c-4171-995f-893e7c102f43` with `RICH_CONTENT` and checked the live policy-sensitive claims against current official College Board material.
-- Current claims remain supported: Reading and Writing 64 minutes (2×32), Math 70 minutes (2×35), standard testing time 2h14; multistage adaptive two-module structure; navigation within a module but not back to a completed module; Bluebook timed full-length practice and built-in tools; SSD approval requirement; approved accommodations including timing/break supports; Fall 2026 extended-time progression after standard time; automatic extra breaks with extended time; and Bluebook practice with approved accommodations.
+- Current claims remain supported: Reading and Writing 64 minutes (2×32), Math 70 minutes (2×35), standard testing time 2h14; multistage adaptive two-module structure; navigation within a module but not back to a completed module; Bluebook timed full-length practice and built-in tools; SSD approval requirement; approved accommodations including timing/break supports; extended-time progression after standard time (policy in effect since Spring 2025); automatic extra breaks with extended time; and Bluebook practice with approved accommodations. Fall 2026 is instead relevant to the new embedded Text-to-Speech availability for SAT Weekend test centers.
 - This closes the factual/policy recheck gate only. Do not publish until reader/mobile/SEO visual acceptance is complete.
 
 ### Google Search Console / domain prerequisite — owner block
@@ -418,3 +418,15 @@ Supported Wix reads found only the two intended service redirects (`/sat-prep` �
 The public browser service then reached its automatic usage limit and blocked further navigation/inspection until 2026-09-15. No raw CDP, alternate browser, or indirect workaround was attempted. Remaining browser gates therefore stay accurately open: Results responsive acceptance, sitewide proof, consultation mobile/native-first flow, reader rapid-switch/failure paths, header/footer responsive behavior, console/network/focus, and flagship preview/mobile/publication.
 
 Current safe state: compatibility embed rev5 enabled; archive footer path visibly verified to `/resources`; no additional site mutation, OAuth retry, owner message, form submission, or publication was performed in this batch. Website remains NOT FINISHED/FROZEN.
+
+## Sol flagship policy correction — 2026-09-12
+**LIVE DRAFT CORRECTED / POLICY GATE PASSED / ARTICLE STILL UNPUBLISHED**
+
+- Re-fetched the live flagship draft `3f20ae47-004c-4171-995f-893e7c102f43` with `RICH_CONTENT`; status remained `UNPUBLISHED`, reading time 11 minutes, and the staged SEO title/description remained present.
+- Revalidated only policy-sensitive claims against current official College Board / Bluebook / Accommodations material. SAT structure/timing, multistage adaptivity, Bluebook full-length practice and accommodation selection, SSD approval, and current extended-time/break behavior remain supported.
+- Found one stale date attribution in the live body: the option for students with extended time to move on once standard time has elapsed began in **Spring 2025**, not Fall 2026. Fall 2026 instead introduces broader SAT Weekend test-center availability for approved embedded Text-to-Speech.
+- Guarded the mutation by exact text match count. Exactly one stale sentence matched; only that sentence was replaced. Post-update verification returned `oldRemaining=0`, `newFound=1`.
+- Corrected durable wording: `Students using approved extended time can move forward once the standard time for a module or part has elapsed instead of being required to use all additional time. For the SAT Suite, students approved for extended time also receive extra breaks, which Bluebook applies automatically.`
+- Wix returned `status=UNPUBLISHED`, `hasUnpublishedChanges=true`, edited date `2026-09-12T02:16:55Z`. Nothing was published or scheduled.
+- Compatibility repair rev5, Consultation Safety rev30, Results rev15, domain/DNS/billing/GSC state, and all other site code were untouched in this unit.
+- This closes the College Board factual-policy gate. Publication still requires the existing flagship reader/mobile/SEO visual acceptance gates; do not publish from API state alone.
