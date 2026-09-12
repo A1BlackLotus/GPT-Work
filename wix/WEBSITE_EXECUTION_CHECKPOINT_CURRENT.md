@@ -408,3 +408,13 @@ The public click test proved `/blog` resolved to the canonical Home page. Becaus
 Fresh public verification passed: the footer link has `href=/resources` and `target=_blank`; clicking it opens a new tab at `/resources`, whose title is `Articles & Guides | Behavioral Bridge`, whose H1 is present, whose status reports `12 articles`, and whose first viewport renders the Resources library/cards correctly. This closes the footer visitor-path defect, while the native `/blog` route remains unresolved and should not be recreated or redirected blindly.
 
 The compatibility embed is now a transitional but working repair. Retire it only after native Vibe source corrections are available and verified.
+
+
+## Route ownership investigation and browser limit — 2026-09-12
+**ROUTE OWNER IDENTIFIED AS NATIVE VIBE FALLBACK / NO SAFE API REDIRECT MUTATION**
+
+Supported Wix reads found only the two intended service redirects (`/sat-prep` → `/sat-tutoring` and `/executive-function` → `/ef-specialized-support`). No `/blog` redirect exists. Published Site URLs exposes only the canonical premium URL; it does not expose Vibe route ownership. Direct public navigation to `/blog` still hydrates the Home page, consistent with a native Vibe fallback/router issue. Creating a `/blog` redirect would take precedence over an existing page and make that route unreachable, so it was not performed. The existing footer visitor path is already repaired to `/resources` through compatibility rev5.
+
+The public browser service then reached its automatic usage limit and blocked further navigation/inspection until 2026-09-15. No raw CDP, alternate browser, or indirect workaround was attempted. Remaining browser gates therefore stay accurately open: Results responsive acceptance, sitewide proof, consultation mobile/native-first flow, reader rapid-switch/failure paths, header/footer responsive behavior, console/network/focus, and flagship preview/mobile/publication.
+
+Current safe state: compatibility embed rev5 enabled; archive footer path visibly verified to `/resources`; no additional site mutation, OAuth retry, owner message, form submission, or publication was performed in this batch. Website remains NOT FINISHED/FROZEN.
