@@ -4,6 +4,7 @@ import { submissions } from '@wix/forms';
 
 const FORM_ID = 'b692e647-b20c-45b0-ae1d-2530df030907';
 const OWNER_EMAIL = 'Ryan_Carvalho@BehavioralBridge.org';
+const MAX_REQUEST_BYTES = 16 * 1024;
 
 const clean = (value: unknown, max: number) =>
   typeof value === 'string' ? value.trim().slice(0, max) : '';
@@ -30,8 +31,35 @@ const json = (body: unknown, status = 200) =>
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'no-store',
+      'X-Content-Type-Options': 'nosniff',
+      'Cross-Origin-Resource-Policy': 'same-origin',
     },
   });
+
+const readJsonBody = async (request: Request) => {
+  const contentLength = request.headers.get('content-length');
+  if (contentLength) {
+    const declaredBytes = Number(contentLength);
+    if (!Number.isFinite(declaredBytes) || declaredBytes < 0 || declaredBytes > MAX_REQUEST_BYTES) {
+      return { ok: false as const, response: json({ ok: false, error: 'PAYLOAD_TOO_LARGE' }, 413) };
+    }
+  }
+
+  const raw = await request.text();
+  if (new TextEncoder().encode(raw).byteLength > MAX_REQUEST_BYTES) {
+    return { ok: false as const, response: json({ ok: false, error: 'PAYLOAD_TOO_LARGE' }, 413) };
+  }
+
+  try {
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+      return { ok: false as const, response: json({ ok: false, error: 'INVALID_JSON' }, 400) };
+    }
+    return { ok: true as const, body: parsed as Record<string, unknown> };
+  } catch {
+    return { ok: false as const, response: json({ ok: false, error: 'INVALID_JSON' }, 400) };
+  }
+};
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -40,22 +68,31 @@ export const POST: APIRoute = async ({ request }) => {
       return json({ ok: false, error: 'INVALID_CONTENT_TYPE', email: OWNER_EMAIL }, 415);
     }
 
-    const body = await request.json();
+    // Browser-originated cross-site POSTs should never be able to reach the elevated path.
+    // Non-browser clients may omit Sec-Fetch-Site, so this is defense-in-depth rather than auth.
+    const fetchSite = (request.headers.get('sec-fetch-site') || '').toLowerCase();
+    if (fetchSite === 'cross-site') {
+      return json({ ok: false, error: 'CROSS_SITE_REQUEST' }, 403);
+    }
+
+    const parsedBody = await readJsonBody(request);
+    if (!parsedBody.ok) return parsedBody.response;
+    const body = parsedBody.body;
 
     // Honeypot. The real consultation UI must leave this blank.
-    if (clean(body?.website, 200)) {
+    if (clean(body.website, 200)) {
       return json({ ok: false, error: 'REJECTED', email: OWNER_EMAIL }, 400);
     }
 
-    const firstName = clean(body?.firstName, 100);
-    const lastName = clean(body?.lastName, 100);
-    const email = clean(body?.email, 254).toLowerCase();
-    const phone = normalizePhone(body?.phone);
-    const studentName = clean(body?.studentName, 150);
-    const studentGrade = clean(body?.studentGrade, 80);
-    const service = clean(body?.service, 160);
-    const goals = clean(body?.goals, 5000);
-    const availability = clean(body?.availability, 2000);
+    const firstName = clean(body.firstName, 100);
+    const lastName = clean(body.lastName, 100);
+    const email = clean(body.email, 254).toLowerCase();
+    const phone = normalizePhone(body.phone);
+    const studentName = clean(body.studentName, 150);
+    const studentGrade = clean(body.studentGrade, 80);
+    const service = clean(body.service, 160);
+    const goals = clean(body.goals, 5000);
+    const availability = clean(body.availability, 2000);
 
     if (!firstName || !lastName || !validEmail(email) || !studentName || !studentGrade || !service || !goals) {
       return json({
