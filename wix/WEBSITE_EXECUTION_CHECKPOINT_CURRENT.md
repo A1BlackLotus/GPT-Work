@@ -1,3 +1,15 @@
+## CONTINUATION — build tooling and test typing, 2026-09-13
+
+Current native branch head: `2c6522893335c89faf2adac14a70ac7689cc92e4`. Draft PR: https://github.com/A1BlackLotus/Behavioral-Bridge-Wix-Site/pull/1.
+
+- Installed the exact project Wix CLI 1.1.177, @astrojs/tailwind 6.0.2, and autoprefixer into the isolated local verification environment. The previous missing-CLI blocker is resolved; project dependency declarations were not changed.
+- Ran the repository-wide TypeScript command. It exposed missing dependencies in the partial local environment plus three introduced test typing errors caused by Wix's overloaded fetchWithAuth signature. Fixed the tests using an explicitly typed, hoisted fetch mock.
+- Extended the local targeted TypeScript scope to include consultation source and its test. PASS. This corrects the earlier narrower scope; it is still not a whole-project typecheck pass.
+- npm run test:run: PASS, 17 tests in four files. git diff --check: PASS.
+- npm run build reached the installed CLI but automatic approval review BLOCKED its external Sentry ingest request: payload not disclosed and could contain private build diagnostics. No retry or workaround. Build/preview acceptance remains unresolved.
+- No merge, publication, production submission, runtime retirement, domain/billing operation, or Vibe credit use.
+- Next dependency: approve the build's diagnostic telemetry or provide an already-supported authenticated Wix preview/build of this exact branch. Do not claim full completion or publish before validation.
+
 ## DIRECT SOURCE COMMIT UPDATE — 2026-09-13 04:53 UTC
 
 The native repair branch now includes a small follow-up hardening commit:
