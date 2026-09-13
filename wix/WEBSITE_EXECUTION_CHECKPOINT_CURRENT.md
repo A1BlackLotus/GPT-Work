@@ -1,3 +1,13 @@
+## AUTHORIZED BUILD RETRY — 2026-09-13
+
+Ryan explicitly authorized the Wix build's diagnostic telemetry. The build was retried; that approval is resolved and must not be requested again.
+
+Installed the config's declared Wix/Astro integrations into the isolated local verification environment without modifying project package.json. npm run build now loads the Wix/Astro configuration and stops at the required WIX_CLIENT_ID environment variable. This supersedes the earlier missing-CLI/missing-adapter blockers.
+
+Attempted the configured npm run env (wix env pull) as recommended by the actual build output. Automatic approval review rejected it because it may retrieve credentials/private project configuration and the explicit approval covered telemetry only. No workaround or further credential retrieval was attempted.
+
+Next required owner authorization: allow the configured Wix env pull to retrieve this canonical project's build configuration into the local environment. Do not print secrets or commit environment files. Native build/preview remain unaccepted. No source edits, merge, publication, runtime changes, production form submission, or Vibe credit use in this retry. PR #1 head remains 2c6522893335c89faf2adac14a70ac7689cc92e4.
+
 ## CONTINUATION — build tooling and test typing, 2026-09-13
 
 Current native branch head: `2c6522893335c89faf2adac14a70ac7689cc92e4`. Draft PR: https://github.com/A1BlackLotus/Behavioral-Bridge-Wix-Site/pull/1.
