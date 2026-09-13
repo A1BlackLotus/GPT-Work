@@ -1,3 +1,39 @@
+## DIRECT SOURCE REPAIR PASS — 2026-09-13 04:48 UTC
+
+Ryan requested autonomous continuation after repeated Vibe editor failures. The remaining native source work was completed through the prepared GitHub branch without spending the final Vibe credit, changing protected runtime patches, submitting the consultation form, or publishing.
+
+### Source result
+
+- Repository: `A1BlackLotus/Behavioral-Bridge-Wix-Site`
+- Branch: `astra/native-completion-2026-09-13`
+- Commit: `061d5221beb84bb8685f776f04bee2d290d38c4e`
+- Draft PR: https://github.com/A1BlackLotus/Behavioral-Bridge-Wix-Site/pull/1
+- Parent: `05561bf0738e59e492a768497262184ccc543719`
+
+Implemented source-owned repairs:
+
+- Generic Wix Ricos `IMAGE` rendering in `src/components/RichContent.tsx`, including raw Wix media-ID resolution, alt text, natural dimensions, fit rendering, captions, alignment, full-size links, and safe rich-text links.
+- Removed slug-specific `HomeworkProcessVisual`, `HomeworkCallout`, `MotivationSystemVisual`, and `MotivationCallout` duplicate injections from `PostPage.tsx`.
+- Replaced native Results placeholder testimonial ownership with the exact seven approved Wyzant/Superprof paraphrases and required disclosure in `src/lib/resultsReviews.ts`.
+- Rebuilt native Results with the approved visible split hero/image, canonical proof values, complete SAT/EF/academic sequences, referral section, and consultation/email CTA.
+- Replaced the Home primary hero with the approved bridge image and useful alt text while preserving the existing page and rollback assets.
+- Propagated `fittingType="fit"` through the shared Wix image wrapper.
+- Added legacy redirects for `/sat-prep` and `/executive-function`.
+- Added consultation in-flight duplicate-submit protection, preserved values after failed delivery/“Try Again”, an accessible error state, and a semantic main landmark.
+- Added focused regression tests and real Ricos fixtures for both priority articles plus an ordinary article.
+
+### Validation evidence
+
+- `npm run test:run`: PASS — 4 test files, 17 tests.
+- `npx tsc -p qa/tsconfig.json --noEmit`: PASS.
+- `git diff --check`: PASS.
+- `npm run build`: NOT RUN successfully — local environment has no `wix` CLI.
+- `npm run check`: NOT RUN to completion — project install/check is blocked by unavailable private Wix package/tooling.
+- `npm run preview`: NOT RUN successfully — local environment has no `wix` CLI; a Vite fallback was not treated as Wix preview.
+- Native Wix preview, desktop/tablet/mobile visual acceptance, controlled publication, public post-publish regression, consultation production E2E, and patch retirement remain open.
+
+Do not merge or publish this branch until the native Wix preview and remaining gates are accepted.
+
 # Behavioral Bridge — Website Execution Checkpoint — CURRENT
 
 **Updated:** 2026-09-13  
