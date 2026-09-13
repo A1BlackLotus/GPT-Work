@@ -1,3 +1,13 @@
+## VALIDATION CORRECTION — 2026-09-13 04:50 UTC
+
+The configured commands were subsequently executed directly and their results are now more precise:
+
+- `npm run check`: **EXECUTED / FAIL** — Astro could not load `astro.config.mjs` because the isolated verification environment lacks `@astrojs/tailwind`.
+- `npm run build`: **EXECUTED / FAIL** — `wix: not found`.
+- `npm run preview`: **EXECUTED / FAIL** — `wix: not found`.
+
+The focused source tests, targeted TypeScript check, and `git diff --check` remain passing as recorded above. These failures are environment/tooling blockers, not claimed source passes.
+
 ## DIRECT SOURCE REPAIR PASS — 2026-09-13 04:48 UTC
 
 Ryan requested autonomous continuation after repeated Vibe editor failures. The remaining native source work was completed through the prepared GitHub branch without spending the final Vibe credit, changing protected runtime patches, submitting the consultation form, or publishing.
