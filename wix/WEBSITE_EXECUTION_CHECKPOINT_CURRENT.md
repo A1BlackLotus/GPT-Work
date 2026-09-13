@@ -1,3 +1,13 @@
+## DIRECT CONTINUATION AFTER VIBE FAILURE — 2026-09-13
+
+Ryan explicitly forbids another Vibe retry without fresh final-credit authorization. Treat Vibe as unavailable. Configuration retrieval and diagnostic telemetry are already authorized; do not request those permissions again.
+
+The repair branch is now d48772846c19345f95faeed36dd78b6a6de859e3 (PR #1). Added Escape/focus recovery and route-change closure for mobile navigation; removed redundant Blog Archive footer link while retaining Articles & Guides → /resources; clarified consultation copy as an intake request followed up by email. Regression suite: 18 tests pass in five files. Targeted TypeScript check and git diff --check pass. Full build and visual acceptance remain open.
+
+npm run env was actually retried with authorization. It exited 1: “An error occurred while logging in: Failed to issue a login device code.” No configuration retrieval success was established. Missing WIX_CLIENT_ID remains the build blocker. This is now CLI authentication/platform failure, not missing owner permission. No Vibe retry, publish, merge, runtime changes, or production submission occurred.
+
+Next: restore supported Wix CLI authentication/configuration or obtain an authenticated build/preview of the exact repair branch; complete remaining native SEO/responsive/accessibility gates before controlled release.
+
 ## AUTHORIZED BUILD RETRY — 2026-09-13
 
 Ryan explicitly authorized the Wix build's diagnostic telemetry. The build was retried; that approval is resolved and must not be requested again.
