@@ -11,6 +11,27 @@ API success is not visual acceptance. Vibe/Astra completion language is not acce
 
 ---
 
+## DIRECT REPAIR TAKEOVER — 2026-09-13 UTC
+
+Ryan explicitly requested direct execution to the fullest extent possible after three further failed Vibe attempts. Do not send another Vibe implementation prompt as the next action and do not spend additional Vibe credits.
+
+Fresh authenticated Opera editor inspection:
+- Three visible responses each report: “I couldn’t make the changes you requested due to a technical issue on our side.” / “Couldn't complete request”.
+- Preview text also reports trouble displaying the page. This establishes an editor/preview error, not a diagnosed source root cause.
+- The editor displays “1 Credit left”; do not spend it.
+- Code control remains visible. Opera connector still exposes reading/navigation/screenshots only; no callable source editing or click/type action.
+- Fresh GitHub repository listing exposes only GPT-Work and Behavioral-Bridge-AI. Neither is the native site source repository.
+- Scratch contains the three uploaded instructions/reports, not a native code checkout.
+- Wix REST documentation discovery did not establish an existing Vibe source-file read/write endpoint. Do not use unrelated Portfolio Projects APIs or guessed private endpoints.
+
+No site source edits, build commands, publication, runtime changes, or form submissions were performed in this takeover inspection. The actual current source must be obtained before a trustworthy patch can be made.
+
+Next required access step: open Code → GitHub in the existing editor and expose the exact site repository through the connected GitHub integration. If a supported source export is available, an uploaded project export is also sufficient for local repair and testing. Do not treat the coordination repository as native source, or create a replacement website.
+
+Once source is accessible: obtain baseline, inspect project instructions/imports/scripts, implement generic Ricos IMAGE rendering and duplicate removal, accepted native Results data/design, approved Home bridge hero, then execute configured validation and native preview checks. Preserve no-publish and runtime protections. Full Gates A–P remain open as individually documented.
+
+---
+
 ## CURRENT RESUME CONTROL — recovery audit 2026-09-13 UTC
 
 The six files required by ASTRA_WEBSITE_FULL_COMPLETION_CONTROL_CURRENT.md were read in order. Full-completion Gates A–P govern closure; older statements below are historical wherever they conflict.
