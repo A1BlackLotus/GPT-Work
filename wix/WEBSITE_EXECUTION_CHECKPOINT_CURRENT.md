@@ -1,6 +1,6 @@
 # Behavioral Bridge — Website Execution Checkpoint — CURRENT
 
-**Updated:** 2026-09-12  
+**Updated:** 2026-09-13  
 **Status:** CURRENT OPERATIONAL SOURCE OF TRUTH
 
 Authority order:
@@ -8,6 +8,39 @@ Authority order:
 **public live behavior/screenshots > current Wix state/APIs > authenticated native editor/source > this checkpoint > dated handoffs/history**
 
 API success is not visual acceptance. Vibe/Astra completion language is not acceptance evidence by itself.
+
+---
+
+## CURRENT RESUME CONTROL — recovery audit 2026-09-13 UTC
+
+The six files required by ASTRA_WEBSITE_FULL_COMPLETION_CONTROL_CURRENT.md were read in order. Full-completion Gates A–P govern closure; older statements below are historical wherever they conflict.
+
+### Fresh independent evidence
+- Opera read access worked after one transient editor connection failure. The authenticated canonical Vibe editor was inspected by accessibility tree and screenshot.
+- Native Home screenshot: Ryan portrait remains the hero. Approved bridge integration is still open.
+- Public Home accessibility tree: lighthouse media 445f86_71edd0161a5f4b2ab5452b18e8f51250~mv2.png remains; approved proof values are present.
+- Visible Vibe report still claims Results COMPLETE using a 5%-opacity background, BaseCrudService.getAll<Testimonials>('testimonials'), and four slug-specific PostPage insertions. This is report evidence, not direct source inspection.
+- Fresh read-only Wix testimonials query returned exactly three records: Sarah M., David L., Emily R.; total=3, hasNext=false. No CMS mutations.
+- Public Results desktop hero screenshot confirms the clear visible split image and approved proof strip. Full accessibility tree contains all seven accepted summaries and correct source labels.
+- Public Results EF sequence is still CAPTURE → PLAN → PRIORITIZE → START → FINISH. SUSTAIN and MONITOR are missing versus the current required sequence. Keep this gate open and correct natively; do not alter protected runtime in this pass.
+- Public Homework and Motivation accessibility trees expose their approved cover images and exactly one respective Try This/Key Idea heading, but no required in-body infographic image node. This is accessibility-tree evidence, not full article-body screenshot QA.
+- Editor responsive/build claims cite CSS classes and READY language; no actual commands/output were present in the inspected report.
+
+### Unverified / blocked
+- Native Results source and rendered native Results were not directly inspected.
+- Native article source, body previews, mobile/tablet behavior, and lint/type/build are NOT independently verified.
+- Opera tools expose read/navigation/screenshots but no generic click/type or editor prompt submission. Do not claim a Vibe prompt was executed.
+- Cloud-browser sign-in previously required authorization and was rejected by automatic review; no workaround or new login attempted.
+- No publication, production form submission, patch changes, domain/DNS/plan changes, or media generation occurred.
+
+### Next coherent unit
+Use the refreshed wix/VIBE_PROMPT_NATIVE_COMPLETION_CURRENT.md for a bounded source pass: generic IMAGE support; duplicate removal; seven-review Results owner; visible split hero and complete EF sequence; approved Home bridge hero; actual validation/native preview evidence.
+Ryan must submit it in the existing authenticated Vibe editor with the currently exposed tools. After Vibe completes, independently recheck its report and preview before any publication.
+
+### Control conflicts
+- New full-completion control supersedes older protocol patch revision examples and its two-production-test requirement; current later gate specifies one deliberate QA submission with exactly one record and one notification, when authorized.
+- Preserve the intended existing 12-post library during native repairs. Later flagship publication is a separately gated planned addition; reconcile the resulting count explicitly rather than deleting an existing post to enforce 12.
+- Domain/GSC, analytics exceptions, and old-site permission exceptions require explicit Ryan acceptance before full closure.
 
 ---
 
