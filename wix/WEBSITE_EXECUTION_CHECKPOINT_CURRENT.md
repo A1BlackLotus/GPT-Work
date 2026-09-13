@@ -1,3 +1,13 @@
+## DIRECT SOURCE COMMIT UPDATE — 2026-09-13 04:53 UTC
+
+The native repair branch now includes a small follow-up hardening commit:
+
+- Current branch head: `e433a864660c17083b8bff7be4fb0f7418182f1d`
+- Follow-up: `Harden rich image source fallback`
+- `resolveRichImageSource` now safely falls back from a malformed media ID to a valid URL field when both are supplied.
+- Focused tests remain **PASS — 4 files, 17 tests**; targeted TypeScript and `git diff --check` remain passing.
+- Draft PR #1 automatically tracks the updated branch head.
+
 ## VALIDATION CORRECTION — 2026-09-13 04:50 UTC
 
 The configured commands were subsequently executed directly and their results are now more precise:
