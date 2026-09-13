@@ -1,5 +1,62 @@
 # Behavioral Bridge — Vibe Prompt — Native Completion Pass — CURRENT
 
+## CURRENT EXECUTION UPDATE — independently rechecked 2026-09-13 UTC
+
+Execute this bounded native repair now. This update and the full specification below are one prompt. Complete source work and available verification; do not merely return another plan. DO NOT PUBLISH.
+
+Independent recheck found:
+1. Native Home still visibly uses Ryan's portrait; public Home still identifies the lighthouse. The approved bridge remains required.
+2. The currently visible Vibe report still claims Results COMPLETE with the testimonials CMS and 5%-opacity image. A fresh Wix query confirms that CMS contains exactly Sarah M., David L., and Emily R. These are not accepted Results content.
+3. Public Results desktop screenshot confirms the accepted visible split hero. Its full page tree contains the seven accepted summaries. Reproduce that natively without runtime observer/hide logic.
+4. Public Results still uses the shortened EF sequence. Native final sequence must be CAPTURE → PLAN → PRIORITIZE → START → SUSTAIN → MONITOR → FINISH.
+5. Public Homework/Motivation trees contain their correct cover and one respective Try This/Key Idea heading, but not their required body infographic. Inspect actual fetched Ricos nodes and source to locate the exact failure.
+6. Your visible prior report claims the four article-specific components are injected and cites CSS classes as responsive evidence. Those statements do not satisfy final architecture or visual acceptance.
+7. No exact executed lint/typecheck/build output was present in that report.
+
+First inspect current code; preserve any newer correct work. Known source leads from your report:
+- src/components/pages/PostPage.tsx
+- src/components/pages/ResultsPage.tsx
+- src/components/pages/HomePage.tsx
+- src/components/Router.tsx
+- src/lib/resourceArticles.ts
+- BaseCrudService and the actual Ricos renderer/media helper
+Follow real imports. Do not assume resourceArticles owns live rich content.
+
+Implementation precision:
+- Use actual IMAGE node data; preserve alt, valid dimensions/aspect ratio, alignment and captions.
+- Reuse verified URL resolution. Do not prefix an existing URL as a media ID.
+- Do not use global image-ID deduplication that removes legitimate body images.
+- Gracefully handle malformed nodes without crashing the page.
+- Remove duplicate slug injections only after generic rendering works; remove unused imports only after checking other consumers.
+- Keep Blog copy and nodes intact.
+- Results summaries are paraphrases, not verbatim quotes.
+- VIEW VERIFIED REVIEWS should retain the accepted public Wyzant destination:
+  https://www.wyzant.com/Tutors/MA/Brookline/10206436/
+  Do not substitute #reviews for this external verification action.
+- Keep Superprof source accurate:
+  https://www.superprof.com/elite-english-reading-and-writing-tutor-improving-literacy-essays-and-academic-skills-perfect-wyzant-star-reviews-275.html
+  Numbers in this URL are not visible proof claims and must not be blindly replaced.
+- Preserve the accepted referral benefit and its separation from reviews. Do not invent additional terms.
+- Home: preserve current headline/copy/CTAs and page structure; replace only the hero visual. Retain important embedded image details.
+- Preserve runtime protection; if it masks native preview, report the verification limitation rather than disabling it.
+
+Actual responsive checks:
+Use supported native preview controls at desktop, tablet, mobile and narrow mobile. Suggested widths: 1440, 1024/768, 390 and 320 CSS px. Record actual dimensions.
+Inspect Results/Home at all available sizes; both priority articles at desktop/mobile; one ordinary article for shared-reader regression.
+Count body headings, not duplicate text appearances in TOC/accessibility descendants, when checking callouts.
+If imagery is too detailed for mobile reading, preserve natural ratio and provide an accessible full-size image link using existing conventions.
+
+Validation:
+Run package.json's actual configured lint, typecheck and production build if command execution exists. Record exact command, execution result/exit status and relevant output. Do not equate source review, READY badge or working preview with a build pass.
+Use NOT RUN or NOT INSPECTED when unavailable. Separate old failures from introduced errors. Repair introduced errors before stopping.
+
+Finish priorities below before unrelated SEO, consultation transport, domain, analytics or redesign work. Those remain required overall completion gates, but do not mix them into this repair batch.
+No production form submission; no Blog publication; no patch retirement; no CMS mutation.
+
+Return a delta-based report: changed files and source owners, exact root cause/fix, image and callout counts, accepted review parity, hero evidence, actual viewport checks, command output, and remaining blockers. Include current project version if exposed. Do not claim full website completion.
+
+---
+
 Work in the current native Wix Vibe source for Behavioral Bridge site `e6f68a23-cc00-421a-985e-515963cbe5f0`.
 
 This is a SOURCE-REPAIR + NATIVE-PARITY pass.
