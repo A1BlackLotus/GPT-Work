@@ -1,683 +1,377 @@
-## DIRECT CONTINUATION AFTER VIBE FAILURE — 2026-09-13
-
-Ryan explicitly forbids another Vibe retry without fresh final-credit authorization. Treat Vibe as unavailable. Configuration retrieval and diagnostic telemetry are already authorized; do not request those permissions again.
-
-The repair branch is now d48772846c19345f95faeed36dd78b6a6de859e3 (PR #1). Added Escape/focus recovery and route-change closure for mobile navigation; removed redundant Blog Archive footer link while retaining Articles & Guides → /resources; clarified consultation copy as an intake request followed up by email. Regression suite: 18 tests pass in five files. Targeted TypeScript check and git diff --check pass. Full build and visual acceptance remain open.
-
-npm run env was actually retried with authorization. It exited 1: “An error occurred while logging in: Failed to issue a login device code.” No configuration retrieval success was established. Missing WIX_CLIENT_ID remains the build blocker. This is now CLI authentication/platform failure, not missing owner permission. No Vibe retry, publish, merge, runtime changes, or production submission occurred.
-
-Next: restore supported Wix CLI authentication/configuration or obtain an authenticated build/preview of the exact repair branch; complete remaining native SEO/responsive/accessibility gates before controlled release.
-
-## AUTHORIZED BUILD RETRY — 2026-09-13
-
-Ryan explicitly authorized the Wix build's diagnostic telemetry. The build was retried; that approval is resolved and must not be requested again.
-
-Installed the config's declared Wix/Astro integrations into the isolated local verification environment without modifying project package.json. npm run build now loads the Wix/Astro configuration and stops at the required WIX_CLIENT_ID environment variable. This supersedes the earlier missing-CLI/missing-adapter blockers.
-
-Attempted the configured npm run env (wix env pull) as recommended by the actual build output. Automatic approval review rejected it because it may retrieve credentials/private project configuration and the explicit approval covered telemetry only. No workaround or further credential retrieval was attempted.
-
-Next required owner authorization: allow the configured Wix env pull to retrieve this canonical project's build configuration into the local environment. Do not print secrets or commit environment files. Native build/preview remain unaccepted. No source edits, merge, publication, runtime changes, production form submission, or Vibe credit use in this retry. PR #1 head remains 2c6522893335c89faf2adac14a70ac7689cc92e4.
-
-## CONTINUATION — build tooling and test typing, 2026-09-13
-
-Current native branch head: `2c6522893335c89faf2adac14a70ac7689cc92e4`. Draft PR: https://github.com/A1BlackLotus/Behavioral-Bridge-Wix-Site/pull/1.
-
-- Installed the exact project Wix CLI 1.1.177, @astrojs/tailwind 6.0.2, and autoprefixer into the isolated local verification environment. The previous missing-CLI blocker is resolved; project dependency declarations were not changed.
-- Ran the repository-wide TypeScript command. It exposed missing dependencies in the partial local environment plus three introduced test typing errors caused by Wix's overloaded fetchWithAuth signature. Fixed the tests using an explicitly typed, hoisted fetch mock.
-- Extended the local targeted TypeScript scope to include consultation source and its test. PASS. This corrects the earlier narrower scope; it is still not a whole-project typecheck pass.
-- npm run test:run: PASS, 17 tests in four files. git diff --check: PASS.
-- npm run build reached the installed CLI but automatic approval review BLOCKED its external Sentry ingest request: payload not disclosed and could contain private build diagnostics. No retry or workaround. Build/preview acceptance remains unresolved.
-- No merge, publication, production submission, runtime retirement, domain/billing operation, or Vibe credit use.
-- Next dependency: approve the build's diagnostic telemetry or provide an already-supported authenticated Wix preview/build of this exact branch. Do not claim full completion or publish before validation.
-
-## DIRECT SOURCE COMMIT UPDATE — 2026-09-13 04:53 UTC
-
-The native repair branch now includes a small follow-up hardening commit:
-
-- Current branch head: `e433a864660c17083b8bff7be4fb0f7418182f1d`
-- Follow-up: `Harden rich image source fallback`
-- `resolveRichImageSource` now safely falls back from a malformed media ID to a valid URL field when both are supplied.
-- Focused tests remain **PASS — 4 files, 17 tests**; targeted TypeScript and `git diff --check` remain passing.
-- Draft PR #1 automatically tracks the updated branch head.
-
-## VALIDATION CORRECTION — 2026-09-13 04:50 UTC
-
-The configured commands were subsequently executed directly and their results are now more precise:
-
-- `npm run check`: **EXECUTED / FAIL** — Astro could not load `astro.config.mjs` because the isolated verification environment lacks `@astrojs/tailwind`.
-- `npm run build`: **EXECUTED / FAIL** — `wix: not found`.
-- `npm run preview`: **EXECUTED / FAIL** — `wix: not found`.
-
-The focused source tests, targeted TypeScript check, and `git diff --check` remain passing as recorded above. These failures are environment/tooling blockers, not claimed source passes.
-
-## DIRECT SOURCE REPAIR PASS — 2026-09-13 04:48 UTC
-
-Ryan requested autonomous continuation after repeated Vibe editor failures. The remaining native source work was completed through the prepared GitHub branch without spending the final Vibe credit, changing protected runtime patches, submitting the consultation form, or publishing.
-
-### Source result
-
-- Repository: `A1BlackLotus/Behavioral-Bridge-Wix-Site`
-- Branch: `astra/native-completion-2026-09-13`
-- Commit: `061d5221beb84bb8685f776f04bee2d290d38c4e`
-- Draft PR: https://github.com/A1BlackLotus/Behavioral-Bridge-Wix-Site/pull/1
-- Parent: `05561bf0738e59e492a768497262184ccc543719`
-
-Implemented source-owned repairs:
-
-- Generic Wix Ricos `IMAGE` rendering in `src/components/RichContent.tsx`, including raw Wix media-ID resolution, alt text, natural dimensions, fit rendering, captions, alignment, full-size links, and safe rich-text links.
-- Removed slug-specific `HomeworkProcessVisual`, `HomeworkCallout`, `MotivationSystemVisual`, and `MotivationCallout` duplicate injections from `PostPage.tsx`.
-- Replaced native Results placeholder testimonial ownership with the exact seven approved Wyzant/Superprof paraphrases and required disclosure in `src/lib/resultsReviews.ts`.
-- Rebuilt native Results with the approved visible split hero/image, canonical proof values, complete SAT/EF/academic sequences, referral section, and consultation/email CTA.
-- Replaced the Home primary hero with the approved bridge image and useful alt text while preserving the existing page and rollback assets.
-- Propagated `fittingType="fit"` through the shared Wix image wrapper.
-- Added legacy redirects for `/sat-prep` and `/executive-function`.
-- Added consultation in-flight duplicate-submit protection, preserved values after failed delivery/“Try Again”, an accessible error state, and a semantic main landmark.
-- Added focused regression tests and real Ricos fixtures for both priority articles plus an ordinary article.
-
-### Validation evidence
-
-- `npm run test:run`: PASS — 4 test files, 17 tests.
-- `npx tsc -p qa/tsconfig.json --noEmit`: PASS.
-- `git diff --check`: PASS.
-- `npm run build`: NOT RUN successfully — local environment has no `wix` CLI.
-- `npm run check`: NOT RUN to completion — project install/check is blocked by unavailable private Wix package/tooling.
-- `npm run preview`: NOT RUN successfully — local environment has no `wix` CLI; a Vite fallback was not treated as Wix preview.
-- Native Wix preview, desktop/tablet/mobile visual acceptance, controlled publication, public post-publish regression, consultation production E2E, and patch retirement remain open.
-
-Do not merge or publish this branch until the native Wix preview and remaining gates are accepted.
-
 # Behavioral Bridge — Website Execution Checkpoint — CURRENT
 
-**Updated:** 2026-09-13  
-**Status:** CURRENT OPERATIONAL SOURCE OF TRUTH
+**Updated:** 2026-09-15 UTC  
+**Status:** POST-RELEASE VALIDATION / CONTROLLED PATCH RETIREMENT
 
 Authority order:
 
-**public live behavior/screenshots > current Wix state/APIs > authenticated native editor/source > this checkpoint > dated handoffs/history**
+**public live behavior/screenshots > current Wix APIs/state > published native source > this checkpoint > dated historical handoffs**
 
-API success is not visual acceptance. Vibe/Astra completion language is not acceptance evidence by itself.
-
----
-
-## DIRECT REPAIR TAKEOVER — 2026-09-13 UTC
-
-Ryan explicitly requested direct execution to the fullest extent possible after three further failed Vibe attempts. Do not send another Vibe implementation prompt as the next action and do not spend additional Vibe credits.
-
-Fresh authenticated Opera editor inspection:
-- Three visible responses each report: “I couldn’t make the changes you requested due to a technical issue on our side.” / “Couldn't complete request”.
-- Preview text also reports trouble displaying the page. This establishes an editor/preview error, not a diagnosed source root cause.
-- The editor displays “1 Credit left”; do not spend it.
-- Code control remains visible. Opera connector still exposes reading/navigation/screenshots only; no callable source editing or click/type action.
-- Fresh GitHub repository listing exposes only GPT-Work and Behavioral-Bridge-AI. Neither is the native site source repository.
-- Scratch contains the three uploaded instructions/reports, not a native code checkout.
-- Wix REST documentation discovery did not establish an existing Vibe source-file read/write endpoint. Do not use unrelated Portfolio Projects APIs or guessed private endpoints.
-
-No site source edits, build commands, publication, runtime changes, or form submissions were performed in this takeover inspection. The actual current source must be obtained before a trustworthy patch can be made.
-
-Next required access step: open Code → GitHub in the existing editor and expose the exact site repository through the connected GitHub integration. If a supported source export is available, an uploaded project export is also sufficient for local repair and testing. Do not treat the coordination repository as native source, or create a replacement website.
-
-Once source is accessible: obtain baseline, inspect project instructions/imports/scripts, implement generic Ricos IMAGE rendering and duplicate removal, accepted native Results data/design, approved Home bridge hero, then execute configured validation and native preview checks. Preserve no-publish and runtime protections. Full Gates A–P remain open as individually documented.
+This file intentionally replaces the stale pre-release checkpoint. Historical repair detail remains in Git history and the other dated handoffs. Treat the state below as current unless superseded by newer explicit evidence.
 
 ---
 
-## CURRENT RESUME CONTROL — recovery audit 2026-09-13 UTC
+## CURRENT TRUTH
 
-The six files required by ASTRA_WEBSITE_FULL_COMPLETION_CONTROL_CURRENT.md were read in order. Full-completion Gates A–P govern closure; older statements below are historical wherever they conflict.
-
-### Fresh independent evidence
-- Opera read access worked after one transient editor connection failure. The authenticated canonical Vibe editor was inspected by accessibility tree and screenshot.
-- Native Home screenshot: Ryan portrait remains the hero. Approved bridge integration is still open.
-- Public Home accessibility tree: lighthouse media 445f86_71edd0161a5f4b2ab5452b18e8f51250~mv2.png remains; approved proof values are present.
-- Visible Vibe report still claims Results COMPLETE using a 5%-opacity background, BaseCrudService.getAll<Testimonials>('testimonials'), and four slug-specific PostPage insertions. This is report evidence, not direct source inspection.
-- Fresh read-only Wix testimonials query returned exactly three records: Sarah M., David L., Emily R.; total=3, hasNext=false. No CMS mutations.
-- Public Results desktop hero screenshot confirms the clear visible split image and approved proof strip. Full accessibility tree contains all seven accepted summaries and correct source labels.
-- Public Results EF sequence is still CAPTURE → PLAN → PRIORITIZE → START → FINISH. SUSTAIN and MONITOR are missing versus the current required sequence. Keep this gate open and correct natively; do not alter protected runtime in this pass.
-- Public Homework and Motivation accessibility trees expose their approved cover images and exactly one respective Try This/Key Idea heading, but no required in-body infographic image node. This is accessibility-tree evidence, not full article-body screenshot QA.
-- Editor responsive/build claims cite CSS classes and READY language; no actual commands/output were present in the inspected report.
-
-### Unverified / blocked
-- Native Results source and rendered native Results were not directly inspected.
-- Native article source, body previews, mobile/tablet behavior, and lint/type/build are NOT independently verified.
-- Opera tools expose read/navigation/screenshots but no generic click/type or editor prompt submission. Do not claim a Vibe prompt was executed.
-- Cloud-browser sign-in previously required authorization and was rejected by automatic review; no workaround or new login attempted.
-- No publication, production form submission, patch changes, domain/DNS/plan changes, or media generation occurred.
-
-### Next coherent unit
-Use the refreshed wix/VIBE_PROMPT_NATIVE_COMPLETION_CURRENT.md for a bounded source pass: generic IMAGE support; duplicate removal; seven-review Results owner; visible split hero and complete EF sequence; approved Home bridge hero; actual validation/native preview evidence.
-Ryan must submit it in the existing authenticated Vibe editor with the currently exposed tools. After Vibe completes, independently recheck its report and preview before any publication.
-
-### Control conflicts
-- New full-completion control supersedes older protocol patch revision examples and its two-production-test requirement; current later gate specifies one deliberate QA submission with exactly one record and one notification, when authorized.
-- Preserve the intended existing 12-post library during native repairs. Later flagship publication is a separately gated planned addition; reconcile the resulting count explicitly rather than deleting an existing post to enforce 12.
-- Domain/GSC, analytics exceptions, and old-site permission exceptions require explicit Ryan acceptance before full closure.
-
----
-
-## Canonical production
+### Canonical production
 
 - Site: **Behavioral Bridge**
 - Wix site ID: `e6f68a23-cc00-421a-985e-515963cbe5f0`
 - Public root: `https://my-site-h5mhm1d7-ryancarvalho6.wix-vibe-site.com/`
+- Native source repo: `A1BlackLotus/Behavioral-Bridge-Wix-Site`
 - Editor: Wix Vibe / Picasso; Velo enabled
 - Plan: Free
 - Email: `Ryan_Carvalho@BehavioralBridge.org`
 - Phone: `+1 508-774-0989`
-- Proof: `5.0` Wyzant rating; `75+` 5-star reviews; `350+` Wyzant + Superprof hours; `Nearly 14` years experience
-- Redirects: `/sat-prep` → `/sat-tutoring`; `/executive-function` → `/ef-specialized-support`
+- Vibe AI: **1 credit remains; do not spend without fresh explicit authorization**
 
-### Current safety posture
+### Controlled native release — COMPLETE
 
-**DO NOT PUBLISH THE CURRENT NATIVE DRAFT YET.**
+The repaired native source was merged to `main` and released through authenticated GitHub Actions.
 
-The current public Results page is accepted/correct, while Ryan reports the native/editor Results page is still older. The public page is materially protected/supplied by runtime code. Native parity must be achieved and independently inspected before controlled publication or patch retirement.
+Controlled release run:
+- Workflow: `Wix Controlled Release`
+- Run ID: `34921790937`
+- Release revision checked out: `8dc2b1777b3ee6e276d74bc6dffde2136ccc81d9`
+- Wix API-key authentication: PASS
+- `wix whoami`: PASS as `ryancarvalho6`
+- `wix env pull`: PASS
+- native Wix build: PASS
+- upload / preview creation / deployment topology: PASS
+- production release: PASS
+- Wix reported publication to the canonical public root above
 
-Wix Vibe AI credits are currently exhausted after a Vibe-generated `PostPage.tsx` parser error and its own repair cycle. Do not purchase/upgrade/burn credits without explicit Ryan approval. Manual Code access remains visible in the authenticated editor.
+The GitHub API key is stored only as the repository Actions secret `WIX_CLI_API_KEY`. Never print, commit, or request the token in chat.
 
 ---
 
-## Protected runtime state — preserve until native parity + controlled publish + public regression
+## PUBLIC POST-RELEASE EVIDENCE
 
-Last verified current revisions from the post-Credit recovery audit:
+### Home — PUBLISHED + VISUALLY VERIFIED
 
-- Results Showcase `245d2c02-9ebb-4b3f-b863-53d787d8d13c` — **rev16 ENABLED**
-- Results Visual Repair `4bb4aa54-4956-4a44-af3d-6dbf0ca78d54` — **rev3 ENABLED**
-- Proof Metrics Coherence `0adc9e67-d1d6-43fa-bd06-abc7a923793f` — **rev8 ENABLED**
-- Consultation Safety & Fallback `b3ececaf-c221-4ad1-9590-4aa112486e11` — **rev30 ENABLED**
-- Native Vibe Compatibility Repair `819ad1ee-262b-4e3b-819c-f663f8494dfb` — **rev5 ENABLED**
+The canonical public Home page was actually inspected by browser screenshot after release.
 
-Keep disabled:
+Accepted live hero:
+- approved bridge/path visual, not lighthouse and not Ryan portrait
+- media ID `445f86_55d560892aba4714b627a1e87fad1ee8~mv2.png`
+- intended production filename `BB_Home_Hero_Bridge-Clarity-Guidance-Structure-Independence_Editorial_v1.png`
+- caption: `Clear direction. A steady route to independence.`
+
+Proof values remain:
+- `5.0`
+- `75+`
+- `350+`
+- `Nearly 14`
+
+### Results — NATIVE SEMANTIC PARITY VERIFIED; RUNTIME OWNER STILL ENABLED
+
+The published native Results page was directly exposed during a controlled temporary disable of the runtime owner and inspected by accessibility tree.
+
+Native published Results contains:
+- `REAL REVIEWS. SPECIFIC WORK.`
+- `Strong Students Don’t Need More Noise.`
+- `They need to know what is actually breaking down.`
+- approved hero image `445f86_980f4b71904345e0a8b11fca935361b8~mv2.png`
+- proof `5.0 / 75+ / 350+ / Nearly 14`
+- all seven approved public-review paraphrases: Maria, Reeta, Brian, Leon, Terri, Brak, Bryan
+- exact disclosure: `Cards paraphrase public Wyzant reviews and one Superprof recommendation. Individual results vary; no score change is guaranteed.`
+- SAT sequence `CLASSIFY → ACTIVATE → PREDICT → PROVE`
+- EF sequence `CAPTURE → PLAN → PRIORITIZE → START → SUSTAIN → MONITOR → FINISH`
+- Academic Support process
+- How I Work
+- referral section
+- final consultation/email CTA
+
+Do **not** call the native Results page visually accepted yet. Screenshot-level regression after runtime-owner removal is still open because the Opera screenshot channel is currently disconnected and Browser Use is temporarily unavailable.
+
+### Resources / article interiors — PUBLICLY VERIFIED
+
+The shared native Ricos renderer is live.
+
+Confirmed on public pages:
+- Homework cover: `445f86_e228e6e7b201423b82c59cafb022bbc3~mv2.png`
+- Homework inline infographic: `445f86_a1f958393d6a47258ab6773c31e61639~mv2.jpg`
+- Homework inline alt: `Homework Start Sequence: identify task, first visible action, start cue, reduce distraction, short work block, review next step`
+- Motivation cover: `445f86_6476bad82bd140e8a4d24dff440a3a67~mv2.png`
+- Motivation inline infographic: `445f86_95ec120daff34701addcf9a9e68209a1~mv2.jpg`
+- Motivation inline alt: `Build Action, Not Motivation: visible cue, concrete next action, protected start, short feedback loop, recovery rule`
+- Homework `Try This` and Motivation `Key Idea` body sections remain present
+- ordinary article `Accuracy Before Speed` loads normally with its generic visual treatment
+- no Homework/Motivation slug-specific duplicate visual injections remain in native source
+- Resources exposes the 12 canonical published posts
+
+### SAT / EF / About / routing — PUBLICLY VERIFIED SEMANTICALLY
+
+SAT:
+- title hydrates to `Digital SAT Tutoring | Behavioral Bridge`
+- core method present: `CLASSIFY → ACTIVATE → PREDICT → PROVE`
+
+EF:
+- title hydrates to `Executive Function & Academic Support | Behavioral Bridge`
+- complete seven-step sequence present: `Capture → Plan → Prioritize → Start → Sustain → Monitor → Finish`
+
+About:
+- approved founder framing remains intact
+- `nearly 14 years`
+- B.S. Psychology / magna cum laude framing preserved
+- Boston Latin / Brookline / Newton experience preserved
+- approved sentence preserved: `His post-baccalaureate education includes study at Boston College and graduate coursework at Harvard University.`
+
+Legacy routes:
+- `/sat-prep` → `/sat-tutoring`
+- `/executive-function` → `/ef-specialized-support`
+
+Footer:
+- `Articles & Guides` routes to `/resources`
+- no redundant old `Blog Archive` link is present in the public Resources accessibility tree
+
+---
+
+## PROOF / CREDENTIAL LOCK
+
+Canonical proof:
+- **5.0 Wyzant rating**
+- **75+ 5-star reviews**
+- **350+ Wyzant + Superprof hours**
+- **Nearly 14 years experience**
+
+Never regress to `60+`, `240+`, `300+`, `12 years`, `12+`, `13 years`, `75++`, or `350++`. Never describe `350+` as Wyzant-only.
+
+Founder:
+- Ryan M. Carvalho
+- B.S. Psychology, magna cum laude, Bridgewater State University
+- nearly 14 years relevant experience
+- Boston Latin / Brookline / Newton educational settings
+- approved post-baccalaureate wording above
+- no invented degree, certificate, licensure, clinical, or graduate-degree claim
+
+---
+
+## RUNTIME PATCH STATE — CURRENT
+
+### Still enabled / protected
+
+1. **Results Showcase**
+   - ID `245d2c02-9ebb-4b3f-b863-53d787d8d13c`
+   - current revision: **rev18**
+   - **ENABLED**
+   - still owns the currently visible public Results experience
+   - do not disable permanently until native Results receives screenshot-level visual regression
+
+2. **Results Visual Repair**
+   - ID `4bb4aa54-4956-4a44-af3d-6dbf0ca78d54`
+   - current revision: **rev8**
+   - **ENABLED**
+   - targets the runtime Results presentation
+   - do not retire without actual visual public regression
+
+3. **Consultation Safety & Fallback**
+   - ID `b3ececaf-c221-4ad1-9590-4aa112486e11`
+   - **rev30 ENABLED**
+   - keeps consultation email-first until native production delivery is proven
+   - **retires last**
+
+### Safely retired after native publication
+
+4. **Proof Metrics Coherence Patch**
+   - ID `0adc9e67-d1d6-43fa-bd06-abc7a923793f`
+   - **rev9 DISABLED**
+   - retired 2026-09-15 after one-at-a-time disable + fresh public reload regression
+   - Home after disable: `5.0`, `75+`, `350+`, `Nearly 14`; no stale `60/240/300/12/13/75++/350++`
+   - SAT after disable: same canonical proof; no stale values
+   - About after disable: `Nearly 14`; no `12/13`
+   - Results after disable: canonical proof; no stale values
+   - EF remained `nearly 14`; Resources and Consultation showed no stale experience values
+   - rollback remains available by re-enabling this same embed
+
+5. **Native Vibe Compatibility Repair**
+   - ID `819ad1ee-262b-4e3b-819c-f663f8494dfb`
+   - **rev6 DISABLED**
+   - retired 2026-09-15 after one-at-a-time disable + public route/media regression
+   - old external Wix blog link no longer appears; Resources footer owns `/resources` natively
+   - Homework cover remains correct `e228...` and inline infographic remains correct `a1f958...`
+   - Motivation cover remains correct `6476...` and inline infographic remains correct `95ec...`
+   - rollback remains available by re-enabling this same embed
+
+### Keep disabled
 
 - Article Reader & Publication Layout `827e1cf6-b008-40e1-9df4-d8f822f88a63` — rev17 disabled
 - Resources Router & Cards `65311ea0-35cf-4aef-8a6a-55dc2915212e` — rev15 disabled
 - Conversion Trust Strip `2d0a6ae7-7661-48fc-8bb0-e948f23cbda5` — rev4 disabled
 
-Do not retire a runtime repair merely because equivalent native code appears to exist. Retirement order is always:
+Retirement discipline remains:
 
-**native parity → native acceptance → controlled publish → public regression → disable one patch → public regression → preserve rollback → continue**
-
-Consultation Safety rev30 retires last and only after real native delivery is proven.
+**native parity → native acceptance → controlled publish → public regression → disable ONE patch → public regression → preserve rollback → continue**
 
 ---
 
-# CURRENT PRIORITY MATRIX
+## CONSULTATION — CURRENT GATE
 
-## P0.1 — Results native/public parity
+Published native consultation page exposes exactly nine form fields:
+1. First Name *
+2. Last Name *
+3. Email Address *
+4. Phone Number
+5. Student Name
+6. Student Grade
+7. Service of Interest *
+8. Goals / Help Requested
+9. General Availability
 
-**PUBLIC: VISUALLY/FUNCTIONALLY ACCEPTED IN CURRENT DESKTOP CHECK  
-NATIVE: NOT ACCEPTED / REPORTED OLDER THAN PUBLIC  
-STATUS: HIGHEST PRIORITY — DO NOT PUBLISH**
+Native source includes:
+- duplicate/in-flight guard
+- preserved values after failed delivery / retry
+- accessible error state
+- semantic main landmark
 
-Current public `/results` is the design/content reference.
+Current public behavior is still intentionally intercepted by Consultation Safety rev30 and labeled `EMAIL RYAN THIS REQUEST →`.
 
-Verified public content includes:
+Production E2E remains open. Required final test:
+- temporarily remove only the consultation safety interception under controlled conditions
+- one intentional QA submission
+- exactly one accepted Wix form record
+- exactly one owner notification
+- no duplicate
+- success shown only after Wix accepts the submission
+- desktop/mobile public behavior accepted
+- then retire Consultation Safety rev30 last
 
-- hero label `REAL REVIEWS. SPECIFIC WORK.`
-- `Strong Students Don’t Need More Noise.`
-- `They need to know what is actually breaking down.`
-- approved repaired hero image `445f86_980f4b71904345e0a8b11fca935361b8~mv2.png`
-- correct proof: 5.0 / 75+ / 350+ / Nearly 14
-- Wyzant review-summary cards plus Bryan · Parent · Superprof
-- `What I Actually Measure`
-- SAT / EF / Academic Support process content
-- `How I Work`
-- referral section
-- final consultation/email CTA
-
-Astra established the decisive ownership fact:
-
-- Results Showcase rev16 `hideNative()` hides sibling native Results content.
-- Its runtime `render()` supplies `#bb-results-showcase-v3`.
-- Its runtime review array supplies the visible summary cards including Bryan.
-
-Therefore public correctness does **not** prove native Results correctness.
-
-Preserved Results runtime reference:
-
-`wix/rollback/results-showcase-rev16-native-recovery-reference-2026-09-12.json`
-
-GitHub preservation commit:
-
-`c2e3f35de3fcf48dc4d032197333ac96c9431b50`
-
-### P0.1 acceptance gate
-
-Find the actual native Results owner from route imports/components, then reproduce accepted public behavior natively without copying runtime observer/hide logic. Resolve testimonial ownership rather than creating duplicate hard-coded systems. Inspect native desktop/tablet/mobile before any publish.
+Do not fake this test. Opera exposes read/navigation but not generic form typing/submission; Browser Use is currently unavailable. Leave rev30 enabled until a real E2E path is available.
 
 ---
 
-## P0.2 — Resources cover + priority article visual completion
+## ACCESSIBILITY — PARTIAL API EVIDENCE, CANONICAL MANUAL QA STILL OPEN
 
-**PUBLIC COVERS: VERIFIED CORRECT  
-NATIVE ARTICLE INTERIOR: NOT VERIFIED AFTER FAILED VIBE RUN  
-STATUS: OPEN**
+Full-site Wix Accessibility Scan started 2026-09-15:
+- scan ID `d17bb234-6570-4133-a40a-9d42b3844d7f`
+- terminal status: `ACCESSIBILITY_SCAN_STATUS_PARTIALLY_COMPLETED`
+- discovered 5 pages
+- processed 4
+- failed 1
+- actionable findings: 0
+- affected pages: 0
+- site-level findings: 0
 
-Canonical published count remains **12 articles**.
+Coverage included:
+- alternative text
+- color contrast
+- heading structure
+- keyboard
+- screen reader
+- `color-contrast`, `dom-order`, `focus-indicator`, `heading-structure`, `image-alt`, `inaccessible-component`, `inaccessible-layout`, `media-alternatives`, `page-title`, `site-language`, `skip-to-main-content`
 
-Approved covers:
+Critical limitation: Wix’s public scanner targeted legacy/internal static URLs under `ryancarvalho6.wixsite.com/wix-vibe-site-5cld`, not the canonical Vibe SPA routes.
 
-- Homework `445f86_e228e6e7b201423b82c59cafb022bbc3~mv2.png`
-- Motivation `445f86_6476bad82bd140e8a4d24dff440a3a67~mv2.png`
+Legacy scan pages:
+- root `tuckg` — FAILED, `ACCESSIBILITY_SCAN_FAILURE_CODE_ANALYSIS_FAILED`, `This page could not be checked.`
+- `/blog` — completed, 0 findings
+- `/cart-page` — completed, 0 findings
+- `/shop` — completed, 0 findings
+- `/thank-you-page` — completed, 0 findings
 
-Public reader/card repair has previously shown the approved covers. Old reader/router overlays remain disabled.
-
-The later Vibe visual batch was supposed to add real in-body editorial support. That completion is **not independently verified**.
-
-Required native-body deliverables:
-
-### Homework — `/post/homework-initiation-executive-function`
-- approved hero preserved
-- six-step explanatory visual grounded in the actual article
-- useful `Try This` callout
-- related content preserved
-- consultation CTA after useful content
-- readable mobile composition
-
-Six-step concept:
-
-Identify task → first visible action → start cue → reduce distraction → short work block → review next step
-
-### Motivation — `/post/why-motivation-is-wrong-target-executive-function`
-- approved hero preserved
-- five-element explanatory visual
-- useful `Key Idea` / `Try This` callout
-- related content + CTA preserved
-- readable mobile composition
-
-Five elements:
-
-Visible cue → concrete next action → protected start → short feedback loop → recovery rule
-
-Do not accept hero animation as completion.
+Therefore **do not describe the canonical Vibe website as accessibility-clean based on this scan**. Manual/browser QA of canonical routes remains required: headings/regions, alt, form labels/errors, focus/keyboard, mobile menu, contrast, touch targets, reduced motion, DOM order, and media alternatives.
 
 ---
 
-## P0.3 — Sitewide proof / visible factual consistency
+## SEO — CURRENT EVIDENCE AND OPEN RISK
 
-**PUBLIC: CURRENTLY CORRECT WHERE RECENTLY INSPECTED  
-NATIVE: FINAL PARITY NOT YET CERTIFIED  
-STATUS: OPEN UNTIL POST-PUBLISH REGRESSION**
+Wix SEO REST currently exposes the same five legacy/static Wix entities, not the canonical Vibe SPA routes.
 
-Canonical proof only:
+Verified Wix-managed static-page state:
+- legacy Home `tuckg` resolves title `Behavioral Bridge | SAT Tutoring & Executive Function Coaching`
+- Home description: `Premium Digital SAT tutoring and executive-function coaching from Behavioral Bridge. Serving Boston, Brookline, Newton, and students nationwide online.`
+- Home canonical resolves to the current canonical Vibe root
+- legacy Blog `p03sx` resolves `SAT Prep & Executive Function Resources | Behavioral Bridge`
+- cart, shop, and thank-you static pages are explicitly `noindex`
 
-- 5.0 — Wyzant rating
-- 75+ — 5-star reviews
-- 350+ — Wyzant + Superprof hours
-- Nearly 14 — years experience
+Published native source still uses one catch-all Astro page and calls `loadSEOTagsServiceConfig` with `itemData.pageName: 'Home'`. React Router updates `document.title` after hydration for canonical routes.
 
-Never regress to 60+, 240+, 300+, 12 years, 12+, 13, 75++, 350++, or Wyzant-only wording for the combined hours.
+This creates an unresolved **server/initial SEO ownership question** for `/results`, `/resources`, `/book-consultation`, other SPA routes, and article routes. Do not add duplicate manual canonical/meta tags from guesswork. Resolve with direct public rendered-head evidence and/or official Wix Vibe SEO service guidance before source changes.
 
----
+Intended route titles remain:
+- `Results & Reviews | Behavioral Bridge`
+- `Articles & Guides | Behavioral Bridge`
+- `Request a Consultation | Behavioral Bridge`
 
-## P0.4 — Consultation
-
-**BACKEND: PRIOR QA VERIFIED  
-NATIVE FRONTEND: CREDIT-2 WORK REPORTED, NOT PRODUCTION-E2E VERIFIED  
-PUBLIC: SAFETY REV30 EMAIL-FIRST  
-STATUS: OPEN / SAFETY-CRITICAL**
-
-Form: `b692e647-b20c-45b0-ae1d-2530df030907`
-
-Known backend QA previously produced confirmed records with the expected nine fields and one owner notification per controlled test.
-
-Current public protection remains Consultation Safety rev30. Do not disable it until the published native form passes:
-
-- exactly nine visible user fields
-- required-field and email validation
-- service required
-- in-flight/duplicate-submit guard
-- values preserved on failure
-- success only after the accepted Wix submission contract
-- one real QA record from one intentional test
-- one intended owner notification
-- no duplicate record
-- desktop/mobile behavior
-- fallback works only when native submission fails
-
-No production consultation test should occur before the native draft is accepted and published in a controlled release.
+Do not canonicalize to `BehavioralBridge.org` until that custom domain is actually attached.
 
 ---
 
-## P1.1 — Shared article reader / `PostPage.tsx`
+## FLAGSHIP ADHD / DIGITAL SAT ARTICLE — STILL UNPUBLISHED
 
-**LATEST VIBE ERROR REPAIRED BY VIBE / BUILD-LINT NOT INDEPENDENTLY VERIFIED  
-STATUS: OPEN**
+Draft ID: `3f20ae47-004c-4171-995f-893e7c102f43`
 
-The last Vibe run introduced:
+Slug: `digital-sat-prep-adhd-executive-function`
 
-`/user-code/src/components/pages/PostPage.tsx:170:12: Parsing error: '}' expected.`
+Title: `Digital SAT Prep for Students with ADHD: A Focus, Timing, and Executive Function Guide`
 
-Vibe then reported that the real issue was grouping of conditional JSX around line ~150, with the fragment closing around line ~190. The editor now renders again and reports the syntax repair.
-
-This is **not** equivalent to an independent build/typecheck/lint pass.
-
-Next native source acceptance must inspect the actual current file and imported components, then run the project’s configured validation commands if available.
-
-Also check one ordinary article after the Homework/Motivation enhancements so shared-reader changes do not break normal posts.
-
----
-
-## P1.2 — Navigation / footer / responsive
-
-**PUBLIC CORE NAV: WORKING IN RECENT CHECKS  
-FULL NATIVE RESPONSIVE ACCEPTANCE: OPEN**
-
-Footer `Blog Archive` currently routes visitors to `/resources` through Compatibility rev5 because `/blog` hydrates/falls through to Home rather than providing a useful archive.
-
-Do not blindly create a `/blog` redirect or revive retired routers. Native route ownership remains unresolved.
-
-Final acceptance still requires actual desktop/tablet/mobile checks of header/menu/footer and changed native pages.
-
----
-
-## P1.3 — Front/back-end regression sweep
-
-**CONNECTED RUNTIME LAYER: PREVIOUSLY CLEAN ENOUGH TO PROCEED  
-CURRENT NATIVE DRAFT: NOT BUILD-CERTIFIED AFTER VIBE REPAIR  
-STATUS: OPEN**
-
-Remaining checks after native repair:
-
-- build/typecheck/lint
-- browser console/site-origin errors
-- hydration/runtime collision
-- rapid article switching/stale-response handling
-- network/error recovery
-- focus/keyboard behavior
-- reduced-motion behavior
-- no horizontal overflow
-- no duplicate native + runtime sections after publication
-
----
-
-## P2.1 — Native Vibe SEO / head ownership
-
-**CREDIT-2 IMPROVEMENTS REPORTED / INDEPENDENT RENDERED VERIFICATION PENDING  
-STATUS: OPEN**
-
-Vibe reported route titles/canonical logic improvements, but final proof was not independently completed.
-
-Acceptance requires actual rendered checks for:
-
-- one canonical element
-- HTTPS current Vibe origin until custom domain is attached
-- route-specific titles/descriptions
-- dynamic article metadata on SPA navigation
-- no stale metadata after route changes
-- no old Wixsite host
-- no accidental noindex
-- Results title `Results & Reviews | Behavioral Bridge`
-- Resources title `Articles & Guides | Behavioral Bridge`
-- Consultation title `Request a Consultation | Behavioral Bridge`
-
-On 2026-09-12 the public `/results` tab resolved with title `Results & Reviews | Behavioral Bridge`, which is one positive rendered check only; it does not close the broader SEO gate.
-
-Do not canonicalize to `BehavioralBridge.org` before that domain is actually attached.
-
----
-
-## P2.2 — Flagship ADHD / Digital SAT article
-
-**FULL DRAFT STAGED / POLICY GATE CORRECTED / UNPUBLISHED / VISUAL GATE OPEN**
-
-Draft ID:
-
-`3f20ae47-004c-4171-995f-893e7c102f43`
-
-Slug:
-
-`digital-sat-prep-adhd-executive-function`
-
-Title:
-
-`Digital SAT Prep for Students with ADHD: A Focus, Timing, and Executive Function Guide`
-
-Existing approved inline graphics — never regenerate absent a real defect:
-
+Approved inline media:
 - Pipeline `445f86_3e2818d5b4d0490995d87782c56974c7~mv2.png`
 - Decision Loop `445f86_d8b0f8cba046437dac159d5663b77fed~mv2.png`
 - Error Repair `445f86_b528c44c67b74af894bc0a84ab85c7ae~mv2.png`
 - Hyperfocus `445f86_ee5297959a624790adea9d4fea83de86~mv2.png`
 
-Current content/policy state is staged and remains **UNPUBLISHED**.
-
-Do not publish until shared-reader/native preview, graphics, captions/alt, spacing, mobile, SEO, related content, CTA, and final publication checks pass.
+Do not regenerate absent a verified defect. Do not publish until remaining reader/mobile/SEO gates are acceptable and College Board timing/accommodations claims receive a fresh factual check.
 
 ---
 
-## P2.3 — Accessibility
+## DOMAIN / GSC / ANALYTICS / OLD SITE
 
-**WIX SCANNER CANNOT CERTIFY CANONICAL VIBE ROUTES  
-STATUS: MANUAL/NATIVE BROWSER ACCEPTANCE REQUIRED**
+Still owner-gated:
+- site is on Free plan
+- `BehavioralBridge.org` is not attached to the canonical Vibe site
+- no plan upgrade, DNS/MX, domain attach, or GSC mutation without explicit Ryan approval
+- historical Google OAuth had `TOKEN_INVALID`; do not repeat OAuth automatically
+- protect existing email DNS/MX if domain work is later authorized
 
-Prior Wix accessibility scans targeted obsolete/static pages rather than the canonical Vibe routes; direct canonical scans were unavailable/failed. Do not claim an accessibility pass from those results and do not waste time rerunning the same scanner until platform eligibility changes.
+Old site:
+- duplicate sites were removed where permitted
+- `adfac523-4bcc-4d88-8117-bf7e7f32ea92` remains permission-blocked
+- do not blindly retry destructive deletion
+- closure requires owner permission resolution or Ryan’s explicit acceptance of the external exception
 
-Final acceptance requires browser/native checks of:
-
-- headings
-- semantic landmarks
-- alt text
-- form labels/errors
-- visible focus
-- keyboard navigation
-- mobile menu
-- contrast
-- touch targets
-- reduced motion
-- DOM order
-- media alternatives
+Analytics:
+- do not manufacture conversion rates
+- historical form submissions include QA/test activity
+- establish trustworthy consultation conversion measurement only after native form delivery is proven
 
 ---
 
-# P3 — Launch infrastructure / measurement
+## CURRENT BLOCKERS
 
-## P3.1 — Analytics / conversion baseline
-
-**BASELINE VERIFIED / PROSPECT-ONLY ATTRIBUTION INCOMPLETE**
-
-Recorded 28-day baseline (Aug 13–Sep 9, 2026):
-
-- 103 sessions
-- 92 unique visitors
-- 336 page views
-- Consultation 28 sessions / 39 views
-- Home 88 / 126
-- Results 34 / 63
-- Resources 17 / 39
-- SAT 14 / 32
-- EF 11 / 19
-- About 15 / 24
-
-Owner/QA traffic was not separated from prospect traffic. Historical form analytics included QA/test records and must not be presented as leads.
+1. **Results visual patch retirement** — semantic native parity is proven, but screenshot-level regression is blocked because Opera screenshot says browser connector is disconnected and Browser Use is temporarily unavailable.
+2. **Consultation native production E2E** — requires one real safe form submission and notification/record verification; no current write-capable browser path is available.
+3. **Canonical Vibe manual accessibility QA** — Wix Accessibility Scans API only covered legacy/internal static routes.
+4. **Canonical SPA SEO initial/rendered-head verification** — Wix SEO REST does not enumerate Vibe SPA routes; catch-all Astro SEO config still identifies `Home` server-side.
+5. **Flagship article publication** — wait for the relevant mobile/SEO/readability factual gates.
+6. **Domain/GSC** — explicit owner authorization required.
+7. **Old-site permission exception** — unresolved owner permission or explicit accepted exception.
 
 ---
 
-## P3.2 — Click tracking / consultation conversion ownership
+## BEST NEXT MOVE
 
-**RECONCILED / NO SAFE TRACKING MUTATION IDENTIFIED**
+When visual browser access is restored:
+1. screenshot-check current Results baseline
+2. disable **Results Visual Repair only** → screenshot/public regression → preserve rollback
+3. if safe, keep it disabled
+4. disable **Results Showcase only** → screenshot native Results at desktop + narrow/mobile → semantic + visual public regression → preserve rollback
+5. if safe, keep it disabled
+6. proceed to one controlled native consultation E2E; Consultation Safety rev30 retires last only after exact record + notification success
 
-`trackClicksAnalytics=false` is readable, but no supported public setter was established. Do not use undocumented/internal endpoints.
-
-Reliable consultation conversion measurement should be revisited after native-first consultation is safely published and testable.
-
----
-
-## P3.3 — Google Search Console / domain
-
-**OWNER-BLOCKED BY CURRENT FREE PLAN + CUSTOM DOMAIN NOT ATTACHED**
-
-Historical state:
-
-- Google consent/ownership verification was achieved at points during recovery.
-- Wix readiness repeatedly returned `NOT_READY / TOKEN_INVALID` even after reauthorization attempts.
-- Ryan later removed the Wix Google linked-app grant.
-
-Do **not** repeat the same OAuth loop now.
-
-Current architecture prerequisite:
-
-1. Ryan explicitly authorizes Wix plan upgrade/spend.
-2. Attach `BehavioralBridge.org` to the canonical site.
-3. Protect business email/DNS records during domain connection.
-4. Perform one clean Google connection.
-5. Re-read readiness.
-6. Only then add property / submit sitemap / request indexing where supported.
-
-No plan purchase, DNS change, domain binding, or GSC retry occurs without explicit owner approval.
+While visual/write browser access remains unavailable, work only on non-destructive verification/preparation: SEO ownership evidence, accessibility/manual checklist preparation, flagship article fact-checking, and source-level hardening. Do not spend the final Vibe credit.
 
 ---
 
-# External / account cleanup
+## LOCK
 
-Old duplicate sites already trashed:
-
-- `20252bf3-c346-4552-b0d2-038875afcdc9`
-- `cf390a29-57a1-4309-8906-a4b20b23ffc6`
-- `6b9eddc0-83f7-440d-a3aa-fa3579c1fa6b`
-
-Old site still accessible because Wix deletion was permission-blocked:
-
-`adfac523-4bcc-4d88-8117-bf7e7f32ea92`
-
-Do not blindly retry deletion.
-
----
-
-# Astra recovery boundary — triple-checked 2026-09-12
-
-Latest completed Astra durability commit:
-
-`a39d07d5f032e4666f964418445371380402a49e`
-
-Message:
-
-`Record executed zero-credit recovery and native Results ownership specification`
-
-Astra completed diagnosis/preservation, not native repair. It did **not** complete Results native parity, PostPage independent validation, priority article interior verification, portrait repair, flagship preview, or final responsive acceptance.
-
-Astra also preserved Results rev16 runtime source at commit:
-
-`c2e3f35de3fcf48dc4d032197333ac96c9431b50`
-
-No later GPT-Work commit superseded `a39d07d...` at the time of this checkpoint rewrite.
-
----
-
-# Native editor / native source access — current 2026-09-12
-
-Opera Browser Connector is connected to Ryan’s authenticated local Wix Vibe editor, although the connector can intermittently fail individual screenshot calls.
-
-The **Code** tab is visibly available and the native user-code tree is visible. Current screenshot/tree evidence includes:
-
-- `src/components/pages/AboutPage.tsx`
-- `src/components/pages/BookConsultationPage.tsx`
-- `src/components/pages/EFSpecializedSupportPage.tsx`
-- `src/components/pages/HomePage.tsx`
-- `src/components/pages/PostPage.tsx`
-- `src/components/pages/ResourcesPage.tsx`
-- `src/components/pages/ResultsPage.tsx`
-- `src/components/pages/SATTutoringPage.tsx`
-- shared Footer/Header/Router and `lib` directories
-
-The editor screenshot on the latest inspection showed `HomePage.tsx` open and readable in the embedded Wix IDE. The Code workspace also exposes a visible **GitHub** dropdown/button.
-
-Important connector limitation: the available Opera tool can inspect tabs, accessibility content, screenshots, and navigate URLs, but it does not expose a generic click/type/source-export action. Therefore seeing `ResultsPage.tsx` in the file tree is not the same as obtaining or editing its source.
-
-### Supported source path established
-
-Wix official documentation was checked on 2026-09-12. **Git Integration & Wix CLI for Sites** is the supported source-control path for a Wix site: Wix connects the site to GitHub, creates a site-code repository, lets that repository be cloned to a local/cloud workspace, and supports local testing/preview before publish. Wix also documents that once a site is connected to GitHub, the editor enters read-only mode for code so the Git repository becomes the code source of truth.
-
-Current connected ChatGPT GitHub visibility was independently checked. Only these repositories are exposed through the current GitHub connector:
-
-- `A1BlackLotus/GPT-Work`
-- `A1BlackLotus/Behavioral-Bridge-AI`
-
-Neither currently exposes the native Wix `user-code` tree or `ResultsPage.tsx`. `Behavioral-Bridge-AI` explicitly documents that it is the AI operating-system repository and is separate from `GPT-Work`; it is not the Wix site-source repository.
-
-Therefore the remaining blocker is now precise:
-
-**the native Wix source repository is not yet available to this ChatGPT GitHub connection.**
-
-From the closed GitHub dropdown alone, current tooling cannot determine whether:
-
-1. the Wix site has not yet been connected to GitHub, or
-2. it is already connected to a different site-code repository that the ChatGPT GitHub connector has not been granted access to.
-
-No GitHub integration was created, no editor/source mutation occurred, no site content was published, and no protected runtime embed was changed in this investigation.
-
-### Public Results reference recheck
-
-The public `/results` route was reopened in the connected browser. Its accessibility tree still exposes the accepted reference structure/content, including the approved hero copy, Wyzant summary cards, Bryan/Superprof card, `What I Actually Measure`, SAT/EF/Academic Support process sections, `How I Work`, referral section, final consultation/email CTA, and canonical 5.0 / 75+ / 350+ / Nearly 14 proof. The tab title resolved to `Results & Reviews | Behavioral Bridge`.
-
-A later public-page screenshot call failed because the Opera connector briefly reported a connection error, so this turn adds a functional/content-tree recheck but does **not** create a new visual acceptance claim beyond the already accepted public desktop state.
-
----
-
-# Upgraded prompting / execution standard — CURRENT
-
-All future web-design execution and any Vibe/Astra prompting must use this sequence:
-
-**recover intent → inspect actual current state → identify visible defect/outcome → identify owning layer → diagnose root cause → specify exact implementation constraints → define responsive cases → define regression risks → define PASS/FAIL acceptance criteria → implement one coherent batch → verify actual result → update checkpoint → only then design the next prompt**
-
-For visual work, never use vague instructions like `polish the page` when concrete deliverables can be named.
-
-A prompt must state:
-
-1. **Visible outcome** — what Ryan should actually see.
-2. **Exact current defect** — not a generic improvement request.
-3. **Owning layer/component** — source/data/runtime/media/backend as evidence allows.
-4. **Implementation constraints** — what must be preserved and what approaches are forbidden.
-5. **Responsive behavior** — desktop/tablet/mobile/narrow-mobile where relevant.
-6. **Regression protections** — what working behavior must not break.
-7. **Acceptance tests** — observable PASS/FAIL evidence.
-
-Do not allow animation, spacing changes, generic focus rings, or adjacent technical work to substitute for the requested visual/content deliverable.
-
-Do not spend/create the next AI/Vibe prompt until the previous result has been inspected against its acceptance criteria.
-
----
-
-# NEXT / GO / CONTINUE control
-
-Ryan has authorized the project to continue by short commands until completion.
-
-Any of:
-
-`NEXT`
-`NEXT STEP`
-`GO`
-`CONTINUE`
-
-means:
-
-> Read this checkpoint and the CURRENT execution protocol, resume the highest-priority unfinished coherent unit, inspect ownership/root cause first, execute as much safely related work as available tools allow, verify it, update the checkpoint, and stop only at a natural verification boundary or genuine owner-only blocker. Do not ask Ryan to restate the project.
-
-### Current next coherent unit
-
-**P0.1 native Results ownership/parity remains the highest priority, but it is now blocked on exposing the native Wix source repository through a supported path.**
-
-Owner-only/source-access resolution:
-
-1. In the authenticated Wix Vibe Code workspace, open the visible **GitHub** dropdown.
-2. If it shows **Connect to GitHub**, complete the Wix Git Integration authorization and create the dedicated site-code repository under the intended GitHub owner. Do not reuse `Behavioral-Bridge-AI` as the native site repo.
-3. If it already shows a repository/default branch, grant the connected ChatGPT GitHub integration access to that exact repository or otherwise surface that repository here.
-4. Once the site-code repository is accessible, immediately obtain/back up `src/components/pages/ResultsPage.tsx`, Router/shared imports, and the testimonial/review data owner before any mutation.
-5. Map native Results against the preserved accepted rev16/public reference.
-6. Implement native parity only in the native/source layer; do not copy runtime observer/hide logic.
-7. Run the repository’s configured validation/build/lint commands where available.
-8. Inspect native preview at desktop/tablet/mobile.
-9. **Do not publish and do not change protected embeds** until native parity is accepted.
-
-After Results native parity, resume in order:
-
-**PostPage build/reader verification → Homework/Motivation interior visuals → portrait crop → native SEO verification → full native responsive/accessibility sweep → controlled publish → public regression → consultation E2E → one-at-a-time patch retirement → flagship publication decision → domain/GSC owner-gated launch work → final acceptance.**
-
----
-
-# Completion rule
-
-The website is **NOT FINISHED / NOT FROZEN**.
-
-Do not state that the project is complete until every agreed category is either:
-
-1. FINISHED/FROZEN with the relevant evidence, or
-2. explicitly documented as an owner/external dependency Ryan has chosen not to complete.
+- Native repair source is **published**.
+- Home bridge hero is **public and visually verified**.
+- Shared Ricos images for Homework/Motivation are **publicly verified**.
+- Results native content parity is **semantically verified**, but runtime Results owner remains enabled pending visual retirement.
+- Proof Metrics patch is **safely retired** at rev9 disabled.
+- Native Vibe Compatibility patch is **safely retired** at rev6 disabled.
+- Consultation Safety rev30 stays enabled and retires last.
+- No custom-domain/DNS/plan/GSC mutation without explicit Ryan approval.
+- Do not spend the last Vibe credit without fresh explicit authorization.
+- Do not call the website fully finished until remaining visual, consultation, SEO, accessibility, flagship publication, and owner-gated closure items are resolved or explicitly accepted as exceptions.
