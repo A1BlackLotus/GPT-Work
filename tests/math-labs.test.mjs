@@ -113,6 +113,63 @@ test('M013 nonzero parabolas retain vertex, opening and width', async t => {
   assert.equal(await page.locator('#vertex').textContent(), '(0, 0)');
 });
 
+test('M015 linear labels occupy adjacent sectors; vertical labels occupy opposite sectors', async t => {
+  const page = await lab(t, 'm015-angle-relationship-lab.html');
+  for (const relationship of ['linear', 'vertical']) {
+    await page.locator('#rel').selectOption(relationship);
+    for (const theta of [10, 72, 170]) {
+      const drawing = await page.evaluate(theta => {
+        const ctx = document.querySelector('#g').getContext('2d');
+        const segments = [], labels = [];
+        let path = [];
+        const originals = Object.fromEntries(['beginPath', 'moveTo', 'lineTo', 'stroke', 'fillText'].map(name => [name, ctx[name]]));
+        ctx.beginPath = function() { path = []; return originals.beginPath.call(this); };
+        ctx.moveTo = function(x, y) { path.push([x, y]); return originals.moveTo.call(this, x, y); };
+        ctx.lineTo = function(x, y) { path.push([x, y]); return originals.lineTo.call(this, x, y); };
+        ctx.stroke = function() {
+          if (this.strokeStyle === '#f4f5f6') segments.push([...path]);
+          return originals.stroke.call(this);
+        };
+        ctx.fillText = function(text, x, y) {
+          const m = this.measureText(text);
+          labels.push({ text, bounds: [x - m.actualBoundingBoxLeft, y - m.actualBoundingBoxAscent,
+            x + m.actualBoundingBoxRight, y + m.actualBoundingBoxDescent] });
+          return originals.fillText.call(this, text, x, y);
+        };
+        try {
+          const input = document.querySelector('#theta');
+          input.value = theta;
+          input.dispatchEvent(new Event('input'));
+        } finally {
+          Object.assign(ctx, originals);
+        }
+        return { segments, labels };
+      }, theta);
+      assert.equal(drawing.segments.length, 2, 'two complete crossing lines');
+      assert.ok(drawing.segments.every(segment => segment.length === 2));
+      const cross = (a, b, p) => (b[0] - a[0]) * (p[1] - a[1]) - (b[1] - a[1]) * (p[0] - a[0]);
+      const [first, second] = drawing.segments;
+      assert.ok(cross(...first, second[0]) * cross(...first, second[1]) < 0);
+      assert.ok(cross(...second, first[0]) * cross(...second, first[1]) < 0, 'lines intersect internally');
+      assert.deepEqual(drawing.labels.map(label => label.text), ['θ', relationship === 'linear' ? `${180 - theta}°` : 'θ']);
+      // Classify each entire text box against the drawn lines, not hard-coded label coordinates.
+      // Adjacent sectors differ across one line (shared ray, opposite outer rays);
+      // vertical sectors differ across both lines.
+      const sectors = drawing.labels.map(({ bounds: [left, top, right, bottom] }) => {
+        const corners = [[left, top], [right, top], [left, bottom], [right, bottom]];
+        return drawing.segments.map(([a, b]) => {
+          const sides = corners.map(point => Math.sign(cross(a, b, point)));
+          assert.ok(sides[0] !== 0 && sides.every(side => side === sides[0]), 'label stays wholly inside one angle region');
+          return sides[0];
+        });
+      });
+      const boundariesBetweenLabels = sectors[0].filter((side, i) => side !== sectors[1][i]).length;
+      assert.equal(boundariesBetweenLabels, relationship === 'linear' ? 1 : 2,
+        `${relationship}: labels must occupy ${relationship === 'linear' ? 'adjacent' : 'opposite'} sectors`);
+    }
+  }
+});
+
 for (const width of [320, 375, 390, 768, 1440]) {
   test(`M015 angle rules and layout fit ${width}px`, async t => {
     const page = await lab(t, 'm015-angle-relationship-lab.html', width);
