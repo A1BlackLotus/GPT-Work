@@ -77,3 +77,15 @@ Because this repository is public-safe:
 - private AI architecture/policy.
 
 Use the exact current owner for each of those roles.
+
+## Math-lab regression checks
+
+The standalone HTML labs under `behavioral-bridge/math-interactives/` have focused browser checks for data parsing, zero-scale functions, and responsive angle readouts. With Node.js 22 installed, run:
+
+```sh
+npm ci
+npx playwright install chromium
+npm test
+```
+
+To use an existing Chromium installation, set `CHROMIUM_PATH` when running `npm test`. The checks load local HTML directly into Chromium and block HTTP requests. They include inline JavaScript syntax checks for every lab; these standalone pages have no separate build or TypeScript step. GitHub Actions runs the same suite for relevant pull requests.

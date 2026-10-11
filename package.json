@@ -1,0 +1,6 @@
+{
+  "name": "gpt-work-math-lab-checks",
+  "private": true,
+  "scripts": { "test": "node --test tests/math-labs.test.mjs" },
+  "devDependencies": { "playwright": "1.55.1" }
+}
